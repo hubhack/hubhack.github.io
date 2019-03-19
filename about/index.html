@@ -147,17 +147,17 @@
 
 
 
-  <meta name="description" content="linux基础###操作系统:   os(operating system),通用目的的软件西程序  硬件驱动  进程管理  内存管理  网络管理  安全管理  文件管理 ###安装linux:  linux发行版企业多用红帽的centos 个人电脑推荐kde桌面的manjaro  分区和启动:  硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tb  uefi的GPT分区:逐渐代替MBR标">
+  <meta name="description" content="linux基础操作系统:  os(operating system),通用目的的软件西程序  硬件驱动  进程管理  内存管理  网络管理  安全管理  文件管理 安装linux:  linux发行版企业多用红帽的centos 个人电脑推荐kde桌面的manjaro  分区和启动:  硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tb  uefi的GPT分区:逐渐代替MBR标准  主分区">
 <meta property="og:type" content="website">
 <meta property="og:title" content="linux">
 <meta property="og:url" content="https://hubhack.github.io/about/index.html">
 <meta property="og:site_name" content="马文琪的博客">
-<meta property="og:description" content="linux基础###操作系统:   os(operating system),通用目的的软件西程序  硬件驱动  进程管理  内存管理  网络管理  安全管理  文件管理 ###安装linux:  linux发行版企业多用红帽的centos 个人电脑推荐kde桌面的manjaro  分区和启动:  硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tb  uefi的GPT分区:逐渐代替MBR标">
+<meta property="og:description" content="linux基础操作系统:  os(operating system),通用目的的软件西程序  硬件驱动  进程管理  内存管理  网络管理  安全管理  文件管理 安装linux:  linux发行版企业多用红帽的centos 个人电脑推荐kde桌面的manjaro  分区和启动:  硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tb  uefi的GPT分区:逐渐代替MBR标准  主分区">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-19T15:38:27.083Z">
+<meta property="og:updated_time" content="2019-03-19T15:48:55.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux">
-<meta name="twitter:description" content="linux基础###操作系统:   os(operating system),通用目的的软件西程序  硬件驱动  进程管理  内存管理  网络管理  安全管理  文件管理 ###安装linux:  linux发行版企业多用红帽的centos 个人电脑推荐kde桌面的manjaro  分区和启动:  硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tb  uefi的GPT分区:逐渐代替MBR标">
+<meta name="twitter:description" content="linux基础操作系统:  os(operating system),通用目的的软件西程序  硬件驱动  进程管理  内存管理  网络管理  安全管理  文件管理 安装linux:  linux发行版企业多用红帽的centos 个人电脑推荐kde桌面的manjaro  分区和启动:  硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tb  uefi的GPT分区:逐渐代替MBR标准  主分区">
 
 
 
@@ -429,13 +429,12 @@
       <div class="post-body">
         
         
-          <h2 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a>linux基础</h2><p>###操作系统:</p>
-<p>  os(operating system),通用目的的软件西程序<br>  硬件驱动<br>  进程管理<br>  内存管理<br>  网络管理<br>  安全管理<br>  文件管理</p>
-<p>###安装linux:<br>  linux发行版企业多用红帽的centos 个人电脑推荐kde桌面的manjaro<br>  分区和启动:<br>  硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tb<br>  uefi的GPT分区:逐渐代替MBR标准<br>  主分区 一块硬盘最多4个,不能划分更小,最小单位<br>   扩展分区:一块硬盘最多一个,不能直接创建文件系统<br>   逻辑分区<br>   /dev/sda 100g<br>   /dev/sda1 /boot mountpoint 1g<br>   /dev/sda2 /                50g<br>   /dev/sda3 /data            20g<br>   /dev/sda5 /swap             2g</p>
-<p>###开发接口标准:<br>  ABI:application binary interface ABI描述了程序与os之间的底层接口,<br>  API:application programming interface<br>  开源协议: GPLv2,GPLv3 Apache BSD Mozilla Mit</p>
-<p>###用户和内核空间:<br>  username 用户程序的运行空间 为了安全,他们是隔离的即使用户的程序崩溃,内核也不受影响<br>  内核空间:kernel space  </p>
-<p>###linux哲学思想<br>  一切皆文件  </p>
-<p>###bash基本命令<br>  tty :查看终端命令<br>  echo $SHEll:显示当前shell<br>  cat:查看命令<br>  echo $SP1:显示命令提示符<br>  enable:查看命令<br>  hash:缓存表<br>  ls:list(列出目录内容)<br>  cd:change directory<br>  su:switch user<br>  rpm:redhat package manager<br>  pwd:print work directory<br>  ps:process status<br>  ps -auxf<br>  df:disk free<br>  rm:remove directory<br>  rmdir:remove directory<br>  cat:concatenate<br>  ln -s:link -soft<br>  mkdir:make directory<br>  man:manual<br>  mkfs:make file system<br>  fsck:file system chaeck<br>  uname:unix name<br>  df:disk usage<br>  lsmod:list modules<br>  mv:move file<br>  cp:copy file<br>  li:link file<br>  fg:foreground<br>  bg:background<br>  chown:chage owner<br>  tar:tape archive<br>  文件结尾的rc:resouce configuration<br>  apt:advanced packaging</p>
+          <h2 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a>linux基础</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统:"></a>操作系统:</h3><p>  os(operating system),通用目的的软件西程序<br>  硬件驱动<br>  进程管理<br>  内存管理<br>  网络管理<br>  安全管理<br>  文件管理</p>
+<h3 id="安装linux"><a href="#安装linux" class="headerlink" title="安装linux:"></a>安装linux:</h3><p>  linux发行版企业多用红帽的centos 个人电脑推荐kde桌面的manjaro<br>  分区和启动:<br>  硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tb<br>  uefi的GPT分区:逐渐代替MBR标准<br>  主分区 一块硬盘最多4个,不能划分更小,最小单位<br>   扩展分区:一块硬盘最多一个,不能直接创建文件系统<br>   逻辑分区<br>   /dev/sda 100g<br>   /dev/sda1 /boot mountpoint 1g<br>   /dev/sda2 /                50g<br>   /dev/sda3 /data            20g<br>   /dev/sda5 /swap             2g</p>
+<h3 id="开发接口标准"><a href="#开发接口标准" class="headerlink" title="开发接口标准:"></a>开发接口标准:</h3><p>  ABI:application binary interface ABI描述了程序与os之间的底层接口,<br>  API:application programming interface<br>  开源协议: GPLv2,GPLv3 Apache BSD Mozilla Mit</p>
+<h3 id="用户和内核空间"><a href="#用户和内核空间" class="headerlink" title="用户和内核空间:"></a>用户和内核空间:</h3><p>  username 用户程序的运行空间 为了安全,他们是隔离的即使用户的程序崩溃,内核也不受影响<br>  内核空间:kernel space  </p>
+<h3 id="linux哲学思想"><a href="#linux哲学思想" class="headerlink" title="linux哲学思想"></a>linux哲学思想</h3><p>  一切皆文件  </p>
+<h3 id="bash基本命令"><a href="#bash基本命令" class="headerlink" title="bash基本命令"></a>bash基本命令</h3><p>  tty :查看终端命令<br>  echo $SHEll:显示当前shell<br>  cat:查看命令<br>  echo $SP1:显示命令提示符<br>  enable:查看命令<br>  hash:缓存表<br>  ls:list(列出目录内容)<br>  cd:change directory<br>  su:switch user<br>  rpm:redhat package manager<br>  pwd:print work directory<br>  ps:process status<br>  ps -auxf<br>  df:disk free<br>  rm:remove directory<br>  rmdir:remove directory<br>  cat:concatenate<br>  ln -s:link -soft<br>  mkdir:make directory<br>  man:manual<br>  mkfs:make file system<br>  fsck:file system chaeck<br>  uname:unix name<br>  df:disk usage<br>  lsmod:list modules<br>  mv:move file<br>  cp:copy file<br>  li:link file<br>  fg:foreground<br>  bg:background<br>  chown:chage owner<br>  tar:tape archive<br>  文件结尾的rc:resouce configuration<br>  apt:advanced packaging</p>
 
         
       </div>
@@ -565,7 +564,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux基础"><span class="nav-number">1.</span> <span class="nav-text">linux基础</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux基础"><span class="nav-number">1.</span> <span class="nav-text">linux基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">1.1.</span> <span class="nav-text">操作系统:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装linux"><span class="nav-number">1.2.</span> <span class="nav-text">安装linux:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发接口标准"><span class="nav-number">1.3.</span> <span class="nav-text">开发接口标准:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户和内核空间"><span class="nav-number">1.4.</span> <span class="nav-text">用户和内核空间:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux哲学思想"><span class="nav-number">1.5.</span> <span class="nav-text">linux哲学思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash基本命令"><span class="nav-number">1.6.</span> <span class="nav-text">bash基本命令</span></a></li></ol></li></ol></div>
             
 
           </div>
