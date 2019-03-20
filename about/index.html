@@ -154,7 +154,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="linux基础操作系统:os(operating system),通用目的的软件西程序硬件驱动进程管理内存管理网络管理安全管理文件管理 安装linux:  linux发行版企业多用红帽的centos 个人电脑推荐kde桌面的manjaro  分区和启动:  硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tb  uefi的GPT分区:逐渐代替MBR标准  主分区 一块硬盘最多4个,不能划分更">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-20T16:20:02.889Z">
+<meta property="og:updated_time" content="2019-03-20T16:24:16.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux">
 <meta name="twitter:description" content="linux基础操作系统:os(operating system),通用目的的软件西程序硬件驱动进程管理内存管理网络管理安全管理文件管理 安装linux:  linux发行版企业多用红帽的centos 个人电脑推荐kde桌面的manjaro  分区和启动:  硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tb  uefi的GPT分区:逐渐代替MBR标准  主分区 一块硬盘最多4个,不能划分更">
@@ -452,8 +452,9 @@ $()或</code><br>括号扩展{}<br>tab命令补全<br>history历史记录</p>
 <h3 id="列出目录内容"><a href="#列出目录内容" class="headerlink" title="列出目录内容"></a>列出目录内容</h3><p>列出当前目录的内容或指定目录<br>用法：ls [options] [ files_or_dirs ]<br>示例: ls -a 包含隐藏文件 ls -l 显示额外的信息 ls -R  目录递归通过 ls -ld  目录和符号链接信息 ls -1  文件分行显示 ls –S  按从大到小排序 ls –t   按mtime排序 ls –u   配合-t选项，显示并按atime从新到旧排序 ls –U  按目录存放顺序显示 ls –X  按文件后缀排序 </p>
 <h3 id="查看文件状态"><a href="#查看文件状态" class="headerlink" title="查看文件状态"></a>查看文件状态</h3><p>stat<br>文件：metadata, data<br>三个时间戳: access time：访问时间，atime，读取文件内容  modify time: 修改时间, mtime，改变文件内容（数据） change time: 改变时间, ctime，元数据发生改变 </p>
 <h3 id="创建和查看文件"><a href="#创建和查看文件" class="headerlink" title="创建和查看文件"></a>创建和查看文件</h3><p>touch 命令</p>
-<h3 id="复制和转移删除文件"><a href="#复制和转移删除文件" class="headerlink" title="复制和转移删除文件"></a>复制和转移删除文件</h3><p>cp [OPTION]… [-T] SOURCE DEST<br>cp [OPTION]… SOURCE… DIRECTORY cp [OPTION]… -t DIRECTORY SOURCE… cp SRC DEST SRC是文件：如果目标不存在：新建DEST，并将SRC中内容填充至DEST中      如果目标存在： 如果DEST是文件：将SRC中的内容覆盖至DEST中  基于安全，建议为cp命令使用-i选项 如果DEST是目录：在DEST下新建与原文件同名的文件，并将SRC中内容填 充至新文件中<br>cp SRC… DEST    SRC…：多个文件      DEST必须存在，且为目录，其它情形均会出错； cp SRC DEST     SRC是目录：此时使用选项：-r        如果DEST不存在：则创建指定目录，复制SRC目录中所有文件至DEST中；        如果DEST存在：          如果DEST是文件：报错          如果DEST是目录：</p>
-<h3 id="软和硬链接"><a href="#软和硬链接" class="headerlink" title="软和硬链接"></a>软和硬链接</h3><h3 id="i-0-重定向至文件"><a href="#i-0-重定向至文件" class="headerlink" title="i/0 重定向至文件"></a>i/0 重定向至文件</h3><h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3>
+<h3 id="复制和转移删除文件"><a href="#复制和转移删除文件" class="headerlink" title="复制和转移删除文件"></a>复制和转移删除文件</h3><p>cp [OPTION]… [-T] SOURCE DEST<br>cp [OPTION]… SOURCE… DIRECTORY cp [OPTION]… -t DIRECTORY SOURCE… cp SRC DEST SRC是文件：如果目标不存在：新建DEST，并将SRC中内容填充至DEST中      如果目标存在： 如果DEST是文件：将SRC中的内容覆盖至DEST中  基于安全，建议为cp命令使用-i选项 如果DEST是目录：在DEST下新建与原文件同名的文件，并将SRC中内容填 充至新文件中<br>cp SRC… DEST    SRC…：多个文件      DEST必须存在，且为目录，其它情形均会出错； cp SRC DEST     SRC是目录：此时使用选项：-r        如果DEST不存在：则创建指定目录，复制SRC目录中所有文件至DEST中；        如果DEST存在：          如果DEST是文件：报错          如果DEST是目录：<br>inode（index node）表中包含文件系统所有文件列表<br>一个节点 （索引节点）是在一个表项，包含有关文件的信息（ 元数据 ），包 括：  文件类型，权限，UID，GID  链接数（指向这个文件名路径名称个数）  该文件的大小和不同的时间戳  指向磁盘上文件的数据块指针  有关文件的其他数据 </p>
+<h3 id="软和硬链接"><a href="#软和硬链接" class="headerlink" title="软和硬链接"></a>软和硬链接</h3><p>创建硬链接会增加额外的记录项以引用文件<br>对应于同一文件系统上一个物理文件<br>每个目录引用相同的inode号<br>创建时链接数递增<br>删除文件时：<br>rm命令递减计数的链接<br>文件要存在，至少有一个链接数<br>当链接数为零时，该文件被删除<br>不能跨越驱动器或分区<br>语法:  ln filename  [linkname ] </p>
+<h3 id="i-0-重定向至文件"><a href="#i-0-重定向至文件" class="headerlink" title="i/0 重定向至文件"></a>i/0 重定向至文件</h3><h3 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h3>
         
       </div>
       
