@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-03-20T11:05:35.562Z</updated>
+  <updated>2019-03-20T15:17:14.578Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,16 +21,15 @@
     <link href="https://hubhack.github.io/hello-world/"/>
     <id>https://hubhack.github.io/hello-world/</id>
     <published>2019-03-19T14:26:00.000Z</published>
-    <updated>2019-03-20T11:05:35.562Z</updated>
+    <updated>2019-03-20T15:17:14.578Z</updated>
     
-    <content type="html"><![CDATA[<p>  #欢迎</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="人生苦短-我用python"><a href="#人生苦短-我用python" class="headerlink" title="人生苦短,我用python"></a>人生苦短,我用python</h1>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;  #欢迎&lt;/p&gt;
-
+        &lt;h1 id=&quot;人生苦短-我用python&quot;&gt;&lt;a href=&quot;#人生苦短-我用python&quot; class=&quot;headerlink&quot; title=&quot;人生苦短,我用python&quot;&gt;&lt;/a&gt;人生苦短,我用python&lt;/h1&gt;
       
     
     </summary>
