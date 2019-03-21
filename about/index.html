@@ -154,7 +154,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="linux基础介绍操作系统:os(operating system),通用目的的软件程序  硬件驱动进程管理内存管理网络管理安全管理文件管理  安装linux: linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的manjaro或mint分区和启动:硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tbuefi的GPT分区:逐渐代替MBR标准主分区 一块硬盘最多">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-21T14:26:10.819Z">
+<meta property="og:updated_time" content="2019-03-21T14:36:42.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux">
 <meta name="twitter:description" content="linux基础介绍操作系统:os(operating system),通用目的的软件程序  硬件驱动进程管理内存管理网络管理安全管理文件管理  安装linux: linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的manjaro或mint分区和启动:硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tbuefi的GPT分区:逐渐代替MBR标准主分区 一块硬盘最多">
@@ -416,11 +416,383 @@
 <h3 id="安装linux"><a href="#安装linux" class="headerlink" title="安装linux:"></a>安装linux:</h3><blockquote>
 <p>linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的<a href="https://www.manjaro.cn/153" target="_blank" rel="noopener">manjaro</a>或<a href="https://www.linuxmint.com/download.php" target="_blank" rel="noopener">mint</a><br>分区和启动:<br>硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tb<br>uefi的GPT分区:逐渐代替MBR标准<br>主分区 一块硬盘最多4个,不能划分更小,最小单位<br>扩展分区:一块硬盘最多一个,不能直接创建文件系统<br>安装过程大同小异 <a href="https://blog.csdn.net/python_lqx/article/details/88670425" target="_blank" rel="noopener">详细步骤</a><br>需要注意的是如何分区:这里的分区在虚拟机上只是虚拟的,分100g不影响物理硬盘实际占用.实际情况要自己斟酌.<br>/dev/sda 100g<br>/dev/sda1 /boot mountpoint  1g<br>/dev/sda2 /                50g<br>/dev/sda3 /data            20g<br>/dev/sda5 /swap             2g</p>
 </blockquote>
-<h3 id="开发接口标准"><a href="#开发接口标准" class="headerlink" title="开发接口标准:"></a>开发接口标准:</h3><p>  ABI:application binary interface ABI描述了程序与os之间的底层接口,<br>  API:application programming interface<br>  开源协议: GPLv2,GPLv3 Apache BSD Mozilla Mit</p>
-<h3 id="用户和内核空间"><a href="#用户和内核空间" class="headerlink" title="用户和内核空间:"></a>用户和内核空间:</h3><p>  username 用户程序的运行空间 为了安全,他们是隔离的即使用户的程序崩溃,内核也不受影响<br>  内核空间:kernel space</p>
-<h3 id="linux哲学思想"><a href="#linux哲学思想" class="headerlink" title="linux哲学思想"></a>linux哲学思想</h3><p>  一切皆文件 </p>
-<h3 id="bash基本命令"><a href="#bash基本命令" class="headerlink" title="bash基本命令"></a>bash基本命令</h3><p>  tty :查看终端命令<br>  echo $SHEll:显示当前shell<br>  cat:查看命令<br>  echo $SP1:显示命令提示符<br>  enable:查看命令<br>  hash:缓存表<br>  ls:list(列出目录内容)<br>  cd:change directory<br>  su:switch user<br>  rpm:redhat package manager<br>  pwd:print work directory<br>  ps:process status<br>  ps -auxf<br>  df:disk free<br>  rm:remove directory<br>  rmdir:remove directory<br>  cat:concatenate<br>  ln -s:link -soft<br>  mkdir:make directory<br>  man:manual<br>  mkfs:make file system<br>  fsck:file system chaeck<br>  uname:unix name<br>  df:disk usage<br>  lsmod:list modules<br>  mv:move file<br>  cp:copy file<br>  li:link file<br>  fg:foreground<br>  bg:background<br>  chown:chage owner<br>  tar:tape archive<br>  文件结尾的rc:resouce configuration<br>  apt:advanced packaging</p>
-<h3 id="linux命令缩写"><a href="#linux命令缩写" class="headerlink" title="linux命令缩写"></a>linux命令缩写</h3><h2 id="简单命令"><a href="#简单命令" class="headerlink" title="简单命令"></a>简单命令</h2><h3 id="关机命令"><a href="#关机命令" class="headerlink" title="关机命令"></a>关机命令</h3><p>关机:half ,poweroff<br>重启:reboot<br>-f:强制,不调用shutdown<br>-p:切断电源<br>关机或重启:shutdown<br>shutdown [option]..time[message]<br>-r:reboot<br>-h:half<br>-c:cancel<br>time:无指定,默认为+1<br>now:立刻,相当于+0<br>+m:相对时间表示法,几分钟之后;<br>hh:mm相对时间表示法,指明具体时间</p>
+<h3 id="开发接口标准"><a href="#开发接口标准" class="headerlink" title="开发接口标准:"></a>开发接口标准:</h3><blockquote>
+<p>ABI:application binary interface ABI描述了程序与os之间的底层接口<br>API:application programming interface<br>开源协议: GPLv2,GPLv3 Apache BSD Mozilla Mit</p>
+</blockquote>
+<h3 id="用户和内核空间"><a href="#用户和内核空间" class="headerlink" title="用户和内核空间:"></a>用户和内核空间:</h3><blockquote>
+<p>username 用户程序的运行空间 为了安全,他们是隔离的即使用户的程序崩溃,内核也不受影响<br>内核空间:kernel space</p>
+</blockquote>
+<h3 id="linux哲学思想"><a href="#linux哲学思想" class="headerlink" title="linux哲学思想"></a>linux哲学思想</h3><p>在linux上一切皆文件,其实就是硬盘也是以文件格式展示出来的</p>
+<h2 id="简单命令"><a href="#简单命令" class="headerlink" title="简单命令"></a>简单命令</h2><h3 id="bash基本命令"><a href="#bash基本命令" class="headerlink" title="bash基本命令"></a>bash基本命令</h3><p>  tty :查看终端命令<br>  echo $SHEll:显示当前shell<br>  cat:查看命令<br>  echo $SP1:显示命令提示符<br>  enable:查看命令<br>  hash:缓存表<br>  ls:list(列出目录内容)<br>  cd:change directory<br>  su:switch user<br>  rpm:redhat package manager<br>  pwd:print work directory<br>  ps:process status<br>  ps -auxf<br>  df:disk free<br>  rm:remove directory<br>  rmdir:remove directory<br>  cat:concatenate<br>  ln -s:link -soft<br>  mkdir:make directory<br>  man:manual<br>  mkfs:make file system<br>  fsck:file system chaeck<br>  uname:unix name<br>  df:disk usage<br>  lsmod:list modules<br>  mv:move file<br>  cp:copy file<br>  li:link file<br>  fg:foreground<br>  bg:background<br>  chown:chage owner<br>  tar:tape archive<br>  文件结尾的rc:resouce configuration<br>  apt:advanced packaging</p>
+<p>  bash的基础特性：</p>
+<p>（1）命令历史</p>
+<pre><code>history
+
+       环境变量：
+
+               HISTSIZE：命令历史记录的条数
+
+               HISTFILE：~/.bash_history
+
+               HISTFILESIZE：命令历史文件记录历史的条数
+
+       history  -d  OFFSET
+
+       -c
+
+       history  #：显示历史中最近的#条命令
+
+       -a：手动追加当前会话缓冲区的命令历史至历史文件中
+
+调用历史中的命令：
+
+       ！#：重复执行第#条指令
+
+       ！！：重复执行上一条命令
+
+       ！string
+
+调用上一条命令的最后一个参数：
+
+       ！$
+
+        ESC，.
+
+        Alt+，
+
+控制命令历史的记录方式：
+
+        环境变量：HISTCONTROL
+
+                 ignoredups：忽略重复的命令，连续且相同方为“重复”
+
+                 ignorespace：忽略所有以空白开头的命令
+
+                 ignoreboth：ignoredups，ignorespace
+
+        修改环境变量值的方式：export 变量名=“值”
+
+                变量赋值：把赋值符号后面的数据存储于变量名指向内存空间
+</code></pre><p>（2）命令补全</p>
+<pre><code>bash执行命令：
+
+        内部命令：
+
+        外部命令：bash根据PATH环境变量定义的路径，自左而右在每个路径搜寻以给定命令名的文件，第一次找到即为要执行的命令
+
+                直接补全：Tab，用户给定的字符串只有一条唯一对应的命令
+
+                以用户给定的字符串为开头对应的命令不唯一，则再次Tab会给出列表
+</code></pre><p>（3）路径补全</p>
+<pre><code>把用户给出的字符串当做路径开头，并在其指定上级目录下搜索以指定的字符串开头的文件名
+
+如果唯一，则直接补全；否则，再次Tab，给出列表
+</code></pre><p>（4）命令行展开</p>
+<pre><code>~：展开为用户的主目录
+
+~USERNAME：展开为指定用户的主目录
+
+{}：可乘载一个以逗号分隔的列表，并将其展开为多个路径
+
+      /tmp/{a,b} = /tmp/a，/tmp/b
+
+      /tmp/{tom,jerry}/hi = /tmp/tom/hi，/tmp/jerry/hi
+</code></pre><p>（5）命令的执行结果状态</p>
+<pre><code>成功
+
+失败
+
+bash使用特殊变量$?保存最近一条命令的执行状态结果
+
+0：成功
+
+1-255：失败
+
+程序执行有两类结果：
+
+       程序的返回值
+
+       程序的执行状态结果
+
+
+
+ 练习：
+
+           （1）如何创建/tmp/x/y1，/tmp/x/y1/a，/tmp/x/y1/b，/tmp/x/y2/a，/tmp/x/y2/b
+
+                    mkdir  /tmp/x/{y1,y2}/{a,b}
+
+           （2）如何创建x_m，y_m，y_n
+
+                    mkdir  {x,y}_{m,n}
+
+            （3）如何创建/tmp/bin，/tmp/sbin，/tmp/usr，/tmp/usr/bin，/tmp/usr/sbin   
+
+                     mkdir -p  /tmp/{bin,sbin,usr/{bin,sbin}}
+</code></pre><p>目录管理类命令：</p>
+<pre><code>cd，pwd，ls
+
+mkdir，rmdir
+
+mkdir  [options]
+
+           -p：存在于不报错，且可自动创建所需的各目录
+
+           -v：显示详细信息
+
+           -m MOOE：创建目录时直接指定权限
+
+tree
+
+           -d：只显示目录
+
+           -L（level）：指定显示的层级数目
+
+           -p（pattern）：只显示由指定pattern匹配到的路径
+
+
+
+rmdir：删除空目录
+
+rmdir  [options]  ...  directory  ...
+
+          -v：显示过程
+</code></pre><p>文件查看类命令：</p>
+<pre><code>cat，tac
+
+more，less，tail，head
+
+more      
+
+        more  [option]  file... 
+
+                  -d：显示翻页及退出提示  
+
+less
+
+        less  [option]  file...
+
+head
+
+        head  [option]  file...
+
+                  -c #：指定获取前#字节
+
+                  -n #：指定获取前#行 
+
+tail  
+
+        tail  [option]  file...
+
+               -c #：指定获取后#字节
+
+               -a #：指定获取后#行
+
+               -f #：跟踪显示文件新追加的内容
+</code></pre><p>文件的时间戳管理工具</p>
+<pre><code>touch
+
+文件：metadate，data
+
+          查看文件状态：stat
+
+          三个时间戳：
+
+                 access  time：访问时间，简写为atime，读取文件内容
+
+                 modify  time：修改时间，mtime，改变文件内容（数据）      
+
+                 change  time：改变时间，ctime，元数据发生改变
+
+touch命令：
+
+         touch [option] ...file...
+
+                   -a：only  atime
+
+                   -m：only  mtime
+
+                   -t  STAMP：
+
+                           [[CC]YY]MMDDhhmm[.ss]
+
+                   -c：如果文件不存，则不予创建
+</code></pre><h3 id="linux命令缩写"><a href="#linux命令缩写" class="headerlink" title="linux命令缩写"></a>linux命令缩写</h3><p>命令缩写：</p>
+<p>ls：list(列出目录内容)</p>
+<p>cd：Change Directory（改变目录）</p>
+<p>su:switch user 切换用户<br>rpm:redhat package manager 红帽子打包管理器<br>pwd:print work directory 打印当前目录 显示出当前工作目录的绝对路径<br>ps: process status(进程状态，类似于windows的任务管理器) 常用参数：－auxf<br>ps -auxf 显示进程状态<br>df: disk free 其功能是显示磁盘可用空间数目信息及空间结点信息。换句话说，就是报告在任何安装的设备或目录中，还剩多少自由的空间。<br>rpm： 即RedHat Package Management，是RedHat的发明之一</p>
+<p>rmdir：Remove Directory（删除目录）</p>
+<p>rm：Remove（删除目录或文件）</p>
+<p>cat: concatenate连锁 cat file1 file2&gt;&gt;file3把文件1和文件2的内容联合起来放到file3中<br>insmod: install module,载入模块<br>ln -s : link -soft 创建一个软链接，相当于创建一个快捷方式</p>
+<p>mkdir：Make Directory(创建目录</p>
+<p>touch</p>
+<p>man: Manual<br>pwd：Print working directory<br>su：Swith user<br>cd：Change directory<br>ls：List files<br>ps：Process Status<br>mkdir：Make directory<br>rmdir：Remove directory<br>mkfs: Make file system<br>fsck：File system check<br>cat: Concatenate<br>uname: Unix name<br>df: Disk free<br>du: Disk usage<br>lsmod: List modules<br>mv: Move file<br>rm: Remove file<br>cp: Copy file<br>ln: Link files<br>fg: Foreground<br>bg: Background<br>chown: Change owner<br>chgrp: Change group<br>chmod: Change mode<br>umount: Unmount<br>dd: 本来应根据其功能描述“Convert an copy”命名为“cc”，但“cc”已经被用以代表“C Complier”，所以命名为“dd”<br>tar：Tape archive<br>ldd：List dynamic dependencies<br>insmod：Install module<br>rmmod：Remove module<br>lsmod：List module<br>文件结尾的”rc”（如.bashrc、.xinitrc等）：Resource configuration<br>Knnxxx / Snnxxx（位于rcx.d目录下）：K（Kill）；S(Service)；nn（执行顺序号）；xxx（服务标识）<br>.a（扩展名a）：Archive，static library<br>.so（扩展名so）：Shared object，dynamically linked library<br>.o（扩展名o）：Object file，complied result of C/C++ source file<br>RPM：Red hat package manager<br>dpkg：Debian package manager<br>apt：Advanced package tool（Debian或基于Debian的发行版中提供）</p>
+<p>部分Linux命令缩</p>
+<p>bin = BINaries #下面的是一些二进制程序文件</p>
+<p>/dev = DEVices  #下面的是一些硬件驱动</p>
+<p>/etc = ETCetera #目录存放着各种系统配置文件, 类似于windows下的system</p>
+<p>/lib = LIBrary</p>
+<p>/proc = PROCesses</p>
+<p>/sbin = Superuser BINaries</p>
+<p>/tmp = TeMPorary</p>
+<p>/usr = Unix Shared Resources </p>
+<p>/var = VARiable ?</p>
+<p>/boot=boot #下面的是开机启动文件</p>
+<p>FIFO = First In, First Out</p>
+<p>GRUB = GRand Unified Bootloader</p>
+<p>IFS = Internal Field Seperators</p>
+<p>LILO = LInux LOader</p>
+<p>MySQL = My是最初作者女儿的名字，SQL = Structured Query Language</p>
+<p>PHP = Personal Home Page Tools = PHP Hypertext Preprocessor</p>
+<p>PS = Prompt String</p>
+<p>Perl = “Pratical Extraction and Report Language” = “Pathologically Eclectic Rubbish Lister”</p>
+<p>Python 得名于电视剧Monty Python’s Flying Circus</p>
+<p>Tcl = Tool Command Language</p>
+<p>Tk = ToolKit</p>
+<p>VT = Video Terminal</p>
+<p>YaST = Yet Another Setup Tool</p>
+<p>apache = “a patchy” server</p>
+<p>apt = Advanced Packaging Tool</p>
+<p>ar = archiver</p>
+<p>as = assembler</p>
+<p>awk = “Aho Weiberger and Kernighan” 三个作者的姓的第一个字母</p>
+<p>bash = Bourne Again SHell</p>
+<p>bc = Basic (Better) Calculator</p>
+<p>bg = BackGround</p>
+<p>biff = 作者Heidi Stettner在U.C.Berkely养的一条狗,喜欢对邮递员汪汪叫。</p>
+<p>cal = CALendar</p>
+<p>cat = CATenate</p>
+<p>cd = Change Directory</p>
+<p>chgrp = CHange GRouP</p>
+<p>chmod = CHange MODe</p>
+<p>chown = CHange OWNer</p>
+<p>chsh = CHange SHell</p>
+<p>cmp = compare</p>
+<p>cobra = Common Object Request Broker Architecture</p>
+<p>comm = common</p>
+<p>cp = CoPy</p>
+<p>cpio = CoPy In and Out</p>
+<p>cpp = C Pre Processor</p>
+<p>cron = Chronos 希腊文时间</p>
+<p>cups = Common Unix Printing System</p>
+<p>cvs = Current Version System</p>
+<p>daemon = Disk And Execution MONitor</p>
+<p>dc = Desk Calculator</p>
+<p>dd = Disk Dump</p>
+<p>df = Disk Free</p>
+<p>diff = DIFFerence</p>
+<p>dmesg = diagnostic message</p>
+<p>du = Disk Usage</p>
+<p>ed = editor</p>
+<p>egrep = Extended GREP</p>
+<p>elf = Extensible Linking Format</p>
+<p>elm = ELectronic Mail</p>
+<p>emacs = Editor MACroS</p>
+<p>eval = EVALuate</p>
+<p>ex = EXtended</p>
+<p>exec = EXECute</p>
+<p>fd = file descriptors</p>
+<p>fg = ForeGround</p>
+<p>fgrep = Fixed GREP</p>
+<p>fmt = format</p>
+<p>fsck = File System ChecK</p>
+<p>fstab = FileSystem TABle</p>
+<p>fvwm = F*** Virtual Window Manager</p>
+<p>gawk = GNU AWK</p>
+<p>gpg = GNU Privacy Guard</p>
+<p>groff = GNU troff</p>
+<p>hal = Hardware Abstraction Layer</p>
+<p>joe = Joe’s Own Editor</p>
+<p>ksh = Korn SHell</p>
+<p>lame = Lame Ain’t an MP3 Encoder</p>
+<p>lex = LEXical analyser</p>
+<p>lisp = LISt Processing = Lots of Irritating Superfluous Parentheses</p>
+<p>ln = LiNk</p>
+<p>lpr = Line PRint</p>
+<p>ls = list</p>
+<p>lsof = LiSt Open Files</p>
+<p>m4 = Macro processor Version 4</p>
+<p>man = MANual pages</p>
+<p>mawk = Mike Brennan’s AWK</p>
+<p>mc = Midnight Commander</p>
+<p>mkfs = MaKe FileSystem</p>
+<p>mknod = MaKe NODe</p>
+<p>motd = Message of The Day</p>
+<p>mozilla = MOsaic GodZILLa</p>
+<p>mtab = Mount TABle</p>
+<p>mv = MoVe</p>
+<p>nano = Nano’s ANOther editor</p>
+<p>nawk = New AWK</p>
+<p>nl = Number of Lines</p>
+<p>nm = names</p>
+<p>nohup = No HangUP</p>
+<p>nroff = New ROFF</p>
+<p>od = Octal Dump</p>
+<p>passwd = PASSWorD</p>
+<p>pg = pager</p>
+<p>pico = PIne’s message COmposition editor</p>
+<p>pine = “Program for Internet News &amp; Email” = “Pine is not Elm”</p>
+<p>ping = 拟声 又 = Packet InterNet Grouper</p>
+<p>pirntcap = PRINTer CAPability</p>
+<p>popd = POP Directory</p>
+<p>pr = pre</p>
+<p>printf = PRINT Formatted</p>
+<p>ps = Processes Status</p>
+<p>pty = pseudo tty</p>
+<p>pushd = PUSH Directory</p>
+<p>pwd = Print Working Directory</p>
+<p>rc = runcom = run command, rc还是plan9的shell</p>
+<p>rev = REVerse</p>
+<p>rm = ReMove</p>
+<p>rn = Read News</p>
+<p>roff = RunOFF</p>
+<p>rpm = RPM Package Manager = RedHat Package Manager</p>
+<p>rsh, rlogin, rvim中的r = Remote</p>
+<p>rxvt = ouR XVT</p>
+<p>seamoneky = 我</p>
+<p>sed = Stream EDitor</p>
+<p>seq = SEQuence</p>
+<p>shar = SHell ARchive</p>
+<p>slrn = S-Lang rn</p>
+<p>ssh = Secure SHell</p>
+<p>ssl = Secure Sockets Layer</p>
+<p>stty = Set TTY</p>
+<p>su = Substitute User</p>
+<p>svn = SubVersioN</p>
+<p>tar = Tape ARchive</p>
+<p>tcsh = TENEX C shell</p>
+<p>tee = T (T形水管接口)</p>
+<p>telnet = TEminaL over Network</p>
+<p>termcap = terminal capability</p>
+<p>terminfo = terminal information</p>
+<p>tex = τέχνη的缩写，希腊文art</p>
+<p>tr = traslate</p>
+<p>troff = Typesetter new ROFF</p>
+<p>tsort = Topological SORT</p>
+<p>tty = TeleTypewriter</p>
+<p>twm = Tom’s Window Manager</p>
+<p>tz = TimeZone</p>
+<p>udev = Userspace DEV</p>
+<p>ulimit = User’s LIMIT</p>
+<p>umask = User’s MASK</p>
+<p>uniq = UNIQue</p>
+<p>vi = VIsual = Very Inconvenient</p>
+<p>vim = Vi IMproved</p>
+<p>wall = write all</p>
+<p>wc = Word Count</p>
+<p>wine = WINE Is Not an Emulator</p>
+<p>xargs = eXtended ARGuments</p>
+<p>xdm = X Display Manager</p>
+<p>xlfd = X Logical Font Description</p>
+<p>xmms = X Multimedia System</p>
+<p>xrdb = X Resources DataBase</p>
+<p>xwd = X Window Dump</p>
+<p>yacc = yet another compiler compiler</p>
+<p>Fish = the Friendly Interactive SHell</p>
+<p>su = Switch User</p>
+<p>MIME = Multipurpose Internet Mail Extensions</p>
+<p>ECMA = European Computer Manufacturers Association</p>
+<h3 id="关机命令"><a href="#关机命令" class="headerlink" title="关机命令"></a>关机命令</h3><p>关机:half ,poweroff<br>重启:reboot<br>-f:强制,不调用shutdown<br>-p:切断电源<br>关机或重启:shutdown<br>shutdown [option]..time[message]<br>-r:reboot<br>-h:half<br>-c:cancel<br>time:无指定,默认为+1<br>now:立刻,相当于+0<br>+m:相对时间表示法,几分钟之后;<br>hh:mm相对时间表示法,指明具体时间</p>
 <h3 id="查看命令"><a href="#查看命令" class="headerlink" title="查看命令"></a>查看命令</h3><p>whoami<br>who<br>w<br>nano</p>
 <h3 id="远程协助命令"><a href="#远程协助命令" class="headerlink" title="远程协助命令"></a>远程协助命令</h3><p>screen -S<br>screen -x<br>exit<br>Ctrl +a,d<br>screen -ls<br>screen -r</p>
 <h3 id="显示命令"><a href="#显示命令" class="headerlink" title="显示命令"></a>显示命令</h3><p>echo 显示<br>-E<br>-n<br>-e<br>\a<br>\b<br>\c<br>\n<br>\<br>shutdown -h +3<br>mount /dev/sr0 /mnt<br><code>反向单引号
@@ -589,7 +961,7 @@ $()或</code><br>括号扩展{}<br>tab命令补全<br>history历史记录</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux基础介绍"><span class="nav-number">1.</span> <span class="nav-text">linux基础介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">1.1.</span> <span class="nav-text">操作系统:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装linux"><span class="nav-number">1.2.</span> <span class="nav-text">安装linux:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发接口标准"><span class="nav-number">1.3.</span> <span class="nav-text">开发接口标准:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户和内核空间"><span class="nav-number">1.4.</span> <span class="nav-text">用户和内核空间:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux哲学思想"><span class="nav-number">1.5.</span> <span class="nav-text">linux哲学思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash基本命令"><span class="nav-number">1.6.</span> <span class="nav-text">bash基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux命令缩写"><span class="nav-number">1.7.</span> <span class="nav-text">linux命令缩写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单命令"><span class="nav-number">2.</span> <span class="nav-text">简单命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关机命令"><span class="nav-number">2.1.</span> <span class="nav-text">关机命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看命令"><span class="nav-number">2.2.</span> <span class="nav-text">查看命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程协助命令"><span class="nav-number">2.3.</span> <span class="nav-text">远程协助命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示命令"><span class="nav-number">2.4.</span> <span class="nav-text">显示命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取帮助"><span class="nav-number">2.5.</span> <span class="nav-text">获取帮助</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作"><span class="nav-number">3.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件系统结构元素"><span class="nav-number">3.1.</span> <span class="nav-text">文件系统结构元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux下的文件类型"><span class="nav-number">3.2.</span> <span class="nav-text">Linux下的文件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示当前工作目录"><span class="nav-number">3.3.</span> <span class="nav-text">显示当前工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改目录"><span class="nav-number">3.4.</span> <span class="nav-text">更改目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列出目录内容"><span class="nav-number">3.5.</span> <span class="nav-text">列出目录内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看文件状态"><span class="nav-number">3.6.</span> <span class="nav-text">查看文件状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建和查看文件"><span class="nav-number">3.7.</span> <span class="nav-text">创建和查看文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件统配符"><span class="nav-number">3.8.</span> <span class="nav-text">文件统配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制和转移删除文件"><span class="nav-number">3.9.</span> <span class="nav-text">复制和转移删除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软和硬链接"><span class="nav-number">3.10.</span> <span class="nav-text">软和硬链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#i-0-重定向至文件"><span class="nav-number">3.11.</span> <span class="nav-text">i/0 重定向至文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">3.12.</span> <span class="nav-text">管道</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户组权限"><span class="nav-number">4.</span> <span class="nav-text">用户组权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户user"><span class="nav-number">4.1.</span> <span class="nav-text">用户user</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组group"><span class="nav-number">4.2.</span> <span class="nav-text">组group</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户创建-useradd"><span class="nav-number">4.3.</span> <span class="nav-text">用户创建:useradd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看用户相关的ID信息"><span class="nav-number">4.4.</span> <span class="nav-text">查看用户相关的ID信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换用户或以其他用户身份执行命令"><span class="nav-number">4.5.</span> <span class="nav-text">切换用户或以其他用户身份执行命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置密码"><span class="nav-number">4.6.</span> <span class="nav-text">设置密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建组"><span class="nav-number">4.7.</span> <span class="nav-text">创建组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件权限"><span class="nav-number">4.8.</span> <span class="nav-text">文件权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文件权限"><span class="nav-number">4.9.</span> <span class="nav-text">修改文件权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本工具"><span class="nav-number">5.</span> <span class="nav-text">文本工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽取文本的工具"><span class="nav-number">5.1.</span> <span class="nav-text">抽取文本的工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示文本前后或后行内容"><span class="nav-number">5.2.</span> <span class="nav-text">显示文本前后或后行内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本排序sort"><span class="nav-number">5.3.</span> <span class="nav-text">文本排序sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式"><span class="nav-number">5.4.</span> <span class="nav-text">正则表达式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux基础介绍"><span class="nav-number">1.</span> <span class="nav-text">linux基础介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">1.1.</span> <span class="nav-text">操作系统:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装linux"><span class="nav-number">1.2.</span> <span class="nav-text">安装linux:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发接口标准"><span class="nav-number">1.3.</span> <span class="nav-text">开发接口标准:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户和内核空间"><span class="nav-number">1.4.</span> <span class="nav-text">用户和内核空间:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux哲学思想"><span class="nav-number">1.5.</span> <span class="nav-text">linux哲学思想</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单命令"><span class="nav-number">2.</span> <span class="nav-text">简单命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bash基本命令"><span class="nav-number">2.1.</span> <span class="nav-text">bash基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux命令缩写"><span class="nav-number">2.2.</span> <span class="nav-text">linux命令缩写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关机命令"><span class="nav-number">2.3.</span> <span class="nav-text">关机命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看命令"><span class="nav-number">2.4.</span> <span class="nav-text">查看命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程协助命令"><span class="nav-number">2.5.</span> <span class="nav-text">远程协助命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示命令"><span class="nav-number">2.6.</span> <span class="nav-text">显示命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取帮助"><span class="nav-number">2.7.</span> <span class="nav-text">获取帮助</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作"><span class="nav-number">3.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件系统结构元素"><span class="nav-number">3.1.</span> <span class="nav-text">文件系统结构元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux下的文件类型"><span class="nav-number">3.2.</span> <span class="nav-text">Linux下的文件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示当前工作目录"><span class="nav-number">3.3.</span> <span class="nav-text">显示当前工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改目录"><span class="nav-number">3.4.</span> <span class="nav-text">更改目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列出目录内容"><span class="nav-number">3.5.</span> <span class="nav-text">列出目录内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看文件状态"><span class="nav-number">3.6.</span> <span class="nav-text">查看文件状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建和查看文件"><span class="nav-number">3.7.</span> <span class="nav-text">创建和查看文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件统配符"><span class="nav-number">3.8.</span> <span class="nav-text">文件统配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制和转移删除文件"><span class="nav-number">3.9.</span> <span class="nav-text">复制和转移删除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软和硬链接"><span class="nav-number">3.10.</span> <span class="nav-text">软和硬链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#i-0-重定向至文件"><span class="nav-number">3.11.</span> <span class="nav-text">i/0 重定向至文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">3.12.</span> <span class="nav-text">管道</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户组权限"><span class="nav-number">4.</span> <span class="nav-text">用户组权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户user"><span class="nav-number">4.1.</span> <span class="nav-text">用户user</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组group"><span class="nav-number">4.2.</span> <span class="nav-text">组group</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户创建-useradd"><span class="nav-number">4.3.</span> <span class="nav-text">用户创建:useradd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看用户相关的ID信息"><span class="nav-number">4.4.</span> <span class="nav-text">查看用户相关的ID信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换用户或以其他用户身份执行命令"><span class="nav-number">4.5.</span> <span class="nav-text">切换用户或以其他用户身份执行命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置密码"><span class="nav-number">4.6.</span> <span class="nav-text">设置密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建组"><span class="nav-number">4.7.</span> <span class="nav-text">创建组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件权限"><span class="nav-number">4.8.</span> <span class="nav-text">文件权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文件权限"><span class="nav-number">4.9.</span> <span class="nav-text">修改文件权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本工具"><span class="nav-number">5.</span> <span class="nav-text">文本工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽取文本的工具"><span class="nav-number">5.1.</span> <span class="nav-text">抽取文本的工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示文本前后或后行内容"><span class="nav-number">5.2.</span> <span class="nav-text">显示文本前后或后行内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本排序sort"><span class="nav-number">5.3.</span> <span class="nav-text">文本排序sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式"><span class="nav-number">5.4.</span> <span class="nav-text">正则表达式</span></a></li></ol></li></ol></div>
             
 
           </div>
