@@ -147,17 +147,17 @@
 
 
 
-  <meta name="description" content="linux基础介绍操作系统:os(operating system),通用目的的软件程序  硬件驱动进程管理内存管理网络管理安全管理文件管理  安装linux: linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的manjaro或mint分区和启动:硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tbuefi的GPT分区:逐渐代替MBR标准主分区 一块硬盘最多">
+  <meta name="description" content="linux基础介绍操作系统os(operating system),通用目的的软件程序  硬件驱动进程管理内存管理网络管理安全管理文件管理  安装linux linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的manjaro或mint分区和启动:硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tbuefi的GPT分区:逐渐代替MBR标准主分区 一块硬盘最多4个">
 <meta property="og:type" content="website">
 <meta property="og:title" content="linux">
 <meta property="og:url" content="https://hubhack.github.io/about/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="linux基础介绍操作系统:os(operating system),通用目的的软件程序  硬件驱动进程管理内存管理网络管理安全管理文件管理  安装linux: linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的manjaro或mint分区和启动:硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tbuefi的GPT分区:逐渐代替MBR标准主分区 一块硬盘最多">
+<meta property="og:description" content="linux基础介绍操作系统os(operating system),通用目的的软件程序  硬件驱动进程管理内存管理网络管理安全管理文件管理  安装linux linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的manjaro或mint分区和启动:硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tbuefi的GPT分区:逐渐代替MBR标准主分区 一块硬盘最多4个">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-23T07:09:47.145Z">
+<meta property="og:updated_time" content="2019-03-23T07:35:05.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux">
-<meta name="twitter:description" content="linux基础介绍操作系统:os(operating system),通用目的的软件程序  硬件驱动进程管理内存管理网络管理安全管理文件管理  安装linux: linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的manjaro或mint分区和启动:硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tbuefi的GPT分区:逐渐代替MBR标准主分区 一块硬盘最多">
+<meta name="twitter:description" content="linux基础介绍操作系统os(operating system),通用目的的软件程序  硬件驱动进程管理内存管理网络管理安全管理文件管理  安装linux linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的manjaro或mint分区和启动:硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tbuefi的GPT分区:逐渐代替MBR标准主分区 一块硬盘最多4个">
 
 
 
@@ -409,17 +409,17 @@
       <div class="post-body">
         
         
-          <h2 id="linux基础介绍"><a href="#linux基础介绍" class="headerlink" title="linux基础介绍"></a>linux基础介绍</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统:"></a>操作系统:</h3><p>os(operating system),通用目的的软件程序</p>
+          <h1 id="linux基础"><a href="#linux基础" class="headerlink" title="linux基础"></a>linux基础</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><p>os(operating system),通用目的的软件程序</p>
 <blockquote>
 <p>硬件驱动<br>进程管理<br>内存管理<br>网络管理<br>安全管理<br>文件管理</p>
 </blockquote>
-<h3 id="安装linux"><a href="#安装linux" class="headerlink" title="安装linux:"></a>安装linux:</h3><blockquote>
+<h3 id="安装linux"><a href="#安装linux" class="headerlink" title="安装linux"></a>安装linux</h3><blockquote>
 <p>linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的<a href="https://www.manjaro.cn/153" target="_blank" rel="noopener">manjaro</a>或<a href="https://www.linuxmint.com/download.php" target="_blank" rel="noopener">mint</a><br>分区和启动:<br>硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tb<br>uefi的GPT分区:逐渐代替MBR标准<br>主分区 一块硬盘最多4个,不能划分更小,最小单位<br>扩展分区:一块硬盘最多一个,不能直接创建文件系统<br>安装过程大同小异 <a href="https://blog.csdn.net/python_lqx/article/details/88670425" target="_blank" rel="noopener">详细步骤</a><br>需要注意的是如何分区:这里的分区在虚拟机上只是虚拟的,分100g不影响物理硬盘实际占用.实际情况要自己斟酌.<br>/dev/sda 100g<br>/dev/sda1 /boot mountpoint  1g<br>/dev/sda2 /                50g<br>/dev/sda3 /data            20g<br>/dev/sda5 /swap             2g</p>
 </blockquote>
-<h3 id="开发接口标准"><a href="#开发接口标准" class="headerlink" title="开发接口标准:"></a>开发接口标准:</h3><blockquote>
+<h3 id="开发接口标准"><a href="#开发接口标准" class="headerlink" title="开发接口标准"></a>开发接口标准</h3><blockquote>
 <p>ABI:application binary interface ABI描述了程序与os之间的底层接口<br>API:application programming interface<br>开源协议: GPLv2,GPLv3 Apache BSD Mozilla Mit</p>
 </blockquote>
-<h3 id="用户和内核空间"><a href="#用户和内核空间" class="headerlink" title="用户和内核空间:"></a>用户和内核空间:</h3><blockquote>
+<h3 id="用户和内核空间"><a href="#用户和内核空间" class="headerlink" title="用户和内核空间"></a>用户和内核空间</h3><blockquote>
 <p>username 用户程序的运行空间 为了安全,他们是隔离的即使用户的程序崩溃,内核也不受影响<br>内核空间:kernel space</p>
 </blockquote>
 <h3 id="linux哲学思想"><a href="#linux哲学思想" class="headerlink" title="linux哲学思想"></a>linux哲学思想</h3><p>在linux上一切皆文件,其实就是硬盘也是以文件格式展示出来的</p>
@@ -567,7 +567,7 @@ head
 
                   -c #：指定获取前#字节
 
-                  -n #：指定获取前#行 
+                  -n #：指定获取前#行
 
 tail  
 
@@ -621,7 +621,7 @@ touch命令：
 <p>/proc = PROCesses</p>
 <p>/sbin = Superuser BINaries</p>
 <p>/tmp = TeMPorary</p>
-<p>/usr = Unix Shared Resources </p>
+<p>/usr = Unix Shared Resources</p>
 <p>/var = VARiable ?</p>
 <p>/boot=boot #下面的是开机启动文件</p>
 <p>FIFO = First In, First Out</p>
@@ -781,14 +781,12 @@ touch命令：
 <h3 id="关机命令"><a href="#关机命令" class="headerlink" title="关机命令"></a>关机命令</h3><p>关机:half ,poweroff<br>重启:reboot<br>-f:强制,不调用shutdown<br>-p:切断电源<br>关机或重启:shutdown<br>shutdown [option]..time[message]<br>-r:reboot<br>-h:half<br>-c:cancel<br>time:无指定,默认为+1<br>now:立刻,相当于+0<br>+m:相对时间表示法,几分钟之后;<br>hh:mm相对时间表示法,指明具体时间</p>
 <h3 id="查看命令"><a href="#查看命令" class="headerlink" title="查看命令"></a>查看命令</h3><p>whoami<br>who<br>w</p>
 <h3 id="远程协助命令"><a href="#远程协助命令" class="headerlink" title="远程协助命令"></a>远程协助命令</h3><p>screen -S<br>screen -x<br>exit<br>Ctrl +a,d<br>screen -ls<br>screen -r</p>
-<h3 id="显示命令"><a href="#显示命令" class="headerlink" title="显示命令"></a>显示命令</h3><p>echo 显示<br>-E<br>-n<br>-e<br>\a<br>\b<br>\c<br>\n<br>\<br>shutdown -h +3<br>mount /dev/sr0 /mnt<br><code>反向单引号
-&#39;&#39;双引号
-&quot;&quot;单引号
-$()或</code><br>括号扩展{}<br>tab命令补全<br>history历史记录</p>
+<h3 id="显示命令"><a href="#显示命令" class="headerlink" title="显示命令"></a>显示命令</h3><p>echo 显示<br>-E<br>-n<br>-e<br>\a<br>\b<br>\c<br>\n<br>\<br>shutdown -h +3<br>mount /dev/sr0 /mnt<br>反向单引号<code></code></p>
+<p>双引号’’<br>单引号””<br>$()或<code></code><br>括号扩展{}<br>tab命令补全<br>history历史记录</p>
 <h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><p>whatis<br>command –help<br>man and info</p>
 <h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p>文件和目录被组织成单根倒置树结构<br>文件系统从根目录下开始,用”/“表示<br>proc虚拟的,在硬盘上不存在<br>文件 区别大小写( 这是文件系统决定,微软的ntfs不存在,而linux的ext4大小写敏感)<br>以.开头的文件为隐藏文件<br>元数据:metadata(包含属性,权限,大小)每个文件都有自己的元数据,有指针指向到数据的真实内容.<br>数据:data(内容在硬盘上)<br>文件系统分成结构:LSB<br>文件名最长255个字节,文件系统不一样大小不一样<br>包括路径在内文件名称最长4095个字节<br>蓝色—目录 绿色—可执行文件  红色—压缩文件<br>浅蓝色—链接文件 灰色—其他文件 粉色是socket(套接字文件)双向传递<br>管道文件 p开头(pipe)单工传输</p>
 <h3 id="文件系统结构元素"><a href="#文件系统结构元素" class="headerlink" title="文件系统结构元素"></a>文件系统结构元素</h3><p>/boot：引导文件存放目录，内核文件(vmlinuz)、引导加载器(bootloader, grub)都存放于此目录<br>/bin：供所有用户使用的基本命令；不能关联至独立分区，OS启动即会用到的 程序<br>/sbin：管理类的基本命令；不能关联至独立分区，OS启动即会用到的程序<br>/lib：启动时程序依赖的基本共享库文件以及内核模块文件(/lib/modules)<br>/lib64：专用于x86_64系统上的辅助共享库文件存放位置<br>/etc：配置文件目录<br>/home/USERNAME：普通用户家目录<br>/root：管理员的家目录<br>/media：便携式移动设备挂载点<br>/mnt：临时文件系统挂载点<br>/dev：设备文件及特殊文件存储位置  b: block device，随机访问  c: character device，线性访问<br>/opt：第三方应用程序的安装位置<br>/srv：系统上运行的服务用到的数据<br>/tmp：临时文件存储位置<br>/proc: 用于输出内核与进程信息相关的虚拟文件系统<br>/sys：用于输出当前系统上硬件设备相关信息虚拟文件系统<br>/selinux: security enhanced Linux，selinux相关的安全策略等信息的存储位置文<br>/usr: universal shared, read-only data  bin: 保证系统拥有完整功能而提供的应用程序<br>sbin:  lib：32位使用  lib64：只存在64位系统<br>include: C程序的头文件(header files)<br>share：结构化独立的数据，例如doc, man等<br>local：第三方应用程序的安装位置 bin, sbin, lib, lib64, etc, share 文</p>
-<p>/var: variable data files  cache: 应用程序缓存数据目录<br>lib: 应用程序状态信息数据<br>local：专用于为/usr/local下的应用程序存储可变数据<br>lock: 锁文件  log: 日志目录及文件<br>opt: 专用于为/opt下的应用程序存储可变数据<br>run: 运行中的进程相关数据,通常用于存储进程pid文件<br>spool: 应用程序数据池<br>tmp: 保存系统两次重启之间产生的临时数据 </p>
+<p>/var: variable data files  cache: 应用程序缓存数据目录<br>lib: 应用程序状态信息数据<br>local：专用于为/usr/local下的应用程序存储可变数据<br>lock: 锁文件  log: 日志目录及文件<br>opt: 专用于为/opt下的应用程序存储可变数据<br>run: 运行中的进程相关数据,通常用于存储进程pid文件<br>spool: 应用程序数据池<br>tmp: 保存系统两次重启之间产生的临时数据</p>
 <h3 id="Linux下的文件类型"><a href="#Linux下的文件类型" class="headerlink" title="Linux下的文件类型"></a>Linux下的文件类型</h3><p>-：普通文件<br>d: 目录文件<br>b: 块设备(硬盘,以块为单位,有缓存,一块一块写,有缓存区)<br>c: 字符设备(设备主要以字符为单位,键盘为主)<br>l: 符号链接文件<br>p: 管道文件pipe<br>s: 套接字文件socket</p>
 <h3 id="显示当前工作目录"><a href="#显示当前工作目录" class="headerlink" title="显示当前工作目录"></a>显示当前工作目录</h3><p>每个shell和系统进程都有一个当前的工作目录<br>CWD:current work directory<br>显示当前shell CWD的绝对路径 pwd: printing working directory -P 显示真实物理路径 -L 显示链接路径（默认）</p>
 <h3 id="更改目录"><a href="#更改目录" class="headerlink" title="更改目录"></a>更改目录</h3><p>cd  改变目录 使用绝对或相对路径： cd /home/wang/        cd home/wang 切换至父目录：  cd .. 切换至当前用户主目录： cd 切换至以前的工作目录： cd -<br>选项：-P<br>相关的环境变量：  PWD：当前目录路径   OLDPWD：上一次目录路径</p>
@@ -863,15 +861,57 @@ $()或</code><br>括号扩展{}<br>tab命令补全<br>history历史记录</p>
 <p>安装后的配置：<br>(1) 二进制程序目录导入至PATH环境变量中   编辑文件/etc/profile.d/NAME.sh export PATH=/PATH/TO/BIN:$PATH<br>(2) 导入帮助手册  编辑/etc/man.config|man_db.conf文件 添加一个MANPATH</p>
 <h2 id="shell编程"><a href="#shell编程" class="headerlink" title="shell编程"></a>shell编程</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><p>程序：指令+数据<br>程序编程风格：<br>        过程式：以指令为中心，数据服务于指令<br>        对象式：以数据为中心，指令服务于数据<br>        shell程序：提供了编程能力，解释执行</p>
 <h3 id="编程基本概念"><a href="#编程基本概念" class="headerlink" title="编程基本概念"></a>编程基本概念</h3><p>编程逻辑处理方式：<br>顺序执行<br>循环执行<br>选择执行</p>
-<h3 id="shell编程：过程式、解释执行"><a href="#shell编程：过程式、解释执行" class="headerlink" title="shell编程：过程式、解释执行"></a>shell编程：过程式、解释执行</h3><p>编程语言的基本结构：<br>各种系统命令的组合<br>数据存储：变量、数组<br>表达式: a + b<br>语句:if<br>shell脚本基础<br>shell脚本:<br>包含一些命令或声明，并符合一定格式的文本文<br>创建shell脚本<br>第一步：使用文本编辑器来创建文本文件<br>第一行必须包括shell声明序列：#! #!/bin/bash</p>
+<h3 id="shell编程：过程式、解释执行"><a href="#shell编程：过程式、解释执行" class="headerlink" title="shell编程：过程式、解释执行"></a>shell编程：过程式、解释执行</h3><p>编程语言的基本结构：<br>各种系统命令的组合<br>数据存储：变量、数组<br>表达式: a + b<br>语句:if<br>shell脚本基础<br>shell脚本:<br>包含一些命令或声明，并符合一定格式的文本文件<br>格式要求:首行shebang机制</p>
+<blockquote>
+<p>#!/bin/bash</p>
+<p>#!/usr/bin/python</p>
+<p>#!/usr/bin/perl<br>shell脚本的用途有：<br>自动化常用命令</p>
+</blockquote>
+<p>执行系统管理和故障排除</p>
+<p>创建简单的应用程序</p>
+<p>处理文本或文件</p>
 <h3 id="添加注释"><a href="#添加注释" class="headerlink" title="添加注释"></a>添加注释</h3><p>注释以#开头<br>第二步：运行脚本<br>给予执行权限，在命令行上指定脚本的绝对或相对路径<br>直接运行解释器，将脚本作为解释器程序的参数运行</p>
 <h3 id="脚本规范"><a href="#脚本规范" class="headerlink" title="脚本规范"></a>脚本规范</h3><p>脚本代码开头约定<br>1、第一行一般为调用使用的语言<br>2、程序名，避免更改文件名为无法找到正确的文件<br>3、版本号<br>4、更改后的时间<br>5、作者相关信息<br>6、该程序的作用，及注意事项<br>7、最后是各版本的更新简要说明</p>
-<h3 id="脚本的基本结构"><a href="#脚本的基本结构" class="headerlink" title="脚本的基本结构"></a>脚本的基本结构</h3><p>脚本的基本结构#!SHEBANG<br>CONFIGURATION_VARIABLES<br>FUNCTION_DEFINITIONS<br>MAIN_CODE<br>shell脚本示例<br>echo “hello world”<br>脚本调试<br>检测脚本中的语法错误<br>bash -n /path/to/some_script<br>调试执行<br>bash -x /path/to/some_script</p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量：命名的内存空间<br>数据存储方式：<br>字符：<br>数值：整型，浮点型<br>变量：变量类型<br>作用：<br>1、数据存储格式<br>2、参与的运算<br>3、表示的数据范围<br>类型：<br>字符<br>数值：整型、浮点型<br>变量命名法则：<br>1、不能使程序中的保留字：例如 if, for<br>2、只能使用数字、字母及下划线，且不能以数字开头<br>3、见名知义<br>4、统一命名规则：驼峰命名法，建议大写<br>bash中变量的种类<br>根据变量的生效范围等标准划分下面变量类型：<br>局部变量：生效范围为当前shell进程；对当前shell之外的其它shell进程，<br>包括当前shell的子shell进程均无效<br>环境（全局）变量：生效范围为当前shell进程及其子进程<br>本地变量：生效范围为当前shell进程中某代码片断，通常指函数<br>位置变量：$1, $2, …来表示，用于让脚本在脚本代码中调用通过命令行传<br>递给它的参数<br>特殊变量：$?, $0, $*, $@, $#,$$<br>局部变量<br>变量赋值：name=‘value’<br>可以使用引用value:<br>(1) 可以是直接字串; name=“root”<br>(2) 变量引用：name=”$USER”<br>(3) 命令引用：name=<code>COMMAND</code> name=$(COMMAND)<br>变量引用：${name} $name<br>“”：弱引用，其中的变量引用会被替换为变量值<br>‘’：强引用，其中的变量引用不会被替换为变量值，而保持原字符串<br>显示已定义的所有变量：set<br>删除变量：unset name</p>
-<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>变量声明、赋值：<br>export name=VALUE<br>declare -x name=VALUE<br>变量引用：$name, ${name}<br>显示所有环境变量：<br>env<br>printenv<br>export<br>declare -x<br>删除变量：<br>unset name<br>环境变量<br>bash内建的环境变量：<br>PATH<br>SHELL<br>USER<br>UID<br>HOME<br>PWD<br>SHLVL<br>LANG<br> MAIL<br>HOSTNAME<br>HISTSIZE<br>—</p>
-<h4 id="只读和位置变量"><a href="#只读和位置变量" class="headerlink" title="只读和位置变量"></a>只读和位置变量</h4><p>只读变量：只能声明，但不能修改和删除<br>声明只读变量：<br>readonly name<br>declare -r name<br>查看只读变量：<br>readonly –p<br>位置变量：在脚本代码中调用通过命令行传递给脚本的参数<br>$1, $2, …：对应第1、第2等参数，shift [n]换位置<br>$0: 命令本身<br>$<em>: 传递给脚本的所有参数，全部参数合为一个字符串<br>$@: 传递给脚本的所有参数，每个参数为独立字符串<br>$#: 传递给脚本的参数的个数<br>$@ $</em> 只在被双引号包起来的时候才会有差异<br>set – 清空所有位置变量<br>退出状态<br>进程使用退出状态来报告成功或失败<br>• 0 代表成功，1－255代表失败<br>• $? 变量保存最近的命令退出状态<br>例如：<br>ping -c1 -W1 hostdown &amp;&gt; /dev/null<br>echo $?<br>退出状态码<br>bash自定义退出状态码<br>exit [n]：自定义退出状态码<br>注意：脚本中一旦遇到exit命令，脚本会立即终止；终止退出状态取决于exit命<br>令后面的数字<br>注意：如果未给脚本指定退出状态码，整个脚本的退出状态码取决于脚本中执<br>行的最后一条命令的状态码</p>
-<h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><p>bash中的算术运算:help let<br>+, -, <em>, /, %取模（取余）, **（乘方）<br>实现算术运算：<br>(1) let var=算术表达式<br>(2) var=$[算术表达式]<br>(3) var=$((算术表达式))<br>(4) var=$(expr arg1 arg2 arg3 …)<br>(5) declare –i var = 数值<br>(6) echo ‘算术表达式’ | bc<br>乘法符号有些场景中需要转义，如</em><br>bash有内建的随机数生成器：RANDOM（0-32767）<br>echo $[$RANDOM%50] ：0-49之间随机数<br>赋值<br>增强型赋值：<br>+=, -=, *=, /=, %=<br>let varOPERvalue<br>例如:let count+=3<br>自加3后自赋值<br>自增，自减：<br>let var+=1<br>let var++<br>let var-=1<br>let var–<br>逻辑运算<br>true, false<br>1, 0<br>与：<br>1 与 1 = 1<br>1 与 0 = 0<br>0 与 1 = 0<br>0 与 0 = 0<br>或:<br>1 或 1 = 1<br>1 或 0 = 1<br>0 或 1 = 1<br>0 或 0 = 0<br>逻辑运算<br>非：！<br>! 1 = 0<br>! 0 = 1</p>
+<p>脚本调试<br>检测脚本中的语法错误<br>bash -n /path/to/some_script<br>调试执行<br>bash -x /path/to/some_script</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量：命名的内存空间<br>数据存储方式：<br>字符：<br>数值：整型，浮点型<br>变量：变量类型<br>作用：<br>1、数据存储格式<br>2、参与的运算<br>3、表示的数据范围<br>类型：<br>字符<br>数值：整型、浮点型<br>变量命名法则：<br>1、不能使程序中的保留字：例如 if, for<br>2、只能使用数字、字母及下划线，且不能以数字开头<br>3、见名知义<br>4、统一命名规则：驼峰命名法，建议大写</p>
 <ul>
+<li>bash中变量的种类<br>根据变量的生效范围等标准划分下面变量类型：<pre><code>局部变量：生效范围为当前shell进程；对当前shell之外的其它shell进程，
+</code></pre>包括当前shell的子shell进程均无效<pre><code>环境（全局）变量：生效范围为当前shell进程及其子进程
+本地变量：生效范围为当前shell进程中某代码片断，通常指函数
+位置变量：$1, $2, ...来表示，用于让脚本在脚本代码中调用通过命令行传
+</code></pre>递给它的参数<pre><code>特殊变量：$?, $0, $*, $@, $#,$$
+</code></pre></li>
+<li><p>局部变量<br>变量赋值：name=‘value’<br>可以使用引用value:<br>(1) 可以是直接字串; name=“root”<br>(2) 变量引用：name=”$USER”<br>(3) 命令引用：name=<code>COMMAND</code> name=$(COMMAND)<br>变量引用：${name} $name<br>“”：弱引用，其中的变量引用会被替换为变量值<br>‘’：强引用，其中的变量引用不会被替换为变量值，而保持原字符串<br>显示已定义的所有变量：set<br>删除变量：unset name</p>
+</li>
+<li><p>环境变量<br>bash内建的环境变量：<br>PATH<br>SHELL<br>USER<br>UID<br>HOME<br>PWD<br>SHLVL<br>LANG<br>MAIL<br>HOSTNAME<br>HISTSIZE<br>—</p>
+</li>
+</ul>
+<h4 id="只读和位置变量"><a href="#只读和位置变量" class="headerlink" title="只读和位置变量"></a>只读和位置变量</h4><p>只读变量：只能声明，但不能修改和删除<br>声明只读变量：<br>        readonly name<br>        declare -r name<br>查看只读变量：<br>        readonly –p<br>位置变量：在脚本代码中调用通过命令行传递给脚本的参数<br>$1, $2, …：对应第1、第2等参数，shift [n]换位置<br>$0: 命令本身<br>$<em>: 传递给脚本的所有参数，全部参数合为一个字符串<br>$@: 传递给脚本的所有参数，每个参数为独立字符串<br>$#: 传递给脚本的参数的个数<br>$@ $</em> 只在被双引号包起来的时候才会有差异<br>set – 清空所有位置变量</p>
+<ul>
+<li>退出状态<br>进程使用退出状态来报告成功或失败<br>• 0 代表成功，1－255代表失败<br>• $? 变量保存最近的命令退出状态<br>例如：<br>ping -c1 -W1 hostdown &amp;&gt; /dev/null<br>echo $?<br>退出状态码<br>bash自定义退出状态码<br>exit [n]：自定义退出状态码<br>注意：脚本中一旦遇到exit命令，脚本会立即终止；终止退出状态取决于exit命<br>令后面的数字<br>注意：如果未给脚本指定退出状态码，整个脚本的退出状态码取决于脚本中执<br>行的最后一条命令的状态码</li>
+</ul>
+<h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><p>bash中的算术运算:help let<br>+, -, <em>, /, %取模（取余）, **（乘方）<br>实现算术运算：<br>(1) let var=算术表达式<br>(2) var=$[算术表达式]<br>(3) var=$((算术表达式))<br>(4) var=$(expr arg1 arg2 arg3 …)<br>(5) declare –i var = 数值<br>(6) echo ‘算术表达式’ | bc<br>乘法符号有些场景中需要转义，如</em><br>bash有内建的随机数生成器：RANDOM（0-32767）<br>echo $[$RANDOM%50] ：0-49之间随机数<br>赋值</p>
+<ul>
+<li>增强型赋值：<br>+=, -=, *=, /=, %=<br>let varOPERvalue<br>例如:let count+=3<br>自加3后自赋值<br>自增，自减：<pre><code>let var+=1
+let var++
+let var-=1
+let var--
+</code></pre></li>
+<li><p>逻辑运算<br>true, false<br>1, 0</p>
+<pre><code>与：
+1 与 1 = 1
+1 与 0 = 0
+0 与 1 = 0
+0 与 0 = 0
+或:
+1 或 1 = 1
+1 或 0 = 1
+0 或 1 = 1
+0 或 0 = 0
+非：！
+! 1 = 0
+! 0 = 1
+</code></pre></li>
 <li><p>短路运算</p>
 </li>
 <li><p>短路与<br>第一个为0，结果必定为0<br>第一个为1，第二个必须要参与运算</p>
@@ -897,15 +937,42 @@ $()或</code><br>括号扩展{}<br>tab命令补全<br>history历史记录</p>
 <li>文件特殊权限测试：<br>-u FILE：是否存在且拥有suid权限<br>-g FILE：是否存在且拥有sgid权限<br>-k FILE：是否存在且拥有sticky权限<br>Bash的文件属性测试</li>
 <li>文件大小测试：<br>-s FILE: 是否存在且非空<br>文件是否打开：<br>-t fd: fd 文件描述符是否在某终端已经打开<br>-N FILE：文件自从上一次被读取之后是否被修改过<br>-O FILE：当前有效用户是否为文件属主<br>-G FILE：当前有效用户是否为文件属组<br>Bash的文件属性测试</li>
 <li>双目测试：<br>FILE1 -ef FILE2: FILE1是否是FILE2的硬链接<br>FILE1 -nt FILE2: FILE1是否新于FILE2（mtime）<br>FILE1 -ot FILE2: FILE1是否旧于FILE2</li>
-<li>Bash的组合测试条件<br>第一种方式：<br>EXPRESSION1 -a EXPRESSION2 并且<br>EXPRESSION1 -o EXPRESSION2 或者<br>! EXPRESSION<br>必须使用测试命令进行<br>第二种方式：<br>COMMAND1 &amp;&amp; COMMAND2 并且<br>COMMAND1 || COMMAND2 或者<br>! COMMAND 非<br>如：[[ -r FILE ]] &amp;&amp; [[ -w FILE ]]<br>逻辑组合<br>根据退出状态而定，命令可以有条件地运行<br>• &amp;&amp; 代表条件性的AND THEN<br>• || 代表条件性的OR ELSE</li>
 </ul>
 <p>使用read命令来接受输入<br>使用read来把输入值分配给一个或多个shell变量<br>-p 指定要显示的提示<br>-s 静默输入，一般用于密码<br>-n N 指定输入的字符长度N<br>-d ‘字符’ 输入结束符<br>-t N TIMEOUT为N秒<br>read 从标准输入中读取值，给每个单词分配一个变量<br>所有剩余单词都被分配给最后一个变量<br>read -p “Enter a filename: “ FILE</p>
-<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><p>过程式编程语言：<br>顺序执行<br>选择执行<br>循环执行<br>条件选择if语句<br>选择执行：<br>注意：if语句可嵌套<br>单分支<br>if 判断条件;then<br>条件为真的分支代码<br>fi<br>双分支<br>if 判断条件; then<br>条件为真的分支代码<br>else<br>条件为假的分支代码<br>fi</p>
+<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><p>过程式编程语言：<br>        顺序执行<br>        选择执行<br>        循环执行<br>条件选择if语句</p>
 <ul>
-<li>if 语句<br>多分支<br>if 判断条件1; then<br>条件为真的分支代码<br>elif 判断条件2; then<br>条件为真的分支代码<br>elif 判断条件3; then<br>条件为真的分支代码<br>else<br>以上条件都为假的分支代码<br>fi<br>逐条件进行判断，第一次遇为“真”条件时，执行其分支，而后结束整个if语句</li>
-<li>条件判断：case语句<br>case 变量引用 in<br>PAT1)<br>分支1<br>;;<br>PAT2)<br>分支2<br>;;<br>…<br>*)<br>默认分支<br>;;<br>esac</li>
+<li>选择执行:</li>
 </ul>
-<p>case支持glob风格的通配符：<br>*: 任意长度任意字符<br>?: 任意单个字符<br>[]：指定范围内的任意单个字符<br>a|b: a或b</p>
+<p>注意：if语句可嵌套<br>单分支<br>        if 判断条件;then<br>        条件为真的分支代码<br>        fi<br>双分支<br>        if 判断条件; then<br>        条件为真的分支代码<br>        else<br>条件为假的分支代码<br>fi</p>
+<ul>
+<li><p>多分支</p>
+<pre><code>if 判断条件1; then
+条件为真的分支代码
+elif 判断条件2; then
+条件为真的分支代码
+elif 判断条件3; then
+条件为真的分支代码
+else
+以上条件都为假的分支代码
+fi
+</code></pre><p>逐条件进行判断，第一次遇为“真”条件时，执行其分支，而后结束整个if语句</p>
+</li>
+<li><p>条件判断：case语句</p>
+<pre><code>case 变量引用 in
+PAT1)
+分支1
+;;
+PAT2)
+分支2
+;;
+...
+*)
+默认分支
+;;
+esac
+</code></pre></li>
+</ul>
+<p>case支持glob风格的通配符：<br>        *: 任意长度任意字符<br>        ?: 任意单个字符<br>        []：指定范围内的任意单个字符<br>        a|b: a或b</p>
 <ul>
 <li>循环</li>
 </ul>
@@ -916,17 +983,21 @@ $()或</code><br>括号扩展{}<br>tab命令补全<br>history历史记录</p>
 </ul>
 <h3 id="函数介绍"><a href="#函数介绍" class="headerlink" title="函数介绍"></a>函数介绍</h3><p>函数function是由若干条shell命令组成的语句块，实现代码重用和模块化编程<br>它与shell程序形式上是相似的，不同的是它不是一个单独的进程，不能独立运<br>行，而是shell程序的一部分<br>函数和shell程序比较相似，区别在于：<br>Shell程序在子Shell中运行<br>而Shell函数在当前Shell中运行。因此在当前Shell中，函数可以对shell中变<br>量进行修改<br>定义函数<br>函数由两部分组成：函数名和函数体<br>help function<br>语法一：<br>f_name （）{<br>…函数体…<br>}<br> 语法二：<br>function f_name {<br>…函数体…<br>}<br> 语法三：<br>function f_name （） {<br>…函数体…<br>}</p>
 <ul>
-<li>函数使用<br>函数的定义和使用：<br>可在交互式环境下定义函数<br>可将函数放在脚本文件中作为它的一部分<br>可放在只包含函数的单独文件中<br>调用：函数只有被调用才会执行<br>调用：给定函数名<br>函数名出现的地方，会被自动替换为函数代码<br>函数的生命周期：被调用时创建，返回时终止<br>函数返回值<br>函数有两种返回值：<br>函数的执行结果返回值：<br>(1) 使用echo等命令进行输出<br>(2) 函数体中调用命令的输出结果<br>函数的退出状态码：<br>(1) 默认取决于函数中执行的最后一条命令的退出状态码<br>(2) 自定义退出状态码，其格式为：<br>return 从函数中返回，用最后状态命令决定返回值<br>return 0 无错误返回。<br>return 1-255 有错误返回<br>交互式环境下定义和使用函数</li>
+<li>函数使用<br>函数的定义和使用：<br>可在交互式环境下定义函数<br>可将函数放在脚本文件中作为它的一部分<br>可放在只包含函数的单独文件中<br>调用：函数只有被调用才会执行<br>调用：给定函数名<br>函数名出现的地方，会被自动替换为函数代码<br>函数的生命周期：被调用时创建，返回时终止函数返回值<br>函数有两种返回值：<br>函数的执行结果返回值：<br>(1) 使用echo等命令进行输出<br>(2) 函数体中调用命令的输出结果<br>函数的退出状态码：<br>(1) 默认取决于函数中执行的最后一条命令的退出状态码<br>(2) 自定义退出状态码，其格式为：<br>return 从函数中返回，用最后状态命令决定返回值<br>return 0 无错误返回。<br>return 1-255 有错误返回<br>交互式环境下定义和使用函数</li>
 </ul>
 <blockquote>
-<p>示例:<br>dir() {<br>ls -l<br>}<br>定义该函数后，若在$后面键入dir，其显示结果同ls -l的作用相同<br>dir<br>该dir函数将一直保留到用户从系统退出，或执行了如下所示的unset命令<br>unset dir<br>在脚本中定义及使用函数<br>函数在使用前必须定义，因此应将函数定义放在脚本开始部分，直至shell首次发现它<br>后才能使用<br>调用函数仅使用其函数名即可<br>示例：<br>cat func1<br>!/bin/bash<br>func1<br>hello()<br>{<br> echo “Hello there today’s date is <code>date +%F</code>“<br>}<br>echo “now going to the function hello”<br>hello<br>echo “back from the function”<br>使用函数文件<br>可以将经常使用的函数存入函数文件，然后将函数文件载入shell<br>文件名可任意选取，但最好与相关任务有某种联系。例如：functions.main<br>一旦函数文件载入shell，就可以在命令行或脚本中调用函数。可以使用set<br>命令查看所有定义的函数，其输出列表包括已经载入shell的所有函数<br>若要改动函数，首先用unset命令从shell中删除函数。改动完毕后，再重新<br>载入此文件</p>
+<p>示例:<br>dir() {<br>ls -l<br>}<br>定义该函数后，若在$后面键入dir，其显示结果同ls -l的作用相同<br>dir<br>该dir函数将一直保留到用户从系统退出，或执行了如下所示的unset命令<br>unset dir<br>在脚本中定义及使用函数<br>函数在使用前必须定义，因此应将函数定义放在脚本开始部分，直至shell首次发现它<br>后才能使用<br>调用函数仅使用其函数名即可<br>示例：<br>cat func1<br>!/bin/bash<br>func1<br>hello()<br>{<br>echo “Hello there today’s date is <code>date +%F</code>“<br>}<br>echo “now going to the function hello”<br>hello<br>echo “back from the function”<br>使用函数文件<br>可以将经常使用的函数存入函数文件，然后将函数文件载入shell<br>文件名可任意选取，但最好与相关任务有某种联系。例如：functions.main<br>一旦函数文件载入shell，就可以在命令行或脚本中调用函数。可以使用set<br>命令查看所有定义的函数，其输出列表包括已经载入shell的所有函数<br>若要改动函数，首先用unset命令从shell中删除函数。改动完毕后，再重新<br>载入此文件</p>
 </blockquote>
 <ul>
-<li><p>创建函数文件<br>函数文件示例：</p>
+<li>创建函数文件</li>
+</ul>
+<p>函数文件示例：</p>
 <blockquote>
-<p>cat functions.main<br>#!/bin/bash<br>#functions.main<br>findit()<br>{<br>if [ $# -lt 1 ] ; then<br>echo “Usage:findit file”<br>return 1<br>fi<br>find / -name $1 –print<br>}</p>
+<p>cat functions.main</p>
+<p>#!/bin/bash</p>
+<p>#functions.main<br>findit()<br>{<br>if [ $# -lt 1 ] ; then<br>echo “Usage:findit file”<br>return 1<br>fi<br>find / -name $1 –print<br>}</p>
 </blockquote>
-</li>
+<ul>
 <li><p>载入函数<br>函数文件已创建好后，要将它载入shell<br>定位函数文件并载入shell的格式：<br>. filename 或 source filename<br>注意：此即&lt;点&gt; &lt;空格&gt; &lt;文件名&gt;<br>这里的文件名要带正确路径</p>
 </li>
 <li><p>检查载入函数<br>使用set命令检查函数是否已载入。set命令将在shell中显示所有的载入函数</p>
@@ -956,7 +1027,7 @@ fact $1
 <ul>
 <li>fork炸弹</li>
 </ul>
-<p>fork炸弹是一种恶意程序，它的内部是一个不断在fork进程的无限循环，实质是<br>一个简单的递归程序。由于程序是递归的，如果没有任何限制，这会导致这个<br>简单的程序迅速耗尽系统里面的所有资源<br>函数实现<br> :(){ :|:&amp; };:<br> bomb() { bomb | bomb &amp; }; bomb<br>脚本实现</p>
+<p>fork炸弹是一种恶意程序，它的内部是一个不断在fork进程的无限循环，实质是<br>一个简单的递归程序。由于程序是递归的，如果没有任何限制，这会导致这个<br>简单的程序迅速耗尽系统里面的所有资源<br>函数实现<br>:(){ :|:&amp; };:<br>bomb() { bomb | bomb &amp; }; bomb  实际上: 代表bomb<br>脚本实现</p>
 <blockquote>
 <p>cat Bomb.sh<br>./$0|./$0&amp;</p>
 </blockquote>
@@ -1089,7 +1160,7 @@ fact $1
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux基础介绍"><span class="nav-number">1.</span> <span class="nav-text">linux基础介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">1.1.</span> <span class="nav-text">操作系统:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装linux"><span class="nav-number">1.2.</span> <span class="nav-text">安装linux:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发接口标准"><span class="nav-number">1.3.</span> <span class="nav-text">开发接口标准:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户和内核空间"><span class="nav-number">1.4.</span> <span class="nav-text">用户和内核空间:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux哲学思想"><span class="nav-number">1.5.</span> <span class="nav-text">linux哲学思想</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单命令"><span class="nav-number">2.</span> <span class="nav-text">简单命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bash基本命令"><span class="nav-number">2.1.</span> <span class="nav-text">bash基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash的基础特性："><span class="nav-number">2.2.</span> <span class="nav-text">bash的基础特性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux命令缩写"><span class="nav-number">2.3.</span> <span class="nav-text">linux命令缩写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关机命令"><span class="nav-number">2.4.</span> <span class="nav-text">关机命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看命令"><span class="nav-number">2.5.</span> <span class="nav-text">查看命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程协助命令"><span class="nav-number">2.6.</span> <span class="nav-text">远程协助命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示命令"><span class="nav-number">2.7.</span> <span class="nav-text">显示命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取帮助"><span class="nav-number">2.8.</span> <span class="nav-text">获取帮助</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作"><span class="nav-number">3.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件系统结构元素"><span class="nav-number">3.1.</span> <span class="nav-text">文件系统结构元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux下的文件类型"><span class="nav-number">3.2.</span> <span class="nav-text">Linux下的文件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示当前工作目录"><span class="nav-number">3.3.</span> <span class="nav-text">显示当前工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改目录"><span class="nav-number">3.4.</span> <span class="nav-text">更改目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列出目录内容"><span class="nav-number">3.5.</span> <span class="nav-text">列出目录内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看文件状态"><span class="nav-number">3.6.</span> <span class="nav-text">查看文件状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建和查看文件"><span class="nav-number">3.7.</span> <span class="nav-text">创建和查看文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件统配符"><span class="nav-number">3.8.</span> <span class="nav-text">文件统配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制和转移删除文件"><span class="nav-number">3.9.</span> <span class="nav-text">复制和转移删除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软和硬链接"><span class="nav-number">3.10.</span> <span class="nav-text">软和硬链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#i-0-重定向至文件"><span class="nav-number">3.11.</span> <span class="nav-text">i/0 重定向至文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">3.12.</span> <span class="nav-text">管道</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户组权限"><span class="nav-number">4.</span> <span class="nav-text">用户组权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户user"><span class="nav-number">4.1.</span> <span class="nav-text">用户user</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组group"><span class="nav-number">4.2.</span> <span class="nav-text">组group</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户创建-useradd"><span class="nav-number">4.3.</span> <span class="nav-text">用户创建:useradd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看用户相关的ID信息"><span class="nav-number">4.4.</span> <span class="nav-text">查看用户相关的ID信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换用户或以其他用户身份执行命令"><span class="nav-number">4.5.</span> <span class="nav-text">切换用户或以其他用户身份执行命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置密码"><span class="nav-number">4.6.</span> <span class="nav-text">设置密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建组"><span class="nav-number">4.7.</span> <span class="nav-text">创建组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件权限"><span class="nav-number">4.8.</span> <span class="nav-text">文件权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文件权限"><span class="nav-number">4.9.</span> <span class="nav-text">修改文件权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本工具"><span class="nav-number">5.</span> <span class="nav-text">文本工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽取文本的工具"><span class="nav-number">5.1.</span> <span class="nav-text">抽取文本的工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示文本前后或后行内容"><span class="nav-number">5.2.</span> <span class="nav-text">显示文本前后或后行内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本排序sort"><span class="nav-number">5.3.</span> <span class="nav-text">文本排序sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式"><span class="nav-number">5.4.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim编辑器"><span class="nav-number">5.5.</span> <span class="nav-text">vim编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索替代"><span class="nav-number">5.6.</span> <span class="nav-text">搜索替代</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件管理"><span class="nav-number">6.</span> <span class="nav-text">软件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#包管理器"><span class="nav-number">6.1.</span> <span class="nav-text">包管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序包管理器"><span class="nav-number">6.2.</span> <span class="nav-text">程序包管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yum"><span class="nav-number">6.3.</span> <span class="nav-text">yum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yum命令"><span class="nav-number">6.4.</span> <span class="nav-text">yum命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序包编译"><span class="nav-number">6.5.</span> <span class="nav-text">程序包编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C语言源代码编译安装三步骤"><span class="nav-number">6.6.</span> <span class="nav-text">C语言源代码编译安装三步骤:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell编程"><span class="nav-number">7.</span> <span class="nav-text">shell编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">7.1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编程基本概念"><span class="nav-number">7.2.</span> <span class="nav-text">编程基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell编程：过程式、解释执行"><span class="nav-number">7.3.</span> <span class="nav-text">shell编程：过程式、解释执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加注释"><span class="nav-number">7.4.</span> <span class="nav-text">添加注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本规范"><span class="nav-number">7.5.</span> <span class="nav-text">脚本规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本的基本结构"><span class="nav-number">7.6.</span> <span class="nav-text">脚本的基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">7.7.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量"><span class="nav-number">7.8.</span> <span class="nav-text">环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#只读和位置变量"><span class="nav-number">7.8.1.</span> <span class="nav-text">只读和位置变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算"><span class="nav-number">7.9.</span> <span class="nav-text">算术运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程控制"><span class="nav-number">7.10.</span> <span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数介绍"><span class="nav-number">7.11.</span> <span class="nav-text">函数介绍</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux基础"><span class="nav-number">1.</span> <span class="nav-text">linux基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.1.</span> <span class="nav-text">介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">1.1.1.</span> <span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装linux"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发接口标准"><span class="nav-number">1.1.3.</span> <span class="nav-text">开发接口标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户和内核空间"><span class="nav-number">1.1.4.</span> <span class="nav-text">用户和内核空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux哲学思想"><span class="nav-number">1.1.5.</span> <span class="nav-text">linux哲学思想</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单命令"><span class="nav-number">1.2.</span> <span class="nav-text">简单命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bash基本命令"><span class="nav-number">1.2.1.</span> <span class="nav-text">bash基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bash的基础特性："><span class="nav-number">1.2.2.</span> <span class="nav-text">bash的基础特性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux命令缩写"><span class="nav-number">1.2.3.</span> <span class="nav-text">linux命令缩写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关机命令"><span class="nav-number">1.2.4.</span> <span class="nav-text">关机命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看命令"><span class="nav-number">1.2.5.</span> <span class="nav-text">查看命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程协助命令"><span class="nav-number">1.2.6.</span> <span class="nav-text">远程协助命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示命令"><span class="nav-number">1.2.7.</span> <span class="nav-text">显示命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取帮助"><span class="nav-number">1.2.8.</span> <span class="nav-text">获取帮助</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作"><span class="nav-number">1.3.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件系统结构元素"><span class="nav-number">1.3.1.</span> <span class="nav-text">文件系统结构元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux下的文件类型"><span class="nav-number">1.3.2.</span> <span class="nav-text">Linux下的文件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示当前工作目录"><span class="nav-number">1.3.3.</span> <span class="nav-text">显示当前工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改目录"><span class="nav-number">1.3.4.</span> <span class="nav-text">更改目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列出目录内容"><span class="nav-number">1.3.5.</span> <span class="nav-text">列出目录内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看文件状态"><span class="nav-number">1.3.6.</span> <span class="nav-text">查看文件状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建和查看文件"><span class="nav-number">1.3.7.</span> <span class="nav-text">创建和查看文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件统配符"><span class="nav-number">1.3.8.</span> <span class="nav-text">文件统配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制和转移删除文件"><span class="nav-number">1.3.9.</span> <span class="nav-text">复制和转移删除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软和硬链接"><span class="nav-number">1.3.10.</span> <span class="nav-text">软和硬链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#i-0-重定向至文件"><span class="nav-number">1.3.11.</span> <span class="nav-text">i/0 重定向至文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">1.3.12.</span> <span class="nav-text">管道</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户组权限"><span class="nav-number">1.4.</span> <span class="nav-text">用户组权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户user"><span class="nav-number">1.4.1.</span> <span class="nav-text">用户user</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组group"><span class="nav-number">1.4.2.</span> <span class="nav-text">组group</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户创建-useradd"><span class="nav-number">1.4.3.</span> <span class="nav-text">用户创建:useradd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看用户相关的ID信息"><span class="nav-number">1.4.4.</span> <span class="nav-text">查看用户相关的ID信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换用户或以其他用户身份执行命令"><span class="nav-number">1.4.5.</span> <span class="nav-text">切换用户或以其他用户身份执行命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置密码"><span class="nav-number">1.4.6.</span> <span class="nav-text">设置密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建组"><span class="nav-number">1.4.7.</span> <span class="nav-text">创建组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件权限"><span class="nav-number">1.4.8.</span> <span class="nav-text">文件权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改文件权限"><span class="nav-number">1.4.9.</span> <span class="nav-text">修改文件权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本工具"><span class="nav-number">1.5.</span> <span class="nav-text">文本工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽取文本的工具"><span class="nav-number">1.5.1.</span> <span class="nav-text">抽取文本的工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示文本前后或后行内容"><span class="nav-number">1.5.2.</span> <span class="nav-text">显示文本前后或后行内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本排序sort"><span class="nav-number">1.5.3.</span> <span class="nav-text">文本排序sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式"><span class="nav-number">1.5.4.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim编辑器"><span class="nav-number">1.5.5.</span> <span class="nav-text">vim编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索替代"><span class="nav-number">1.5.6.</span> <span class="nav-text">搜索替代</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件管理"><span class="nav-number">1.6.</span> <span class="nav-text">软件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#包管理器"><span class="nav-number">1.6.1.</span> <span class="nav-text">包管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序包管理器"><span class="nav-number">1.6.2.</span> <span class="nav-text">程序包管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yum"><span class="nav-number">1.6.3.</span> <span class="nav-text">yum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yum命令"><span class="nav-number">1.6.4.</span> <span class="nav-text">yum命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序包编译"><span class="nav-number">1.6.5.</span> <span class="nav-text">程序包编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C语言源代码编译安装三步骤"><span class="nav-number">1.6.6.</span> <span class="nav-text">C语言源代码编译安装三步骤:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell编程"><span class="nav-number">1.7.</span> <span class="nav-text">shell编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础"><span class="nav-number">1.7.1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编程基本概念"><span class="nav-number">1.7.2.</span> <span class="nav-text">编程基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell编程：过程式、解释执行"><span class="nav-number">1.7.3.</span> <span class="nav-text">shell编程：过程式、解释执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加注释"><span class="nav-number">1.7.4.</span> <span class="nav-text">添加注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本规范"><span class="nav-number">1.7.5.</span> <span class="nav-text">脚本规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">1.7.6.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#只读和位置变量"><span class="nav-number">1.7.6.1.</span> <span class="nav-text">只读和位置变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算"><span class="nav-number">1.7.7.</span> <span class="nav-text">算术运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程控制"><span class="nav-number">1.7.8.</span> <span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数介绍"><span class="nav-number">1.7.9.</span> <span class="nav-text">函数介绍</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
