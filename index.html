@@ -399,7 +399,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/hello-world/" class="post-title-link" itemprop="url">前言</a>
+                <a href="/hello-world/" class="post-title-link" itemprop="url">linux 命令整理</a>
               
             
           </h1>
@@ -441,7 +441,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-24 16:35:40" itemprop="dateModified" datetime="2019-03-24T16:35:40+08:00">2019-03-24</time>
+                <time title="Modified: 2019-03-24 16:37:48" itemprop="dateModified" datetime="2019-03-24T16:37:48+08:00">2019-03-24</time>
               
             
           </span>
@@ -477,7 +477,7 @@
       
         
           
-            <h1 id="linux-命令整理"><a href="#linux-命令整理" class="headerlink" title="linux 命令整理"></a>linux 命令整理</h1><h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p>1 文档管理cat chgrp chmod chown file find  cut in less more mv tee touch which cp read<br>2 文档编辑:grep sed tr sort uniq wc let<br>3 磁盘管理:cd df du mkdir pwd mount stat tree ls<br>4 网络通讯:telnet httpd ifconfig netatat ping tty write<br>5 系统管理:useradd data adduser exit kill ps  pstree top reboot sudo uname who whoami whois w id free<br>6 系统设置:reset clear alias enable rpm set passwd time setup<br>7 备份压缩:zip tar<br>8 其他命令: bc tail</p>
+            <h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p>1 文档管理cat chgrp chmod chown file find  cut in less more mv tee touch which cp read<br>2 文档编辑:grep sed tr sort uniq wc let<br>3 磁盘管理:cd df du mkdir pwd mount stat tree ls<br>4 网络通讯:telnet httpd ifconfig netatat ping tty write<br>5 系统管理:useradd data adduser exit kill ps  pstree top reboot sudo uname who whoami whois w id free<br>6 系统设置:reset clear alias enable rpm set passwd time setup<br>7 备份压缩:zip tar<br>8 其他命令: bc tail</p>
 <h2 id="文档命令"><a href="#文档命令" class="headerlink" title="文档命令"></a>文档命令</h2><h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>全称: concatenate files and print on the standard output<br>cat 命令用于连接文件并打印到标准输出设备上。使用权限:所有使用者<br>语法格式:cat [-AbeEnstTuv] [–help] [–version] fileName<br>参数说明：<br>-n 或 –number：由 1 开始对所有输出的行数编号。<br>-b 或 –number-nonblank：和 -n 相似，只不过对于空白行不编号。<br>-s 或 –squeeze-blank：当遇到有连续两行以上的空白行，就代换为一行的空白行。<br>-v 或 –show-nonprinting：使用 ^ 和 M- 符号，除了 LFD 和 TAB 之外。<br>-E 或 –show-ends : 在每行结束处显示 $。<br>-T 或 –show-tabs: 将 TAB 字符显示为 ^I。<br>-A, –show-all：等价于 -vET。<br>-e：等价于”-vE”选项；<br>-t：等价于”-vT”选项；</p>
 <p>把 textfile1 的文档内容加上行号后输入 textfile2 这个文档里：<br>cat -n textfile1 &gt; textfile2<br>把 textfile1 和 textfile2 的文档内容加上行号（空白行不加）之后将内容附加到 textfile3 文档里：<br>cat -b textfile1 textfile2 &gt;&gt; textfile3<br>清空 /etc/test.txt 文档内容：<br>cat /dev/null &gt; /etc/test.txt<br>cat 也可以用来制作镜像文件。例如要制作软盘的镜像文件，将软盘放好后输入：<br>cat /dev/fd0 &gt; OUTFILE<br>相反的，如果想把 image file 写到软盘，输入：<br>cat IMG_FILE &gt; /dev/fd0<br>注：</p>
 <ol>
