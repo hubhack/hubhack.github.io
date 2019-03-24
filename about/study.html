@@ -154,7 +154,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="命令整理合集1 文档管理cat chgrp chmod chown file find  cut in less more mv tee touch which cp read2 文档编辑:grep sed tr sort uniq wc let3 磁盘管理:cd df du mkdir pwd mount stat tree ls4 网络通讯:telnet httpd ifconfig neta">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-24T08:06:21.040Z">
+<meta property="og:updated_time" content="2019-03-24T08:08:12.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 整理常用命令">
 <meta name="twitter:description" content="命令整理合集1 文档管理cat chgrp chmod chown file find  cut in less more mv tee touch which cp read2 文档编辑:grep sed tr sort uniq wc let3 磁盘管理:cd df du mkdir pwd mount stat tree ls4 网络通讯:telnet httpd ifconfig neta">
@@ -543,7 +543,7 @@
 <p>Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。</p>
 <p>语法<br>sed [-hnV][-e<script>][-f&lt;script文件&gt;][文本文件]<br>参数说明：</p>
 <p>-e<script>或–expression=<script> 以选项中指定的script来处理输入的文本文件。<br>-f&lt;script文件&gt;或–file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件。<br>-h或–help 显示帮助。<br>-n或–quiet或–silent 仅显示script处理后的结果。<br>-V或–version 显示版本信息。<br>动作说明：</p>
-<p>a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～<br>c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！<br>d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；<br>i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；<br>p ：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～<br>s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g 就是啦！</p>
+<p>a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～<br>c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！<br>d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；<br>i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；<br>p ：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～<br>s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法</p>
 <h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><p>Linux sort命令用于将文本文件内容加以排序。</p>
 <p>sort可针对文本文件的内容，以行为单位来排序。</p>
 <p>语法<br>sort [-bcdfimMnr][-o&lt;输出文件&gt;][-t&lt;分隔字符&gt;][+&lt;起始栏位&gt;-&lt;结束栏位&gt;][–help][–verison][文件]<br>参数说明：</p>
