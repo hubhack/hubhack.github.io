@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[随笔]]></title>
+    <url>%2Fk%2F</url>
+    <content type="text"><![CDATA[测试]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[主页]]></title>
+    <url>%2Findex%2F</url>
+    <content type="text"><![CDATA[人生苦短,我用python]]></content>
+  </entry>
+</search>
