@@ -154,7 +154,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="python入门程序是一组让计算机识别和执行的指令开发环境 —-pyenvpython多版本管理工具冯诺依曼体系控制器 运算器 存储器 输入输出(io)内存 掉电易失 与晶振频率有关 临时数据 mermorycpu与内存速度差几个数量级cpu 只认内存 io设备最慢CPU 缓存 cachebus 总线先写源程序 通过编译程序把源程序转换成机器指令的程序python是跑在虚拟机上的 动态语言 做节点">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-26T07:19:07.158Z">
+<meta property="og:updated_time" content="2019-03-26T07:30:55.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python">
 <meta name="twitter:description" content="python入门程序是一组让计算机识别和执行的指令开发环境 —-pyenvpython多版本管理工具冯诺依曼体系控制器 运算器 存储器 输入输出(io)内存 掉电易失 与晶振频率有关 临时数据 mermorycpu与内存速度差几个数量级cpu 只认内存 io设备最慢CPU 缓存 cachebus 总线先写源程序 通过编译程序把源程序转换成机器指令的程序python是跑在虚拟机上的 动态语言 做节点">
@@ -515,7 +515,9 @@
 <p>27后面是-128，最大的正数加下来是最小的负数。这就跟钟表一样，12点钟后面是1点中钟一样。<br>因为它是用补码的编码方式。(下面的看不懂可以直接跳过，或者百度了解之后再看)<br>正数的补码就是它的原码，也就是单纯的二进制数。负数的话，看下面例子：<br>1111 1111这个二进制串，首先它最高位是1，明确他是个负数。<br>那么其余位是111 1111，按位取反得到：000 0000，再加1就是：000 0001<br>也就是1，再加上符号位。最终结果是-1</p>
 <p>补码 从小到大 二进制<br>1000 0000—-0000 0000—-0111 1111<br>首尾相连，刚好连个时钟，最大的加一到最小的</p>
 <p>指针的内容是存储地址在存储器中有大量的存储元，把它们按相同的位划分为组，组内所有的存储元同时进行读出或写入操作，这样的一组存储元称为一个存储单元。一个存储单元通常可以存放一个字节；存储单元是CPU访问存储器的基本单位。</p>
-<h2 id="python虚拟机原理"><a href="#python虚拟机原理" class="headerlink" title="python虚拟机原理"></a>python虚拟机原理</h2>
+<h2 id="python虚拟机原理"><a href="#python虚拟机原理" class="headerlink" title="python虚拟机原理"></a>python虚拟机原理</h2><p>python不单纯是一种解释性语言,也需要编译,需要编译成字节码.然后模仿可执行文件的入栈出栈调成顺序执行.pyc文件中保存这编译而成的字节码,pvm从pycodeobject读取字节码一条一条执行.<br>pycodeobject保存字节码以及进程上下文信息.</p>
+<p>过程:python先把代码(.py)编译成字节码,交给字节码虚拟机,然后虚拟机一条一条执行字节码指令,从而完成程序的执行<br>字节码: 字节码在python虚拟机程序里对应的是pycodecbject 对象<br>.pyc文件字节码在磁盘上的表现形式</p>
+
         
       </div>
       
