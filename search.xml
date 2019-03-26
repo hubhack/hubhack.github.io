@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[随笔]]></title>
+    <title><![CDATA[linux 命令基础大全]]></title>
     <url>%2Fk%2F</url>
-    <content type="text"><![CDATA[测试]]></content>
+    <content type="text"><![CDATA[整理 简单命令关机命令关机:half ,poweroff重启:reboot-f:强制,不调用shutdown-p:切断电源关机或重启:shutdownshutdown [option]..time[message]-r:reboot-h:half-c:canceltime:无指定,默认为+1now:立刻,相当于+0+m:相对时间表示法,几分钟之后;hh:mm相对时间表示法,指明具体时间 查看命令whoamiwhownano 远程协助命令screen -Sscreen -xexitCtrl +a,dscreen -lsscreen -r 显示命令echo-E-n-e\a\b\c\n\shutdown -h +3 mount /dev/sr0 /mnt反向单引号 &#39;&#39;双引号 &quot;&quot;单引号 $()或括号扩展{}tab命令补全history历史记录 获取帮助whatiscommand –helpman and info ###文件系统元数据和数据本身管道 pipe单工socket文件可两个软件互通软连接绿色表示可执行文件,红色表示打包和压缩文件先放在缓存区再写到磁盘绝对路径///一步步写..表示上一级目录.当前目录]]></content>
   </entry>
   <entry>
     <title><![CDATA[主页]]></title>

@@ -147,17 +147,17 @@
 
 
 
-  <meta name="description" content="测试">
+  <meta name="description" content="整理 简单命令关机命令关机:half ,poweroff重启:reboot-f:强制,不调用shutdown-p:切断电源关机或重启:shutdownshutdown [option]..time[message]-r:reboot-h:half-c:canceltime:无指定,默认为+1now:立刻,相当于+0+m:相对时间表示法,几分钟之后;hh:mm相对时间表示法,指明具体时间 查看命令w">
 <meta property="og:type" content="article">
-<meta property="og:title" content="随笔">
+<meta property="og:title" content="linux 命令基础大全">
 <meta property="og:url" content="https://hubhack.github.io/k/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="测试">
+<meta property="og:description" content="整理 简单命令关机命令关机:half ,poweroff重启:reboot-f:强制,不调用shutdown-p:切断电源关机或重启:shutdownshutdown [option]..time[message]-r:reboot-h:half-c:canceltime:无指定,默认为+1now:立刻,相当于+0+m:相对时间表示法,几分钟之后;hh:mm相对时间表示法,指明具体时间 查看命令w">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-26T12:30:47.982Z">
+<meta property="og:updated_time" content="2019-03-26T12:51:52.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="随笔">
-<meta name="twitter:description" content="测试">
+<meta name="twitter:title" content="linux 命令基础大全">
+<meta name="twitter:description" content="整理 简单命令关机命令关机:half ,poweroff重启:reboot-f:强制,不调用shutdown-p:切断电源关机或重启:shutdownshutdown [option]..time[message]-r:reboot-h:half-c:canceltime:无指定,默认为+1now:立刻,相当于+0+m:相对时间表示法,几分钟之后;hh:mm相对时间表示法,指明具体时间 查看命令w">
 
 
 
@@ -176,7 +176,7 @@
   };
 </script>
 
-  <title>随笔 | 千分无言</title>
+  <title>linux 命令基础大全 | 千分无言</title>
   
 
 
@@ -509,7 +509,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">随笔
+          <h1 class="post-title" itemprop="name headline">linux 命令基础大全
 
               
             
@@ -535,7 +535,7 @@
                 
               
 
-              <time title="Created: 2019-03-26 20:19:27 / Modified: 20:30:47" itemprop="dateCreated datePublished" datetime="2019-03-26T20:19:27+08:00">2019-03-26</time>
+              <time title="Created: 2019-03-26 20:19:27 / Modified: 20:51:52" itemprop="dateCreated datePublished" datetime="2019-03-26T20:19:27+08:00">2019-03-26</time>
             
 
             
@@ -574,7 +574,17 @@
       
 
       
-        <p><a href="k/2.jpeg">测试</a></p>
+        <p><a href="k/2.jpeg">整理</a></p>
+<h2 id="简单命令"><a href="#简单命令" class="headerlink" title="简单命令"></a>简单命令</h2><h3 id="关机命令"><a href="#关机命令" class="headerlink" title="关机命令"></a>关机命令</h3><p>关机:half ,poweroff<br>重启:reboot<br>-f:强制,不调用shutdown<br>-p:切断电源<br>关机或重启:shutdown<br>shutdown [option]..time[message]<br>-r:reboot<br>-h:half<br>-c:cancel<br>time:无指定,默认为+1<br>now:立刻,相当于+0<br>+m:相对时间表示法,几分钟之后;<br>hh:mm相对时间表示法,指明具体时间</p>
+<h3 id="查看命令"><a href="#查看命令" class="headerlink" title="查看命令"></a>查看命令</h3><p>whoami<br>who<br>w<br>nano</p>
+<h3 id="远程协助命令"><a href="#远程协助命令" class="headerlink" title="远程协助命令"></a>远程协助命令</h3><p>screen -S<br>screen -x<br>exit<br>Ctrl +a,d<br>screen -ls<br>screen -r</p>
+<h3 id="显示命令"><a href="#显示命令" class="headerlink" title="显示命令"></a>显示命令</h3><p>echo<br>-E<br>-n<br>-e<br>\a<br>\b<br>\c<br>\n<br>\<br>shutdown -h +3</p>
+<p>mount /dev/sr0 /mnt<br><code>反向单引号
+&#39;&#39;双引号
+&quot;&quot;单引号
+$()或</code><br>括号扩展{}<br>tab命令补全<br>history历史记录</p>
+<h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><p>whatis<br>command –help<br>man and info</p>
+<p>###文件系统<br>元数据和数据本身<br>管道  pipe单工<br>socket文件可两个软件互通<br>软连接<br>绿色表示可执行文件,红色表示打包和压缩文件<br>先放在缓存区再写到磁盘<br>绝对路径///一步步写<br>..表示上一级目录<br>.当前目录</p>
 
       
     </div>
@@ -657,8 +667,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -737,6 +756,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单命令"><span class="nav-number">1.</span> <span class="nav-text">简单命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关机命令"><span class="nav-number">1.1.</span> <span class="nav-text">关机命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看命令"><span class="nav-number">1.2.</span> <span class="nav-text">查看命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程协助命令"><span class="nav-number">1.3.</span> <span class="nav-text">远程协助命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示命令"><span class="nav-number">1.4.</span> <span class="nav-text">显示命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取帮助"><span class="nav-number">1.5.</span> <span class="nav-text">获取帮助</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
