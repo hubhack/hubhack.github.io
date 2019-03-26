@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-03-26T12:51:52.896Z</updated>
+  <updated>2019-03-26T13:58:05.164Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,16 +21,15 @@
     <link href="https://hubhack.github.io/k/"/>
     <id>https://hubhack.github.io/k/</id>
     <published>2019-03-26T12:19:27.000Z</published>
-    <updated>2019-03-26T12:51:52.896Z</updated>
+    <updated>2019-03-26T13:58:05.164Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="k/2.jpeg">整理</a></p><h2 id="简单命令"><a href="#简单命令" class="headerlink" title="简单命令"></a>简单命令</h2><h3 id="关机命令"><a href="#关机命令" class="headerlink" title="关机命令"></a>关机命令</h3><p>关机:half ,poweroff<br>重启:reboot<br>-f:强制,不调用shutdown<br>-p:切断电源<br>关机或重启:shutdown<br>shutdown [option]..time[message]<br>-r:reboot<br>-h:half<br>-c:cancel<br>time:无指定,默认为+1<br>now:立刻,相当于+0<br>+m:相对时间表示法,几分钟之后;<br>hh:mm相对时间表示法,指明具体时间</p><h3 id="查看命令"><a href="#查看命令" class="headerlink" title="查看命令"></a>查看命令</h3><p>whoami<br>who<br>w<br>nano</p><h3 id="远程协助命令"><a href="#远程协助命令" class="headerlink" title="远程协助命令"></a>远程协助命令</h3><p>screen -S<br>screen -x<br>exit<br>Ctrl +a,d<br>screen -ls<br>screen -r</p><h3 id="显示命令"><a href="#显示命令" class="headerlink" title="显示命令"></a>显示命令</h3><p>echo<br>-E<br>-n<br>-e<br>\a<br>\b<br>\c<br>\n<br>\<br>shutdown -h +3</p><p>mount /dev/sr0 /mnt<br><code>反向单引号&#39;&#39;双引号&quot;&quot;单引号$()或</code><br>括号扩展{}<br>tab命令补全<br>history历史记录</p><h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><p>whatis<br>command –help<br>man and info</p><p>###文件系统<br>元数据和数据本身<br>管道  pipe单工<br>socket文件可两个软件互通<br>软连接<br>绿色表示可执行文件,红色表示打包和压缩文件<br>先放在缓存区再写到磁盘<br>绝对路径///一步步写<br>..表示上一级目录<br>.当前目录</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="简单命令"><a href="#简单命令" class="headerlink" title="简单命令"></a>简单命令</h2><h3 id="关机命令"><a href="#关机命令" class="headerlink" title="关机命令"></a>关机命令</h3><p>关机:half ,poweroff<br>重启:reboot<br>-f:强制,不调用shutdown<br>-p:切断电源<br>关机或重启:shutdown<br>shutdown [option]..time[message]<br>-r:reboot<br>-h:half<br>-c:cancel<br>time:无指定,默认为+1<br>now:立刻,相当于+0<br>+m:相对时间表示法,几分钟之后;<br>hh:mm相对时间表示法,指明具体时间</p><h3 id="查看命令"><a href="#查看命令" class="headerlink" title="查看命令"></a>查看命令</h3><p>whoami<br>who<br>w<br>nano</p><h3 id="远程协助命令"><a href="#远程协助命令" class="headerlink" title="远程协助命令"></a>远程协助命令</h3><p>screen -S<br>screen -x<br>exit<br>Ctrl +a,d<br>screen -ls<br>screen -r</p><h3 id="显示命令"><a href="#显示命令" class="headerlink" title="显示命令"></a>显示命令</h3><p>echo<br>-E<br>-n<br>-e<br>\a<br>\b<br>\c<br>\n<br>\<br>shutdown -h +3</p><p>mount /dev/sr0 /mnt<br><code>反向单引号&#39;&#39;双引号&quot;&quot;单引号$()或</code><br>括号扩展{}<br>tab命令补全<br>history历史记录</p><h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><p>whatis<br>command –help<br>man and info</p><p>###文件系统<br>元数据和数据本身<br>管道  pipe单工<br>socket文件可两个软件互通<br>软连接<br>绿色表示可执行文件,红色表示打包和压缩文件<br>先放在缓存区再写到磁盘<br>绝对路径///一步步写<br>..表示上一级目录<br>.当前目录</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;a href=&quot;k/2.jpeg&quot;&gt;整理&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;简单命令&quot;&gt;&lt;a href=&quot;#简单命令&quot; class=&quot;headerlink&quot; title=&quot;简单命令&quot;&gt;&lt;/a&gt;简单命令&lt;/h2&gt;&lt;h3 id=&quot;关机命令&quot;&gt;&lt;a href=&quot;#关机命令&quot; cl
+        &lt;h2 id=&quot;简单命令&quot;&gt;&lt;a href=&quot;#简单命令&quot; class=&quot;headerlink&quot; title=&quot;简单命令&quot;&gt;&lt;/a&gt;简单命令&lt;/h2&gt;&lt;h3 id=&quot;关机命令&quot;&gt;&lt;a href=&quot;#关机命令&quot; class=&quot;headerlink&quot; title=&quot;关机命令&quot;&gt;&lt;/a
       
     
     </summary>
