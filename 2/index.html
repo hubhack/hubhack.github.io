@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="计算机基础程序是一组让计算机识别和执行的指令电子计算机:能够执行程序的机器计算机中的冯诺依曼体系:控制器 运算器 存储器 输入输出(io)为什么计算机用二进制是因为计算机只能用高电平和低电平来表示状态,所以用二进制1 0对应高低电平.3.5伏以上为高电平.在内存中又用一个字节表示一个储存单元.即8位 2**8=256种状态   内存 掉电易失 与晶振频率有关 临时数据 mermorycpu与内存速">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-27T16:20:30.612Z">
+<meta property="og:updated_time" content="2019-03-28T01:13:07.926Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python">
 <meta name="twitter:description" content="计算机基础程序是一组让计算机识别和执行的指令电子计算机:能够执行程序的机器计算机中的冯诺依曼体系:控制器 运算器 存储器 输入输出(io)为什么计算机用二进制是因为计算机只能用高电平和低电平来表示状态,所以用二进制1 0对应高低电平.3.5伏以上为高电平.在内存中又用一个字节表示一个储存单元.即8位 2**8=256种状态   内存 掉电易失 与晶振频率有关 临时数据 mermorycpu与内存速">
@@ -497,7 +497,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-28 00:20:30" itemprop="dateModified" datetime="2019-03-28T00:20:30+08:00">2019-03-28</time>
+                <time title="修改时间：2019-03-28 09:13:07" itemprop="dateModified" datetime="2019-03-28T09:13:07+08:00">2019-03-28</time>
               
             
           </span>
@@ -603,8 +603,16 @@
 <p>折半思想可以优化程序</p>
 <h2 id="程序控制"><a href="#程序控制" class="headerlink" title="程序控制"></a>程序控制</h2><p>顺序结构:按照先后顺序一条条执行<br>分支结构:根据不同情况判断,条件满足执行某条件下的语句<br>循环结构:条件满足就反复执行,不满足就不执行或不再执行</p>
 <h2 id="内置类型"><a href="#内置类型" class="headerlink" title="内置类型"></a>内置类型</h2><p>内置对象使程序更容易编写<br>内置对象使扩展的组件<br>内置对象往往比定制的数据结构更有效率<br>内置对象使语言的标准的一部分<br>python的核心数据类型<br>模式匹配</p>
-<h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><p>while 语句<br>whlie condition:<br>    block<br>当他成立则进入循环<br>while true:<br>    pass #死循环 冒号后要形成语句块 死循环都用这个语法<br>例子:</p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>while 语句<br>whlie condition:<br>    block<br>当他成立则进入循环<br>while true:<br>    pass #死循环 冒号后要形成语句块 死循环都用这个语法<br>例子:</p>
 <p>flag = 10<br>while flag:<br>    print(flag)<br>    flag-= 1</p>
+<p>在做循环时,一定要分析边界 边界最容易出错<br>range(1,10) # [1,10) 前包后不包 python大多函数都是前包后不包</p>
+<blockquote>
+<p>for i in range(10):<br>   print(i+1)<br>   i= i+10<br>循环 隐含赋值 原来有什么会被冲掉<br>for相当于遍历 不会重复拿 挨个拿<br>如果要倒着遍历 应当在range函数内加步长-1<br>例子:<br>for i in range(10):<br>    if i %2 == 0:<br>        print(i)</p>
+</blockquote>
+<p>for i in range(10):<br>    if not i % 2:<br>        print(i)<br>not 经常用<br>for i in range (10):<br>    if i &amp;1 == 0:<br>        print(i)</p>
+<p>for i in range(10):<br>    if i &amp; 1:<br>        continue<br>    print(i)</p>
+<p>写程序要减少循环提高效率</p>
+<p>for i in range(10):<br>    if i % 2:<br>        continue<br>    print(i)<br>如果循环嵌套 continue 和break也只影响语句所在的那一层循环</p>
 
       
     </div>
@@ -827,7 +835,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机基础"><span class="nav-number">1.</span> <span class="nav-text">计算机基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python基础介绍"><span class="nav-number">1.1.</span> <span class="nav-text">python基础介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python变量和内存"><span class="nav-number">1.2.</span> <span class="nav-text">python变量和内存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python虚拟机原理"><span class="nav-number">1.2.1.</span> <span class="nav-text">python虚拟机原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原码补码反码"><span class="nav-number">1.2.2.</span> <span class="nav-text">原码补码反码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础语法"><span class="nav-number">2.</span> <span class="nav-text">基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">2.1.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标识符"><span class="nav-number">2.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">2.3.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序控制"><span class="nav-number">2.4.</span> <span class="nav-text">程序控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内置类型"><span class="nav-number">2.5.</span> <span class="nav-text">内置类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#循环"><span class="nav-number">3.</span> <span class="nav-text">循环</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机基础"><span class="nav-number">1.</span> <span class="nav-text">计算机基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python基础介绍"><span class="nav-number">1.1.</span> <span class="nav-text">python基础介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python变量和内存"><span class="nav-number">1.2.</span> <span class="nav-text">python变量和内存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python虚拟机原理"><span class="nav-number">1.2.1.</span> <span class="nav-text">python虚拟机原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原码补码反码"><span class="nav-number">1.2.2.</span> <span class="nav-text">原码补码反码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础语法"><span class="nav-number">2.</span> <span class="nav-text">基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">2.1.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标识符"><span class="nav-number">2.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">2.3.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序控制"><span class="nav-number">2.4.</span> <span class="nav-text">程序控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内置类型"><span class="nav-number">2.5.</span> <span class="nav-text">内置类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-number">2.6.</span> <span class="nav-text">循环</span></a></li></ol></li></ol></div>
             
 
           </div>
