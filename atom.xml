@@ -96,9 +96,9 @@
     <link href="https://hubhack.github.io/5/"/>
     <id>https://hubhack.github.io/5/</id>
     <published>2019-03-19T14:25:34.000Z</published>
-    <updated>2019-03-29T12:17:20.488Z</updated>
+    <updated>2019-03-29T12:47:57.595Z</updated>
     
-    <content type="html"><![CDATA[<pre><code>在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当</code></pre><p>你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它<br>并不真正构造列表。<br>我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结<br>束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代<br>器。list() 函数是另外一个（ 迭代器 ），<br>它从可迭代（对象）中创建列表:迭代器（iterator）是一种对象，<br>它能够用来遍历标准模板库容器中的部分或全部元素，<br>每个迭代器对象代表容器中的确定的地址。迭代器修改了常规指针的接口，<br>所谓迭代器是一种概念上的抽象：那些行为上像迭代器的东西都可以叫做迭代器。<br>然而迭代器有很多不同的能力，它可以把抽象容器和通用算法有机的统一起来。</p><p>整理:3.29</p><p>回顾: 整型分长短,但在python3中已经没有了<br>bool 是整型的子类<br>math.sqrt 看帮助 官方文档<br>bin() 返回的字符串<br>type isinstance<br>list 是可迭代对象<br>index 匹配 count 匹配的次数<br>extend 魔术方法<br>“{},{}”.format(1.2)</p><p>元组 不可变</p><ul><li>随机数</li></ul><p>random模块<br>import random<br>random.randint(1.2)<br>random.choice随机取数字 不均匀<br>for i in range(10):<br>sample 取样</p>]]></content>
+    <content type="html"><![CDATA[<pre><code>在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当</code></pre><p>你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它<br>并不真正构造列表。<br>我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结<br>束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代<br>器。list() 函数是另外一个（ 迭代器 ），<br>它从可迭代（对象）中创建列表:迭代器（iterator）是一种对象，<br>它能够用来遍历标准模板库容器中的部分或全部元素，<br>每个迭代器对象代表容器中的确定的地址。迭代器修改了常规指针的接口，<br>所谓迭代器是一种概念上的抽象：那些行为上像迭代器的东西都可以叫做迭代器。<br>然而迭代器有很多不同的能力，它可以把抽象容器和通用算法有机的统一起来。</p><p>整理:3.29</p><p>回顾: 整型分长短,但在python3中已经没有了<br>bool 是整型的子类<br>math.sqrt 看帮助 官方文档<br>bin() 返回的字符串<br>type isinstance<br>list 是可迭代对象<br>index 匹配 count 匹配的次数<br>extend 魔术方法<br>“{},{}”.format(1.2)</p><ul><li>随机数<br>instantiate 实例<br>fields领域<br>random模块<br>import random<br>random.randint(1.2)<br>random.choice随机取数字 不均匀<br>for i in range(10):<br>sample 取样<br>元组: 不可变<br>命令元组namedtuple attribute属性特性<br>例子:<br>Point = namedtuple(‘Point’,[‘x’,’y’])<br>p = Point(11,y=22)<br>namespace<br>exec 当python语句执行<br>命名元组,返回一个元组的子类,并定义了字段<br>冒泡法 重点<br>map高阶函数 映射<br>aplit 默认使用空白字符分隔<br>maxsplit<br>replace<br>strip 默认去掉字符两端的空白字符<br>find 时间复杂度和index一样遍历<br>format 函数格式字符串语法<br>“{}”.format()<br>参数解构<em><br>“{}”.format(3**0.5)<br>序列都可以用in<br>内置函数 5</em>14 itertor迭代器</li></ul>]]></content>
     
     <summary type="html">
     
