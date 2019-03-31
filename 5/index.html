@@ -17,16 +17,6 @@
 <html class="theme-next pisces use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
-  <script>
-      (function(){
-          if(''){
-              if (prompt('请输入文章密码') !== ''){
-                  alert('密码错误');
-                  history.back();
-              }
-          }
-      })();
-  </script>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
@@ -165,7 +155,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-30T07:40:27.641Z">
+<meta property="og:updated_time" content="2019-03-30T08:26:03.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="草稿">
 <meta name="twitter:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
@@ -327,7 +317,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">2</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">3</span></a>
 
   </li>
         
@@ -346,7 +336,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">5</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">6</span></a>
 
   </li>
         
@@ -506,7 +496,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-30 15:40:27" itemprop="dateModified" datetime="2019-03-30T15:40:27+08:00">2019-03-30</time>
+                <time title="修改时间：2019-03-30 16:26:03" itemprop="dateModified" datetime="2019-03-30T16:26:03+08:00">2019-03-30</time>
               
             
           </span>
@@ -545,11 +535,11 @@
 <p>整理:3.29</p>
 <p>回顾: 整型分长短,但在python3中已经没有了<br>bool 是整型的子类<br>math.sqrt 看帮助 官方文档<br>bin() 返回的字符串<br>type isinstance<br>list 是可迭代对象<br>index 匹配 count 匹配的次数<br>extend 魔术方法<br>“{},{}”.format(1.2)</p>
 <ul>
-<li>随机数<br>instantiate 实例<br>fields领域<br>random模块<br>import random<br>random.randint(1.2)<br>random.choice随机取数字 不均匀<br>for i in range(10):<br>sample 取样<br>元组: 不可变<br>命令元组namedtuple attribute属性特性<br>例子:<br>Point = namedtuple(‘Point’,[‘x’,’y’])<br>p = Point(11,y=22)<br>namespace<br>exec 当python语句执行<br>命名元组,返回一个元组的子类,并定义了字段<br>冒泡法 重点<br>map高阶函数 映射<br>aplit 默认使用空白字符分隔<br>maxsplit<br>replace<br>strip 默认去掉字符两端的空白字符<br>find 时间复杂度和index一样遍历<br>format 函数格式字符串语法<br>“{}”.format()<br>参数解构<em><br>“{}”.format(3**0.5)<br>序列都可以用in<br>内置函数 5</em>14 itertor迭代器</li>
+<li><strong>随机数</strong><br>instantiate 实例<br>fields领域<br>random模块<br>import random<br>random.randint(1.2)<br>random.choice随机取数字 不均匀<br>for i in range(10):<br>sample 取样<br>元组: 不可变<br>命令元组namedtuple attribute属性特性<br>例子:<br>Point = namedtuple(‘Point’,[‘x’,’y’])<br>p = Point(11,y=22)<br>namespace<br>exec 当python语句执行<br>命名元组,返回一个元组的子类,并定义了字段<br>冒泡法 重点<br>map高阶函数 映射<br>aplit 默认使用空白字符分隔<br>maxsplit<br>replace<br>strip 默认去掉字符两端的空白字符<br>find 时间复杂度和index一样遍历<br>format 函数格式字符串语法<br>“{}”.format()<br>参数解构<em><br>“{}”.format(3**0.5)<br>序列都可以用in<br>内置函数 5</em>14 itertor迭代器</li>
 </ul>
 <p>冒泡法:经典排序算法</p>
 <blockquote>
-<p>for i in range(n):<br>   for j in range(n-i):<br>       num[j],num[j+1] = num[j+1],num[j]<br>print()</p>
+<p>for i in range(n):<br>   for j in range(n-i):<br>       num[j],num[j+1] = num[j+1],num[j]<br>print()<br>内置函数说明<br>len(s)<br>返回对象的长度（元素个数）。实参可以是序列（如 string、bytes、tuple、list 或 range 等）或集合（如 dictionary、set 或 frozen set 等）<br>zip()<br>创建一个聚合来自每个可迭代对象中元素的迭代器<br>返回一个元组的迭代器,其中</p>
 </blockquote>
 
       
@@ -581,14 +571,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/6/" rel="next" title="python知识框架">
+                <i class="fa fa-chevron-left"></i> python知识框架
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2/" rel="prev" title="python">
-                python <i class="fa fa-chevron-right"></i>
+              <a href="/3/" rel="prev" title="linux命令整理">
+                linux命令整理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -651,7 +645,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -685,7 +679,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
