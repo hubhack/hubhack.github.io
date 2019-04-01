@@ -148,17 +148,18 @@
 
 
 
-  <meta name="description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
+  <meta name="description" content="第一种方法：用先打印正方形之后打印下三角for i in range (1,10):    line = ‘’    for j in range (1,10):        if i &amp;gt;=j:         line += str (j) +&amp;apos;*&amp;apos;+str(i) +&amp;apos;=&amp;apos;+ str(i*j) + &amp;apos; &amp;apos; print(line)">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="草稿">
-<meta property="og:url" content="https://hubhack.github.io/5/index.html">
+<meta property="og:title" content="99乘法表的不同解法">
+<meta property="og:url" content="https://hubhack.github.io/7/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
+<meta property="og:description" content="第一种方法：用先打印正方形之后打印下三角for i in range (1,10):    line = ‘’    for j in range (1,10):        if i &amp;gt;=j:         line += str (j) +&amp;apos;*&amp;apos;+str(i) +&amp;apos;=&amp;apos;+ str(i*j) + &amp;apos; &amp;apos; print(line)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-30T08:26:03.189Z">
+<meta property="og:updated_time" content="2019-04-01T07:17:01.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="草稿">
-<meta name="twitter:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
+<meta name="twitter:title" content="99乘法表的不同解法">
+<meta name="twitter:description" content="第一种方法：用先打印正方形之后打印下三角for i in range (1,10):    line = ‘’    for j in range (1,10):        if i &amp;gt;=j:         line += str (j) +&amp;apos;*&amp;apos;+str(i) +&amp;apos;=&amp;apos;+ str(i*j) + &amp;apos; &amp;apos; print(line)">
 
 
 
@@ -167,7 +168,7 @@
 
 
 
-  <link rel="canonical" href="https://hubhack.github.io/5/">
+  <link rel="canonical" href="https://hubhack.github.io/7/">
 
 
 
@@ -177,7 +178,7 @@
   };
 </script>
 
-  <title>草稿 | 千分无言</title>
+  <title>99乘法表的不同解法 | 千分无言</title>
   
 
 
@@ -436,7 +437,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/5/">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
@@ -453,7 +454,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">草稿
+          <h1 class="post-title" itemprop="name headline">99乘法表的不同解法
 
               
             
@@ -479,7 +480,7 @@
                 
               
 
-              <time title="创建时间：2019-03-19 22:25:34" itemprop="dateCreated datePublished" datetime="2019-03-19T22:25:34+08:00">2019-03-19</time>
+              <time title="创建时间：2019-03-30 22:25:34" itemprop="dateCreated datePublished" datetime="2019-03-30T22:25:34+08:00">2019-03-30</time>
             
 
             
@@ -496,11 +497,29 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-30 16:26:03" itemprop="dateModified" datetime="2019-03-30T16:26:03+08:00">2019-03-30</time>
+                <time title="修改时间：2019-04-01 15:17:01" itemprop="dateModified" datetime="2019-04-01T15:17:01+08:00">2019-04-01</time>
               
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -530,17 +549,13 @@
       
 
       
-        <pre><code>在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当
-</code></pre><p>你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它<br>并不真正构造列表。<br>我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结<br>束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代<br>器。list() 函数是另外一个（ 迭代器 ），<br>它从可迭代（对象）中创建列表:迭代器（iterator）是一种对象，<br>它能够用来遍历标准模板库容器中的部分或全部元素，<br>每个迭代器对象代表容器中的确定的地址。迭代器修改了常规指针的接口，<br>所谓迭代器是一种概念上的抽象：那些行为上像迭代器的东西都可以叫做迭代器。<br>然而迭代器有很多不同的能力，它可以把抽象容器和通用算法有机的统一起来。</p>
-<p>整理:3.29</p>
-<p>回顾: 整型分长短,但在python3中已经没有了<br>bool 是整型的子类<br>math.sqrt 看帮助 官方文档<br>bin() 返回的字符串<br>type isinstance<br>list 是可迭代对象<br>index 匹配 count 匹配的次数<br>extend 魔术方法<br>“{},{}”.format(1.2)</p>
-<ul>
-<li><strong>随机数</strong><br>instantiate 实例<br>fields领域<br>random模块<br>import random<br>random.randint(1.2)<br>random.choice随机取数字 不均匀<br>for i in range(10):<br>sample 取样<br>元组: 不可变<br>命令元组namedtuple attribute属性特性<br>例子:<br>Point = namedtuple(‘Point’,[‘x’,’y’])<br>p = Point(11,y=22)<br>namespace<br>exec 当python语句执行<br>命名元组,返回一个元组的子类,并定义了字段<br>冒泡法 重点<br>map高阶函数 映射<br>aplit 默认使用空白字符分隔<br>maxsplit<br>replace<br>strip 默认去掉字符两端的空白字符<br>find 时间复杂度和index一样遍历<br>format 函数格式字符串语法<br>“{}”.format()<br>参数解构<em><br>“{}”.format(3**0.5)<br>序列都可以用in<br>内置函数 5</em>14 itertor迭代器</li>
-</ul>
-<p>冒泡法:经典排序算法</p>
-<blockquote>
-<p>for i in range(n):<br>   for j in range(n-i):<br>       num[j],num[j+1] = num[j+1],num[j]<br>print()<br>内置函数说明<br>len(s)<br>返回对象的长度（元素个数）。实参可以是序列（如 string、bytes、tuple、list 或 range 等）或集合（如 dictionary、set 或 frozen set 等）<br>zip()<br>创建一个聚合来自每个可迭代对象中元素的迭代器<br>返回一个元组的迭代器,其中</p>
-</blockquote>
+        <p>第一种方法：用先打印正方形之后打印下三角<br>for i in range (1,10):<br>    line = ‘’<br>    for j in range (1,10):<br>        if i &gt;=j:</p>
+<pre><code>        line += str (j) +&apos;*&apos;+str(i) +&apos;=&apos;+ str(i*j) + &apos; &apos;
+print(line)
+</code></pre><p>第二种用format 格式化字符串<br>for i range(1,10):<br>    line =’’<br>    for j in range(1,10):<br>        line += “{}<em>{}={} “.foramt(j,i,(j</em>i))<br>    print(line)<br>第三种 j的取值范围是（1，i+1）<br>for i in range(1,10):<br>    line =’’<br>    for j in range(1,i+1):<br>         line += ‘{}<em>{}={} ‘.format(j,i,(i</em>j))<br>    print(line,end=’\n’)<br>range 函数可以控制语句 可以当if<br>变形<br>for i in range(1,10):<br>    for j in range(1,i+1):<br>        line = ‘{}<em>{}={} ‘.format(j,i,(i</em>j))<br>        print(line, end=’’)<br>    print()<br>row 是行 column 是列<br>for i in range(1,10):<br>    for j in range(1,i+1):<br>        line = ‘{}<em>{}={} ‘.format(j,i,(i</em>j))<br>        print(line, end=’’)<br>        if  i==j:<br>            print()<br>再变形<br>for i in range(1,10):<br>    for j in range(1,i+1):<br>        if  i==j:<br>            endchar = ‘\n’<br>        else:<br>            endchar = ‘’</p>
+<pre><code>line = &apos;{}*{}={} &apos;.format(j,i,(i*j) ,end = endchar)
+print(line, end=&apos;&apos;)
+</code></pre><p>三元表达式 写法<br>endchar = ‘\n’ if  i==j else ‘’<br>三行 代码写出程序<br>for i in range (1,10):<br>    for j in range(1,i+1):<br>        print(“{}<em>{}={} “.format(j,i,i</em>j) ,end = ‘\n’ if i ==j else ‘’)<br>用列表方式来写 ,最后再解构<br>for i in range(1,10):<br>    line = []<br>    for j in  range(1,i+1):<br>        line.append(“{}<em>{}={} “.format(j,i,i</em>j))<br>    print(<em>line,sep=’ ‘)<br>tip：再括号内换行不用换行符<br>for i in range(1,10):<br>    for j in range(1,i+1):<br>        print(“{}</em>{}={}{}”.format(j,i,j<em>i, ‘’ if  j==2 and i&lt;5 else ‘’),<br>        end= ‘\n’ if  i==j else ‘ ‘)<br>用格式符对齐方式 写<br>for i in range(1,10):<br>    for  j in range(1,i+1):<br>        print(“{}</em>{}={:&lt;2}”.format(j,i,i*j),<br>        end=’\n’ if  i == j else ‘\t’)</p>
 
       
     </div>
@@ -562,6 +577,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
 
       
       
@@ -571,8 +592,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2/" rel="next" title="python入门笔记">
-                <i class="fa fa-chevron-left"></i> python入门笔记
+              <a href="/1/" rel="next" title="linux知识框架">
+                <i class="fa fa-chevron-left"></i> linux知识框架
               </a>
             
           </div>
@@ -581,8 +602,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/3/" rel="prev" title="linux命令整理">
-                linux命令整理 <i class="fa fa-chevron-right"></i>
+              <a href="/6/" rel="prev" title="python知识框架">
+                python知识框架 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
