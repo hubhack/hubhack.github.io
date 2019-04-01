@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="文档编辑grepLinux grep命令用于查找文件里符合条件的字符串。 grep指令用于查找内容包含指定的范本样式的文件，如果发现某文件的内容符合所指定的范本样式，预设grep指令会把含有范本样式的那一列显示出来。若不指定任何文件名称，或是所给予的文件名为”-“，则grep指令会从标准输入设备读取数据。 语法grep [-abcEFGhHilLnqrsvVwxy][-A&amp;lt;显示列数&amp;gt;]">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-01T07:31:34.175Z">
+<meta property="og:updated_time" content="2019-04-01T07:33:53.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux命令整理(2)">
 <meta name="twitter:description" content="文档编辑grepLinux grep命令用于查找文件里符合条件的字符串。 grep指令用于查找内容包含指定的范本样式的文件，如果发现某文件的内容符合所指定的范本样式，预设grep指令会把含有范本样式的那一列显示出来。若不指定任何文件名称，或是所给予的文件名为”-“，则grep指令会从标准输入设备读取数据。 语法grep [-abcEFGhHilLnqrsvVwxy][-A&amp;lt;显示列数&amp;gt;]">
@@ -497,7 +497,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-01 15:31:34" itemprop="dateModified" datetime="2019-04-01T15:31:34+08:00">2019-04-01</time>
+                <time title="修改时间：2019-04-01 15:33:53" itemprop="dateModified" datetime="2019-04-01T15:33:53+08:00">2019-04-01</time>
               
             
           </span>
@@ -553,12 +553,6 @@
 <p>grep指令用于查找内容包含指定的范本样式的文件，如果发现某文件的内容符合所指定的范本样式，预设grep指令会把含有范本样式的那一列显示出来。若不指定任何文件名称，或是所给予的文件名为”-“，则grep指令会从标准输入设备读取数据。</p>
 <p>语法<br>grep [-abcEFGhHilLnqrsvVwxy][-A&lt;显示列数&gt;][-B&lt;显示列数&gt;][-C&lt;显示列数&gt;][-d&lt;进行动作&gt;][-e&lt;范本样式&gt;][-f&lt;范本文件&gt;][–help][范本样式][文件或目录…]<br>参数：</p>
 <p>-a 或 –text : 不要忽略二进制的数据。<br>-A&lt;显示行数&gt; 或 –after-context=&lt;显示行数&gt; : 除了显示符合范本样式的那一列之外，并显示该行之后的内容。<br>-b 或 –byte-offset : 在显示符合样式的那一行之前，标示出该行第一个字符的编号。<br>-B&lt;显示行数&gt; 或 –before-context=&lt;显示行数&gt; : 除了显示符合样式的那一行之外，并显示该行之前的内容。<br>-c 或 –count : 计算符合样式的列数。<br>-C&lt;显示行数&gt; 或 –context=&lt;显示行数&gt;或-&lt;显示行数&gt; : 除了显示符合样式的那一行之外，并显示该行之前后的内容。<br>-d &lt;动作&gt; 或 –directories=&lt;动作&gt; : 当指定要查找的是目录而非文件时，必须使用这项参数，否则grep指令将回报信息并停止动作。<br>-e&lt;范本样式&gt; 或 –regexp=&lt;范本样式&gt; : 指定字符串做为查找文件内容的样式。<br>-E 或 –extended-regexp : 将样式为延伸的普通表示法来使用。<br>-f&lt;规则文件&gt; 或 –file=&lt;规则文件&gt; : 指定规则文件，其内容含有一个或多个规则样式，让grep查找符合规则条件的文件内容，格式为每行一个规则样式。<br>-F 或 –fixed-regexp : 将样式视为固定字符串的列表。<br>-G 或 –basic-regexp : 将样式视为普通的表示法来使用。<br>-h 或 –no-filename : 在显示符合样式的那一行之前，不标示该行所属的文件名称。<br>-H 或 –with-filename : 在显示符合样式的那一行之前，表示该行所属的文件名称。<br>-i 或 –ignore-case : 忽略字符大小写的差别。<br>-l 或 –file-with-matches : 列出文件内容符合指定的样式的文件名称。<br>-L 或 –files-without-match : 列出文件内容不符合指定的样式的文件名称。<br>-n 或 –line-number : 在显示符合样式的那一行之前，标示出该行的列数编号。<br>-o 或 –only-matching : 只显示匹配PATTERN 部分。<br>-q 或 –quiet或–silent : 不显示任何信息。<br>-r 或 –recursive : 此参数的效果和指定”-d recurse”参数相同。<br>-s 或 –no-messages : 不显示错误信息。<br>-v 或 –revert-match : 显示不包含匹配文本的所有行。<br>-V 或 –version : 显示版本信息。<br>-w 或 –word-regexp : 只显示全字符合的列。<br>-x –line-regexp : 只显示全列符合的列。<br>-y : 此参数的效果和指定”-i”参数相同。</p>
-<h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h3><p>Linux sed命令是利用script来处理文本文件。</p>
-<p>sed可依照script的指令，来处理、编辑文本文件。</p>
-<p>Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。</p>
-<p>语法<br>sed [-hnV][-e<script>][-f&lt;script文件&gt;][文本文件]<br>参数说明：</p>
-<p>-e<script>或–expression=<script> 以选项中指定的script来处理输入的文本文件。<br>-f&lt;script文件&gt;或–file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件。<br>-h或–help 显示帮助。<br>-n或–quiet或–silent 仅显示script处理后的结果。<br>-V或–version 显示版本信息。<br>动作说明：</p>
-<p>a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～<br>c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！<br>d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；<br>i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；<br>p ：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～<br>s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法.</p>
 <h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><p>Linux sort命令用于将文本文件内容加以排序。</p>
 <p>sort可针对文本文件的内容，以行为单位来排序。</p>
 <p>语法<br>sort [-bcdfimMnr][-o&lt;输出文件&gt;][-t&lt;分隔字符&gt;][+&lt;起始栏位&gt;-&lt;结束栏位&gt;][–help][–verison][文件]<br>参数说明：</p>
@@ -578,6 +572,12 @@
 <p>-c或–bytes或–chars 只显示Bytes数。<br>-l或–lines 只显示行数。<br>-w或–words 只显示字数。<br>–help 在线帮助。<br>–version 显示版本信息。</p>
 <h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>let 命令是 BASH 中用于计算的工具，用于执行一个或多个表达式，变量计算中不需要加上 $ 来表示变量。如果表达式中包含了空格或其他特殊字符，则必须引起来。</p>
 <p>语法格式<br>let arg [arg …]<br>参数说明：<br>arg：要执行的表达式</p>
+<h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h3><p>Linux sed命令是利用script来处理文本文件。</p>
+<p>sed可依照script的指令，来处理、编辑文本文件。</p>
+<p>Sed主要用来自动编辑一个或多个文件；简化对文件的反复操作；编写转换程序等。</p>
+<p>语法<br>sed [-hnV][-e<script>][-f&lt;script文件&gt;][文本文件]<br>参数说明：</p>
+<p>-e<script>或–expression=<script> 以选项中指定的script来处理输入的文本文件。<br>-f&lt;script文件&gt;或–file=&lt;script文件&gt; 以选项中指定的script文件来处理输入的文本文件。<br>-h或–help 显示帮助。<br>-n或–quiet或–silent 仅显示script处理后的结果。<br>-V或–version 显示版本信息。<br>动作说明：</p>
+<p>a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～<br>c ：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！<br>d ：删除，因为是删除啊，所以 d 后面通常不接任何咚咚；<br>i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；<br>p ：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～<br>s ：取代，可以直接进行取代的工作哩！通常这个 s 的动作可以搭配正规表示法.</p>
 </script></p>
       
     </div>
@@ -614,8 +614,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/3/" rel="next" title="linux命令整理(1)">
-                <i class="fa fa-chevron-left"></i> linux命令整理(1)
+              <a href="/9/" rel="next" title="linux命令整理(3)">
+                <i class="fa fa-chevron-left"></i> linux命令整理(3)
               </a>
             
           </div>
@@ -802,7 +802,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文档编辑"><span class="nav-number">1.</span> <span class="nav-text">文档编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#grep"><span class="nav-number">1.1.</span> <span class="nav-text">grep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed"><span class="nav-number">1.2.</span> <span class="nav-text">sed</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文档编辑"><span class="nav-number">1.</span> <span class="nav-text">文档编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#grep"><span class="nav-number">1.1.</span> <span class="nav-text">grep</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sort"><span class="nav-number">1.2.</span> <span class="nav-text">sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tr"><span class="nav-number">1.3.</span> <span class="nav-text">tr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uniq"><span class="nav-number">1.4.</span> <span class="nav-text">uniq</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wc"><span class="nav-number">1.5.</span> <span class="nav-text">wc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#let"><span class="nav-number">1.6.</span> <span class="nav-text">let</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed"><span class="nav-number">1.7.</span> <span class="nav-text">sed</span></a></li></ol></li></ol></div>
             
 
           </div>
