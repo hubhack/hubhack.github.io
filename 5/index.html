@@ -155,7 +155,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-30T08:26:03.189Z">
+<meta property="og:updated_time" content="2019-04-01T12:09:07.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="草稿">
 <meta name="twitter:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
@@ -496,7 +496,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-30 16:26:03" itemprop="dateModified" datetime="2019-03-30T16:26:03+08:00">2019-03-30</time>
+                <time title="修改时间：2019-04-01 20:09:07" itemprop="dateModified" datetime="2019-04-01T20:09:07+08:00">2019-04-01</time>
               
             
           </span>
@@ -539,7 +539,22 @@
 </ul>
 <p>冒泡法:经典排序算法</p>
 <blockquote>
-<p>for i in range(n):<br>   for j in range(n-i):<br>       num[j],num[j+1] = num[j+1],num[j]<br>print()<br>内置函数说明<br>len(s)<br>返回对象的长度（元素个数）。实参可以是序列（如 string、bytes、tuple、list 或 range 等）或集合（如 dictionary、set 或 frozen set 等）<br>zip()<br>创建一个聚合来自每个可迭代对象中元素的迭代器<br>返回一个元组的迭代器,其中</p>
+<p>for i in range(n):<br>   for j in range(n-i):<br>       num[j],num[j+1] = num[j+1],num[j]<br>print()<br>内置函数说明<br>len(s)<br>返回对象的长度（元素个数）。实参可以是序列（如 string、bytes、tuple、list 或 range 等）或集合（如 dictionary、set 或 frozen set 等）<br>zip()<br>创建一个聚合来自每个可迭代对象中元素的迭代器<br>返回一个元组的迭代器,其中<br>我们已经知道,可以直接作用于for循环的数据类型有以下几种:<br>一类是集合数据类型,如list tuple dictionary set str<br>一类是generator ,包括生成器和带yield的generator function<br>这些可以直接作用于for循环的对象统称为可迭代对象:iterable<br>而生成器不但可以作用于for循环,还可以被next()函数不断调用并返回下一个值,直到最后抛出stopiteration错误表示无法继续返回下一个值.</p>
+</blockquote>
+<h1 id="pythonnic"><a href="#pythonnic" class="headerlink" title="pythonnic"></a>pythonnic</h1><p>Python的世界里你会听到这个词”Pythonic”，大概就是指代码符合Python的惯用法，使用的都是Python的语法糖(我觉得可以翻译为『地道』)。比如从其他语言转到Python 的写出来的代码很可能受到以前思维方式的影响(别像 java 一样写一堆 getter/setter)，写出来的代码不够Pythonic: 比如:</p>
+<h1 id="不够Pythonic"><a href="#不够Pythonic" class="headerlink" title="不够Pythonic"></a>不够Pythonic</h1><p>if a &lt; b and a &gt; c:<br>    pass</p>
+<h1 id="python里却可以这么写"><a href="#python里却可以这么写" class="headerlink" title="python里却可以这么写"></a>python里却可以这么写</h1><p>if c &lt; a &lt; b:<br>    pass</p>
+<h1 id="bad"><a href="#bad" class="headerlink" title="bad"></a>bad</h1><p>i = 0<br>while i &lt; mylist_length:<br>    do_something(mylist[i])<br>    i += 1</p>
+<h1 id="good"><a href="#good" class="headerlink" title="good"></a>good</h1><p>for element in mylist:<br>   do_something(element)</p>
+<h1 id="bad-不要使用默认可变对象作为默认参数"><a href="#bad-不要使用默认可变对象作为默认参数" class="headerlink" title="bad, 不要使用默认可变对象作为默认参数"></a>bad, 不要使用默认可变对象作为默认参数</h1><p>def f(a, b=[])<br>    pass</p>
+<h1 id="good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题"><a href="#good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题" class="headerlink" title="good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题"></a>good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题</h1><p>def f(a, b=None):<br>    if b is None:<br>        b = []<br>Python有一些语法上的坑，比如默认参数只计算一次，不要使用可变类型作为默认参数等，看多了写多了就知道了。尤其是可变类型作为函数参数传入后被改变的情况（函数尽量不要有副作用,这里副作用指的就是修改了传入的可变参数的值），尤其要注意。</p>
+<h1 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式:"></a>列表生成式:</h1><p>list comprehensions 是python内置的非常简单却强大的可以用来创建list的生成式<br>举个例子 ,要生成list[1,2,3,4,5,6,7,8,9]可以用list(range(1,11))<br>但如果要生成[1x1, 2x2, 3x3, …, 10x10]怎么做？方法一是循环：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>L = []<br>for x in range(1, 11):<br>…    L.append(x * x)<br>…<br>L<br>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</p>
+</blockquote>
+</blockquote>
 </blockquote>
 
       
@@ -627,8 +642,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -739,6 +763,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pythonnic"><span class="nav-number">1.</span> <span class="nav-text">pythonnic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不够Pythonic"><span class="nav-number">2.</span> <span class="nav-text">不够Pythonic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python里却可以这么写"><span class="nav-number">3.</span> <span class="nav-text">python里却可以这么写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad"><span class="nav-number">4.</span> <span class="nav-text">bad</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good"><span class="nav-number">5.</span> <span class="nav-text">good</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad-不要使用默认可变对象作为默认参数"><span class="nav-number">6.</span> <span class="nav-text">bad, 不要使用默认可变对象作为默认参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题"><span class="nav-number">7.</span> <span class="nav-text">good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表生成式"><span class="nav-number">8.</span> <span class="nav-text">列表生成式:</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
