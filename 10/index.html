@@ -148,17 +148,18 @@
 
 
 
-  <meta name="description" content="学习之路   笔者也是菜鸟一枚,但偏爱代码.在学习的路上希望与各位一起交流进步.该博客会不定时与各位分享一点经验和方法,也会分享一些比较好玩的东西.大爱python. 学习之路本是痛苦的,但在学会之后慢慢应用于实际中是很有成就感的一件事.学习python也是如此,初期入门可以做点自己感兴趣的项目加以练习.慢慢就会变成编程大神. 这个过程总结为:从看会别人的代码变为自己可以讲述给别人的知识,最后反复">
-<meta property="og:type" content="website">
-<meta property="og:title" content="千分无言">
-<meta property="og:url" content="https://hubhack.github.io/about/index.html">
+  <meta name="description" content="求素数算法剖析n = 100for i in range(2,n):    for x in range(2 ,int(i**0.5)+1):        if i % x == 0:            break    else:        count +=1        print(x)当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算素数和杨辉三角">
+<meta property="og:url" content="https://hubhack.github.io/10/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="学习之路   笔者也是菜鸟一枚,但偏爱代码.在学习的路上希望与各位一起交流进步.该博客会不定时与各位分享一点经验和方法,也会分享一些比较好玩的东西.大爱python. 学习之路本是痛苦的,但在学会之后慢慢应用于实际中是很有成就感的一件事.学习python也是如此,初期入门可以做点自己感兴趣的项目加以练习.慢慢就会变成编程大神. 这个过程总结为:从看会别人的代码变为自己可以讲述给别人的知识,最后反复">
+<meta property="og:description" content="求素数算法剖析n = 100for i in range(2,n):    for x in range(2 ,int(i**0.5)+1):        if i % x == 0:            break    else:        count +=1        print(x)当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-27T04:34:40.473Z">
+<meta property="og:updated_time" content="2019-04-03T02:55:20.931Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="千分无言">
-<meta name="twitter:description" content="学习之路   笔者也是菜鸟一枚,但偏爱代码.在学习的路上希望与各位一起交流进步.该博客会不定时与各位分享一点经验和方法,也会分享一些比较好玩的东西.大爱python. 学习之路本是痛苦的,但在学会之后慢慢应用于实际中是很有成就感的一件事.学习python也是如此,初期入门可以做点自己感兴趣的项目加以练习.慢慢就会变成编程大神. 这个过程总结为:从看会别人的代码变为自己可以讲述给别人的知识,最后反复">
+<meta name="twitter:title" content="算素数和杨辉三角">
+<meta name="twitter:description" content="求素数算法剖析n = 100for i in range(2,n):    for x in range(2 ,int(i**0.5)+1):        if i % x == 0:            break    else:        count +=1        print(x)当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继">
 
 
 
@@ -167,7 +168,7 @@
 
 
 
-  <link rel="canonical" href="https://hubhack.github.io/about/">
+  <link rel="canonical" href="https://hubhack.github.io/10/">
 
 
 
@@ -177,7 +178,7 @@
   };
 </script>
 
-  <title> | 千分无言</title>
+  <title>算素数和杨辉三角 | 千分无言</title>
   
 
 
@@ -343,7 +344,7 @@
         
         
           
-          <li class="menu-item menu-item-about menu-item-active">
+          <li class="menu-item menu-item-about">
 
     
     
@@ -416,83 +417,209 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mwq">
+      <meta itemprop="description" content="IT知识共享,与各位共同学习">
+      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千分无言">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <center>学习之路</center>
+          <h1 class="post-title" itemprop="name headline">算素数和杨辉三角
 
-<ul>
-<li>笔者也是菜鸟一枚,但偏爱代码.在学习的路上希望与各位一起交流进步.该博客会不定时与各位分享一点经验<br>和方法,也会分享一些比较好玩的东西.大爱python.</li>
-<li>学习之路本是痛苦的,但在学会之后慢慢应用于实际中是很有成就感的一件事.学习python也是如此,初期入门<br>可以做点自己感兴趣的项目加以练习.慢慢就会变成编程大神. 这个过程总结为:从看会别人的代码变为自己可<br>以讲述给别人的知识,最后反复专研达到企业应用的技能(一万小时定律). 在逐渐学习中要循序渐进,前期以看<br>视频和书为主,中期去网上找一些感兴趣的项目练习,到后面反复锤炼专研达到行业领域的专家级别水准.</li>
-<li>笔者会把自己学习的路程每天记录下来,希望可以在慢慢学习的时间里让自己变得更强大.</li>
-<li>平时以培养编程思维为主,代码次之,一定要细心,不可急躁.注重培养企业工程思维(每天做文档归类总结).不<br>要害怕各种困难要知难而上.做事情也和编程一样,这个编程模块逻辑没写完,下一个功能就不要做.要一点一点<br>来.不要看到以后知识有多难而心生畏惧.打败你的敌人永远是你自己.所有的编程语言做开发都是希望可以让<br>电脑来代替人的工作,切勿本末倒置.</li>
-<li>人生路漫漫,选择自己喜欢的事.</li>
-<li>祝各位朋友早日找到自己满意的工作.</li>
-</ul>
-
+              
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-03 10:46:44 / 修改时间：10:55:20" itemprop="dateCreated datePublished" datetime="2019-04-03T10:46:44+08:00">2019-04-03</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="求素数算法剖析"><a href="#求素数算法剖析" class="headerlink" title="求素数算法剖析"></a>求素数算法剖析</h1><p>n = 100<br>for i in range(2,n):<br>    for x in range(2 ,int(i**0.5)+1):<br>        if i % x == 0:<br>            break<br>    else:<br>        count +=1<br>        print(x)<br>当迭代对象完成所有迭代后且此时的迭代对象为空时，<br>如果存在else子句则执行else子句，没有则继续执行后续代码；<br>如果迭代对象因为某种原因（如带有break关键字）提前退出迭代，<br>则else子句不会被执行，程序将会直接跳过else子句继续执行后续代码<br>text<br>a = 1<br>b = 1<br>print(a is b)<br>print(id(a))<br>c=2<br>print(id(c))<br>d =588888<br>print(id(d))<br>e = 3<br>print(id(e))<br>杨辉三角<br>预先构成前两行 从而推到后面的所有行<br>triandle = [[1],[1,1]]<br>哈希 空间  散列值 值域</p>
+<p>for i in range(2,6):<br>    cur = [1]<br>    pre = triandle[i -1]<br>    for j in range(i-1):<br>        cur.append(pre[j] + pre[j + 1])<br>    cur.append(1)<br>    triandle.append(cur)</p>
+<p>print(triandle)</p>
+<p>变形<br>triandle = []<br>n = 6<br>for i in range(n):<br>    cur = [1]<br>    triandle.append(cur)</p>
+<pre><code>if  i==0:continue
+pre = triandle[i -1]
+for  j in range(i -1):
+    cur.append(pre[j] + pre[j + 1])
+cur.append(1)
+</code></pre><p>print(triandle)<br>补零法<br>n = 6<br>newline = [1]<br>print(newline)</p>
+<p>for  i in range(1,n):<br>    oldline = newline.copy()<br>    oldline.append(0)<br>    newline.clear()</p>
+<pre><code>for j in range(i+1):
+    newline.append(oldline[j -1] + oldline[j])
+
+print(newline)
+</code></pre><p>对称性 一次性开辟空间,可以使用列表或者循环迭代的方式<br>能不能减少一半的数字计算 .左右对称</p>
+<p>triandle = []<br>n = 6<br>for i in range(n):<br>    row = [1] * (i + 1)<br>    triandle.append(row)</p>
+<pre><code>for j in range(1,i//2+1):
+    val = triandle[i-1][j-1] + triandle[i -1][j]
+    row[j]  = val
+    row[-j-1] = val
+</code></pre><p>print(triandle)<br>triangle = []<br>n = 6<br>for i in range(n):<br>    row = [1] <em>(i +1)<br>    triangle.append(row)<br>    for  j in range(i,i//2+1):<br>        val = triangle[i-1][j-1] + triangle[i -1][j]<br>        row[j] = val<br>        if  i != 2</em>j:<br>            row[-j-i] = val<br>print(triangle)<br>单行覆盖<br>n = 6<br>row = [1] <em>n<br>print(row)<br>print(‘_’ </em> 30)</p>
+<p>for  i in range(n):<br>    for j in range(i//2):<br>        val = row[j] + row[j+1]<br>        row[j+1]=val<br>        if i != 2* (j+1):<br>            row[i-(j+1)] =val<br>    print(row[:i+1])<br>最笨方法 算素数<br>n = 100<br>for i in range(2,n):<br>    count = 0<br>    for j in range(2,int(i**0.5)+1):<br>        if i %j ==0 :<br>            break<br>    else:<br>        count +=1<br>        print(i,end=’ ‘)</p>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/7/" rel="next" title="99乘法表的不同解法">
+                <i class="fa fa-chevron-left"></i> 99乘法表的不同解法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -521,8 +648,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -633,6 +769,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#求素数算法剖析"><span class="nav-number">1.</span> <span class="nav-text">求素数算法剖析</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
