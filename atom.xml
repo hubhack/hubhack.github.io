@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-04-03T02:55:20.931Z</updated>
+  <updated>2019-04-03T02:55:59.385Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hubhack.github.io/10/"/>
     <id>https://hubhack.github.io/10/</id>
     <published>2019-04-03T02:46:44.955Z</published>
-    <updated>2019-04-03T02:55:20.931Z</updated>
+    <updated>2019-04-03T02:55:59.385Z</updated>
     
     <content type="html"><![CDATA[<h1 id="求素数算法剖析"><a href="#求素数算法剖析" class="headerlink" title="求素数算法剖析"></a>求素数算法剖析</h1><p>n = 100<br>for i in range(2,n):<br>    for x in range(2 ,int(i**0.5)+1):<br>        if i % x == 0:<br>            break<br>    else:<br>        count +=1<br>        print(x)<br>当迭代对象完成所有迭代后且此时的迭代对象为空时，<br>如果存在else子句则执行else子句，没有则继续执行后续代码；<br>如果迭代对象因为某种原因（如带有break关键字）提前退出迭代，<br>则else子句不会被执行，程序将会直接跳过else子句继续执行后续代码<br>text<br>a = 1<br>b = 1<br>print(a is b)<br>print(id(a))<br>c=2<br>print(id(c))<br>d =588888<br>print(id(d))<br>e = 3<br>print(id(e))<br>杨辉三角<br>预先构成前两行 从而推到后面的所有行<br>triandle = [[1],[1,1]]<br>哈希 空间  散列值 值域</p><p>for i in range(2,6):<br>    cur = [1]<br>    pre = triandle[i -1]<br>    for j in range(i-1):<br>        cur.append(pre[j] + pre[j + 1])<br>    cur.append(1)<br>    triandle.append(cur)</p><p>print(triandle)</p><p>变形<br>triandle = []<br>n = 6<br>for i in range(n):<br>    cur = [1]<br>    triandle.append(cur)</p><pre><code>if  i==0:continuepre = triandle[i -1]for  j in range(i -1):    cur.append(pre[j] + pre[j + 1])cur.append(1)</code></pre><p>print(triandle)<br>补零法<br>n = 6<br>newline = [1]<br>print(newline)</p><p>for  i in range(1,n):<br>    oldline = newline.copy()<br>    oldline.append(0)<br>    newline.clear()</p><pre><code>for j in range(i+1):    newline.append(oldline[j -1] + oldline[j])print(newline)</code></pre><p>对称性 一次性开辟空间,可以使用列表或者循环迭代的方式<br>能不能减少一半的数字计算 .左右对称</p><p>triandle = []<br>n = 6<br>for i in range(n):<br>    row = [1] * (i + 1)<br>    triandle.append(row)</p><pre><code>for j in range(1,i//2+1):    val = triandle[i-1][j-1] + triandle[i -1][j]    row[j]  = val    row[-j-1] = val</code></pre><p>print(triandle)<br>triangle = []<br>n = 6<br>for i in range(n):<br>    row = [1] <em>(i +1)<br>    triangle.append(row)<br>    for  j in range(i,i//2+1):<br>        val = triangle[i-1][j-1] + triangle[i -1][j]<br>        row[j] = val<br>        if  i != 2</em>j:<br>            row[-j-i] = val<br>print(triangle)<br>单行覆盖<br>n = 6<br>row = [1] <em>n<br>print(row)<br>print(‘_’ </em> 30)</p><p>for  i in range(n):<br>    for j in range(i//2):<br>        val = row[j] + row[j+1]<br>        row[j+1]=val<br>        if i != 2* (j+1):<br>            row[i-(j+1)] =val<br>    print(row[:i+1])<br>最笨方法 算素数<br>n = 100<br>for i in range(2,n):<br>    count = 0<br>    for j in range(2,int(i**0.5)+1):<br>        if i %j ==0 :<br>            break<br>    else:<br>        count +=1<br>        print(i,end=’ ‘)</p>]]></content>
     
@@ -34,10 +34,10 @@
     
     </summary>
     
-      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
+      <category term="算法" scheme="https://hubhack.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
+      <category term="算法" scheme="https://hubhack.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
