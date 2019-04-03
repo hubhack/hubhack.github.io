@@ -148,18 +148,18 @@
 
 
 
-  <meta name="description" content="求素数算法剖析 简单解法n = 100for i in range(2,n):  for x in range(2 ,int(i**0.5)+1):if i % x == 0:     break   else:count +=1 print(x) for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因为某">
+  <meta name="description" content="求素数算法剖析 简单解法n = 100for i in range(2,n):  for x in range(2 ,int(i**0.5)+1): if i % x == 0:     break   else: count +=1 print(x) for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算素数和杨辉三角">
 <meta property="og:url" content="https://hubhack.github.io/10/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="求素数算法剖析 简单解法n = 100for i in range(2,n):  for x in range(2 ,int(i**0.5)+1):if i % x == 0:     break   else:count +=1 print(x) for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因为某">
+<meta property="og:description" content="求素数算法剖析 简单解法n = 100for i in range(2,n):  for x in range(2 ,int(i**0.5)+1): if i % x == 0:     break   else: count +=1 print(x) for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-03T02:59:15.222Z">
+<meta property="og:updated_time" content="2019-04-03T05:59:57.991Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算素数和杨辉三角">
-<meta name="twitter:description" content="求素数算法剖析 简单解法n = 100for i in range(2,n):  for x in range(2 ,int(i**0.5)+1):if i % x == 0:     break   else:count +=1 print(x) for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因为某">
+<meta name="twitter:description" content="求素数算法剖析 简单解法n = 100for i in range(2,n):  for x in range(2 ,int(i**0.5)+1): if i % x == 0:     break   else: count +=1 print(x) for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因">
 
 
 
@@ -480,7 +480,7 @@
                 
               
 
-              <time title="创建时间：2019-04-03 10:46:44 / 修改时间：10:59:15" itemprop="dateCreated datePublished" datetime="2019-04-03T10:46:44+08:00">2019-04-03</time>
+              <time title="创建时间：2019-04-03 10:46:44 / 修改时间：13:59:57" itemprop="dateCreated datePublished" datetime="2019-04-03T10:46:44+08:00">2019-04-03</time>
             
 
             
@@ -538,12 +538,22 @@
 
       
         <h1 id="求素数算法剖析"><a href="#求素数算法剖析" class="headerlink" title="求素数算法剖析"></a>求素数算法剖析</h1><ul>
-<li>简单解法<br>n = 100<br>for i in range(2,n):<br>  for x in range(2 ,int(i**0.5)+1):<pre><code>if i % x == 0:
+<li><p>简单解法<br>n = 100<br>for i in range(2,n):<br>  for x in range(2 ,int(i**0.5)+1):</p>
+<pre><code>if i % x == 0:
     break
-</code></pre>  else:<pre><code>count +=1
+</code></pre><p>  else:</p>
+<pre><code>count +=1
 print(x)
-</code></pre>for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因为某种原因（如带有break关键字）提前退出迭代，则else子句不会被执行，程序将会直接跳过else子句继续执行后续代码.</li>
+</code></pre><p>for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因为某种原因（如带有break关键字）提前退出迭代，则else子句不会被执行，程序将会直接跳过else子句继续执行后续代码.</p>
+</li>
+<li><p>使用奇数</p>
+</li>
 </ul>
+<p>n = 100<br>count = 1<br>for x in range(3,n,2):<br>    for i in range(3,int(x**0.5)+1,2):<br>        if x % i ==0:<br>            break<br>    else:<br>        count += 1<br>print (count)</p>
+<ul>
+<li>储存质素</li>
+</ul>
+<p>合数一定可以分解为几个质数的乘积,2是质数<br>质数一定不能整除1和本身之内的整数<br>n = 100<br>count = 1<br>pre<br>for x in range(3,n,2):<br>    for i in primenumbers:<br>        if x % i == 0:<br>            break<br>    else:<br>        premenumber.append(x)<br>        count +=1<br>print(count)</p>
 <h1 id="杨辉三角"><a href="#杨辉三角" class="headerlink" title="杨辉三角"></a>杨辉三角</h1><p>预先构成前两行 从而推到后面的所有行<br>triandle = [[1],[1,1]]<br>for i in range(2,6):<br>    cur = [1]<br>    pre = triandle[i -1]<br>    for j in range(i-1):<br>        cur.append(pre[j] + pre[j + 1])<br>    cur.append(1)<br>    triandle.append(cur)<br>print(triandle)</p>
 <p>变形<br>triandle = []<br>n = 6<br>for i in range(n):<br>    cur = [1]<br>    triandle.append(cur)</p>
 <pre><code>if  i==0:continue
