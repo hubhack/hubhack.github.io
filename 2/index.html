@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="计算机基础程序是一组让计算机识别和执行的指令电子计算机:能够执行程序的机器计算机中的冯诺依曼体系:控制器 运算器 存储器 输入输出(io)为什么计算机用二进制是因为计算机只能用高电平和低电平来表示状态,所以用二进制1 0对应高低电平.3.5伏以上为高电平.在内存中又用一个字节表示一个储存单元.即8位 2**8=256种状态   内存 掉电易失 与晶振频率有关 临时数据 mermorycpu与内存速">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-30T10:56:20.283Z">
+<meta property="og:updated_time" content="2019-04-07T01:11:38.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python入门笔记">
 <meta name="twitter:description" content="计算机基础程序是一组让计算机识别和执行的指令电子计算机:能够执行程序的机器计算机中的冯诺依曼体系:控制器 运算器 存储器 输入输出(io)为什么计算机用二进制是因为计算机只能用高电平和低电平来表示状态,所以用二进制1 0对应高低电平.3.5伏以上为高电平.在内存中又用一个字节表示一个储存单元.即8位 2**8=256种状态   内存 掉电易失 与晶振频率有关 临时数据 mermorycpu与内存速">
@@ -497,7 +497,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-30 18:56:20" itemprop="dateModified" datetime="2019-03-30T18:56:20+08:00">2019-03-30</time>
+                <time title="修改时间：2019-04-07 09:11:38" itemprop="dateModified" datetime="2019-04-07T09:11:38+08:00">2019-04-07</time>
               
             
           </span>
@@ -612,7 +612,21 @@
 <p>for i in range(10):<br>    if not i % 2:<br>        print(i)<br>not 经常用<br>for i in range (10):<br>    if i &amp;1 == 0:<br>        print(i)</p>
 <p>for i in range(10):<br>    if i &amp; 1:<br>        continue<br>    print(i)</p>
 <p>写程序要减少循环提高效率</p>
-<p>for i in range(10):<br>    if i % 2:<br>        continue<br>    print(i)<br>如果循环嵌套 continue 和break也只影响语句所在的那一层循环</p>
+<p>for i in range(10):<br>    if i % 2:<br>        continue<br>    print(i)</p>
+<p>如果循环嵌套 continue 和break也只影响语句所在的那一层循环</p>
+<h1 id="迭代器和生成器"><a href="#迭代器和生成器" class="headerlink" title="迭代器和生成器"></a>迭代器和生成器</h1><p>我们已经知道，可以直接作用于for循环的数据类型有以下几种：</p>
+<p>一类是集合数据类型，如list、tuple、dict、set、str等；</p>
+<p>一类是generator，包括生成器和带yield的generator function。</p>
+<p>这些可以直接作用于for循环的对象统称为可迭代对象：Iterable。</p>
+<p>可以使用isinstance()判断一个对象是否是Iterable对象：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>from collections import Iterable<br>isinstance([], Iterable)<br>True<br>isinstance({}, Iterable)<br>True<br>isinstance(‘abc’, Iterable)<br>True<br>isinstance((x for x in range(10)), Iterable)<br>True<br>isinstance(100, Iterable)<br>False<br>而生成器不但可以作用于for循环，还可以被next()函数不断调用并返回下一个值，直到最后抛出StopIteration错误表示无法继续返回下一个值了。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator.</p>
 
       
     </div>
@@ -841,7 +855,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机基础"><span class="nav-number">1.</span> <span class="nav-text">计算机基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python基础介绍"><span class="nav-number">1.1.</span> <span class="nav-text">python基础介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python变量和内存"><span class="nav-number">1.2.</span> <span class="nav-text">python变量和内存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python虚拟机原理"><span class="nav-number">1.2.1.</span> <span class="nav-text">python虚拟机原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原码补码反码"><span class="nav-number">1.2.2.</span> <span class="nav-text">原码补码反码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础语法"><span class="nav-number">2.</span> <span class="nav-text">基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">2.1.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标识符"><span class="nav-number">2.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">2.3.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序控制"><span class="nav-number">2.4.</span> <span class="nav-text">程序控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内置类型"><span class="nav-number">2.5.</span> <span class="nav-text">内置类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-number">2.6.</span> <span class="nav-text">循环</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机基础"><span class="nav-number">1.</span> <span class="nav-text">计算机基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#python基础介绍"><span class="nav-number">1.1.</span> <span class="nav-text">python基础介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python变量和内存"><span class="nav-number">1.2.</span> <span class="nav-text">python变量和内存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python虚拟机原理"><span class="nav-number">1.2.1.</span> <span class="nav-text">python虚拟机原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原码补码反码"><span class="nav-number">1.2.2.</span> <span class="nav-text">原码补码反码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础语法"><span class="nav-number">2.</span> <span class="nav-text">基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">2.1.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标识符"><span class="nav-number">2.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">2.3.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序控制"><span class="nav-number">2.4.</span> <span class="nav-text">程序控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内置类型"><span class="nav-number">2.5.</span> <span class="nav-text">内置类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-number">2.6.</span> <span class="nav-text">循环</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迭代器和生成器"><span class="nav-number">3.</span> <span class="nav-text">迭代器和生成器</span></a></li></ol></div>
             
 
           </div>
