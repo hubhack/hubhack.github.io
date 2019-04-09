@@ -155,7 +155,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-04T01:44:01.359Z">
+<meta property="og:updated_time" content="2019-04-09T00:53:12.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="草稿">
 <meta name="twitter:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
@@ -496,7 +496,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-04 09:44:01" itemprop="dateModified" datetime="2019-04-04T09:44:01+08:00">2019-04-04</time>
+                <time title="修改时间：2019-04-09 08:53:12" itemprop="dateModified" datetime="2019-04-09T08:53:12+08:00">2019-04-09</time>
               
             
           </span>
@@ -560,6 +560,7 @@
 <h1 id="include-lt-stdio-h-gt"><a href="#include-lt-stdio-h-gt" class="headerlink" title="include &lt;stdio.h&gt;"></a>include &lt;stdio.h&gt;</h1><p>int main()<br>{<br>    print(“hello world”);<br>    return 0;<br>}</p>
 <h1 id="python-中的对象"><a href="#python-中的对象" class="headerlink" title="python 中的对象"></a>python 中的对象</h1><p>对象可以说是python最核心的一个概念, 在python的世界里,一切皆对象. 我们知道python是c 编写的,c并不是一个面向对象语言,而c编写的python确实面向对象,在python中,对象就是c中的结构体在堆上申请的一块内存.<br>Python对象的多态性</p>
 <p>　　面向对象中一个重要的特性是多态，那么Python是如何实现多态的呢？<br>　　在Python创建一个对象时，会分配内存，进行初始化，然后Python内部会使用一个PyObject<em>变量来保存和维护这个对象，Python中的所有对象均是如此。比如创建一个PyIntObject对象（整数对象），不是通过PyIntObject </em>变量来保存和维护这个对象，而是通过PyObject <em>，正因为所有对象均如此，所以Python内部各个函数之间传递的都是一种范型指针（Pyobject</em>)，而这个指针所指的对象究竟是什么类型的，我们是不知道的，只能从指针所指对象的ob_type域动态进行判断，而正是这个域，Python实现了多态。</p>
+<h1 id="python标准库"><a href="#python标准库" class="headerlink" title="python标准库"></a>python标准库</h1><p>文本处理服务:string re textwrap<br>二进制数据服务<br>数据类型<br>数字和数学模块<br>函数式编程模块<br>文件和目录访问<br>数据持久化<br>数据压缩和存档<br>文件格式<br>加密服务<br>通用操作系统服务 os io time<br>并发执行 threading<br>网络和进程间通信<br>互联网数据处理 email json<br>结构化标记处理工具 html xml<br>互联网协议和支持 urllib.request http.server<br>多媒体服务 imghdr<br>国际化<br>程序框架 cmd turtle<br>Tk图形用户界面 GUI<br>开发工具 调试和分析<br>软件打包和分发 venv<br>python运行时服务 sysbuiltins   gc垃圾回收器接口<br>自定义python解释器<br>导入模块<br>python语言服务<br>杂项服务<br>windows系统相关模块<br>unix专有服务<br>被取代的模块<br>未创建文档的模块</p>
 
       
     </div>
@@ -786,7 +787,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pythonnic"><span class="nav-number">1.</span> <span class="nav-text">pythonnic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不够Pythonic"><span class="nav-number">2.</span> <span class="nav-text">不够Pythonic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python里却可以这么写"><span class="nav-number">3.</span> <span class="nav-text">python里却可以这么写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad"><span class="nav-number">4.</span> <span class="nav-text">bad</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good"><span class="nav-number">5.</span> <span class="nav-text">good</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad-不要使用默认可变对象作为默认参数"><span class="nav-number">6.</span> <span class="nav-text">bad, 不要使用默认可变对象作为默认参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题"><span class="nav-number">7.</span> <span class="nav-text">good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表生成式"><span class="nav-number">8.</span> <span class="nav-text">列表生成式:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-lt-stdio-h-gt"><span class="nav-number">9.</span> <span class="nav-text">include &lt;stdio.h&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-中的对象"><span class="nav-number">10.</span> <span class="nav-text">python 中的对象</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pythonnic"><span class="nav-number">1.</span> <span class="nav-text">pythonnic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不够Pythonic"><span class="nav-number">2.</span> <span class="nav-text">不够Pythonic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python里却可以这么写"><span class="nav-number">3.</span> <span class="nav-text">python里却可以这么写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad"><span class="nav-number">4.</span> <span class="nav-text">bad</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good"><span class="nav-number">5.</span> <span class="nav-text">good</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad-不要使用默认可变对象作为默认参数"><span class="nav-number">6.</span> <span class="nav-text">bad, 不要使用默认可变对象作为默认参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题"><span class="nav-number">7.</span> <span class="nav-text">good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表生成式"><span class="nav-number">8.</span> <span class="nav-text">列表生成式:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-lt-stdio-h-gt"><span class="nav-number">9.</span> <span class="nav-text">include &lt;stdio.h&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-中的对象"><span class="nav-number">10.</span> <span class="nav-text">python 中的对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python标准库"><span class="nav-number">11.</span> <span class="nav-text">python标准库</span></a></li></ol></div>
             
 
           </div>
