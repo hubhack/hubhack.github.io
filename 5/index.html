@@ -155,7 +155,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-10T13:00:41.689Z">
+<meta property="og:updated_time" content="2019-04-10T13:03:08.608Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="草稿">
 <meta name="twitter:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
@@ -496,7 +496,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-10 21:00:41" itemprop="dateModified" datetime="2019-04-10T21:00:41+08:00">2019-04-10</time>
+                <time title="修改时间：2019-04-10 21:03:08" itemprop="dateModified" datetime="2019-04-10T21:03:08+08:00">2019-04-10</time>
               
             
           </span>
@@ -579,6 +579,8 @@
 <h1 id="解析式"><a href="#解析式" class="headerlink" title="解析式"></a>解析式</h1><p>列表解析list comprehension</p>
 <p>语法<br>返回值 for 元素 in 可迭代 对象if 条件<br>使用中括号[],内部是for循环,if条件语句可选<br>返回一个新的列表</p>
 <p>列表解析式是一种语法糖<br>编译器会优化,不会因为简写而影响效率,反而因优化提高了效率</p>
+<h1 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h1><p>python三剑客 生成器 装饰器 描述器<br>熟练运用<br>生成器表达式是按需计算 或惰性求值,延迟计算<br>列表解析式是立即返回值<br>生成器 是可迭代对象 迭代器</p>
+<p>生成器表达式**</p>
 
       
     </div>
@@ -805,7 +807,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pythonnic"><span class="nav-number">1.</span> <span class="nav-text">pythonnic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不够Pythonic"><span class="nav-number">2.</span> <span class="nav-text">不够Pythonic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python里却可以这么写"><span class="nav-number">3.</span> <span class="nav-text">python里却可以这么写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad"><span class="nav-number">4.</span> <span class="nav-text">bad</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good"><span class="nav-number">5.</span> <span class="nav-text">good</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad-不要使用默认可变对象作为默认参数"><span class="nav-number">6.</span> <span class="nav-text">bad, 不要使用默认可变对象作为默认参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题"><span class="nav-number">7.</span> <span class="nav-text">good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表生成式"><span class="nav-number">8.</span> <span class="nav-text">列表生成式:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-lt-stdio-h-gt"><span class="nav-number">9.</span> <span class="nav-text">include &lt;stdio.h&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-中的对象"><span class="nav-number">10.</span> <span class="nav-text">python 中的对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python标准库"><span class="nav-number">11.</span> <span class="nav-text">python标准库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典"><span class="nav-number">12.</span> <span class="nav-text">字典</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解析式"><span class="nav-number">13.</span> <span class="nav-text">解析式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pythonnic"><span class="nav-number">1.</span> <span class="nav-text">pythonnic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不够Pythonic"><span class="nav-number">2.</span> <span class="nav-text">不够Pythonic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python里却可以这么写"><span class="nav-number">3.</span> <span class="nav-text">python里却可以这么写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad"><span class="nav-number">4.</span> <span class="nav-text">bad</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good"><span class="nav-number">5.</span> <span class="nav-text">good</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad-不要使用默认可变对象作为默认参数"><span class="nav-number">6.</span> <span class="nav-text">bad, 不要使用默认可变对象作为默认参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题"><span class="nav-number">7.</span> <span class="nav-text">good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表生成式"><span class="nav-number">8.</span> <span class="nav-text">列表生成式:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-lt-stdio-h-gt"><span class="nav-number">9.</span> <span class="nav-text">include &lt;stdio.h&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-中的对象"><span class="nav-number">10.</span> <span class="nav-text">python 中的对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python标准库"><span class="nav-number">11.</span> <span class="nav-text">python标准库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典"><span class="nav-number">12.</span> <span class="nav-text">字典</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解析式"><span class="nav-number">13.</span> <span class="nav-text">解析式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成器"><span class="nav-number">14.</span> <span class="nav-text">生成器</span></a></li></ol></div>
             
 
           </div>
