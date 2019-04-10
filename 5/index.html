@@ -155,7 +155,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-10T12:40:22.734Z">
+<meta property="og:updated_time" content="2019-04-10T12:44:01.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="草稿">
 <meta name="twitter:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
@@ -496,7 +496,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-10 20:40:22" itemprop="dateModified" datetime="2019-04-10T20:40:22+08:00">2019-04-10</time>
+                <time title="修改时间：2019-04-10 20:44:01" itemprop="dateModified" datetime="2019-04-10T20:44:01+08:00">2019-04-10</time>
               
             
           </span>
@@ -564,6 +564,8 @@
 <p>none 与NUll的区别<br>表示该值是一个空对象,空值是python里一个特殊的值,用none表示,none不能理解为<br>0,因为0是有意义的,而none是一个特殊的空值<br>判断的时候 均是false<br>属性不同:使用dir()函数返回参数的属性,方法列表,如果参数包含方法dir(),该方法将被<br>调用.如果参数不包含dir(),该方法将最大限度地收集参数信息.</p>
 <p>功能性函数返回都为none<br>None是一个特殊的常量。<br>None和False不同。<br>None不是0。<br>None不是空字符串。<br>None和任何其他的数据类型比较永远返回False。<br>None有自己的数据类型NoneType。<br>你可以将None赋值给任何变量，但是你不能创建其他NoneType对象。<br>L.index(value, [start, [stop]])，这里的中括号表示：start和stop是可选参数。可选参数通常都这么写，用的时候别带中括号。</p>
 <p>单星号(<em>):</em>args 将所以参数以元组(tuple)的形式导入:<br>还有解压参数<br>双星号以字典的形式导入</p>
+<h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1><p>字典是python的半壁江山 要熟练<br>可变的 ,无序的,key不重复<br>d[key]<br>返回key对应的值value<br>key不存在抛出keyerror异常</p>
+<p>get(key[,defalut])<br>返回</p>
 
       
     </div>
@@ -790,7 +792,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pythonnic"><span class="nav-number">1.</span> <span class="nav-text">pythonnic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不够Pythonic"><span class="nav-number">2.</span> <span class="nav-text">不够Pythonic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python里却可以这么写"><span class="nav-number">3.</span> <span class="nav-text">python里却可以这么写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad"><span class="nav-number">4.</span> <span class="nav-text">bad</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good"><span class="nav-number">5.</span> <span class="nav-text">good</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad-不要使用默认可变对象作为默认参数"><span class="nav-number">6.</span> <span class="nav-text">bad, 不要使用默认可变对象作为默认参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题"><span class="nav-number">7.</span> <span class="nav-text">good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表生成式"><span class="nav-number">8.</span> <span class="nav-text">列表生成式:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-lt-stdio-h-gt"><span class="nav-number">9.</span> <span class="nav-text">include &lt;stdio.h&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-中的对象"><span class="nav-number">10.</span> <span class="nav-text">python 中的对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python标准库"><span class="nav-number">11.</span> <span class="nav-text">python标准库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pythonnic"><span class="nav-number">1.</span> <span class="nav-text">pythonnic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不够Pythonic"><span class="nav-number">2.</span> <span class="nav-text">不够Pythonic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python里却可以这么写"><span class="nav-number">3.</span> <span class="nav-text">python里却可以这么写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad"><span class="nav-number">4.</span> <span class="nav-text">bad</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good"><span class="nav-number">5.</span> <span class="nav-text">good</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad-不要使用默认可变对象作为默认参数"><span class="nav-number">6.</span> <span class="nav-text">bad, 不要使用默认可变对象作为默认参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题"><span class="nav-number">7.</span> <span class="nav-text">good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表生成式"><span class="nav-number">8.</span> <span class="nav-text">列表生成式:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-lt-stdio-h-gt"><span class="nav-number">9.</span> <span class="nav-text">include &lt;stdio.h&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-中的对象"><span class="nav-number">10.</span> <span class="nav-text">python 中的对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python标准库"><span class="nav-number">11.</span> <span class="nav-text">python标准库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典"><span class="nav-number">12.</span> <span class="nav-text">字典</span></a></li></ol></div>
             
 
           </div>
