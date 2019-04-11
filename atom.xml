@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-04-05T01:28:26.785Z</updated>
+  <updated>2019-04-11T11:12:19.047Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基本算法</title>
+    <link href="https://hubhack.github.io/4/"/>
+    <id>https://hubhack.github.io/4/</id>
+    <published>2019-04-11T14:26:00.000Z</published>
+    <updated>2019-04-11T11:12:19.047Z</updated>
+    
+    <content type="html"><![CDATA[<p>基本入门算法有三个经典算法:冒泡,选择和插入算法</p><h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>简单选择排序属于选择排序<br>两两比较大小,找出极值或极小值被放置在固定的位置,这个固定一般指的是某一端</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;基本入门算法有三个经典算法:冒泡,选择和插入算法&lt;/p&gt;
+&lt;h1 id=&quot;选择排序&quot;&gt;&lt;a href=&quot;#选择排序&quot; class=&quot;headerlink&quot; title=&quot;选择排序&quot;&gt;&lt;/a&gt;选择排序&lt;/h1&gt;&lt;p&gt;简单选择排序属于选择排序&lt;br&gt;两两比较大小,找出极值或极小
+      
+    
+    </summary>
+    
+      <category term="数据结构" scheme="https://hubhack.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="数据结构和算法" scheme="https://hubhack.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>算素数和杨辉三角</title>
@@ -119,24 +145,6 @@
     
     
       <category term="linux基础" scheme="https://hubhack.github.io/tags/linux%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据结构和算法</title>
-    <link href="https://hubhack.github.io/4/"/>
-    <id>https://hubhack.github.io/4/</id>
-    <published>2019-03-19T14:26:00.000Z</published>
-    <updated>2019-04-04T01:13:47.003Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="数据结构" scheme="https://hubhack.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构和算法" scheme="https://hubhack.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
