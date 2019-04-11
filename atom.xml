@@ -125,7 +125,7 @@
     <link href="https://hubhack.github.io/7/"/>
     <id>https://hubhack.github.io/7/</id>
     <published>2019-03-30T14:25:34.000Z</published>
-    <updated>2019-04-01T07:34:47.583Z</updated>
+    <updated>2019-04-11T12:31:33.639Z</updated>
     
     <content type="html"><![CDATA[<p>第一种方法：用先打印正方形之后打印下三角 </p><blockquote><p>for i in range (1,10):<br>   line = ‘’<br>   for j in range (1,10):<br>       if i &gt;=j:</p><pre><code>line += str (j) +&apos;*&apos;+str(i) +&apos;=&apos;+ str(i*j) + &apos; &apos;</code></pre><p>   print(line)<br>第二种用format 格式化字符串<br>for i range(1,10):<br>   line =’’<br>   for j in range(1,10):<br>       line += “{}<em>{}={} “.foramt(j,i,(j</em>i))<br>   print(line)<br>第三种 j的取值范围是（1，i+1）<br>for i in range(1,10):<br>   line =’’<br>   for j in range(1,i+1):<br>        line += ‘{}<em>{}={} ‘.format(j,i,(i</em>j))<br>   print(line,end=’\n’)<br>range 函数可以控制语句 可以当if<br>变形<br>for i in range(1,10):<br>   for j in range(1,i+1):<br>       line = ‘{}<em>{}={} ‘.format(j,i,(i</em>j))<br>       print(line, end=’’)<br>   print()<br>row 是行 column 是列<br>for i in range(1,10):<br>   for j in range(1,i+1):<br>       line = ‘{}<em>{}={} ‘.format(j,i,(i</em>j))<br>       print(line, end=’’)<br>       if  i==j:<br>           print()<br>再变形<br>for i in range(1,10):<br>   for j in range(1,i+1):<br>       if  i==j:<br>           endchar = ‘\n’<br>       else:<br>           endchar = ‘’</p><pre><code>line = &apos;{}*{}={} &apos;.format(j,i,(i*j) ,end = endchar)print(line, end=&apos;&apos;)</code></pre><p>三元表达式 写法<br>endchar = ‘\n’ if  i==j else ‘’<br>三行 代码写出程序<br>for i in range (1,10):<br>   for j in range(1,i+1):<br>       print(“{}<em>{}={} “.format(j,i,i</em>j) ,end = ‘\n’ if i ==j else ‘’)<br>用列表方式来写 ,最后再解构<br>for i in range(1,10):<br>   line = []<br>   for j in  range(1,i+1):<br>       line.append(“{}<em>{}={} “.format(j,i,i</em>j))<br>   print(<em>line,sep=’ ‘)<br>tip：再括号内换行不用换行符<br>for i in range(1,10):<br>   for j in range(1,i+1):<br>       print(“{}</em>{}={}{}”.format(j,i,j<em>i, ‘’ if  j==2 and i&lt;5 else ‘’),<br>       end= ‘\n’ if  i==j else ‘ ‘)<br>用格式符对齐方式 写<br>for i in range(1,10):<br>   for  j in range(1,i+1):<br>       print(“{}</em>{}={:&lt;2}”.format(j,i,i*j),<br>       end=’\n’ if  i == j else ‘\t’)</p></blockquote>]]></content>
     
@@ -141,10 +141,10 @@
     
     </summary>
     
-      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
+      <category term="数据结构与算法" scheme="https://hubhack.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
+      <category term="数据结构与算法" scheme="https://hubhack.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
