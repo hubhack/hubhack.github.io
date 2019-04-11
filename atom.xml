@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-04-11T11:33:49.339Z</updated>
+  <updated>2019-04-11T12:00:14.641Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://hubhack.github.io/4/"/>
     <id>https://hubhack.github.io/4/</id>
     <published>2019-04-11T14:26:00.000Z</published>
-    <updated>2019-04-11T11:33:49.339Z</updated>
+    <updated>2019-04-11T12:00:14.641Z</updated>
     
-    <content type="html"><![CDATA[<p>基本入门算法有三个经典算法:冒泡,选择和插入算法</p><h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>简单选择排序属于选择排序<br>两两比较大小,找出极值或极小值被放置在固定的位置,这个固定一般指的是某一端<br>结果分为升序和降序排列</p><p>基本思路:</p><ul><li>求出最大索引(或最小索引)并记录</li><li>两两交换</li><li>补充特殊情况,完善代码</li></ul><p>先用几个数做测试</p><blockquote><p>nums = [1, 9, 8]<br>length = len(nums)</p><p>maxindex = 0<br>for i in range(maxindex+1, length):<br>   if nums[i] &gt; nums[maxindex]:<br>       maxindex = i<br>print(maxindex, nums[maxindex])<br>结果 1,9<br>做交换 nums[0], nums[maxindex] = nums[maxindex], nums[0]<br>做外层循环for i in range(length)<br>基本代码实现<br>nums = [1, 9, 8]<br>length = len(nums)</p><h1 id="maxindex-0"><a href="#maxindex-0" class="headerlink" title="maxindex = 0"></a>maxindex = 0</h1><p>for j in range(length):<br>   maxindex = j<br>   for i in range(maxindex+1, length):<br>       if nums[i] &gt; nums[maxindex]:<br>           maxindex = i # 比较先确定索引 记录maxindex为最大索引<br>   if maxindex != i:<br>           nums[i], nums[maxindex] = nums[maxindex], nums[i]<br>print(nums)</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>基本入门算法有三个经典算法:冒泡,选择和插入算法</p><h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>简单选择排序属于选择排序<br>两两比较大小,找出极值或极小值被放置在固定的位置,这个固定一般指的是某一端<br>结果分为升序和降序排列</p><p>基本思路:</p><ul><li>求出最大索引(或最小索引)并记录</li><li>两两交换</li><li>补充特殊情况,完善代码</li></ul><p>先用几个数做测试</p><blockquote><p>nums = [1, 9, 8]<br>length = len(nums)</p><p>maxindex = 0<br>for i in range(maxindex+1, length):<br>   if nums[i] &gt; nums[maxindex]:<br>       maxindex = i<br>print(maxindex, nums[maxindex])<br>结果 1,9<br>做交换 nums[0], nums[maxindex] = nums[maxindex], nums[0]<br>做外层循环for i in range(length)<br>基本代码实现<br>nums = [1, 9, 8]<br>length = len(nums)</p><h1 id="maxindex-0"><a href="#maxindex-0" class="headerlink" title="maxindex = 0"></a>maxindex = 0</h1><p>for j in range(length):<br>   maxindex = j<br>   for i in range(maxindex+1, length):<br>       if nums[i] &gt; nums[maxindex]:<br>           maxindex = i # 比较先确定索引 记录maxindex为最大索引<br>   if maxindex != i:<br>           nums[i], nums[maxindex] = nums[maxindex], nums[i]<br>print(nums)</p></blockquote><p>做优化 思路:能记录最大就能记录最小 ,一次性最大最小排序</p><p>第二种方法:</p><blockquote><p>import random<br>nums = list(range(10))<br>random.shuffle(nums)</p><p>length = len(nums)</p><h1 id="maxindex-0-1"><a href="#maxindex-0-1" class="headerlink" title="maxindex = 0"></a>maxindex = 0</h1><p>for i in range(length // 2):<br>   maxindex = i<br>   minindex = -1-i<br>   minorigin = length + minindex<br>   for j in range(i + 1, length - i):<br>       if nums[j] &gt; nums[maxindex]:<br>           maxindex = j # 比较先确定索引 记录maxindex为最大索引<br>       if nums[-j-1] &lt; nums[minindex]:<br>           minindex = -j-1<br>   if nums[maxindex] == nums[minindex]: break<br>   minindex = length + minindex<br>   if maxindex != i: # 进去 ,说明一定有交换<br>       nums[i], nums[maxindex] = nums[maxindex], nums[i]<br>       if minindex == i:<br>           minindex = maxindex<br>   if minindex != minorigin and nums[minorigin] != nums[minindex]:<br>       nums[minorigin], nums[minindex] = nums[minindex], nums[minorigin]<br>print(nums)     </p></blockquote>]]></content>
     
     <summary type="html">
     
