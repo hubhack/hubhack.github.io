@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="基本概念数学定义y=f(x), y是x的函数, x是自变量. y=f(x0, x1 …xn)python函数:是由若干语句组成的语句块,函数名称,参数列表构成,它是组织代码的最小单元完成一定的功能函数的作用结构化编程对代码的最基本的封装, 一般按照功能组织一段代码封装的目的为了复用,减少冗余代码代码更加简洁美观,可读易懂 函数的分类:内建函数,如max()库函数,如math.ceil自定义函数,使">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-12T11:40:04.868Z">
+<meta property="og:updated_time" content="2019-04-12T11:43:27.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python函数">
 <meta name="twitter:description" content="基本概念数学定义y=f(x), y是x的函数, x是自变量. y=f(x0, x1 …xn)python函数:是由若干语句组成的语句块,函数名称,参数列表构成,它是组织代码的最小单元完成一定的功能函数的作用结构化编程对代码的最基本的封装, 一般按照功能组织一段代码封装的目的为了复用,减少冗余代码代码更加简洁美观,可读易懂 函数的分类:内建函数,如max()库函数,如math.ceil自定义函数,使">
@@ -497,7 +497,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-12 19:40:04" itemprop="dateModified" datetime="2019-04-12T19:40:04+08:00">2019-04-12</time>
+                <time title="修改时间：2019-04-12 19:43:27" itemprop="dateModified" datetime="2019-04-12T19:43:27+08:00">2019-04-12</time>
               
             
           </span>
@@ -559,7 +559,7 @@
 </ul>
 <p>可变位置参数<br>在形参使用* 表示该形参是可变位置参数, 可以接受多个实参<br>它将收集来的实参组织到一个tuple中<br>tuple 有序按位置传参<br>可变关键字参数<br>在形参使用<strong>表示该形参是可变关键字参数,可以接受多个关键字参数<br>它将收集来的实参的名称和值,组织到一个dict中<br>可变的关键字传参</strong> kwargs</p>
 <p>有可变位置参数和可变关键字参数<br>可变位置参数在形参前使用一个*号<br>可变关键字参数和可变关键字参数度可以收集若干个实参,可变位置参数收集形成一个tuple<br>可变关键字参数收集形成一个dict<br>混合使用参数的时候,普通参数需要放到参数列表前面, 可变参数要放到参数列表的后面<br>要在可变关键字参数之前.</p>
-<h1 id="keyword-only-参数"><a href="#keyword-only-参数" class="headerlink" title="keyword-only 参数"></a>keyword-only 参数</h1><p>def fn(<em>args, x, y, **kwargs):<br>    print(x, y, args, kwargs, sep=’\n’, end=’\n\n’)<br>fn(3, 5)<br>fn(3, ,5, 7)<br>在python3之后,新增了keyword-only参数<br>keyword-only参数:在形参定义时,在一个</em>星号之后, 或一个可变位置参数之后, 出现的普通参数,就已经不是普通的参数了,称为keyword-only参数<br>keyword-only参数,言下之意就是这个参数必须采取关键字传参<br>可以认为,args可变位置参数已经截获了所有位置参数, 其后的变量x不可能通过位置传参传入了.*星号后所有的普通参数都成了keyword-only参数<br>参数的混合使用<br>参数规则:普通参数,缺省参数,可变位置参数,keyword-only参数,可变关键字参数<br>代码</p>
+<h1 id="keyword-only-参数"><a href="#keyword-only-参数" class="headerlink" title="keyword-only 参数"></a>keyword-only 参数</h1><p>def fn(<em>args, x, y, **kwargs):<br>    print(x, y, args, kwargs, sep=’\n’, end=’\n\n’)<br>fn(3, 5)<br>fn(3, ,5, 7)<br>在python3之后,新增了keyword-only参数<br>keyword-only参数:在形参定义时,在一个</em>星号之后, 或一个可变位置参数之后, 出现的普通参数,就已经不是普通的参数了,称为keyword-only参数<br>keyword-only参数,言下之意就是这个参数必须采取关键字传参<br>可以认为,args可变位置参数已经截获了所有位置参数, 其后的变量x不可能通过位置传参传入了.<em>星号后所有的普通参数都成了keyword-only参数<br>参数的混合使用<br>参数规则:普通参数,缺省参数,可变位置参数,keyword-only参数,可变关键字参数<br>代码应该易读易懂, 而不是为难别人<br>请按照书写习惯定义函数参数.<br>参数解构:<br>在给函数提供实参的时候,可以在可迭代对象前使用</em>或者<strong>来进行的解构,提取出其中所有元素作为函数的实参.<br>使用*解构成位置参数<br>使用</strong>解构成位置 传参<br>提取出来的元素数目要和参数的要求匹配</p>
 
       
     </div>
