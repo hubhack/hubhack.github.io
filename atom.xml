@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-04-14T11:01:50.182Z</updated>
+  <updated>2019-04-15T12:24:42.900Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>匿名函数</title>
+    <link href="https://hubhack.github.io/13/"/>
+    <id>https://hubhack.github.io/13/</id>
+    <published>2019-04-14T14:26:00.000Z</published>
+    <updated>2019-04-15T12:24:42.900Z</updated>
+    
+    <content type="html"><![CDATA[<p>匿名函数 :隐藏名字,即没有名称<br>匿名函数: 没有名字的函数<br>lambda表达式<br>python中,使用lambda表达式构建匿名函数<br>使用 lambda关键字定义匿名函数,格式</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;匿名函数 :隐藏名字,即没有名称&lt;br&gt;匿名函数: 没有名字的函数&lt;br&gt;lambda表达式&lt;br&gt;python中,使用lambda表达式构建匿名函数&lt;br&gt;使用 lambda关键字定义匿名函数,格式&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>python小技巧</title>
