@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-04-15T12:54:14.193Z</updated>
+  <updated>2019-04-15T12:57:53.478Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://hubhack.github.io/13/"/>
     <id>https://hubhack.github.io/13/</id>
     <published>2019-04-14T14:26:00.000Z</published>
-    <updated>2019-04-15T12:54:14.193Z</updated>
+    <updated>2019-04-15T12:57:53.478Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h1><p>匿名函数 :隐藏名字,即没有名称<br>匿名函数: 没有名字的函数<br>lambda表达式<br>python中,使用lambda表达式构建匿名函数<br>使用 lambda关键字定义匿名函数,格式为lambda[参数列表]:表达式<br>参数列表不需要小括号,无参就不写参数<br>冒号用来分割参数和表达式部分<br>不需要使用return,表达式的值,就是匿名函数的返回值.表达式中不能出现等号.<br>lambda表达式匿名函数只能写在一行上,也称为单行函数.</p><p>匿名函数往往用在高阶函数传参时,使用lambda表达式,往往能简化代码.</p><h1 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h1><p>函数执行流程:压栈</p><p>递归函数recursion<br>函数直接或者间接调用自身就是递归.<br>递归需要有边界条件,递归前进段,递归返回段.<br>递归一定要有边界条件.<br>当边界条件不满足的时候,递归前进<br>当边界条件满足的时候,递归返回.</p><p>递归例子:斐波那契数列<br>如果用循环写法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = 0</span><br><span class="line">b = 1</span><br><span class="line">n = 10</span><br><span class="line">for i in range(n -1):</span><br><span class="line">    a,b=b, a+b</span><br><span class="line">else:</span><br><span class="line">    print(b)</span><br></pre></td></tr></table></figure></p><p>递归写法:<br>def fib(n):<br>    return 1 if n &lt;3 else fib(n-1) +fib(n-2)</p><p>递归要求<br>递归一定要有退出条件,递归调用一定要执行到这个条件,没有退出条件的递归调用.<br>递归调用的深度不宜<br>python 对递归调用的深度做了限制,以保护解释器<br>超过递归深度限制,抛出recursionError:maxinum recursion depth exceeded 超过最大深度<br>sys.getrecursionlimit()</p><p>循环稍微复杂一些,但是只要不是死循环, 可以多次迭代直至算出结果.<br>递归还有深度限制, 如果递归复杂, 函数反复压栈 ,栈内存很快就溢出了.</p><p>递归是一种很自然的表达,符合逻辑思维<br>递归相对效率低,每一次调用都要开辟栈帧.<br>递归有深度限制,如果递归层次太深,函数反复压栈,栈内存很快就溢出了.<br>如果是有限次数的递归, 可以使用递归调用, 或者使用循环代替 ,循环代码稍微复杂一些,但是只要不是死循环,可以多次迭代直至算出结果.<br>绝大多数递归,都可以使用循环实现<br>即使递归代码很简洁,但是能不用则不用递归.</p><h1 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h1><p>生成器generator<br>生成器指的是生成器对象,可以由生成器表达式得到,也可以使用yield关键字得到一个生成器函数,调用这个函数得到一个生成器<br>生成器对象,是一个可迭代对象,是有个迭代器<br>生成器对象,是延时计算,惰性求值的</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h1><p>匿名函数 :隐藏名字,即没有名称<br>匿名函数: 没有名字的函数<br>lambda表达式<br>python中,使用lambda表达式构建匿名函数<br>使用 lambda关键字定义匿名函数,格式为lambda[参数列表]:表达式<br>参数列表不需要小括号,无参就不写参数<br>冒号用来分割参数和表达式部分<br>不需要使用return,表达式的值,就是匿名函数的返回值.表达式中不能出现等号.<br>lambda表达式匿名函数只能写在一行上,也称为单行函数.</p><p>匿名函数往往用在高阶函数传参时,使用lambda表达式,往往能简化代码.</p><h1 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h1><p>函数执行流程:压栈</p><p>递归函数recursion<br>函数直接或者间接调用自身就是递归.<br>递归需要有边界条件,递归前进段,递归返回段.<br>递归一定要有边界条件.<br>当边界条件不满足的时候,递归前进<br>当边界条件满足的时候,递归返回.</p><p>递归例子:斐波那契数列<br>如果用循环写法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = 0</span><br><span class="line">b = 1</span><br><span class="line">n = 10</span><br><span class="line">for i in range(n -1):</span><br><span class="line">    a,b=b, a+b</span><br><span class="line">else:</span><br><span class="line">    print(b)</span><br></pre></td></tr></table></figure></p><p>递归写法:<br>def fib(n):<br>    return 1 if n &lt;3 else fib(n-1) +fib(n-2)</p><p>递归要求<br>递归一定要有退出条件,递归调用一定要执行到这个条件,没有退出条件的递归调用.<br>递归调用的深度不宜<br>python 对递归调用的深度做了限制,以保护解释器<br>超过递归深度限制,抛出recursionError:maxinum recursion depth exceeded 超过最大深度<br>sys.getrecursionlimit()</p><p>循环稍微复杂一些,但是只要不是死循环, 可以多次迭代直至算出结果.<br>递归还有深度限制, 如果递归复杂, 函数反复压栈 ,栈内存很快就溢出了.</p><p>递归是一种很自然的表达,符合逻辑思维<br>递归相对效率低,每一次调用都要开辟栈帧.<br>递归有深度限制,如果递归层次太深,函数反复压栈,栈内存很快就溢出了.<br>如果是有限次数的递归, 可以使用递归调用, 或者使用循环代替 ,循环代码稍微复杂一些,但是只要不是死循环,可以多次迭代直至算出结果.<br>绝大多数递归,都可以使用循环实现<br>即使递归代码很简洁,但是能不用则不用递归.</p><h1 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h1><p>生成器generator<br>生成器指的是生成器对象,可以由生成器表达式得到,也可以使用yield关键字得到一个生成器函数,调用这个函数得到一个生成器.<br>生成器对象,是一个可迭代对象,是有个迭代器.<br>生成器对象,是延时计算,惰性求值的.</p><p>函数体中包含yield语句的函数,就是生成器函数,调用后返回生成器对象.<br>普通函数调用,函数会立即执行直到执行完毕.<br>生成器函数的调用,并不会立即执行函数体, 而是需要使用next函数来驱动生成器函数来执行获得的生成器对象.<br>生成器表达式和生成器函数都可以得到生成器对象,只不过生成器函数可以写的更加复杂的逻辑.</p>]]></content>
     
     <summary type="html">
     
@@ -67,31 +67,6 @@
   </entry>
   
   <entry>
-    <title>python函数</title>
-    <link href="https://hubhack.github.io/11/"/>
-    <id>https://hubhack.github.io/11/</id>
-    <published>2019-04-11T14:26:00.000Z</published>
-    <updated>2019-04-15T00:44:18.278Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>数学定义<br>y=f(x), y是x的函数, x是自变量. y=f(x0, x1 …xn)<br>python函数:<br>是由若干语句组成的语句块,函数名称,参数列表构成,它是组织代码的最小单元<br>完成一定的功能<br>函数的作用<br>结构化编程对代码的最基本的封装, 一般按照功能组织一段代码<br>封装的目的为了复用,减少冗余代码<br>代码更加简洁美观,可读易懂</p><p>函数的分类:<br>内建函数,如max()<br>库函数,如math.ceil<br>自定义函数,使用def关键字定义</p><p>函数定义<br>def 函数名(参数列表):<br>    函数体(代码块)<br>    [return 返回值]<br>函数名就是标识符,命名要求一样<br>语句块必须缩进,约定4个空格<br>函数名就是标识符就是变量python的函数没有return,会返回none<br>定义中的参数列表称为形式参数,只是一种标识符占位置的<br>函数的标识符就是指向函数对象<br>函数调用,函数名后使用小括号,小括号中填入实际实实在在的参数,简称为实参,定义是形参<br>不定义会报nameERREO</p><p>传参方式:</p><ul><li>位置传参<br>按照参数定义顺序传入实参</li><li>关键字<br>使用形参的名字来传入实参的方式,如果使用了形参,传参顺序就可和定义顺序不同<br>要求位置参数必须在关键字参数之前传入,位置参数是按照位置对应的<br>参数缺省值<br>缺省值也成为默认值, 可以在函数定义是,为形参增加一个缺省值.其作用:<br>参数的默认值可以在未传入足够的实参的时候,对没有给定的参数赋值为默认值<br>参数非常多的时候,并不需要用户每次都输入所有的参数,简化函数调用</li></ul><p>可变位置参数<br>在形参使用* 表示该形参是可变位置参数, 可以接受多个实参<br>它将收集来的实参组织到一个tuple中<br>tuple 有序按位置传参<br>可变关键字参数<br>在形参使用<strong>表示该形参是可变关键字参数,可以接受多个关键字参数<br>它将收集来的实参的名称和值,组织到一个dict中<br>可变的关键字传参</strong> kwargs</p><p>有可变位置参数和可变关键字参数<br>可变位置参数在形参前使用一个*号<br>可变关键字参数和可变关键字参数度可以收集若干个实参,可变位置参数收集形成一个tuple<br>可变关键字参数收集形成一个dict<br>混合使用参数的时候,普通参数需要放到参数列表前面, 可变参数要放到参数列表的后面<br>要在可变关键字参数之前.</p><h1 id="keyword-only-参数"><a href="#keyword-only-参数" class="headerlink" title="keyword-only 参数"></a>keyword-only 参数</h1><p>def fn(<em>args, x, y, **kwargs):<br>    print(x, y, args, kwargs, sep=’\n’, end=’\n\n’)<br>fn(3, 5)<br>fn(3, ,5, 7)<br>在python3之后,新增了keyword-only参数<br>keyword-only参数:在形参定义时,在一个</em>星号之后, 或一个可变位置参数之后, 出现的普通参数,就已经不是普通的参数了,称为keyword-only参数<br>keyword-only参数,言下之意就是这个参数必须采取关键字传参<br>可以认为,args可变位置参数已经截获了所有位置参数, 其后的变量x不可能通过位置传参传入了.<em>星号后所有的普通参数都成了keyword-only参数<br>参数的混合使用<br>参数规则:普通参数,缺省参数,可变位置参数,keyword-only参数,可变关键字参数<br>代码应该易读易懂, 而不是为难别人<br>请按照书写习惯定义函数参数.<br>参数解构:<br>在给函数提供实参的时候,可以在可迭代对象前使用</em>或者<strong>来进行的解构,提取出其中所有元素作为函数的实参.<br>使用*解构成位置参数<br>使用</strong>解构成位置 传参<br>提取出来的元素数目要和参数的要求匹配</p><p>python函数使用return语句返回”返回值”<br>所有函数都有返回值,如果没有return语句, 隐式调用return None<br>return语句并不一定是函数的语句块的最后一条语句<br>一个函数可以存在多个return语句,但是只要一条可以被执行,如果没有一条return语句被执行,隐式调用return None<br>如果有必要,可以显示调用return None ,可以简写return<br>如果函数执行了return语句,函数就会返回,当前执行return语句之后的其他语句就不会被执行<br>返回值的作用: 结束函数调用,返回返回值<br>函数不能同时返回多个值.</p><h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><p>一个标识符的可见范围,这就是标识符的作用域,一般常说的是常量的作用域<br>注意:每一个函数都会开辟一个作用域<br>分类:<br>全局作用域:<br>在整个程序运行环境中都可见<br>全局作用域中的变量称为全局变量<br>局部作用域:<br>在函数 ,类等内部可见<br>局部作用域中的变量称为局部变量,其使用范围不能超过所在其所在局部作用域<br>函数嵌套<br>在一个函数中定义了另一个函数<br>内部函数不能在外部直接使用,会抛NameError异常,因为它在函数外部不可见</p><p>global语句<br>使用global关键字的变量,将声明为外部的全局作用域中定义的<br>使用了global 不再是局部变量,它是全局变量<br>global使用原则<br>外部作用域变量会在内部作用域可见,但也不要在这个内部的局部作用域中直接使用,应为函数的目的就是为了封装,尽量与外界隔离<br>如果函数需要使用外部全局变量,请使用函数的形参定义,并再调用传实参解决<br>一句话:不要global,学习他就是深入理解变量作用域</p><h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>自由变量:未在本地作用域中定义的变量<br>闭包: 就是一个概念,出现在嵌套函数中 ,指的是内层函数引到了外层函数的自由变量, 就形成了闭包,很多语言都有这个概念,最熟悉就是javascript</p><p>nonlocal语句<br>将变量标记为不在本地作用域定义, 而是上级的某一级局部作用域中定义, 但不能是全局作用域中定义<br>内部函数使用nonlocal关键字声明count变量在上级作用域而非本地作用域中定义<br>代码中内层函数引到外部局部作用域中的自由变量,形成闭包</p><p>函数也是对象,每个函数定义被执行后,就生成了一个函数对象和函数名这个标识符关联<br>python把函数的默认值放在函数对象的属性中,这个属性就伴随着这个函数对象的整个生命周期<br>查看<strong>default</strong>属性,他是个元组</p><h1 id="变量名解析原则LEGB"><a href="#变量名解析原则LEGB" class="headerlink" title="变量名解析原则LEGB***"></a>变量名解析原则LEGB***</h1><p>local,本地作用域,局部作用域的local命名空间,函数调用时创建,调用结束消亡<br>Enclosing,python引入了嵌套函数,实现了闭包,这个就是嵌套函数的外部函数的命名空间<br>global 全局作用域,即一个模块的命名空间 模块被import时创建,解释器退出时消亡<br>build-in,内置模块的命名空间,生命周期从python解释器启动时创建到解释器退出时消亡<br>所以一个名词的查找顺序就是LEGB.</p><p>|</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h1&gt;&lt;p&gt;数学定义&lt;br&gt;y=f(x), y是x的函数, x是自变量. y=f(x0, x1 …xn)&lt;br&gt;python函数:&lt;br
-      
-    
-    </summary>
-    
-      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>基本算法</title>
     <link href="https://hubhack.github.io/4/"/>
     <id>https://hubhack.github.io/4/</id>
@@ -114,6 +89,31 @@
     
     
       <category term="数据结构和算法" scheme="https://hubhack.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python函数</title>
+    <link href="https://hubhack.github.io/11/"/>
+    <id>https://hubhack.github.io/11/</id>
+    <published>2019-04-11T14:26:00.000Z</published>
+    <updated>2019-04-15T00:44:18.278Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>数学定义<br>y=f(x), y是x的函数, x是自变量. y=f(x0, x1 …xn)<br>python函数:<br>是由若干语句组成的语句块,函数名称,参数列表构成,它是组织代码的最小单元<br>完成一定的功能<br>函数的作用<br>结构化编程对代码的最基本的封装, 一般按照功能组织一段代码<br>封装的目的为了复用,减少冗余代码<br>代码更加简洁美观,可读易懂</p><p>函数的分类:<br>内建函数,如max()<br>库函数,如math.ceil<br>自定义函数,使用def关键字定义</p><p>函数定义<br>def 函数名(参数列表):<br>    函数体(代码块)<br>    [return 返回值]<br>函数名就是标识符,命名要求一样<br>语句块必须缩进,约定4个空格<br>函数名就是标识符就是变量python的函数没有return,会返回none<br>定义中的参数列表称为形式参数,只是一种标识符占位置的<br>函数的标识符就是指向函数对象<br>函数调用,函数名后使用小括号,小括号中填入实际实实在在的参数,简称为实参,定义是形参<br>不定义会报nameERREO</p><p>传参方式:</p><ul><li>位置传参<br>按照参数定义顺序传入实参</li><li>关键字<br>使用形参的名字来传入实参的方式,如果使用了形参,传参顺序就可和定义顺序不同<br>要求位置参数必须在关键字参数之前传入,位置参数是按照位置对应的<br>参数缺省值<br>缺省值也成为默认值, 可以在函数定义是,为形参增加一个缺省值.其作用:<br>参数的默认值可以在未传入足够的实参的时候,对没有给定的参数赋值为默认值<br>参数非常多的时候,并不需要用户每次都输入所有的参数,简化函数调用</li></ul><p>可变位置参数<br>在形参使用* 表示该形参是可变位置参数, 可以接受多个实参<br>它将收集来的实参组织到一个tuple中<br>tuple 有序按位置传参<br>可变关键字参数<br>在形参使用<strong>表示该形参是可变关键字参数,可以接受多个关键字参数<br>它将收集来的实参的名称和值,组织到一个dict中<br>可变的关键字传参</strong> kwargs</p><p>有可变位置参数和可变关键字参数<br>可变位置参数在形参前使用一个*号<br>可变关键字参数和可变关键字参数度可以收集若干个实参,可变位置参数收集形成一个tuple<br>可变关键字参数收集形成一个dict<br>混合使用参数的时候,普通参数需要放到参数列表前面, 可变参数要放到参数列表的后面<br>要在可变关键字参数之前.</p><h1 id="keyword-only-参数"><a href="#keyword-only-参数" class="headerlink" title="keyword-only 参数"></a>keyword-only 参数</h1><p>def fn(<em>args, x, y, **kwargs):<br>    print(x, y, args, kwargs, sep=’\n’, end=’\n\n’)<br>fn(3, 5)<br>fn(3, ,5, 7)<br>在python3之后,新增了keyword-only参数<br>keyword-only参数:在形参定义时,在一个</em>星号之后, 或一个可变位置参数之后, 出现的普通参数,就已经不是普通的参数了,称为keyword-only参数<br>keyword-only参数,言下之意就是这个参数必须采取关键字传参<br>可以认为,args可变位置参数已经截获了所有位置参数, 其后的变量x不可能通过位置传参传入了.<em>星号后所有的普通参数都成了keyword-only参数<br>参数的混合使用<br>参数规则:普通参数,缺省参数,可变位置参数,keyword-only参数,可变关键字参数<br>代码应该易读易懂, 而不是为难别人<br>请按照书写习惯定义函数参数.<br>参数解构:<br>在给函数提供实参的时候,可以在可迭代对象前使用</em>或者<strong>来进行的解构,提取出其中所有元素作为函数的实参.<br>使用*解构成位置参数<br>使用</strong>解构成位置 传参<br>提取出来的元素数目要和参数的要求匹配</p><p>python函数使用return语句返回”返回值”<br>所有函数都有返回值,如果没有return语句, 隐式调用return None<br>return语句并不一定是函数的语句块的最后一条语句<br>一个函数可以存在多个return语句,但是只要一条可以被执行,如果没有一条return语句被执行,隐式调用return None<br>如果有必要,可以显示调用return None ,可以简写return<br>如果函数执行了return语句,函数就会返回,当前执行return语句之后的其他语句就不会被执行<br>返回值的作用: 结束函数调用,返回返回值<br>函数不能同时返回多个值.</p><h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><p>一个标识符的可见范围,这就是标识符的作用域,一般常说的是常量的作用域<br>注意:每一个函数都会开辟一个作用域<br>分类:<br>全局作用域:<br>在整个程序运行环境中都可见<br>全局作用域中的变量称为全局变量<br>局部作用域:<br>在函数 ,类等内部可见<br>局部作用域中的变量称为局部变量,其使用范围不能超过所在其所在局部作用域<br>函数嵌套<br>在一个函数中定义了另一个函数<br>内部函数不能在外部直接使用,会抛NameError异常,因为它在函数外部不可见</p><p>global语句<br>使用global关键字的变量,将声明为外部的全局作用域中定义的<br>使用了global 不再是局部变量,它是全局变量<br>global使用原则<br>外部作用域变量会在内部作用域可见,但也不要在这个内部的局部作用域中直接使用,应为函数的目的就是为了封装,尽量与外界隔离<br>如果函数需要使用外部全局变量,请使用函数的形参定义,并再调用传实参解决<br>一句话:不要global,学习他就是深入理解变量作用域</p><h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>自由变量:未在本地作用域中定义的变量<br>闭包: 就是一个概念,出现在嵌套函数中 ,指的是内层函数引到了外层函数的自由变量, 就形成了闭包,很多语言都有这个概念,最熟悉就是javascript</p><p>nonlocal语句<br>将变量标记为不在本地作用域定义, 而是上级的某一级局部作用域中定义, 但不能是全局作用域中定义<br>内部函数使用nonlocal关键字声明count变量在上级作用域而非本地作用域中定义<br>代码中内层函数引到外部局部作用域中的自由变量,形成闭包</p><p>函数也是对象,每个函数定义被执行后,就生成了一个函数对象和函数名这个标识符关联<br>python把函数的默认值放在函数对象的属性中,这个属性就伴随着这个函数对象的整个生命周期<br>查看<strong>default</strong>属性,他是个元组</p><h1 id="变量名解析原则LEGB"><a href="#变量名解析原则LEGB" class="headerlink" title="变量名解析原则LEGB***"></a>变量名解析原则LEGB***</h1><p>local,本地作用域,局部作用域的local命名空间,函数调用时创建,调用结束消亡<br>Enclosing,python引入了嵌套函数,实现了闭包,这个就是嵌套函数的外部函数的命名空间<br>global 全局作用域,即一个模块的命名空间 模块被import时创建,解释器退出时消亡<br>build-in,内置模块的命名空间,生命周期从python解释器启动时创建到解释器退出时消亡<br>所以一个名词的查找顺序就是LEGB.</p><p>|</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h1&gt;&lt;p&gt;数学定义&lt;br&gt;y=f(x), y是x的函数, x是自变量. y=f(x0, x1 …xn)&lt;br&gt;python函数:&lt;br
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
     
   </entry>
   
@@ -144,33 +144,6 @@
   </entry>
   
   <entry>
-    <title>python知识框架</title>
-    <link href="https://hubhack.github.io/6/"/>
-    <id>https://hubhack.github.io/6/</id>
-    <published>2019-03-30T14:25:34.000Z</published>
-    <updated>2019-03-31T12:19:49.157Z</updated>
-    
-    <content type="html"><![CDATA[<hr><h1 id="python基础"><a href="#python基础" class="headerlink" title="python基础"></a>python基础</h1><p>python是一种动态的强类型语言,底层是用C语言开发的.</p><p>平台：*nix平台<br>系统：线程、进程、Shell编程<br>网络：网络原理、HTTP协议。Socket开发、io多路复用、异步io开发<br>算法要求：转置矩阵、求质数、常见排序算法等，甚至要求现场写<br>数据库：关系型数据库至少会MYSQL，NoSQL应该了解，最好会一个<br>中间件：消息队列原理和应用，例如8曲bitMQ<br>WEB开发：偏后端，MVC框架要求会Django、Flask、Tornado之一<br>可视化：WEB的前端开发多一些HTML、jS要会<br>数据分析和A上要求掌握数据分析的数据理论，机器学习常用库使用</p><p>python学习路线:<br>基础：操作系统、网络基础、数据库基础、python语言基础..<br>进阶：函数封装思想、面向对象设计、装饰器、描述器、元编程..<br>高级：网络编程、并发编程、消息中间件、ORM、传统网页开发(HTML、CSS、jQuery、ECharts).<br>新前端开发(ES6、React、Antd）…<br>实战：WEB框架（类FlaskWEB框架、Django、Flask等）、数据库建模、博客系统、任务流程系统、爬虫Scrap与数据分析..<br>高端：数据清洗、企业数据分析、预测准荐、机器视觉．</p><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>python中的数据类型可以分为5大类:字符串, 数字,容器,布尔,none</p><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>因为计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。最早的计算机在设计时采用8个比特（bit）作为一个字节（byte），所以，一个字节能表示的最大的整数就是255（二进制11111111=十进制255），如果要表示更大的整数，就必须用更多的字节。比如两个字节可以表示的最大整数是65535，4个字节可以表示的最大整数是4294967295。</p><p>由于计算机是美国人发明的，因此，最早只有127个字符被编码到计算机里，也就是大小写英文字母、数字和一些符号，这个编码表被称为ASCII编码，比如大写字母A的编码是65，小写字母z的编码是122。</p><p>但是要处理中文显然一个字节是不够的，至少需要两个字节，而且还不能和ASCII编码冲突，所以，中国制定了GB2312编码，用来把中文编进去。</p><p>你可以想得到的是，全世界有上百种语言，日本把日文编到Shift_JIS里，韩国把韩文编到Euc-kr里，各国有各国的标准，就会不可避免地出现冲突，结果就是，在多语言混合的文本中，显示出来会有乱码。<br>因此，Unicode应运而生。Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。</p><p>Unicode标准也在不断发展，但最常用的是用两个字节表示一个字符（如果要用到非常偏僻的字符，就需要4个字节）。现代操作系统和大多数编程语言都直接支持Unicode。</p><p>现在，捋一捋ASCII编码和Unicode编码的区别：ASCII编码是1个字节，而Unicode编码通常是2个字节。</p><p>字母A用ASCII编码是十进制的65，二进制的01000001；</p><p>字符0用ASCII编码是十进制的48，二进制的00110000，注意字符’0’和整数0是不同的；</p><p>汉字中已经超出了ASCII编码的范围，用Unicode编码是十进制的20013，二进制的01001110 00101101。</p><p>你可以猜测，如果把ASCII编码的A用Unicode编码，只需要在前面补0就可以，因此，A的Unicode编码是00000000 01000001。</p><p>新的问题又出现了：如果统一成Unicode编码，乱码问题从此消失了。但是，如果你写的文本基本上全部是英文的话，用Unicode编码比ASCII编码需要多一倍的存储空间，在存储和传输上就十分不划算。</p><p>所以，本着节约的精神，又出现了把Unicode编码转化为“可变长编码”的UTF-8编码。UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字节.</p><h3 id="字符串的格式化"><a href="#字符串的格式化" class="headerlink" title="字符串的格式化"></a>字符串的格式化</h3><p>format函数或 格式符</p><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><p>字符串与bytes<br>字符串是字符组成的有序序列，字符可以使用编码来理解<br>bytes是字节组成的有序的不可变序列<br>bytearray是字节组成的有序的可变序列</p><p>编码与解码：<br>字符串按照不同的字符集编码encode返回字节序列bytes<br>encode（encoding=‘utf-8’，errors=‘strict’）<br>字节序列按照不同的字符集解码decode返回字符串<br>bytes.decode（encoding=“utf-8”，errors=“strict”）<br>ascii 表是单字节表，实际就是内存中数据的映射表，是一套基于拉丁字母的一套单字节编码系统</p><p>要熟记31 41 61 的ascii表</p><p>字节序：<br>大端模式，big-endian；小端模式，little-endian<br>intel x86cpu使用小端 模式<br>网络传输更多使用大端模式<br>windows，linux 使用小端模式<br>mac os使用大端模式<br>java 虚拟机是大端模式</p><h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><p>有整数 浮点数 复数等</p><h2 id="true-false"><a href="#true-false" class="headerlink" title="true false"></a>true false</h2><p>主要应用在条件判断上面，发生即为True，未发生即为False。Python严格区分大小写，所以一定要注意不要写错。</p><p>None：Python里面特殊的空值，不能理解为0。</p><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><p>list（列表） tuple（元组） set（集合） dictionary（字典）<br>这些都是可以迭代的</p><h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>创建一个列表，只要把逗号分隔的不同的数据项使用方括号括起来即可。列表可以修改，可以用于切片、增、删、改、查。</p><h3 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h3><p>元组和列表类似，但是不同的是元组不能修改，元组使用小括号。</p><h3 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h3><h2 id="判断结构"><a href="#判断结构" class="headerlink" title="判断结构"></a>判断结构</h2><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><p>if语句用来检验一个条件， 如果条件为真，我们运行一块语句（称为 if-块 ）， 否则我们处理另外一块语句（称为 else-块 ）。 else 从句是可选的。</p><p>elif 语句</p><p>elif语句可以检查多个表达式的真值，并执行一个代码块的条件之一计算结果为true。</p><p>if…elif 语句是可选的。然而不像else，对此可以有最多一个语句，if语句下边可以有任意数量elif语句。</p><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>for循环可以遍历任何序列的项目：</p><h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><p>while循环，只要条件满足，就不断循环，条件不满足时退出循环：</p><p>break和continue语句：</p><p>break可以用来终止当前的循环语句，即使循环没结束，执行了break语句这个循环就终止了，直接跳出整个循环。</p><p>continue语句是用来告诉程序跳出本次循环，然后执行下一轮循环，不同与break，break是跳出整个循环，continue是结束这一次循环，继续下一次循环。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;hr&gt;
-&lt;h1 id=&quot;python基础&quot;&gt;&lt;a href=&quot;#python基础&quot; class=&quot;headerlink&quot; title=&quot;python基础&quot;&gt;&lt;/a&gt;python基础&lt;/h1&gt;&lt;p&gt;python是一种动态的强类型语言,底层是用C语言开发的.&lt;/p&gt;
-&lt;p&gt;平台：*
-      
-    
-    </summary>
-    
-      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>99乘法表的不同解法</title>
     <link href="https://hubhack.github.io/7/"/>
     <id>https://hubhack.github.io/7/</id>
@@ -195,6 +168,33 @@
     
     
       <category term="数据结构与算法" scheme="https://hubhack.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python知识框架</title>
+    <link href="https://hubhack.github.io/6/"/>
+    <id>https://hubhack.github.io/6/</id>
+    <published>2019-03-30T14:25:34.000Z</published>
+    <updated>2019-03-31T12:19:49.157Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h1 id="python基础"><a href="#python基础" class="headerlink" title="python基础"></a>python基础</h1><p>python是一种动态的强类型语言,底层是用C语言开发的.</p><p>平台：*nix平台<br>系统：线程、进程、Shell编程<br>网络：网络原理、HTTP协议。Socket开发、io多路复用、异步io开发<br>算法要求：转置矩阵、求质数、常见排序算法等，甚至要求现场写<br>数据库：关系型数据库至少会MYSQL，NoSQL应该了解，最好会一个<br>中间件：消息队列原理和应用，例如8曲bitMQ<br>WEB开发：偏后端，MVC框架要求会Django、Flask、Tornado之一<br>可视化：WEB的前端开发多一些HTML、jS要会<br>数据分析和A上要求掌握数据分析的数据理论，机器学习常用库使用</p><p>python学习路线:<br>基础：操作系统、网络基础、数据库基础、python语言基础..<br>进阶：函数封装思想、面向对象设计、装饰器、描述器、元编程..<br>高级：网络编程、并发编程、消息中间件、ORM、传统网页开发(HTML、CSS、jQuery、ECharts).<br>新前端开发(ES6、React、Antd）…<br>实战：WEB框架（类FlaskWEB框架、Django、Flask等）、数据库建模、博客系统、任务流程系统、爬虫Scrap与数据分析..<br>高端：数据清洗、企业数据分析、预测准荐、机器视觉．</p><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>python中的数据类型可以分为5大类:字符串, 数字,容器,布尔,none</p><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>因为计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。最早的计算机在设计时采用8个比特（bit）作为一个字节（byte），所以，一个字节能表示的最大的整数就是255（二进制11111111=十进制255），如果要表示更大的整数，就必须用更多的字节。比如两个字节可以表示的最大整数是65535，4个字节可以表示的最大整数是4294967295。</p><p>由于计算机是美国人发明的，因此，最早只有127个字符被编码到计算机里，也就是大小写英文字母、数字和一些符号，这个编码表被称为ASCII编码，比如大写字母A的编码是65，小写字母z的编码是122。</p><p>但是要处理中文显然一个字节是不够的，至少需要两个字节，而且还不能和ASCII编码冲突，所以，中国制定了GB2312编码，用来把中文编进去。</p><p>你可以想得到的是，全世界有上百种语言，日本把日文编到Shift_JIS里，韩国把韩文编到Euc-kr里，各国有各国的标准，就会不可避免地出现冲突，结果就是，在多语言混合的文本中，显示出来会有乱码。<br>因此，Unicode应运而生。Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。</p><p>Unicode标准也在不断发展，但最常用的是用两个字节表示一个字符（如果要用到非常偏僻的字符，就需要4个字节）。现代操作系统和大多数编程语言都直接支持Unicode。</p><p>现在，捋一捋ASCII编码和Unicode编码的区别：ASCII编码是1个字节，而Unicode编码通常是2个字节。</p><p>字母A用ASCII编码是十进制的65，二进制的01000001；</p><p>字符0用ASCII编码是十进制的48，二进制的00110000，注意字符’0’和整数0是不同的；</p><p>汉字中已经超出了ASCII编码的范围，用Unicode编码是十进制的20013，二进制的01001110 00101101。</p><p>你可以猜测，如果把ASCII编码的A用Unicode编码，只需要在前面补0就可以，因此，A的Unicode编码是00000000 01000001。</p><p>新的问题又出现了：如果统一成Unicode编码，乱码问题从此消失了。但是，如果你写的文本基本上全部是英文的话，用Unicode编码比ASCII编码需要多一倍的存储空间，在存储和传输上就十分不划算。</p><p>所以，本着节约的精神，又出现了把Unicode编码转化为“可变长编码”的UTF-8编码。UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字节.</p><h3 id="字符串的格式化"><a href="#字符串的格式化" class="headerlink" title="字符串的格式化"></a>字符串的格式化</h3><p>format函数或 格式符</p><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><p>字符串与bytes<br>字符串是字符组成的有序序列，字符可以使用编码来理解<br>bytes是字节组成的有序的不可变序列<br>bytearray是字节组成的有序的可变序列</p><p>编码与解码：<br>字符串按照不同的字符集编码encode返回字节序列bytes<br>encode（encoding=‘utf-8’，errors=‘strict’）<br>字节序列按照不同的字符集解码decode返回字符串<br>bytes.decode（encoding=“utf-8”，errors=“strict”）<br>ascii 表是单字节表，实际就是内存中数据的映射表，是一套基于拉丁字母的一套单字节编码系统</p><p>要熟记31 41 61 的ascii表</p><p>字节序：<br>大端模式，big-endian；小端模式，little-endian<br>intel x86cpu使用小端 模式<br>网络传输更多使用大端模式<br>windows，linux 使用小端模式<br>mac os使用大端模式<br>java 虚拟机是大端模式</p><h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><p>有整数 浮点数 复数等</p><h2 id="true-false"><a href="#true-false" class="headerlink" title="true false"></a>true false</h2><p>主要应用在条件判断上面，发生即为True，未发生即为False。Python严格区分大小写，所以一定要注意不要写错。</p><p>None：Python里面特殊的空值，不能理解为0。</p><h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><p>list（列表） tuple（元组） set（集合） dictionary（字典）<br>这些都是可以迭代的</p><h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>创建一个列表，只要把逗号分隔的不同的数据项使用方括号括起来即可。列表可以修改，可以用于切片、增、删、改、查。</p><h3 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h3><p>元组和列表类似，但是不同的是元组不能修改，元组使用小括号。</p><h3 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h3><h2 id="判断结构"><a href="#判断结构" class="headerlink" title="判断结构"></a>判断结构</h2><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><p>if语句用来检验一个条件， 如果条件为真，我们运行一块语句（称为 if-块 ）， 否则我们处理另外一块语句（称为 else-块 ）。 else 从句是可选的。</p><p>elif 语句</p><p>elif语句可以检查多个表达式的真值，并执行一个代码块的条件之一计算结果为true。</p><p>if…elif 语句是可选的。然而不像else，对此可以有最多一个语句，if语句下边可以有任意数量elif语句。</p><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>for循环可以遍历任何序列的项目：</p><h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><p>while循环，只要条件满足，就不断循环，条件不满足时退出循环：</p><p>break和continue语句：</p><p>break可以用来终止当前的循环语句，即使循环没结束，执行了break语句这个循环就终止了，直接跳出整个循环。</p><p>continue语句是用来告诉程序跳出本次循环，然后执行下一轮循环，不同与break，break是跳出整个循环，continue是结束这一次循环，继续下一次循环。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;h1 id=&quot;python基础&quot;&gt;&lt;a href=&quot;#python基础&quot; class=&quot;headerlink&quot; title=&quot;python基础&quot;&gt;&lt;/a&gt;python基础&lt;/h1&gt;&lt;p&gt;python是一种动态的强类型语言,底层是用C语言开发的.&lt;/p&gt;
+&lt;p&gt;平台：*
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
     
   </entry>
   
@@ -299,28 +299,6 @@
   </entry>
   
   <entry>
-    <title>草稿</title>
-    <link href="https://hubhack.github.io/5/"/>
-    <id>https://hubhack.github.io/5/</id>
-    <published>2019-03-19T14:25:34.000Z</published>
-    <updated>2019-04-10T16:13:00.690Z</updated>
-    
-    <content type="html"><![CDATA[<pre><code>在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当</code></pre><p>你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它<br>并不真正构造列表。<br>我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结<br>束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代<br>器。list() 函数是另外一个（ 迭代器 ），<br>它从可迭代（对象）中创建列表:迭代器（iterator）是一种对象，<br>它能够用来遍历标准模板库容器中的部分或全部元素，<br>每个迭代器对象代表容器中的确定的地址。迭代器修改了常规指针的接口，<br>所谓迭代器是一种概念上的抽象：那些行为上像迭代器的东西都可以叫做迭代器。<br>然而迭代器有很多不同的能力，它可以把抽象容器和通用算法有机的统一起来。</p><p>整理:3.29</p><p>回顾: 整型分长短,但在python3中已经没有了<br>bool 是整型的子类<br>math.sqrt 看帮助 官方文档<br>bin() 返回的字符串<br>type isinstance<br>list 是可迭代对象<br>index 匹配 count 匹配的次数<br>extend 魔术方法<br>“{},{}”.format(1.2)</p><ul><li><strong>随机数</strong><br>instantiate 实例<br>fields领域<br>random模块<br>import random<br>random.randint(1.2)<br>random.choice随机取数字 不均匀<br>for i in range(10):<br>sample 取样<br>元组: 不可变<br>命令元组namedtuple attribute属性特性<br>例子:<br>Point = namedtuple(‘Point’,[‘x’,’y’])<br>p = Point(11,y=22)<br>namespace<br>exec 当python语句执行<br>命名元组,返回一个元组的子类,并定义了字段<br>冒泡法 重点<br>map高阶函数 映射<br>aplit 默认使用空白字符分隔<br>maxsplit<br>replace<br>strip 默认去掉字符两端的空白字符<br>find 时间复杂度和index一样遍历<br>format 函数格式字符串语法<br>“{}”.format()<br>参数解构<em><br>“{}”.format(3**0.5)<br>序列都可以用in<br>内置函数 5</em>14 itertor迭代器</li></ul><p>冒泡法:经典排序算法</p><blockquote><p>for i in range(n):<br>   for j in range(n-i):<br>       num[j],num[j+1] = num[j+1],num[j]<br>print()<br>内置函数说明<br>len(s)<br>返回对象的长度（元素个数）。实参可以是序列（如 string、bytes、tuple、list 或 range 等）或集合（如 dictionary、set 或 frozen set 等）<br>zip()<br>创建一个聚合来自每个可迭代对象中元素的迭代器<br>返回一个元组的迭代器,其中<br>我们已经知道,可以直接作用于for循环的数据类型有以下几种:<br>一类是集合数据类型,如list tuple dictionary set str<br>一类是generator ,包括生成器和带yield的generator function<br>这些可以直接作用于for循环的对象统称为可迭代对象:iterable<br>而生成器不但可以作用于for循环,还可以被next()函数不断调用并返回下一个值,直到最后抛出stopiteration错误表示无法继续返回下一个值.</p></blockquote><h1 id="pythonnic"><a href="#pythonnic" class="headerlink" title="pythonnic"></a>pythonnic</h1><p>Python的世界里你会听到这个词”Pythonic”，大概就是指代码符合Python的惯用法，使用的都是Python的语法糖(我觉得可以翻译为『地道』)。比如从其他语言转到Python 的写出来的代码很可能受到以前思维方式的影响(别像 java 一样写一堆 getter/setter)，写出来的代码不够Pythonic: 比如:</p><h1 id="不够Pythonic"><a href="#不够Pythonic" class="headerlink" title="不够Pythonic"></a>不够Pythonic</h1><p>if a &lt; b and a &gt; c:<br>    pass</p><h1 id="python里却可以这么写"><a href="#python里却可以这么写" class="headerlink" title="python里却可以这么写"></a>python里却可以这么写</h1><p>if c &lt; a &lt; b:<br>    pass</p><h1 id="bad"><a href="#bad" class="headerlink" title="bad"></a>bad</h1><p>i = 0<br>while i &lt; mylist_length:<br>    do_something(mylist[i])<br>    i += 1</p><h1 id="good"><a href="#good" class="headerlink" title="good"></a>good</h1><p>for element in mylist:<br>   do_something(element)</p><h1 id="bad-不要使用默认可变对象作为默认参数"><a href="#bad-不要使用默认可变对象作为默认参数" class="headerlink" title="bad, 不要使用默认可变对象作为默认参数"></a>bad, 不要使用默认可变对象作为默认参数</h1><p>def f(a, b=[])<br>    pass</p><h1 id="good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题"><a href="#good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题" class="headerlink" title="good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题"></a>good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题</h1><p>def f(a, b=None):<br>    if b is None:<br>        b = []<br>Python有一些语法上的坑，比如默认参数只计算一次，不要使用可变类型作为默认参数等，看多了写多了就知道了。尤其是可变类型作为函数参数传入后被改变的情况（函数尽量不要有副作用,这里副作用指的就是修改了传入的可变参数的值），尤其要注意。</p><h1 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式:"></a>列表生成式:</h1><p>list comprehensions 是python内置的非常简单却强大的可以用来创建list的生成式<br>举个例子 ,要生成list[1,2,3,4,5,6,7,8,9]可以用list(range(1,11))<br>但如果要生成[1x1, 2x2, 3x3, …, 10x10]怎么做？方法一是循环：</p><blockquote><blockquote><blockquote><p>L = []<br>for x in range(1, 11):<br>…    L.append(x * x)<br>…<br>L<br>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</p></blockquote></blockquote></blockquote><p>c 程序主要包括以下部分<br>预处理指令<br>函数<br>变量<br>语句<br>注释</p><h1 id="include-lt-stdio-h-gt"><a href="#include-lt-stdio-h-gt" class="headerlink" title="include &lt;stdio.h&gt;"></a>include &lt;stdio.h&gt;</h1><p>int main()<br>{<br>    print(“hello world”);<br>    return 0;<br>}</p><h1 id="python-中的对象"><a href="#python-中的对象" class="headerlink" title="python 中的对象"></a>python 中的对象</h1><p>对象可以说是python最核心的一个概念, 在python的世界里,一切皆对象. 我们知道python是c 编写的,c并不是一个面向对象语言,而c编写的python确实面向对象,在python中,对象就是c中的结构体在堆上申请的一块内存.<br>Python对象的多态性</p><p>　　面向对象中一个重要的特性是多态，那么Python是如何实现多态的呢？<br>　　在Python创建一个对象时，会分配内存，进行初始化，然后Python内部会使用一个PyObject<em>变量来保存和维护这个对象，Python中的所有对象均是如此。比如创建一个PyIntObject对象（整数对象），不是通过PyIntObject </em>变量来保存和维护这个对象，而是通过PyObject <em>，正因为所有对象均如此，所以Python内部各个函数之间传递的都是一种范型指针（Pyobject</em>)，而这个指针所指的对象究竟是什么类型的，我们是不知道的，只能从指针所指对象的ob_type域动态进行判断，而正是这个域，Python实现了多态。</p><h1 id="python标准库"><a href="#python标准库" class="headerlink" title="python标准库"></a>python标准库</h1><p>文本处理服务:string re textwrap<br>二进制数据服务<br>数据类型<br>数字和数学模块<br>函数式编程模块<br>文件和目录访问<br>数据持久化<br>数据压缩和存档<br>文件格式<br>加密服务<br>通用操作系统服务 os io time<br>并发执行 threading<br>网络和进程间通信<br>互联网数据处理 email json<br>结构化标记处理工具 html xml<br>互联网协议和支持 urllib.request http.server<br>多媒体服务 imghdr<br>国际化<br>程序框架 cmd turtle<br>Tk图形用户界面 GUI<br>开发工具 调试和分析<br>软件打包和分发 venv<br>python运行时服务 sysbuiltins   gc垃圾回收器接口<br>自定义python解释器<br>导入模块<br>python语言服务<br>杂项服务<br>windows系统相关模块<br>unix专有服务<br>被取代的模块<br>未创建文档的模块</p><p>none 与NUll的区别<br>表示该值是一个空对象,空值是python里一个特殊的值,用none表示,none不能理解为<br>0,因为0是有意义的,而none是一个特殊的空值<br>判断的时候 均是false<br>属性不同:使用dir()函数返回参数的属性,方法列表,如果参数包含方法dir(),该方法将被<br>调用.如果参数不包含dir(),该方法将最大限度地收集参数信息.</p><p>功能性函数返回都为none<br>None是一个特殊的常量。<br>None和False不同。<br>None不是0。<br>None不是空字符串。<br>None和任何其他的数据类型比较永远返回False。<br>None有自己的数据类型NoneType。<br>你可以将None赋值给任何变量，但是你不能创建其他NoneType对象。<br>L.index(value, [start, [stop]])，这里的中括号表示：start和stop是可选参数。可选参数通常都这么写，用的时候别带中括号。</p><p>单星号(<em>):</em>args 将所以参数以元组(tuple)的形式导入:<br>还有解压参数<br>双星号以字典的形式导入</p><h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1><p>字典是python的半壁江山 要熟练<br>可变的 ,无序的,key不重复<br>d[key]<br>返回key对应的值value<br>key不存在抛出keyerror异常</p><p>get(key[,defalut])<br>返回key对应的值value<br>key不存在返回缺省值,如果没有设置缺省值就返回none</p><p>setdefalut(key[,default])<br>返回key对应的值value<br>key不存在,添加kv对,value设置为default,并返回default</p><p>字典增加和修改</p><p>d[key] = value<br>将key对应的值修改为value<br>key不存在添加新的kv对</p><p>updata([other])<br>使用另一个字典的kv对更新本字典<br>key不存在,就添加<br>key存在,覆盖已经存在的key对应的值<br>就地修改</p><p>字典删除</p><p>pop(key[,default])<br>key不存在,移除他,并返回它的value<br>key不存在,返回给定的default<br>default未设置,key不存在则抛出Keyerror异常<br>popitem()<br>移除并返回一个任意的键值对<br>字典为empty,抛出KEyerror<br>clear()<br>清空字典</p><p>字典删除<br>del语句<br>a = True<br>b = [6]</p><p>字典遍历<br>for …in dict<br>遍历key<br>for k in d:<br>print(k)</p><p>key的要求和set的元素要求一致<br>set的元素可以就是看做key,set可以看做dict的简化版<br>hashable可哈希才可以作为key, 可以使用hash()测试</p><p>defaultdict</p><h1 id="解析式"><a href="#解析式" class="headerlink" title="解析式"></a>解析式</h1><p>列表解析list comprehension</p><p>语法<br>返回值 for 元素 in 可迭代 对象if 条件<br>使用中括号[],内部是for循环,if条件语句可选<br>返回一个新的列表</p><p>列表解析式是一种语法糖<br>编译器会优化,不会因为简写而影响效率,反而因优化提高了效率</p><h1 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h1><p>python三剑客 生成器 装饰器 描述器<br>熟练运用<br>生成器表达式是按需计算 或惰性求值,延迟计算<br>列表解析式是立即返回值<br>生成器 是可迭代对象 迭代器</p><p>生成器表达式**<br>单从返回值本身来说,生成器表达式省内存,列表解析式返回新的列表<br>生成器没有数据,内存占用极少,他是使用时一个个返回数据如果合起来占用的内存也和列表解析式差不多.但是,它不需要占用这么多内存<br>列表解析式构造新的列表需要立即占用内存,不管你是否立即使用这么多数据</p><p>计算速度<br>单看计算时间看,生成器表达式耗时非常短,列表解析式耗时长<br>但是生成器本身并没有返回任何值,只返回一个生成器对象<br>列表解析式构造并返回了一个新的列表,所以看起来耗时了</p><p>类似:字典,集合解析式</p><h1 id="collections-容器数据类型"><a href="#collections-容器数据类型" class="headerlink" title="collections 容器数据类型"></a>collections 容器数据类型</h1><p>这个模块实现了特定目标的容器<br>nametuple 创建命名元组子类的工厂函数</p><p>counter 字典的子类,提供了可哈希对象的计数功能<br>OrderedDict 字典的子类,保存了他们被添加的顺序<br>defaultdict 字典的子类,提供了一个工厂函数,为字典查询提供一个默认值.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它&lt;br&gt;并不真正构造列表。&lt;br&gt;我们称此类对象是 可迭代的，即适合作
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>python入门笔记</title>
     <link href="https://hubhack.github.io/2/"/>
     <id>https://hubhack.github.io/2/</id>
@@ -342,6 +320,28 @@
     
     
       <category term="python基础" scheme="https://hubhack.github.io/tags/python%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>草稿</title>
+    <link href="https://hubhack.github.io/5/"/>
+    <id>https://hubhack.github.io/5/</id>
+    <published>2019-03-19T14:25:34.000Z</published>
+    <updated>2019-04-10T16:13:00.690Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当</code></pre><p>你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它<br>并不真正构造列表。<br>我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结<br>束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代<br>器。list() 函数是另外一个（ 迭代器 ），<br>它从可迭代（对象）中创建列表:迭代器（iterator）是一种对象，<br>它能够用来遍历标准模板库容器中的部分或全部元素，<br>每个迭代器对象代表容器中的确定的地址。迭代器修改了常规指针的接口，<br>所谓迭代器是一种概念上的抽象：那些行为上像迭代器的东西都可以叫做迭代器。<br>然而迭代器有很多不同的能力，它可以把抽象容器和通用算法有机的统一起来。</p><p>整理:3.29</p><p>回顾: 整型分长短,但在python3中已经没有了<br>bool 是整型的子类<br>math.sqrt 看帮助 官方文档<br>bin() 返回的字符串<br>type isinstance<br>list 是可迭代对象<br>index 匹配 count 匹配的次数<br>extend 魔术方法<br>“{},{}”.format(1.2)</p><ul><li><strong>随机数</strong><br>instantiate 实例<br>fields领域<br>random模块<br>import random<br>random.randint(1.2)<br>random.choice随机取数字 不均匀<br>for i in range(10):<br>sample 取样<br>元组: 不可变<br>命令元组namedtuple attribute属性特性<br>例子:<br>Point = namedtuple(‘Point’,[‘x’,’y’])<br>p = Point(11,y=22)<br>namespace<br>exec 当python语句执行<br>命名元组,返回一个元组的子类,并定义了字段<br>冒泡法 重点<br>map高阶函数 映射<br>aplit 默认使用空白字符分隔<br>maxsplit<br>replace<br>strip 默认去掉字符两端的空白字符<br>find 时间复杂度和index一样遍历<br>format 函数格式字符串语法<br>“{}”.format()<br>参数解构<em><br>“{}”.format(3**0.5)<br>序列都可以用in<br>内置函数 5</em>14 itertor迭代器</li></ul><p>冒泡法:经典排序算法</p><blockquote><p>for i in range(n):<br>   for j in range(n-i):<br>       num[j],num[j+1] = num[j+1],num[j]<br>print()<br>内置函数说明<br>len(s)<br>返回对象的长度（元素个数）。实参可以是序列（如 string、bytes、tuple、list 或 range 等）或集合（如 dictionary、set 或 frozen set 等）<br>zip()<br>创建一个聚合来自每个可迭代对象中元素的迭代器<br>返回一个元组的迭代器,其中<br>我们已经知道,可以直接作用于for循环的数据类型有以下几种:<br>一类是集合数据类型,如list tuple dictionary set str<br>一类是generator ,包括生成器和带yield的generator function<br>这些可以直接作用于for循环的对象统称为可迭代对象:iterable<br>而生成器不但可以作用于for循环,还可以被next()函数不断调用并返回下一个值,直到最后抛出stopiteration错误表示无法继续返回下一个值.</p></blockquote><h1 id="pythonnic"><a href="#pythonnic" class="headerlink" title="pythonnic"></a>pythonnic</h1><p>Python的世界里你会听到这个词”Pythonic”，大概就是指代码符合Python的惯用法，使用的都是Python的语法糖(我觉得可以翻译为『地道』)。比如从其他语言转到Python 的写出来的代码很可能受到以前思维方式的影响(别像 java 一样写一堆 getter/setter)，写出来的代码不够Pythonic: 比如:</p><h1 id="不够Pythonic"><a href="#不够Pythonic" class="headerlink" title="不够Pythonic"></a>不够Pythonic</h1><p>if a &lt; b and a &gt; c:<br>    pass</p><h1 id="python里却可以这么写"><a href="#python里却可以这么写" class="headerlink" title="python里却可以这么写"></a>python里却可以这么写</h1><p>if c &lt; a &lt; b:<br>    pass</p><h1 id="bad"><a href="#bad" class="headerlink" title="bad"></a>bad</h1><p>i = 0<br>while i &lt; mylist_length:<br>    do_something(mylist[i])<br>    i += 1</p><h1 id="good"><a href="#good" class="headerlink" title="good"></a>good</h1><p>for element in mylist:<br>   do_something(element)</p><h1 id="bad-不要使用默认可变对象作为默认参数"><a href="#bad-不要使用默认可变对象作为默认参数" class="headerlink" title="bad, 不要使用默认可变对象作为默认参数"></a>bad, 不要使用默认可变对象作为默认参数</h1><p>def f(a, b=[])<br>    pass</p><h1 id="good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题"><a href="#good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题" class="headerlink" title="good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题"></a>good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题</h1><p>def f(a, b=None):<br>    if b is None:<br>        b = []<br>Python有一些语法上的坑，比如默认参数只计算一次，不要使用可变类型作为默认参数等，看多了写多了就知道了。尤其是可变类型作为函数参数传入后被改变的情况（函数尽量不要有副作用,这里副作用指的就是修改了传入的可变参数的值），尤其要注意。</p><h1 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式:"></a>列表生成式:</h1><p>list comprehensions 是python内置的非常简单却强大的可以用来创建list的生成式<br>举个例子 ,要生成list[1,2,3,4,5,6,7,8,9]可以用list(range(1,11))<br>但如果要生成[1x1, 2x2, 3x3, …, 10x10]怎么做？方法一是循环：</p><blockquote><blockquote><blockquote><p>L = []<br>for x in range(1, 11):<br>…    L.append(x * x)<br>…<br>L<br>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</p></blockquote></blockquote></blockquote><p>c 程序主要包括以下部分<br>预处理指令<br>函数<br>变量<br>语句<br>注释</p><h1 id="include-lt-stdio-h-gt"><a href="#include-lt-stdio-h-gt" class="headerlink" title="include &lt;stdio.h&gt;"></a>include &lt;stdio.h&gt;</h1><p>int main()<br>{<br>    print(“hello world”);<br>    return 0;<br>}</p><h1 id="python-中的对象"><a href="#python-中的对象" class="headerlink" title="python 中的对象"></a>python 中的对象</h1><p>对象可以说是python最核心的一个概念, 在python的世界里,一切皆对象. 我们知道python是c 编写的,c并不是一个面向对象语言,而c编写的python确实面向对象,在python中,对象就是c中的结构体在堆上申请的一块内存.<br>Python对象的多态性</p><p>　　面向对象中一个重要的特性是多态，那么Python是如何实现多态的呢？<br>　　在Python创建一个对象时，会分配内存，进行初始化，然后Python内部会使用一个PyObject<em>变量来保存和维护这个对象，Python中的所有对象均是如此。比如创建一个PyIntObject对象（整数对象），不是通过PyIntObject </em>变量来保存和维护这个对象，而是通过PyObject <em>，正因为所有对象均如此，所以Python内部各个函数之间传递的都是一种范型指针（Pyobject</em>)，而这个指针所指的对象究竟是什么类型的，我们是不知道的，只能从指针所指对象的ob_type域动态进行判断，而正是这个域，Python实现了多态。</p><h1 id="python标准库"><a href="#python标准库" class="headerlink" title="python标准库"></a>python标准库</h1><p>文本处理服务:string re textwrap<br>二进制数据服务<br>数据类型<br>数字和数学模块<br>函数式编程模块<br>文件和目录访问<br>数据持久化<br>数据压缩和存档<br>文件格式<br>加密服务<br>通用操作系统服务 os io time<br>并发执行 threading<br>网络和进程间通信<br>互联网数据处理 email json<br>结构化标记处理工具 html xml<br>互联网协议和支持 urllib.request http.server<br>多媒体服务 imghdr<br>国际化<br>程序框架 cmd turtle<br>Tk图形用户界面 GUI<br>开发工具 调试和分析<br>软件打包和分发 venv<br>python运行时服务 sysbuiltins   gc垃圾回收器接口<br>自定义python解释器<br>导入模块<br>python语言服务<br>杂项服务<br>windows系统相关模块<br>unix专有服务<br>被取代的模块<br>未创建文档的模块</p><p>none 与NUll的区别<br>表示该值是一个空对象,空值是python里一个特殊的值,用none表示,none不能理解为<br>0,因为0是有意义的,而none是一个特殊的空值<br>判断的时候 均是false<br>属性不同:使用dir()函数返回参数的属性,方法列表,如果参数包含方法dir(),该方法将被<br>调用.如果参数不包含dir(),该方法将最大限度地收集参数信息.</p><p>功能性函数返回都为none<br>None是一个特殊的常量。<br>None和False不同。<br>None不是0。<br>None不是空字符串。<br>None和任何其他的数据类型比较永远返回False。<br>None有自己的数据类型NoneType。<br>你可以将None赋值给任何变量，但是你不能创建其他NoneType对象。<br>L.index(value, [start, [stop]])，这里的中括号表示：start和stop是可选参数。可选参数通常都这么写，用的时候别带中括号。</p><p>单星号(<em>):</em>args 将所以参数以元组(tuple)的形式导入:<br>还有解压参数<br>双星号以字典的形式导入</p><h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1><p>字典是python的半壁江山 要熟练<br>可变的 ,无序的,key不重复<br>d[key]<br>返回key对应的值value<br>key不存在抛出keyerror异常</p><p>get(key[,defalut])<br>返回key对应的值value<br>key不存在返回缺省值,如果没有设置缺省值就返回none</p><p>setdefalut(key[,default])<br>返回key对应的值value<br>key不存在,添加kv对,value设置为default,并返回default</p><p>字典增加和修改</p><p>d[key] = value<br>将key对应的值修改为value<br>key不存在添加新的kv对</p><p>updata([other])<br>使用另一个字典的kv对更新本字典<br>key不存在,就添加<br>key存在,覆盖已经存在的key对应的值<br>就地修改</p><p>字典删除</p><p>pop(key[,default])<br>key不存在,移除他,并返回它的value<br>key不存在,返回给定的default<br>default未设置,key不存在则抛出Keyerror异常<br>popitem()<br>移除并返回一个任意的键值对<br>字典为empty,抛出KEyerror<br>clear()<br>清空字典</p><p>字典删除<br>del语句<br>a = True<br>b = [6]</p><p>字典遍历<br>for …in dict<br>遍历key<br>for k in d:<br>print(k)</p><p>key的要求和set的元素要求一致<br>set的元素可以就是看做key,set可以看做dict的简化版<br>hashable可哈希才可以作为key, 可以使用hash()测试</p><p>defaultdict</p><h1 id="解析式"><a href="#解析式" class="headerlink" title="解析式"></a>解析式</h1><p>列表解析list comprehension</p><p>语法<br>返回值 for 元素 in 可迭代 对象if 条件<br>使用中括号[],内部是for循环,if条件语句可选<br>返回一个新的列表</p><p>列表解析式是一种语法糖<br>编译器会优化,不会因为简写而影响效率,反而因优化提高了效率</p><h1 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h1><p>python三剑客 生成器 装饰器 描述器<br>熟练运用<br>生成器表达式是按需计算 或惰性求值,延迟计算<br>列表解析式是立即返回值<br>生成器 是可迭代对象 迭代器</p><p>生成器表达式**<br>单从返回值本身来说,生成器表达式省内存,列表解析式返回新的列表<br>生成器没有数据,内存占用极少,他是使用时一个个返回数据如果合起来占用的内存也和列表解析式差不多.但是,它不需要占用这么多内存<br>列表解析式构造新的列表需要立即占用内存,不管你是否立即使用这么多数据</p><p>计算速度<br>单看计算时间看,生成器表达式耗时非常短,列表解析式耗时长<br>但是生成器本身并没有返回任何值,只返回一个生成器对象<br>列表解析式构造并返回了一个新的列表,所以看起来耗时了</p><p>类似:字典,集合解析式</p><h1 id="collections-容器数据类型"><a href="#collections-容器数据类型" class="headerlink" title="collections 容器数据类型"></a>collections 容器数据类型</h1><p>这个模块实现了特定目标的容器<br>nametuple 创建命名元组子类的工厂函数</p><p>counter 字典的子类,提供了可哈希对象的计数功能<br>OrderedDict 字典的子类,保存了他们被添加的顺序<br>defaultdict 字典的子类,提供了一个工厂函数,为字典查询提供一个默认值.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它&lt;br&gt;并不真正构造列表。&lt;br&gt;我们称此类对象是 可迭代的，即适合作
+      
+    
+    </summary>
+    
     
   </entry>
   
