@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="匿名函数匿名函数 :隐藏名字,即没有名称匿名函数: 没有名字的函数lambda表达式python中,使用lambda表达式构建匿名函数使用 lambda关键字定义匿名函数,格式为lambda[参数列表]:表达式参数列表不需要小括号,无参就不写参数冒号用来分割参数和表达式部分不需要使用return,表达式的值,就是匿名函数的返回值.表达式中不能出现等号.lambda表达式匿名函数只能写在一行上,也称">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-15T13:01:06.803Z">
+<meta property="og:updated_time" content="2019-04-15T13:05:20.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python特殊函数">
 <meta name="twitter:description" content="匿名函数匿名函数 :隐藏名字,即没有名称匿名函数: 没有名字的函数lambda表达式python中,使用lambda表达式构建匿名函数使用 lambda关键字定义匿名函数,格式为lambda[参数列表]:表达式参数列表不需要小括号,无参就不写参数冒号用来分割参数和表达式部分不需要使用return,表达式的值,就是匿名函数的返回值.表达式中不能出现等号.lambda表达式匿名函数只能写在一行上,也称">
@@ -497,7 +497,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-15 21:01:06" itemprop="dateModified" datetime="2019-04-15T21:01:06+08:00">2019-04-15</time>
+                <time title="修改时间：2019-04-15 21:05:20" itemprop="dateModified" datetime="2019-04-15T21:05:20+08:00">2019-04-15</time>
               
             
           </span>
@@ -560,7 +560,7 @@
 <p>递归是一种很自然的表达,符合逻辑思维<br>递归相对效率低,每一次调用都要开辟栈帧.<br>递归有深度限制,如果递归层次太深,函数反复压栈,栈内存很快就溢出了.<br>如果是有限次数的递归, 可以使用递归调用, 或者使用循环代替 ,循环代码稍微复杂一些,但是只要不是死循环,可以多次迭代直至算出结果.<br>绝大多数递归,都可以使用循环实现<br>即使递归代码很简洁,但是能不用则不用递归.</p>
 <h1 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h1><p>生成器generator<br>生成器指的是生成器对象,可以由生成器表达式得到,也可以使用yield关键字得到一个生成器函数,调用这个函数得到一个生成器.<br>生成器对象,是一个可迭代对象,是有个迭代器.<br>生成器对象,是延时计算,惰性求值的.</p>
 <p>函数体中包含yield语句的函数,就是生成器函数,调用后返回生成器对象.<br>普通函数调用,函数会立即执行直到执行完毕.<br>生成器函数的调用,并不会立即执行函数体, 而是需要使用next函数来驱动生成器函数来执行获得的生成器对象.<br>生成器表达式和生成器函数都可以得到生成器对象,只不过生成器函数可以写的更加复杂的逻辑.</p>
-<p>在生成器函数中,可以多次yield,没执行一次后会暂停执行,把yield表达式的值返回<br>再执行会执行到下一个yield语句又会暂停执行<br>return会导致当前函数返回,无法继续执行,也无法继续获取下一个值,抛出stoplteraton异常.</p>
+<p>在生成器函数中,可以多次yield,没执行一次后会暂停执行,把yield表达式的值返回<br>再执行会执行到下一个yield语句又会暂停执行<br>return会导致当前函数返回,无法继续执行,也无法继续获取下一个值,抛出stoplteraton异常.<br>如果函数没有显示的return语句如果生成器函数执行到结尾,一样会抛出stoplterration<br>生成器函数<br>包含yield语句的生成器函数调用后,生成器对象的时候,生成器函数的函数体不会立即执行<br>next会从函数的当前位置向后执行到之后碰到的第一个yield语句,会弹出值,并暂停函数执行.<br>再次调用next函数,和上一条一样的处理过程.<br>继续调用next函数,生产器函数如果结束执行了,会抛出stoplteration异常.</p>
 
       
     </div>
