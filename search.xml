@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[匿名函数]]></title>
+    <title><![CDATA[python特殊函数]]></title>
     <url>%2F13%2F</url>
-    <content type="text"><![CDATA[匿名函数 :隐藏名字,即没有名称匿名函数: 没有名字的函数lambda表达式python中,使用lambda表达式构建匿名函数使用 lambda关键字定义匿名函数,格式为lambda[参数列表]:表达式参数列表不需要小括号,无参就不写参数冒号用来分割参数和表达式部分不需要使用return,表达式的值,就是匿名函数的返回值.表达式中不能出现等号.lambda表达式匿名函数只能写在一行上,也称为单行函数]]></content>
+    <content type="text"><![CDATA[匿名函数匿名函数 :隐藏名字,即没有名称匿名函数: 没有名字的函数lambda表达式python中,使用lambda表达式构建匿名函数使用 lambda关键字定义匿名函数,格式为lambda[参数列表]:表达式参数列表不需要小括号,无参就不写参数冒号用来分割参数和表达式部分不需要使用return,表达式的值,就是匿名函数的返回值.表达式中不能出现等号.lambda表达式匿名函数只能写在一行上,也称为单行函数. 匿名函数往往用在高阶函数传参时,使用lambda表达式,往往能简化代码. 生成器函数]]></content>
       <categories>
         <category>python</category>
       </categories>

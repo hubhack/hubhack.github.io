@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-04-15T12:27:40.683Z</updated>
+  <updated>2019-04-15T12:31:38.445Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -17,19 +17,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>匿名函数</title>
+    <title>python特殊函数</title>
     <link href="https://hubhack.github.io/13/"/>
     <id>https://hubhack.github.io/13/</id>
     <published>2019-04-14T14:26:00.000Z</published>
-    <updated>2019-04-15T12:27:40.683Z</updated>
+    <updated>2019-04-15T12:31:38.445Z</updated>
     
-    <content type="html"><![CDATA[<p>匿名函数 :隐藏名字,即没有名称<br>匿名函数: 没有名字的函数<br>lambda表达式<br>python中,使用lambda表达式构建匿名函数<br>使用 lambda关键字定义匿名函数,格式为lambda[参数列表]:表达式<br>参数列表不需要小括号,无参就不写参数<br>冒号用来分割参数和表达式部分<br>不需要使用return,表达式的值,就是匿名函数的返回值.表达式中不能出现等号.<br>lambda表达式匿名函数只能写在一行上,也称为单行函数</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h1><p>匿名函数 :隐藏名字,即没有名称<br>匿名函数: 没有名字的函数<br>lambda表达式<br>python中,使用lambda表达式构建匿名函数<br>使用 lambda关键字定义匿名函数,格式为lambda[参数列表]:表达式<br>参数列表不需要小括号,无参就不写参数<br>冒号用来分割参数和表达式部分<br>不需要使用return,表达式的值,就是匿名函数的返回值.表达式中不能出现等号.<br>lambda表达式匿名函数只能写在一行上,也称为单行函数.</p><p>匿名函数往往用在高阶函数传参时,使用lambda表达式,往往能简化代码.</p><h1 id="生成器函数"><a href="#生成器函数" class="headerlink" title="生成器函数"></a>生成器函数</h1>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;匿名函数 :隐藏名字,即没有名称&lt;br&gt;匿名函数: 没有名字的函数&lt;br&gt;lambda表达式&lt;br&gt;python中,使用lambda表达式构建匿名函数&lt;br&gt;使用 lambda关键字定义匿名函数,格式为lambda[参数列表]:表达式&lt;br&gt;参数列表不需要小括号,无参就不写
+        &lt;h1 id=&quot;匿名函数&quot;&gt;&lt;a href=&quot;#匿名函数&quot; class=&quot;headerlink&quot; title=&quot;匿名函数&quot;&gt;&lt;/a&gt;匿名函数&lt;/h1&gt;&lt;p&gt;匿名函数 :隐藏名字,即没有名称&lt;br&gt;匿名函数: 没有名字的函数&lt;br&gt;lambda表达式&lt;br&gt;python中,使用la
       
     
     </summary>
