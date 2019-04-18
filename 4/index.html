@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="基本入门算法有三个经典算法:冒泡,选择和插入算法 选择排序简单选择排序属于选择排序两两比较大小,找出极值或极小值被放置在固定的位置,这个固定一般指的是某一端结果分为升序和降序排列 基本思路:  求出最大索引(或最小索引)并记录 两两交换 补充特殊情况,完善代码  先用几个数做测试  nums = [1, 9, 8]length = len(nums) maxindex = 0for i in ra">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-18T01:04:43.958Z">
+<meta property="og:updated_time" content="2019-04-18T01:07:34.691Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基本算法">
 <meta name="twitter:description" content="基本入门算法有三个经典算法:冒泡,选择和插入算法 选择排序简单选择排序属于选择排序两两比较大小,找出极值或极小值被放置在固定的位置,这个固定一般指的是某一端结果分为升序和降序排列 基本思路:  求出最大索引(或最小索引)并记录 两两交换 补充特殊情况,完善代码  先用几个数做测试  nums = [1, 9, 8]length = len(nums) maxindex = 0for i in ra">
@@ -497,7 +497,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-18 09:04:43" itemprop="dateModified" datetime="2019-04-18T09:04:43+08:00">2019-04-18</time>
+                <time title="修改时间：2019-04-18 09:07:34" itemprop="dateModified" datetime="2019-04-18T09:07:34+08:00">2019-04-18</time>
               
             
           </span>
@@ -585,7 +585,7 @@
 <p>在列表前面增加哨兵位,可以是None空间复杂度为1, 时间复杂度On</p>
 <p>m_list = [1, 9, 8, 6, 5, 4, 3, 2, 2, 1]<br>nums = [0] + list[0]<br>length = len(nums)<br>count_move = 0<br>for i in range(2, length):<br>    nums[0] = nums[i]<br>    j = i - 1<br>    if nums[j] &gt; nums[0]:<br>        while nums[j] &gt; nums[0]:<br>            nums[j+1] = nums[j]<br>            j -=1<br>            count_move += 1<br>        nums[j+1] = nums[0]<br>print(nums[1:])</p>
 <p>总结: 交换依次从前至后,两两依次比较,从中选出最大将这个值交换到右边,之后第二个和第三个比较,在这一趟比较出最大的放在无序区里.无序区减少,有序区增加时间复杂度为大On**2,可以提前终.</p>
-<p>选择排序: 就地排序,在这一趟选择极值,</p>
+<p>选择排序: 就地排序,在这一趟选择极值,假定第一个最大,记录索引.比较完成后与真实最大的交换,有序区增加,无序区减少,优化算法一次性找出最大和最小,依次固定2个位置,复杂度高一点,不管你是升序还是降序,特殊情况,数值都是一样的</p>
 
       
     </div>
