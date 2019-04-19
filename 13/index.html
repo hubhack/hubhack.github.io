@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="匿名函数匿名函数 :隐藏名字,即没有名称匿名函数: 没有名字的函数lambda表达式python中,使用lambda表达式构建匿名函数使用 lambda关键字定义匿名函数,格式为lambda[参数列表]:表达式参数列表不需要小括号,无参就不写参数冒号用来分割参数和表达式部分不需要使用return,表达式的值,就是匿名函数的返回值.表达式中不能出现等号.lambda表达式匿名函数只能写在一行上,也称">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-19T01:11:14.887Z">
+<meta property="og:updated_time" content="2019-04-19T13:11:45.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python特殊函数">
 <meta name="twitter:description" content="匿名函数匿名函数 :隐藏名字,即没有名称匿名函数: 没有名字的函数lambda表达式python中,使用lambda表达式构建匿名函数使用 lambda关键字定义匿名函数,格式为lambda[参数列表]:表达式参数列表不需要小括号,无参就不写参数冒号用来分割参数和表达式部分不需要使用return,表达式的值,就是匿名函数的返回值.表达式中不能出现等号.lambda表达式匿名函数只能写在一行上,也称">
@@ -497,7 +497,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-19 09:11:14" itemprop="dateModified" datetime="2019-04-19T09:11:14+08:00">2019-04-19</time>
+                <time title="修改时间：2019-04-19 21:11:45" itemprop="dateModified" datetime="2019-04-19T21:11:45+08:00">2019-04-19</time>
               
             
           </span>
@@ -572,6 +572,7 @@
 <p>然而,使用class改写的这个版本,代码远远没有第一版的fab函数来的简洁,如果我们想要保持第一版fab函数的简洁性, 同时又要获得iterable的效果, yield就派上用场了:<br>def fab(max):<br>    n, a, b = 0, 0, 1<br>    while n &lt; max:<br>        yield b<br>        b =  b+a<br>        a = b-a<br>        n = n + 1</p>
 <p>第四个版本的fab和第一版相比, 仅仅把print b改为 yield b, 就在保持简洁性的同时获得了iterable的效果<br>调用第四版的fab和第二版的fab完全一致:</p>
 <p>简单地将,yield的作用就是把一个函数变为一个generator, 带有yield的函数不再是一个普通函数, python解释器会将其视为一个generator, 调用fab不会执行fab函数,而是返回一个iterable对象 在for循环执行时 ,每次循环都会执行fab函数内部的代码,执行到yield b时,fab函数就返回一个迭代值,下次迭代时,代码yield的下一条语句继续执行,<br>而函数的本地变量看起来和上次中断执行前是完全一样的.于是函数继续执行,直到再次遇到yield.也可以手动调用fab(5)的next()方法<br>这样我们就可以清楚看到fab的执行流程.</p>
+<h1 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h1><p>函数也是对象, 是可调用对象<br>函数可以作为普通变量,也可以作为函数的参数, 返回值.</p>
 
       
     </div>
@@ -808,7 +809,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#匿名函数"><span class="nav-number">1.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归函数"><span class="nav-number">2.</span> <span class="nav-text">递归函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成器"><span class="nav-number">3.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#yield-和return的区别"><span class="nav-number">4.</span> <span class="nav-text">yield 和return的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#匿名函数"><span class="nav-number">1.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归函数"><span class="nav-number">2.</span> <span class="nav-text">递归函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成器"><span class="nav-number">3.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#yield-和return的区别"><span class="nav-number">4.</span> <span class="nav-text">yield 和return的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高阶函数"><span class="nav-number">5.</span> <span class="nav-text">高阶函数</span></a></li></ol></div>
             
 
           </div>
