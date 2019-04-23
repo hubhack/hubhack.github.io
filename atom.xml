@@ -228,7 +228,7 @@
     <link href="https://hubhack.github.io/14/"/>
     <id>https://hubhack.github.io/14/</id>
     <published>2019-03-19T14:26:00.000Z</published>
-    <updated>2019-04-23T01:06:20.566Z</updated>
+    <updated>2019-04-23T16:56:05.857Z</updated>
     
     <content type="html"><![CDATA[<h1 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h1><p>装饰器本质是一个python函数,它可以让其他函数在不需要做任何代码变动的前提下增加额外功能,装饰器的返回值也是一个函数对象.它经常用于有切面需求的场景,比如:插入日志,性能测试,事务处理,缓存,权限校验等场景.装饰器是解决这类问题的绝佳设计,有了装饰器,我们就可以抽离出大量与函数功能本身无关的雷同代码并继续重用.</p>]]></content>
     
