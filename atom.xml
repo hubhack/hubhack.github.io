@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-04-26T12:35:04.210Z</updated>
+  <updated>2019-04-26T12:36:24.173Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://hubhack.github.io/15/"/>
     <id>https://hubhack.github.io/15/</id>
     <published>2019-04-26T14:26:00.000Z</published>
-    <updated>2019-04-26T12:35:04.210Z</updated>
+    <updated>2019-04-26T12:36:24.173Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>程序的本质就是数据结构和算法.所以学习python的过程中,理解python中数据结构至关重要.</p><p>数据(data)是对客观事物的符号表示,在计算机科学中是指所有能输入带计算机中并被计算机程序处理的符号的总称.<br>数据元素(data element)是数据的基本单位,在计算机程序中通常作为一个整体进行考虑和处理.</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>程序的本质就是数据结构和算法.所以学习python的过程中,理解python中数据结构至关重要.</p><p>数据(data)是对客观事物的符号表示,在计算机科学中是指所有能输入带计算机中并被计算机程序处理的符号的总称.<br>数据元素(data element)是数据的基本单位,在计算机程序中通常作为一个整体进行考虑和处理.有时数据元素可有若干个数据项组成.<br>数据对象(data object)是性质相同的数据元素的集合,是数据的一个子集</p>]]></content>
     
     <summary type="html">
     
