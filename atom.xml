@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-04-28T11:54:28.940Z</updated>
+  <updated>2019-04-28T11:56:30.814Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://hubhack.github.io/16/"/>
     <id>https://hubhack.github.io/16/</id>
     <published>2019-04-28T14:26:00.000Z</published>
-    <updated>2019-04-28T11:54:28.940Z</updated>
+    <updated>2019-04-28T11:56:30.814Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="文件io常用操作"><a href="#文件io常用操作" class="headerlink" title="文件io常用操作"></a>文件io常用操作</h1><p>一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络io<br>open:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取<br>seek: 文件指针操作 tell: 指针位置</p><p>打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.<br>文件操作中,最常用的操作就是读和写.<br>文件访问的模式有两种:文本模式和二进制模式.不同模式下,操作函数不尽相同,表现的结果也不一样.<br>注: windows中使用codepage代码页,可以认为每一个代码页就是一张编码表.cp936等同于GBK.<br>open的参数:file打开或者要创建的文件名.如果不指定路径,默认是当前路径.<br>mode模式 r:缺省,表示只读打开. w: 只写打开 x:创建并写入一个新文件<br>a: 写入打开,如果文件存在,则追加<br>b:二进制模式 t:缺省,文本模式 +: 读写打开一个文件.给原来只读,只写方式打开提供缺失的读或者写能力.</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="文件io常用操作"><a href="#文件io常用操作" class="headerlink" title="文件io常用操作"></a>文件io常用操作</h1><p>一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络io<br>open:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取<br>seek: 文件指针操作 tell: 指针位置</p><p>打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.<br>文件操作中,最常用的操作就是读和写.<br>文件访问的模式有两种:文本模式和二进制模式.不同模式下,操作函数不尽相同,表现的结果也不一样.<br>注: windows中使用codepage代码页,可以认为每一个代码页就是一张编码表.cp936等同于GBK.<br>open的参数:file打开或者要创建的文件名.如果不指定路径,默认是当前路径.<br>mode模式 r:缺省,表示只读打开. w: 只写打开 x:创建并写入一个新文件<br>a: 写入打开,如果文件存在,则追加<br>b:二进制模式 t:缺省,文本模式 +: 读写打开一个文件.给原来只读,只写方式打开提供缺失的读或者写能力.</p><p>open默认是只读模式r打开已经存在的文件.</p><p>文件指针:mode=r, 指针起始在0, mode=a,指针起始在EOF</p>]]></content>
     
     <summary type="html">
     
