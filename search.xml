@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[python文件io]]></title>
     <url>%2F16%2F</url>
-    <content type="text"><![CDATA[文件io常用操作一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络ioopen:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取seek: 文件指针操作 tell: 指针位置 打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.文件操作中,最常用的操作就是读和写.文件访问的模式有两种:文本模式和二进制模式.不同模式下,操作函数不尽相同,表现的结果也不一样.注: windows中使用codepage代码页,可以认为每一个代码页就是一张编码表.cp936等同于GBK.]]></content>
+    <content type="text"><![CDATA[文件io常用操作一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络ioopen:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取seek: 文件指针操作 tell: 指针位置 打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.文件操作中,最常用的操作就是读和写.文件访问的模式有两种:文本模式和二进制模式.不同模式下,操作函数不尽相同,表现的结果也不一样.注: windows中使用codepage代码页,可以认为每一个代码页就是一张编码表.cp936等同于GBK.open的参数:file打开或者要创建的文件名.如果不指定路径,默认是当前路径.mode模式 r:缺省,表示只读打开. w: 只写打开 x:创建并写入一个新文件a: 写入打开,如果文件存在,则追加b:二进制模式 t:缺省,文本模式 +: 读写打开一个文件.给原来只读,只写方式打开提供缺失的读或者写能力.]]></content>
       <categories>
         <category>python</category>
       </categories>
