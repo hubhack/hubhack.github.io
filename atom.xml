@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-04-28T11:45:56.444Z</updated>
+  <updated>2019-04-28T11:48:16.600Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://hubhack.github.io/16/"/>
     <id>https://hubhack.github.io/16/</id>
     <published>2019-04-28T14:26:00.000Z</published>
-    <updated>2019-04-28T11:45:56.444Z</updated>
+    <updated>2019-04-28T11:48:16.600Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="文件io常用操作"><a href="#文件io常用操作" class="headerlink" title="文件io常用操作"></a>文件io常用操作</h1><p>一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络io<br>open:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取<br>seek: 文件指针操作 tell: 指针位置</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="文件io常用操作"><a href="#文件io常用操作" class="headerlink" title="文件io常用操作"></a>文件io常用操作</h1><p>一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络io<br>open:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取<br>seek: 文件指针操作 tell: 指针位置</p><p>打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.</p>]]></content>
     
     <summary type="html">
     
