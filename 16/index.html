@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="文件io常用操作一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络ioopen:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取seek: 文件指针操作 tell: 指针位置 打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.文件操作中,最常用的操作就是读和写.文件访问的模式有两种:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-28T12:03:51.579Z">
+<meta property="og:updated_time" content="2019-04-28T12:08:28.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python文件io">
 <meta name="twitter:description" content="文件io常用操作一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络ioopen:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取seek: 文件指针操作 tell: 指针位置 打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.文件操作中,最常用的操作就是读和写.文件访问的模式有两种:">
@@ -480,7 +480,7 @@
                 
               
 
-              <time title="创建时间：2019-04-28 22:26:00 / 修改时间：20:03:51" itemprop="dateCreated datePublished" datetime="2019-04-28T22:26:00+08:00">2019-04-28</time>
+              <time title="创建时间：2019-04-28 22:26:00 / 修改时间：20:08:28" itemprop="dateCreated datePublished" datetime="2019-04-28T22:26:00+08:00">2019-04-28</time>
             
 
             
@@ -541,7 +541,8 @@
 <p>打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.<br>文件操作中,最常用的操作就是读和写.<br>文件访问的模式有两种:文本模式和二进制模式.不同模式下,操作函数不尽相同,表现的结果也不一样.<br>注: windows中使用codepage代码页,可以认为每一个代码页就是一张编码表.cp936等同于GBK.<br>open的参数:file打开或者要创建的文件名.如果不指定路径,默认是当前路径.<br>mode模式 r:缺省,表示只读打开. w: 只写打开 x:创建并写入一个新文件<br>a: 写入打开,如果文件存在,则追加<br>b:二进制模式 t:缺省,文本模式 +: 读写打开一个文件.给原来只读,只写方式打开提供缺失的读或者写能力.</p>
 <p>open默认是只读模式r打开已经存在的文件.</p>
 <p>文件指针:mode=r, 指针起始在0, mode=a,指针起始在EOF<br>buffering:缓冲区<br>0:只在二进制模式打开,表示关buffer<br>1:只在文本模式使用, 表示使用行缓冲,意思就是见到换行符就flush<br>大于1:用于指定buffer的大小.</p>
-<h1 id="上下文管理"><a href="#上下文管理" class="headerlink" title="上下文管理"></a>上下文管理</h1><p>1.异常处理<br>当出现异常的时候,拦截异常.但是,因为很多代码都可能出现OSError异常,还不好判断异常就是应为资源限制产生的.<br>使用finally可以保证打开的文件可以被关闭.<br>2.上下文管理<br>一种特殊的语法, 交给解释器去释放文件对象.<br>使用with … as关键字<br>上下文管理的语句并不会开启新的作用域<br>with语句执行的时候,自动关闭文件对象.</p>
+<h1 id="上下文管理"><a href="#上下文管理" class="headerlink" title="上下文管理"></a>上下文管理</h1><p>1.异常处理<br>当出现异常的时候,拦截异常.但是,因为很多代码都可能出现OSError异常,还不好判断异常就是应为资源限制产生的.<br>使用finally可以保证打开的文件可以被关闭.<br>2.上下文管理<br>一种特殊的语法, 交给解释器去释放文件对象.<br>使用with … as关键字<br>上下文管理的语句并不会开启新的作用域<br>with语句执行的时候,自动关闭文件对象.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f1 = open(&apos;text&apos;)</span><br><span class="line">with f1:</span><br><span class="line">    f1.write(&apos;abc&apos;)</span><br><span class="line">f1.closed</span><br></pre></td></tr></table></figure></p>
+<p>对于类似于文件对象的io对象,一般来说都需要在不使用的时候关闭,注销,以释放资源<br>io被打开的时候,会获得一个文件描述符,计算机资源是有限的,所以操作系统都会做限制,就是为了保护计算机的资源不要被完全耗尽,计算资源是共享的,不是独占的,一般情况下,除非特别明确的知道资源情况,否则不要提高资源的限制值来解决问题.</p>
 
       
     </div>
