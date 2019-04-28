@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-04-27T16:02:51.305Z</updated>
+  <updated>2019-04-28T11:42:25.973Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python文件io</title>
+    <link href="https://hubhack.github.io/16/"/>
+    <id>https://hubhack.github.io/16/</id>
+    <published>2019-04-28T14:26:00.000Z</published>
+    <updated>2019-04-28T11:42:25.973Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>python数据结构</title>
