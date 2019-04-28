@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[python文件io]]></title>
     <url>%2F16%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[文件io常用操作一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络ioopen:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取seek: 文件指针操作 tell: 指针位置]]></content>
       <categories>
         <category>python</category>
       </categories>
