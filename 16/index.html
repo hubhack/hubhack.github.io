@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="文件io常用操作一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络ioopen:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取seek: 文件指针操作 tell: 指针位置 打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.文件操作中,最常用的操作就是读和写.文件访问的模式有两种:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-30T03:37:26.843Z">
+<meta property="og:updated_time" content="2019-04-30T03:58:39.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python文件io">
 <meta name="twitter:description" content="文件io常用操作一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络ioopen:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取seek: 文件指针操作 tell: 指针位置 打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.文件操作中,最常用的操作就是读和写.文件访问的模式有两种:">
@@ -497,7 +497,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-30 11:37:26" itemprop="dateModified" datetime="2019-04-30T11:37:26+08:00">2019-04-30</time>
+                <time title="修改时间：2019-04-30 11:58:39" itemprop="dateModified" datetime="2019-04-30T11:58:39+08:00">2019-04-30</time>
               
             
           </span>
@@ -573,6 +573,11 @@
 <h1 id="ini文件处理"><a href="#ini文件处理" class="headerlink" title="ini文件处理"></a>ini文件处理</h1><p>作为配置文件,ini文件格式的很流行.</p>
 <p>中括号里面的部分称为section,译作节,区, 段<br>每一个section内, 都是key=value形成的键值对,key称为option选项.<br>注意这里的DEFAULT是缺省section的名字,必须大写.<br>configparser<br>configparser模块的configparser类就是用来操作.<br>可以将section当做key,section存储键值对组成的字典,可以吧ini配置文件当成一个且套的字典.默认使用的是有序字典.</p>
 <h1 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h1><p>为什么要序列化<br>内存要中的字典,列表,集合以及各种对象,如何保存到一个文件中.<br>要设计一套协议,按照某种规则,把内存中数据保存到文件中,文件是一个字节序列,所以必须把数据转换成字节序列,输出到文件,这就是序列化,反之,把文件的字节序列恢复到内存并且还是原来的类型.就是反序列化.<br>serialization序列化<br>将内存中对象存储下来,把他变为一个个字节.<br>deserialization反序列化<br>将文件的一个个字节恢复成内存中的对象<br>序列化保存到文件就是持久化<br>可以将数据序列后持久化,或者网络传输,也可以将文件中或者网络收到的字节序列反序列化<br>python提供了pickle库</p>
+<p>dumps 对象序列化为bytes对象<br>dump 对象序列化到文件对象,就是存入文件<br>loads 从bytes对象反序列化<br>load 对象反序列化,从文件读取数据</p>
+<p>序列化应用<br>一般来说本地序列化的情况,应用较少,大多数场景都应用在网络传输中.<br>将数据序列化后通过网络传输到远程结点,远程服务器上的服务将收到数据序列化后,就可以使用<br>但是,要注意一点,大多数项目,都不是单机的,也不是单服务的,需要多个程序之间配合,需要通过网络将数据传送到其他节点上去,这就需要大量的序列化,反序列化的过程.<br>但是,问题是,python程序之间还可以都是用pickle解决序列化,反序列化,如果是跨平台,跨语言,跨协议pickle就不太适合了,就需要公共的协议.<br>不同的协议,效率不同,学习曲线不同,适合不同场景,要根据不同的情况分析选型<br>json<br>json的数据类型</p>
+<p>messagepack<br>messagepack是一个基于二进制高效的对象序列化库,可用于跨语言通信.<br>他可以像json那样,在许多语言之间交换结构对象.<br>但是他比json更快速也跟轻巧.<br>支持python.ruby,java等众多语言,<br>兼容json 和pickle</p>
+<p>安装pip install msgpack</p>
+<p>常用方法序列化对象,提供dumps来兼容pickle和json<br>unpackb反序列化对象.提供了loads来兼容.<br>pack序列化对象保存到文件对象,提供了dump来兼容.<br>unpack反序列化对象保存到文件对象,提供了load来兼容.<br>messagepack简单易用,高效压缩,支持语言丰富.<br>所以,用它序列化也是一种很好的选择,python很多大名鼎鼎的库都是用了msgpack.</p>
 
       
     </div>
