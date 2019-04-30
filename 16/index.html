@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="文件io常用操作一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络ioopen:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取seek: 文件指针操作 tell: 指针位置 打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.文件操作中,最常用的操作就是读和写.文件访问的模式有两种:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-30T03:29:20.476Z">
+<meta property="og:updated_time" content="2019-04-30T03:31:17.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python文件io">
 <meta name="twitter:description" content="文件io常用操作一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络ioopen:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取seek: 文件指针操作 tell: 指针位置 打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.文件操作中,最常用的操作就是读和写.文件访问的模式有两种:">
@@ -497,7 +497,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-30 11:29:20" itemprop="dateModified" datetime="2019-04-30T11:29:20+08:00">2019-04-30</time>
+                <time title="修改时间：2019-04-30 11:31:17" itemprop="dateModified" datetime="2019-04-30T11:31:17+08:00">2019-04-30</time>
               
             
           </span>
@@ -572,6 +572,7 @@
 <h1 id="csv文件"><a href="#csv文件" class="headerlink" title="csv文件"></a>csv文件</h1><p>csv是一个被行分隔符,列分割符划分成行和列的文本文件.<br>csv不指定字符编码.<br>行分割符为\r\n,最后一行可以没有换行符.<br>列分割符常用逗号或者制表符.<br>每一行称为一条记录record.<br>字段可以使用双引号括起来,也可以不使用.如果字段中出现了双引号,逗号,换行符必须使用双引号括起来.<br>csv模块<br>返回reader对象,是一个行迭代器<br>默认使用excel方言.<br>delimiter列分割符,逗号.<br>lineterminator行分割符\r\n</p>
 <h1 id="ini文件处理"><a href="#ini文件处理" class="headerlink" title="ini文件处理"></a>ini文件处理</h1><p>作为配置文件,ini文件格式的很流行.</p>
 <p>中括号里面的部分称为section,译作节,区, 段<br>每一个section内, 都是key=value形成的键值对,key称为option选项.<br>注意这里的DEFAULT是缺省section的名字,必须大写.<br>configparser<br>configparser模块的configparser类就是用来操作.<br>可以将section当做key,section存储键值对组成的字典,可以吧ini配置文件当成一个且套的字典.默认使用的是有序字典.</p>
+<h1 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h1><p>为什么要序列化<br>内存中的字典,列表,集合以及各种对象,如何保存到一个文件中.</p>
 
       
     </div>
@@ -806,7 +807,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件io常用操作"><span class="nav-number">1.</span> <span class="nav-text">文件io常用操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上下文管理"><span class="nav-number">2.</span> <span class="nav-text">上下文管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#路径操作"><span class="nav-number">3.</span> <span class="nav-text">路径操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通配符"><span class="nav-number">4.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shutil模块"><span class="nav-number">5.</span> <span class="nav-text">shutil模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rm删除"><span class="nav-number">6.</span> <span class="nav-text">rm删除</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#move移动"><span class="nav-number">7.</span> <span class="nav-text">move移动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#csv文件"><span class="nav-number">8.</span> <span class="nav-text">csv文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ini文件处理"><span class="nav-number">9.</span> <span class="nav-text">ini文件处理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件io常用操作"><span class="nav-number">1.</span> <span class="nav-text">文件io常用操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上下文管理"><span class="nav-number">2.</span> <span class="nav-text">上下文管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#路径操作"><span class="nav-number">3.</span> <span class="nav-text">路径操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通配符"><span class="nav-number">4.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shutil模块"><span class="nav-number">5.</span> <span class="nav-text">shutil模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rm删除"><span class="nav-number">6.</span> <span class="nav-text">rm删除</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#move移动"><span class="nav-number">7.</span> <span class="nav-text">move移动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#csv文件"><span class="nav-number">8.</span> <span class="nav-text">csv文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ini文件处理"><span class="nav-number">9.</span> <span class="nav-text">ini文件处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#序列化和反序列化"><span class="nav-number">10.</span> <span class="nav-text">序列化和反序列化</span></a></li></ol></div>
             
 
           </div>
