@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[深入理解计算机系统]]></title>
     <url>%2F17%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[源程实际就是一个有0和1组成的位序列,这些位被组成8个一组,称为字节,每个字节都表示程序中某个文本字符.]]></content>
       <categories>
         <category>系统</category>
       </categories>
