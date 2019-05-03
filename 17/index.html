@@ -148,18 +148,18 @@
 
 
 
-  <meta name="description" content="源程实际就是一个有0和1组成的位序列,这些位被组成8个一组,称为字节,每个字节都表示程序中某个文本字符.源程序 -&amp;gt;预处理器(cpp) -&amp;gt;编译器(cc1)-&amp;gt;汇编器-&amp;gt;链接器-可执行二进制堆:代码和数据去后紧随着的是运行时堆.代码和数据去是在进程一旦开始运行时被指定了大小.内核是操作系统总在驻留在存储器中的部分,地址空间顶部的四分之一部分是为内核预留的.">
+  <meta name="description" content="源程实际就是一个有0和1组成的位序列,这些位被组成8个一组,称为字节,每个字节都表示程序中某个文本字符.源程序 -&amp;gt;预处理器(cpp) -&amp;gt;编译器(cc1)-&amp;gt;汇编器-&amp;gt;链接器-可执行二进制堆:代码和数据去后紧随着的是运行时堆.代码和数据去是在进程一旦开始运行时被指定了大小.内核是操作系统总在驻留在存储器中的部分,地址空间顶部的四分之一部分是为内核预留的. 程序结构和执行信">
 <meta name="keywords" content="系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解计算机系统">
 <meta property="og:url" content="https://hubhack.github.io/17/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="源程实际就是一个有0和1组成的位序列,这些位被组成8个一组,称为字节,每个字节都表示程序中某个文本字符.源程序 -&amp;gt;预处理器(cpp) -&amp;gt;编译器(cc1)-&amp;gt;汇编器-&amp;gt;链接器-可执行二进制堆:代码和数据去后紧随着的是运行时堆.代码和数据去是在进程一旦开始运行时被指定了大小.内核是操作系统总在驻留在存储器中的部分,地址空间顶部的四分之一部分是为内核预留的.">
+<meta property="og:description" content="源程实际就是一个有0和1组成的位序列,这些位被组成8个一组,称为字节,每个字节都表示程序中某个文本字符.源程序 -&amp;gt;预处理器(cpp) -&amp;gt;编译器(cc1)-&amp;gt;汇编器-&amp;gt;链接器-可执行二进制堆:代码和数据去后紧随着的是运行时堆.代码和数据去是在进程一旦开始运行时被指定了大小.内核是操作系统总在驻留在存储器中的部分,地址空间顶部的四分之一部分是为内核预留的. 程序结构和执行信">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-03T01:27:27.192Z">
+<meta property="og:updated_time" content="2019-05-03T13:55:34.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解计算机系统">
-<meta name="twitter:description" content="源程实际就是一个有0和1组成的位序列,这些位被组成8个一组,称为字节,每个字节都表示程序中某个文本字符.源程序 -&amp;gt;预处理器(cpp) -&amp;gt;编译器(cc1)-&amp;gt;汇编器-&amp;gt;链接器-可执行二进制堆:代码和数据去后紧随着的是运行时堆.代码和数据去是在进程一旦开始运行时被指定了大小.内核是操作系统总在驻留在存储器中的部分,地址空间顶部的四分之一部分是为内核预留的.">
+<meta name="twitter:description" content="源程实际就是一个有0和1组成的位序列,这些位被组成8个一组,称为字节,每个字节都表示程序中某个文本字符.源程序 -&amp;gt;预处理器(cpp) -&amp;gt;编译器(cc1)-&amp;gt;汇编器-&amp;gt;链接器-可执行二进制堆:代码和数据去后紧随着的是运行时堆.代码和数据去是在进程一旦开始运行时被指定了大小.内核是操作系统总在驻留在存储器中的部分,地址空间顶部的四分之一部分是为内核预留的. 程序结构和执行信">
 
 
 
@@ -497,7 +497,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-03 09:27:27" itemprop="dateModified" datetime="2019-05-03T09:27:27+08:00">2019-05-03</time>
+                <time title="修改时间：2019-05-03 21:55:34" itemprop="dateModified" datetime="2019-05-03T21:55:34+08:00">2019-05-03</time>
               
             
           </span>
@@ -550,6 +550,7 @@
 
       
         <p>源程实际就是一个有0和1组成的位序列,这些位被组成8个一组,称为字节,每个字节都表示程序中某个文本字符.<br>源程序 -&gt;预处理器(cpp) -&gt;编译器(cc1)-&gt;汇编器-&gt;链接器-可执行二进制<br>堆:代码和数据去后紧随着的是运行时堆.代码和数据去是在进程一旦开始运行时被指定了大小.<br>内核是操作系统总在驻留在存储器中的部分,地址空间顶部的四分之一部分是为内核预留的.</p>
+<h1 id="程序结构和执行"><a href="#程序结构和执行" class="headerlink" title="程序结构和执行"></a>程序结构和执行</h1><h2 id="信息存储"><a href="#信息存储" class="headerlink" title="信息存储"></a>信息存储</h2><p>大多数计算机使用8位的块,叫做字节,来作为最小的可寻址的存储器单位.<br>一个字节包括8位,在二进制表示法中,00000000<code>11111111  0</code>255.使用10与位互相转换很麻烦,替代的方法以 16 为基数或hex数.<br>2进制</p>
 
       
     </div>
@@ -638,8 +639,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -768,6 +778,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#程序结构和执行"><span class="nav-number">1.</span> <span class="nav-text">程序结构和执行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息存储"><span class="nav-number">1.1.</span> <span class="nav-text">信息存储</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
