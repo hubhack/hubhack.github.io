@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-05-03T15:59:24.745Z</updated>
+  <updated>2019-05-03T16:00:09.288Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hubhack.github.io/17/"/>
     <id>https://hubhack.github.io/17/</id>
     <published>2019-04-28T14:26:00.000Z</published>
-    <updated>2019-05-03T15:59:24.745Z</updated>
+    <updated>2019-05-03T16:00:09.288Z</updated>
     
     <content type="html"><![CDATA[<p>源程实际就是一个有0和1组成的位序列,这些位被组成8个一组,称为字节,每个字节都表示程序中某个文本字符.<br>源程序 -&gt;预处理器(cpp) -&gt;编译器(cc1)-&gt;汇编器-&gt;链接器-可执行二进制<br>堆:代码和数据去后紧随着的是运行时堆.代码和数据去是在进程一旦开始运行时被指定了大小.<br>内核是操作系统总在驻留在存储器中的部分,地址空间顶部的四分之一部分是为内核预留的.</p><h1 id="程序结构和执行"><a href="#程序结构和执行" class="headerlink" title="程序结构和执行"></a>程序结构和执行</h1><h2 id="信息存储"><a href="#信息存储" class="headerlink" title="信息存储"></a>信息存储</h2><p>大多数计算机使用8位的块,叫做字节,来作为最小的可寻址的存储器单位.<br>一个字节包括8位,在二进制表示法中,00000000<code>11111111  0</code>255.使用10与位互相转换很麻烦,替代的方法以 16 为基数或hex数.<br>2进制</p>]]></content>
     
