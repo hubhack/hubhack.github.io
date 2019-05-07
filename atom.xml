@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-05-07T11:17:57.733Z</updated>
+  <updated>2019-05-07T11:32:53.637Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="https://hubhack.github.io/18/"/>
     <id>https://hubhack.github.io/18/</id>
     <published>2019-05-07T14:26:00.000Z</published>
-    <updated>2019-05-07T11:17:57.733Z</updated>
+    <updated>2019-05-07T11:32:53.637Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>概述:正则表达式<br>正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替换.<br>正则表达式应用及其广泛,shell中处理文本的命令,各种高级编程语言都支持正则表达式.<br>正则表达式 Regular Expression,缩写regex, regexp ,RE等.<br>分类<br>1.BRE<br>基本正则表达式,grep,sed,vi等软件支持.vim有扩展.<br>2.ERE<br>扩展正则表达式,egrep, sed -r等.<br>3.PCRE<br>几乎所有高级语言都是PCRE的方言或者变种.</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="正则表达式简绍"><a href="#正则表达式简绍" class="headerlink" title="正则表达式简绍"></a>正则表达式简绍</h1><p>概述:正则表达式<br>正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替换.<br>正则表达式应用及其广泛,shell中处理文本的命令,各种高级编程语言都支持正则表达式.<br>正则表达式 Regular Expression,缩写regex, regexp ,RE等.<br>分类<br>1.BRE<br>基本正则表达式,grep,sed,vi等软件支持.vim有扩展.<br>2.ERE<br>扩展正则表达式,egrep, sed -r等.<br>3.PCRE<br>几乎所有高级语言都是PCRE的方言或者变种.</p><h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><p>元字符 metacharacter<br>转义 凡是在正则表达式中有特殊意义的符号,如果使用它的本意,请使用\转义.<br>反斜杠自身,得使用\ \r \n还是转义后代表回车,换行</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h1&gt;&lt;p&gt;概述:正则表达式&lt;br&gt;正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替换.&lt;br&gt;正则
+        &lt;h1 id=&quot;正则表达式简绍&quot;&gt;&lt;a href=&quot;#正则表达式简绍&quot; class=&quot;headerlink&quot; title=&quot;正则表达式简绍&quot;&gt;&lt;/a&gt;正则表达式简绍&lt;/h1&gt;&lt;p&gt;概述:正则表达式&lt;br&gt;正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替
       
     
     </summary>
