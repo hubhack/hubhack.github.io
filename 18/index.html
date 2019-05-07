@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="正则表达式简绍概述:正则表达式正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替换.正则表达式应用及其广泛,shell中处理文本的命令,各种高级编程语言都支持正则表达式.正则表达式 Regular Expression,缩写regex, regexp ,RE等.分类1.BRE基本正则表达式,grep,sed,vi等软件支持.vim有扩展.2.ERE扩展正则表达式,egre">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-07T11:48:31.547Z">
+<meta property="og:updated_time" content="2019-05-07T11:49:08.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="正则表达式简绍概述:正则表达式正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替换.正则表达式应用及其广泛,shell中处理文本的命令,各种高级编程语言都支持正则表达式.正则表达式 Regular Expression,缩写regex, regexp ,RE等.分类1.BRE基本正则表达式,grep,sed,vi等软件支持.vim有扩展.2.ERE扩展正则表达式,egre">
@@ -480,7 +480,7 @@
                 
               
 
-              <time title="创建时间：2019-05-07 22:26:00 / 修改时间：19:48:31" itemprop="dateCreated datePublished" datetime="2019-05-07T22:26:00+08:00">2019-05-07</time>
+              <time title="创建时间：2019-05-07 22:26:00 / 修改时间：19:49:08" itemprop="dateCreated datePublished" datetime="2019-05-07T22:26:00+08:00">2019-05-07</time>
             
 
             
@@ -542,7 +542,7 @@
 <h1 id="贪婪与非贪婪"><a href="#贪婪与非贪婪" class="headerlink" title="贪婪与非贪婪"></a>贪婪与非贪婪</h1><p>默认是贪婪模式,也就是说尽量多匹配更长的字符串,<br>非贪婪很简单,在重复的符号后面加上一个?问号,就尽量的少匹配了.</p>
 <p>单行模式:<br>. 可以匹配所有的字符, 包括换行符.<br>^ 表示整个字符串的开头, &amp;整个字符串的结尾<br>多行模式:<br>. 可以匹配除了换行符之外的字符,多行不影响.点号<br>^ 表示行首, &amp;行尾, 只不过这里的行是每一行</p>
 <p>默认模式:可以看做待匹配的文本是一行, 不能看做多行, .点号不能匹配换行符, ^和&amp;表示行首和行尾, 而行首行尾就是整个字符串的开头和结尾.<br>单行模式:基本和默认模式一样,只是.点号终于可以匹配任意一个字符包括换行符,这时所有文本就是一个长长的只有一行的字符串. ^就是这一行字符串的行首, &amp;就是这一行的行尾.<br>多行模式:重新定义了行的概念, 但不影响.点号的行为, ^和&amp;还是行首行尾的意思,只不过因为多行模式可以识别换行符.开始指的是\n后紧接着下一个字符;结束指的是\n前的字符,注意最后一行可以没有\n</p>
-<h1 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h1><p>re.M多行模式<br>re.S单行模式<br>re.I忽略大小写<br>re.X忽略表达式中的空白字符<br>使用 | 位或运算开启多种选项<br>方法<br>编译<br>re.compile(pattern, flag=0)<br>设定flags, 编译模式,返回正则表达式对象regex<br>pattern就是正则表达式字符串, flags是选项,正则表达式需要被编译,为了提高效率,这些编译后的结果被保存,下次使用同样的pattern的时候,就不需要再次编译.</p>
+<h1 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h1><p>re.M多行模式<br>re.S单行模式<br>re.I忽略大小写<br>re.X忽略表达式中的空白字符<br>使用 | 位或运算开启多种选项<br>方法<br>编译<br>re.compile(pattern, flag=0)<br>设定flags, 编译模式,返回正则表达式对象regex<br>pattern就是正则表达式字符串, flags是选项,正则表达式需要被编译,为了提高效率,这些编译后的结果被保存,下次使用同样的pattern的时候,就不需要再次编译.<br>单次匹配<br>re.match(pattern, string, flags=0)</p>
 
       
     </div>
