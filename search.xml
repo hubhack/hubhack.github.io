@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[正则表达式]]></title>
     <url>%2F18%2F</url>
-    <content type="text"><![CDATA[正则表达式简绍概述:正则表达式正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替换.正则表达式应用及其广泛,shell中处理文本的命令,各种高级编程语言都支持正则表达式.正则表达式 Regular Expression,缩写regex, regexp ,RE等.分类1.BRE基本正则表达式,grep,sed,vi等软件支持.vim有扩展.2.ERE扩展正则表达式,egrep, sed -r等.3.PCRE几乎所有高级语言都是PCRE的方言或者变种. 基本语法元字符 metacharacter转义 凡是在正则表达式中有特殊意义的符号,如果使用它的本意,请使用\转义.反斜杠自身,得使用\ \r \n还是转义后代表回车,换行]]></content>
+    <content type="text"><![CDATA[正则表达式简绍概述:正则表达式正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替换.正则表达式应用及其广泛,shell中处理文本的命令,各种高级编程语言都支持正则表达式.正则表达式 Regular Expression,缩写regex, regexp ,RE等.分类1.BRE基本正则表达式,grep,sed,vi等软件支持.vim有扩展.2.ERE扩展正则表达式,egrep, sed -r等.3.PCRE几乎所有高级语言都是PCRE的方言或者变种. 基本语法元字符 metacharacter转义 凡是在正则表达式中有特殊意义的符号,如果使用它的本意,请使用\转义.反斜杠自身,得使用\ \r \n还是转义后代表回车,换行 贪婪与非贪婪默认是贪婪模式,也就是说尽量多匹配更长的字符串,非贪婪很简单,在重复的符号后面加上一个?问号,就尽量的少匹配了.]]></content>
       <categories>
         <category>python</category>
       </categories>
