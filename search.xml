@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[正则表达式]]></title>
     <url>%2F18%2F</url>
-    <content type="text"><![CDATA[正则表达式概述:正则表达式正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替换.正则表达式应用及其广泛,shell中处理文本的命令,各种高级编程语言都支持正则表达式]]></content>
+    <content type="text"><![CDATA[正则表达式概述:正则表达式正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替换.正则表达式应用及其广泛,shell中处理文本的命令,各种高级编程语言都支持正则表达式.正则表达式 Regular Expression,缩写regex, regexp ,RE等.分类]]></content>
       <categories>
         <category>python</category>
       </categories>
