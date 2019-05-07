@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-05-07T11:10:45.431Z</updated>
+  <updated>2019-05-07T11:13:32.951Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,9 +21,16 @@
     <link href="https://hubhack.github.io/18/"/>
     <id>https://hubhack.github.io/18/</id>
     <published>2019-05-07T14:26:00.000Z</published>
-    <updated>2019-05-07T11:10:45.431Z</updated>
+    <updated>2019-05-07T11:13:32.951Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>概述:正则表达式<br>正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替换.<br>正则表达式应用及其广泛,shell中处理文本的命令,各种高级编程语言都支持正则表达式</p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;正则表达式&quot;&gt;&lt;a href=&quot;#正则表达式&quot; class=&quot;headerlink&quot; title=&quot;正则表达式&quot;&gt;&lt;/a&gt;正则表达式&lt;/h1&gt;&lt;p&gt;概述:正则表达式&lt;br&gt;正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替换.&lt;br&gt;正则
+      
     
     </summary>
     
