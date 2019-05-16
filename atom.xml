@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-05-16T01:05:57.310Z</updated>
+  <updated>2019-05-16T01:07:34.545Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://hubhack.github.io/19/"/>
     <id>https://hubhack.github.io/19/</id>
     <published>2019-05-16T14:26:00.000Z</published>
-    <updated>2019-05-16T01:05:57.310Z</updated>
+    <updated>2019-05-16T01:07:34.545Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="语言的分类"><a href="#语言的分类" class="headerlink" title="语言的分类"></a>语言的分类</h2><p>面向机器:抽象成机器指令, 机器容易理解.<br>代表:汇编语言<br>面向过程:<br>做一件事,排出个步骤,第一步 干什么,第二步干什么,如果出现情况A,做什么处理,如果出现了情况B,做什么处理.<br>问题规模小, 可以步骤化.按部就班处理.<br>代表:c语言<br>面向对象OOP<br>随着计算机需要解决的问题的规模扩大,情况越来越复杂,需要很多人,很多部门协作,面向过程编程不太适合了.<br>代表:C++, java, python等</p><h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>类:class<br>类是抽象的概念,是万事万物的抽象,是一类事物的共同特征的集合.<br>用计算机语言来描述类,是属性和方法的集合.<br>对象:instance, object<br>对象是类的具象, 是一个实体.<br>对于我们每个人这个个体, 都是抽象概念人类不同的实体.</p><p>属性:它是对象状态的抽象,用数据结构来描述.<br>操作:它是对象行为的抽象, 用操作名和实现该操作的方法来描述</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="语言的分类"><a href="#语言的分类" class="headerlink" title="语言的分类"></a>语言的分类</h2><p>面向机器:抽象成机器指令, 机器容易理解.<br>代表:汇编语言<br>面向过程:<br>做一件事,排出个步骤,第一步 干什么,第二步干什么,如果出现情况A,做什么处理,如果出现了情况B,做什么处理.<br>问题规模小, 可以步骤化.按部就班处理.<br>代表:c语言<br>面向对象OOP<br>随着计算机需要解决的问题的规模扩大,情况越来越复杂,需要很多人,很多部门协作,面向过程编程不太适合了.<br>代表:C++, java, python等</p><h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>类:class<br>类是抽象的概念,是万事万物的抽象,是一类事物的共同特征的集合.<br>用计算机语言来描述类,是属性和方法的集合.<br>对象:instance, object<br>对象是类的具象, 是一个实体.<br>对于我们每个人这个个体, 都是抽象概念人类不同的实体.</p><p>属性:它是对象状态的抽象,用数据结构来描述.<br>操作:它是对象行为的抽象, 用操作名和实现该操作的方法来描述.<br>哲学:<br>一切皆对象<br>对象是数据和操作的封装.<br>对象是独立的,但是对象之间可以相互作用.<br>目前OOP是最接近人类认知的编程范式.</p>]]></content>
     
     <summary type="html">
     
