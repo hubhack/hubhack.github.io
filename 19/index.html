@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="语言的分类面向机器:抽象成机器指令, 机器容易理解.代表:汇编语言面向过程:做一件事,排出个步骤,第一步 干什么,第二步干什么,如果出现情况A,做什么处理,如果出现了情况B,做什么处理.问题规模小, 可以步骤化.按部就班处理.代表:c语言面向对象OOP随着计算机需要解决的问题的规模扩大,情况越来越复杂,需要很多人,很多部门协作,面向过程编程不太适合了.代表:C++, java, python等 面">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-16T01:49:51.595Z">
+<meta property="og:updated_time" content="2019-05-16T02:05:24.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象">
 <meta name="twitter:description" content="语言的分类面向机器:抽象成机器指令, 机器容易理解.代表:汇编语言面向过程:做一件事,排出个步骤,第一步 干什么,第二步干什么,如果出现情况A,做什么处理,如果出现了情况B,做什么处理.问题规模小, 可以步骤化.按部就班处理.代表:c语言面向对象OOP随着计算机需要解决的问题的规模扩大,情况越来越复杂,需要很多人,很多部门协作,面向过程编程不太适合了.代表:C++, java, python等 面">
@@ -480,7 +480,7 @@
                 
               
 
-              <time title="创建时间：2019-05-16 22:26:00 / 修改时间：09:49:51" itemprop="dateCreated datePublished" datetime="2019-05-16T22:26:00+08:00">2019-05-16</time>
+              <time title="创建时间：2019-05-16 22:26:00 / 修改时间：10:05:24" itemprop="dateCreated datePublished" datetime="2019-05-16T22:26:00+08:00">2019-05-16</time>
             
 
             
@@ -553,7 +553,12 @@
 <p>类几乎可以调用所有内部定义的方法,但是调用普通的方法时会报错,<br>原因是第一参数必须是类的实例.<br>总结:类除了普通方法都可以调用,普通方法需要对象的实例作为第一参数.<br>实例可以调用所有类中的方法,普通方法需要的实例作为第一参数.<br>实例可以调用所有类重定义的方法,普通方法传入实例本身,静态方法和类方法需要找到实例的类.</p>
 <p>访问控制:<br>私有属性<br>私有属性,使用双下划线开头的属性名就是私有属性.</p>
 <p>私有属性的本质:<br>类定义的时候, 如果声明一个实例变量的时候,使用双下滑线,python解释器会将其改名,转换名称为_类名__变量名的名称,所有用原来的名字访问不到了.</p>
-<p>保护变量:<br>在变量名前使用一个下划线,称为保护变量<br>这只是开发者共同的约定,看见这种变量,就如同私有变量,不要直接使用.</p>
+<p>保护变量:<br>在变量名前使用一个下划线,称为保护变量<br>这只是开发者共同的约定,看见这种变量,就如同私有变量,不要直接使用.<br>私有方法:<br>参照保护变量,私有变量,使用单下划线,双下化线的命名方法,</p>
+<h2 id="补丁"><a href="#补丁" class="headerlink" title="补丁"></a>补丁</h2><p>可以通过修改或者替换类的成员,使用者调用的方法没有改变,但是,类提供的功能已经改变<br>猴子补丁:<br>在运行时,对属性,方法,函数,等进行动态替换<br>其目的往往是为了通过替换,修改来增强,扩展原有代码的能力</p>
+<h2 id="属性装饰器"><a href="#属性装饰器" class="headerlink" title="属性装饰器"></a>属性装饰器</h2><p>一般好的设计是:把实例的某些属性保护起来,不让外部直接访问,外部使用getter读取属性和setter方法设置属性.</p>
+<p>property装饰器</p>
+<p>后面跟的函数名就是以后的属性名,他就是getter,这个必需有,有了它至少是只读属性<br>setter装饰器<br>可以控制是否删除属性,很少用<br>deleter装饰器<br>可以控制是否删除属性,很少用<br>property装饰器必须在前,setter deleter装饰器在后,<br>property装饰器能通过简单的方法,把对方法的操作变为对属性的访问,并起到了一定的隐藏效果.</p>
+<h2 id="对象的销毁"><a href="#对象的销毁" class="headerlink" title="对象的销毁"></a>对象的销毁</h2><p>类中可以定义<strong>del</strong>方法 ,称为析构函数.<br>作用,销毁类的实例的时候调用,以释放占用的资源,其中就放些清理资源的代码,比如释放连接.<br>注意这个方法不能引起对象的真正销毁,只是对象销毁的时候回自动调用他.<br>使用del语句删除实例,引用计数减1,当引用计数为0时,会自动调用<strong>del</strong>方法.<br>由于python实现了垃圾回收机制,不能确定对象何时执行垃圾回收.<br>封装:<br>将数据和操作组织到类中,即属性和方法.<br>将属性隐藏起来,给使用者提供操作,使用者通过操作就可以获取或者修改数据,getter和setter.<br>通过访问控制,暴露适当的数据和操作给用户,该隐藏的隐藏起来.</p>
 
       
     </div>
@@ -792,7 +797,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#语言的分类"><span class="nav-number">1.</span> <span class="nav-text">语言的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象"><span class="nav-number">2.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三要素"><span class="nav-number">3.</span> <span class="nav-text">三要素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类对象及类属性"><span class="nav-number">4.</span> <span class="nav-text">类对象及类属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例化"><span class="nav-number">5.</span> <span class="nav-text">实例化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类方法和静态方法"><span class="nav-number">6.</span> <span class="nav-text">类方法和静态方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#语言的分类"><span class="nav-number">1.</span> <span class="nav-text">语言的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象"><span class="nav-number">2.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三要素"><span class="nav-number">3.</span> <span class="nav-text">三要素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类对象及类属性"><span class="nav-number">4.</span> <span class="nav-text">类对象及类属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例化"><span class="nav-number">5.</span> <span class="nav-text">实例化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类方法和静态方法"><span class="nav-number">6.</span> <span class="nav-text">类方法和静态方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补丁"><span class="nav-number">7.</span> <span class="nav-text">补丁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性装饰器"><span class="nav-number">8.</span> <span class="nav-text">属性装饰器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的销毁"><span class="nav-number">9.</span> <span class="nav-text">对象的销毁</span></a></li></ol></div>
             
 
           </div>
