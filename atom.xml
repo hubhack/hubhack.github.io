@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-05-16T00:58:14.789Z</updated>
+  <updated>2019-05-16T01:01:59.967Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://hubhack.github.io/19/"/>
     <id>https://hubhack.github.io/19/</id>
     <published>2019-05-16T14:26:00.000Z</published>
-    <updated>2019-05-16T00:58:14.789Z</updated>
+    <updated>2019-05-16T01:01:59.967Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="语言的分类"><a href="#语言的分类" class="headerlink" title="语言的分类"></a>语言的分类</h2><p>面向机器:抽象成机器指令, 机器容易理解.<br>代表:汇编语言<br>面向过程:<br>做一件事,排出个步骤,第一步 干什么,第二步干什么,如果出现情况A,做什么处理,如果出现了情况B,做什么处理.<br>问题规模小, 可以步骤化.按部就班处理.</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="语言的分类"><a href="#语言的分类" class="headerlink" title="语言的分类"></a>语言的分类</h2><p>面向机器:抽象成机器指令, 机器容易理解.<br>代表:汇编语言<br>面向过程:<br>做一件事,排出个步骤,第一步 干什么,第二步干什么,如果出现情况A,做什么处理,如果出现了情况B,做什么处理.<br>问题规模小, 可以步骤化.按部就班处理.<br>代表:c语言<br>面向对象OOP<br>随着计算机需要解决的问题的规模扩大,情况越来越复杂,需要很多人,很多部门协作,面向过程编程不太适合了.<br>代表:C++, java, python等</p>]]></content>
     
     <summary type="html">
     
