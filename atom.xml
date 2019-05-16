@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-05-16T00:54:58.261Z</updated>
+  <updated>2019-05-16T00:58:14.789Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,16 +21,15 @@
     <link href="https://hubhack.github.io/19/"/>
     <id>https://hubhack.github.io/19/</id>
     <published>2019-05-16T14:26:00.000Z</published>
-    <updated>2019-05-16T00:54:58.261Z</updated>
+    <updated>2019-05-16T00:58:14.789Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="语言的分类"><a href="#语言的分类" class="headerlink" title="语言的分类"></a>语言的分类</h2><p>面向机器:抽象成机器指令, 机器容易理解.<br>代表:汇编语言</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="语言的分类"><a href="#语言的分类" class="headerlink" title="语言的分类"></a>语言的分类</h2><p>面向机器:抽象成机器指令, 机器容易理解.<br>代表:汇编语言<br>面向过程:<br>做一件事,排出个步骤,第一步 干什么,第二步干什么,如果出现情况A,做什么处理,如果出现了情况B,做什么处理.<br>问题规模小, 可以步骤化.按部就班处理.</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;语言的分类&quot;&gt;&lt;a href=&quot;#语言的分类&quot; class=&quot;headerlink&quot; title=&quot;语言的分类&quot;&gt;&lt;/a&gt;语言的分类&lt;/h2&gt;&lt;p&gt;面向机器:抽象成机器指令, 机器容易理解.&lt;br&gt;代表:汇编语言&lt;/p&gt;
-
+        &lt;h2 id=&quot;语言的分类&quot;&gt;&lt;a href=&quot;#语言的分类&quot; class=&quot;headerlink&quot; title=&quot;语言的分类&quot;&gt;&lt;/a&gt;语言的分类&lt;/h2&gt;&lt;p&gt;面向机器:抽象成机器指令, 机器容易理解.&lt;br&gt;代表:汇编语言&lt;br&gt;面向过程:&lt;br&gt;做一件事,排出个步骤,第一
       
     
     </summary>
