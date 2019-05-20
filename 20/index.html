@@ -148,16 +148,18 @@
 
 
 
-  <meta name="description" content="IT知识共享,与各位共同学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="千分无言">
-<meta property="og:url" content="https://hubhack.github.io/categories/python/index.html">
+  <meta name="description" content="异常处理(Exception)错误Error逻辑错误:算法写错了, 例如加法写成了减法 笔误:例如变量名写错了,语法错误 函数或类使用错误, 其实这也属于逻辑错误 总之,错误是可以避免的 异常Eception本意就是意外情况 这有个前提,没有出现上面的错误,也就是说程序写的没有问题,但是在某些情况下,会出现一些意外,导致程序无法正常的执行下去. 例如open函数操作一个文件,文件不存在,或者创建一">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="处理异常">
+<meta property="og:url" content="https://hubhack.github.io/20/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="IT知识共享,与各位共同学习">
+<meta property="og:description" content="异常处理(Exception)错误Error逻辑错误:算法写错了, 例如加法写成了减法 笔误:例如变量名写错了,语法错误 函数或类使用错误, 其实这也属于逻辑错误 总之,错误是可以避免的 异常Eception本意就是意外情况 这有个前提,没有出现上面的错误,也就是说程序写的没有问题,但是在某些情况下,会出现一些意外,导致程序无法正常的执行下去. 例如open函数操作一个文件,文件不存在,或者创建一">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-20T11:50:42.585Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="千分无言">
-<meta name="twitter:description" content="IT知识共享,与各位共同学习">
+<meta name="twitter:title" content="处理异常">
+<meta name="twitter:description" content="异常处理(Exception)错误Error逻辑错误:算法写错了, 例如加法写成了减法 笔误:例如变量名写错了,语法错误 函数或类使用错误, 其实这也属于逻辑错误 总之,错误是可以避免的 异常Eception本意就是意外情况 这有个前提,没有出现上面的错误,也就是说程序写的没有问题,但是在某些情况下,会出现一些意外,导致程序无法正常的执行下去. 例如open函数操作一个文件,文件不存在,或者创建一">
 
 
 
@@ -166,7 +168,7 @@
 
 
 
-  <link rel="canonical" href="https://hubhack.github.io/categories/python/">
+  <link rel="canonical" href="https://hubhack.github.io/20/">
 
 
 
@@ -176,7 +178,7 @@
   };
 </script>
 
-  <title>分类: python | 千分无言</title>
+  <title>处理异常 | 千分无言</title>
   
 
 
@@ -224,7 +226,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
       
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -285,7 +287,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -415,317 +417,210 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>python<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/20/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mwq">
+      <meta itemprop="description" content="IT知识共享,与各位共同学习">
+      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千分无言">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/20/" itemprop="url">
-            
-              <span itemprop="name">处理异常</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">处理异常
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-20T22:26:00+08:00" content="2019-05-20">
-          05-20
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-20 22:26:00 / 修改时间：19:50:42" itemprop="dateCreated datePublished" datetime="2019-05-20T22:26:00+08:00">2019-05-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/19/" itemprop="url">
-            
-              <span itemprop="name">面向对象</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-16T22:26:00+08:00" content="2019-05-16">
-          05-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/18/" itemprop="url">
-            
-              <span itemprop="name">正则表达式</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-07T22:26:00+08:00" content="2019-05-07">
-          05-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/16/" itemprop="url">
-            
-              <span itemprop="name">python文件io</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-28T22:26:00+08:00" content="2019-04-28">
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/12/" itemprop="url">
-            
-              <span itemprop="name">python小技巧</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-14T22:26:00+08:00" content="2019-04-14">
-          04-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/13/" itemprop="url">
-            
-              <span itemprop="name">python特殊函数</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-14T22:26:00+08:00" content="2019-04-14">
-          04-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/11/" itemprop="url">
-            
-              <span itemprop="name">python函数</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-11T22:26:00+08:00" content="2019-04-11">
-          04-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/6/" itemprop="url">
-            
-              <span itemprop="name">python知识框架</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-30T22:25:34+08:00" content="2019-03-30">
-          03-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/14/" itemprop="url">
-            
-              <span itemprop="name">python 三大器</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-19T22:26:00+08:00" content="2019-03-19">
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2/" itemprop="url">
-            
-              <span itemprop="name">python入门笔记</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-03-19T22:25:34+08:00" content="2019-03-19">
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="异常处理-Exception"><a href="#异常处理-Exception" class="headerlink" title="异常处理(Exception)"></a>异常处理(Exception)</h2><h4 id="错误Error"><a href="#错误Error" class="headerlink" title="错误Error"></a>错误Error</h4><p>逻辑错误:算法写错了, 例如加法写成了减法</p>
+<p>笔误:例如变量名写错了,语法错误</p>
+<p>函数或类使用错误, 其实这也属于逻辑错误</p>
+<p>总之,错误是可以避免的</p>
+<h4 id="异常Eception"><a href="#异常Eception" class="headerlink" title="异常Eception"></a>异常Eception</h4><p>本意就是意外情况</p>
+<p>这有个前提,没有出现上面的错误,也就是说程序写的没有问题,但是在某些情况下,会出现一些意外,导致程序无法正常的执行下去.</p>
+<p>例如open函数操作一个文件,文件不存在,或者创建一个文件时已经存在了,或者访问一个网络文件,突然断网了,这就是异常,是个意外的情况.</p>
+<h4 id="错误和异常"><a href="#错误和异常" class="headerlink" title="错误和异常"></a>错误和异常</h4><p>在高级编程语言中,一般都有错误和异常的概念,异常是 可以捕获,但是错误不能被捕获.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'tetsabcd'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="comment"># 异常</span></span><br></pre></td></tr></table></figure>
+<h2 id="产生异常"><a href="#产生异常" class="headerlink" title="产生异常"></a>产生异常</h2><p>产生:</p>
+<ul>
+<li>raise语句显示的抛出异常</li>
+<li>Python解释器自己检测异常并引发它<br>程序会在异常抛出的地方中断执行,如果不捕获,就会提前结束程序(其实是终止当前线程的执行)</li>
+</ul>
+<h2 id="异常的捕获"><a href="#异常的捕获" class="headerlink" title="异常的捕获"></a>异常的捕获</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    待捕获异常的代码块</span><br><span class="line"><span class="keyword">except</span> [异常类型]</span><br><span class="line">	异常的处理代码块</span><br></pre></td></tr></table></figure>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/19/" rel="next" title="面向对象">
+                <i class="fa fa-chevron-left"></i> 面向对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -745,8 +640,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -875,6 +779,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#异常处理-Exception"><span class="nav-number">1.</span> <span class="nav-text">异常处理(Exception)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误Error"><span class="nav-number">1.0.1.</span> <span class="nav-text">错误Error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常Eception"><span class="nav-number">1.0.2.</span> <span class="nav-text">异常Eception</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误和异常"><span class="nav-number">1.0.3.</span> <span class="nav-text">错误和异常</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#产生异常"><span class="nav-number">2.</span> <span class="nav-text">产生异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常的捕获"><span class="nav-number">3.</span> <span class="nav-text">异常的捕获</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1011,6 +932,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -1021,6 +946,8 @@
   
   
 
+
+  
 
 
   
