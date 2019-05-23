@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[魔术方法]]></title>
     <url>%2F21%2F</url>
-    <content type="text"><![CDATA[特殊属性__name__ :类,函数,方法等名字__module__:类定义所在的模块名__class__:对象或类所属的类__base__: 类的基类的元组,顺序为他们在基类中出现的顺序__doc__:类, 函数的文档字符串, 如果没有定义则为None__mro__: 类的mro, class.mro()返回的结果的保存在__mro__ 中__dict__: 类或实例的属性, 可写的字典 ###查看属性__dir__: 返回类或者对象的所有成员名称列表, dir()函数操作实例实例就是调用它 如果]]></content>
+    <content type="text"><![CDATA[特殊属性__name__ :类,函数,方法等名字__module__:类定义所在的模块名__class__:对象或类所属的类__base__: 类的基类的元组,顺序为他们在基类中出现的顺序__doc__:类, 函数的文档字符串, 如果没有定义则为None__mro__: 类的mro, class.mro()返回的结果的保存在__mro__ 中__dict__: 类或实例的属性, 可写的字典 ###查看属性__dir__: 返回类或者对象的所有成员名称列表, dir()函数操作实例实例就是调用它 如果dir()参数obj包括方法dir(), 该方法将被调用]]></content>
       <categories>
         <category>python</category>
       </categories>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-05-23T06:37:22.612Z</updated>
+  <updated>2019-05-23T06:38:00.206Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://hubhack.github.io/21/"/>
     <id>https://hubhack.github.io/21/</id>
     <published>2019-05-23T14:26:00.000Z</published>
-    <updated>2019-05-23T06:37:22.612Z</updated>
+    <updated>2019-05-23T06:38:00.206Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="特殊属性"><a href="#特殊属性" class="headerlink" title="特殊属性"></a>特殊属性</h3><p>__name__ :类,函数,方法等名字<br>__module__:类定义所在的模块名<br>__class__:对象或类所属的类<br>__base__: 类的基类的元组,顺序为他们在基类中出现的顺序<br>__doc__:类, 函数的文档字符串, 如果没有定义则为None<br>__mro__: 类的mro, class.mro()返回的结果的保存在__mro__ 中<br>__dict__: 类或实例的属性, 可写的字典</p><p>###查看属性<br>__dir__: 返回类或者对象的所有成员名称列表, dir()函数操作实例实例就是调用它</p><p>如果</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="特殊属性"><a href="#特殊属性" class="headerlink" title="特殊属性"></a>特殊属性</h3><p>__name__ :类,函数,方法等名字<br>__module__:类定义所在的模块名<br>__class__:对象或类所属的类<br>__base__: 类的基类的元组,顺序为他们在基类中出现的顺序<br>__doc__:类, 函数的文档字符串, 如果没有定义则为None<br>__mro__: 类的mro, class.mro()返回的结果的保存在__mro__ 中<br>__dict__: 类或实例的属性, 可写的字典</p><p>###查看属性<br>__dir__: 返回类或者对象的所有成员名称列表, dir()函数操作实例实例就是调用它</p><p>如果dir()参数obj包括方法<strong>dir</strong>(), 该方法将被调用</p>]]></content>
     
     <summary type="html">
     
