@@ -156,7 +156,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="特殊属性   属性 含义     __name__ 类,函数,方法等名字   __module__ 类定义所在的模块名   __class__ 对象或类所属的类   __base__ 类的基类的元组,顺序为他们在基类中出现的顺序   __doc__ 类, 函数的文档字符串, 如果没有定义则为None   __mro__ 类的mro, class.mro()返回的结果的保存在__mro__ 中">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-24T16:50:46.257Z">
+<meta property="og:updated_time" content="2019-05-25T08:25:15.991Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="魔术方法">
 <meta name="twitter:description" content="特殊属性   属性 含义     __name__ 类,函数,方法等名字   __module__ 类定义所在的模块名   __class__ 对象或类所属的类   __base__ 类的基类的元组,顺序为他们在基类中出现的顺序   __doc__ 类, 函数的文档字符串, 如果没有定义则为None   __mro__ 类的mro, class.mro()返回的结果的保存在__mro__ 中">
@@ -497,7 +497,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-25 00:50:46" itemprop="dateModified" datetime="2019-05-25T00:50:46+08:00">2019-05-25</time>
+                <time title="修改时间：2019-05-25 16:25:15" itemprop="dateModified" datetime="2019-05-25T16:25:15+08:00">2019-05-25</time>
               
             
           </span>
@@ -698,6 +698,26 @@
 </tr>
 </tbody>
 </table>
+<h3 id="上下文管理"><a href="#上下文管理" class="headerlink" title="上下文管理"></a>上下文管理</h3><p>文件IO操作可以对文件对象使用上下文管理，使用with。。as语法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'test'</span>) <span class="keyword">as</span> f:</span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>仿照上例写一个自己的泪，实现上下文管理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>:</span></span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"><span class="keyword">with</span> Point <span class="keyword">as</span> p:</span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>提示属性错误，没有__exit__，看了需要这个属性</p>
+<p>某些版本会显示没有__enter__</p>
+<p>上下文管理对象</p>
+<p>当一个对象同时实现了__enter__()和exit()方法,他就属于上下文管理的对象</p>
+<p>__enter__ 进入于此对象相关的上下文,如果存在该方法,with语法会把该方法的返回值作为绑定到as之句中指定的变量上</p>
+<p>__exit__退出与此对象相关的上下文</p>
+<p>with可以开启一个上下文运行环境,在执行前做一些准备工作,执行后做一些收尾工作</p>
+<p>注意,with 并不开启一个新的作用域</p>
+<p>上下文管理是安全的</p>
+<p>上下文应用场景</p>
+<p>1.增强功能</p>
+<p>在代码执行的前后增加代码, 以增强其功能.类似装饰器的功能</p>
+<p>2.资源管理</p>
+<p>打开了资源需要关闭, 例如文件对象, 网络连接,数据库连接等</p>
+<p>3.权限验证</p>
+<p>在执行代码之前,做权限验证,在__enter__</p>
 
       
     </div>
@@ -936,7 +956,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊属性"><span class="nav-number">1.</span> <span class="nav-text">特殊属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看属性"><span class="nav-number">2.</span> <span class="nav-text">查看属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术方法"><span class="nav-number">3.</span> <span class="nav-text">魔术方法***</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实例化"><span class="nav-number">3.1.</span> <span class="nav-text">实例化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可视化"><span class="nav-number">3.2.</span> <span class="nav-text">可视化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hash"><span class="nav-number">3.3.</span> <span class="nav-text">hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bool"><span class="nav-number">3.4.</span> <span class="nav-text">bool</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊属性"><span class="nav-number">1.</span> <span class="nav-text">特殊属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看属性"><span class="nav-number">2.</span> <span class="nav-text">查看属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术方法"><span class="nav-number">3.</span> <span class="nav-text">魔术方法***</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实例化"><span class="nav-number">3.1.</span> <span class="nav-text">实例化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可视化"><span class="nav-number">3.2.</span> <span class="nav-text">可视化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hash"><span class="nav-number">3.3.</span> <span class="nav-text">hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bool"><span class="nav-number">3.4.</span> <span class="nav-text">bool</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文管理"><span class="nav-number">4.</span> <span class="nav-text">上下文管理</span></a></li></ol></div>
             
 
           </div>
