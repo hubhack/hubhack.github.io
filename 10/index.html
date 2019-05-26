@@ -148,18 +148,18 @@
 
 
 
-  <meta name="description" content="求素数算法剖析 简单解法n = 100for i in range(2,n):  for x in range(2 ,int(i**0.5)+1): if i % x == 0:     break   else: count +=1 print(x) for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因">
+  <meta name="description" content="求素数算法剖析 简单解法 12345678n = 100for i in range(2,n):  for x in range(2 ,int(i**0.5)+1):      if i % x == 0:          break  else:      count +=1      print(x) for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算素数和杨辉三角">
 <meta property="og:url" content="https://hubhack.github.io/10/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="求素数算法剖析 简单解法n = 100for i in range(2,n):  for x in range(2 ,int(i**0.5)+1): if i % x == 0:     break   else: count +=1 print(x) for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因">
+<meta property="og:description" content="求素数算法剖析 简单解法 12345678n = 100for i in range(2,n):  for x in range(2 ,int(i**0.5)+1):      if i % x == 0:          break  else:      count +=1      print(x) for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-05T01:28:26.785Z">
+<meta property="og:updated_time" content="2019-05-26T03:25:31.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算素数和杨辉三角">
-<meta name="twitter:description" content="求素数算法剖析 简单解法n = 100for i in range(2,n):  for x in range(2 ,int(i**0.5)+1): if i % x == 0:     break   else: count +=1 print(x) for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因">
+<meta name="twitter:description" content="求素数算法剖析 简单解法 12345678n = 100for i in range(2,n):  for x in range(2 ,int(i**0.5)+1):      if i % x == 0:          break  else:      count +=1      print(x) for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则">
 
 
 
@@ -497,7 +497,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-05 09:28:26" itemprop="dateModified" datetime="2019-04-05T09:28:26+08:00">2019-04-05</time>
+                <time title="修改时间：2019-05-26 11:25:31" itemprop="dateModified" datetime="2019-05-26T11:25:31+08:00">2019-05-26</time>
               
             
           </span>
@@ -550,51 +550,36 @@
 
       
         <h1 id="求素数算法剖析"><a href="#求素数算法剖析" class="headerlink" title="求素数算法剖析"></a>求素数算法剖析</h1><ul>
-<li><p>简单解法<br>n = 100<br>for i in range(2,n):<br>  for x in range(2 ,int(i**0.5)+1):</p>
-<pre><code>if i % x == 0:
-    break
-</code></pre><p>  else:</p>
-<pre><code>count +=1
-print(x)
-</code></pre><p>for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因为某种原因（如带有break关键字）提前退出迭代，则else子句不会被执行，程序将会直接跳过else子句继续执行后续代码.</p>
+<li><p>简单解法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">100</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,n):</span><br><span class="line">  <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">2</span> ,int(i**<span class="number">0.5</span>)+<span class="number">1</span>):</span><br><span class="line">      <span class="keyword">if</span> i % x == <span class="number">0</span>:</span><br><span class="line">          <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">      count +=<span class="number">1</span></span><br><span class="line">      print(x)</span><br></pre></td></tr></table></figure>
+<p>for else 是当迭代对象完成所有迭代后且此时的迭代对象为空时，如果存在else子句则执行else子句，没有则继续执行后续代码；如果迭代对象因为某种原因（如带有break关键字）提前退出迭代，则else子句不会被执行，程序将会直接跳过else子句继续执行后续代码.</p>
 </li>
 <li><p>使用奇数</p>
 </li>
 </ul>
-<p>n = 100<br>count = 1<br>for x in range(3,n,2):<br>    for i in range(3,int(x**0.5)+1,2):<br>        if x % i ==0:<br>            break<br>    else:<br>        count += 1<br>print (count)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">100</span></span><br><span class="line">count = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">3</span>,n,<span class="number">2</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>,int(x**<span class="number">0.5</span>)+<span class="number">1</span>,<span class="number">2</span>):</span><br><span class="line">        <span class="keyword">if</span> x % i ==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line"><span class="keyword">print</span> (count)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>储存质素</li>
 </ul>
-<p>合数一定可以分解为几个质数的乘积,2是质数<br>质数一定不能整除1和本身之内的整数<br>n = 100<br>count = 1<br>pre<br>for x in range(3,n,2):<br>    for i in primenumbers:<br>        if x % i == 0:<br>            break<br>    else:<br>        premenumber.append(x)<br>        count +=1<br>print(count)</p>
-<h1 id="杨辉三角"><a href="#杨辉三角" class="headerlink" title="杨辉三角"></a>杨辉三角</h1><p>预先构成前两行 从而推到后面的所有行<br>triandle = [[1],[1,1]]<br>for i in range(2,6):<br>    cur = [1]<br>    pre = triandle[i -1]<br>    for j in range(i-1):<br>        cur.append(pre[j] + pre[j + 1])<br>    cur.append(1)<br>    triandle.append(cur)<br>print(triandle)</p>
-<p>变形<br>triandle = []<br>n = 6<br>for i in range(n):<br>    cur = [1]<br>    triandle.append(cur)</p>
-<pre><code>if  i==0:continue
-pre = triandle[i -1]
-for  j in range(i -1):
-    cur.append(pre[j] + pre[j + 1])
-cur.append(1)
-</code></pre><p>print(triandle)</p>
+<p>合数一定可以分解为几个质数的乘积,2是质数<br>质数一定不能整除1和本身之内的整数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">100</span></span><br><span class="line">count = <span class="number">1</span></span><br><span class="line">pre</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">3</span>,n,<span class="number">2</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> primenumbers:</span><br><span class="line">        <span class="keyword">if</span> x % i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        premenumber.append(x)</span><br><span class="line">        count +=<span class="number">1</span></span><br><span class="line">print(count)</span><br></pre></td></tr></table></figure>
+<h1 id="杨辉三角"><a href="#杨辉三角" class="headerlink" title="杨辉三角"></a>杨辉三角</h1><p>预先构成前两行 从而推到后面的所有行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">triandle = [[<span class="number">1</span>],[<span class="number">1</span>,<span class="number">1</span>]]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,<span class="number">6</span>):</span><br><span class="line">    cur = [<span class="number">1</span>]</span><br><span class="line">    pre = triandle[i <span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i<span class="number">-1</span>):</span><br><span class="line">        cur.append(pre[j] + pre[j + <span class="number">1</span>])</span><br><span class="line">    cur.append(<span class="number">1</span>)</span><br><span class="line">    triandle.append(cur)</span><br><span class="line">print(triandle)</span><br></pre></td></tr></table></figure>
+<p>变形</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">triandle = []</span><br><span class="line">n = <span class="number">6</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    cur = [<span class="number">1</span>]</span><br><span class="line">    triandle.append(cur)</span><br><span class="line">   </span><br><span class="line"><span class="keyword">if</span>  i==<span class="number">0</span>:<span class="keyword">continue</span></span><br><span class="line">pre = triandle[i <span class="number">-1</span>]</span><br><span class="line"><span class="keyword">for</span>  j <span class="keyword">in</span> range(i <span class="number">-1</span>):</span><br><span class="line">    cur.append(pre[j] + pre[j + <span class="number">1</span>])</span><br><span class="line">cur.append(<span class="number">1</span>)</span><br><span class="line">print(triandle)</span><br></pre></td></tr></table></figure>
+<p>补零法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">6</span> </span><br><span class="line">newline = [<span class="number">1</span>]</span><br><span class="line">print(newline)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>  i <span class="keyword">in</span> range(<span class="number">1</span>,n):</span><br><span class="line">    oldline = newline.copy()</span><br><span class="line">    oldline.append(<span class="number">0</span>)</span><br><span class="line">    newline.clear()</span><br><span class="line">    </span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>):</span><br><span class="line">    newline.append(oldline[j <span class="number">-1</span>] + oldline[j])</span><br><span class="line"></span><br><span class="line">print(newline)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>补零法<br>n = 6<br>newline = [1]<br>print(newline)</li>
-</ul>
-<p>for  i in range(1,n):<br>    oldline = newline.copy()<br>    oldline.append(0)<br>    newline.clear()</p>
-<pre><code>for j in range(i+1):
-    newline.append(oldline[j -1] + oldline[j])
-
-print(newline)
-</code></pre><ul>
 <li>对称性<br>一次性开辟空间,可以使用列表或者循环迭代的方式能不能减少一半的数字计算 .左右对称.</li>
 </ul>
-<p>triandle = []<br>n = 6<br>for i in range(n):<br>    row = [1] * (i + 1)<br>    triandle.append(row)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">triandle = []</span><br><span class="line">n = <span class="number">6</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    row = [<span class="number">1</span>] * (i + <span class="number">1</span>)</span><br><span class="line">    triandle.append(row)</span><br></pre></td></tr></table></figure>
 <pre><code>for j in range(1,i//2+1):
     val = triandle[i-1][j-1] + triandle[i -1][j]
     row[j]  = val
     row[-j-1] = val
-</code></pre><p>print(triandle)<br>triangle = []<br>n = 6<br>for i in range(n):<br>    row = [1] <em>(i +1)<br>    triangle.append(row)<br>    for  j in range(i,i//2+1):<br>        val = triangle[i-1][j-1] + triangle[i -1][j]<br>        row[j] = val<br>        if  i != 2</em>j:<br>            row[-j-i] = val<br>print(triangle)</p>
-<ul>
-<li>单行覆盖法<br>n = 6<br>row = [1] <em>n<br>print(row)<br>print(‘_’ </em> 30)</li>
-</ul>
-<p>for  i in range(n):<br>    for j in range(i//2):<br>        val = row[j] + row[j+1]<br>        row[j+1]=val<br>        if i != 2* (j+1):<br>            row[i-(j+1)] =val<br>    print(row[:i+1])</p>
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">print(triandle)</span><br><span class="line">triangle = []</span><br><span class="line">n = <span class="number">6</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    row = [<span class="number">1</span>] *(i +<span class="number">1</span>)</span><br><span class="line">    triangle.append(row)</span><br><span class="line">    <span class="keyword">for</span>  j <span class="keyword">in</span> range(i,i//<span class="number">2</span>+<span class="number">1</span>):</span><br><span class="line">        val = triangle[i<span class="number">-1</span>][j<span class="number">-1</span>] + triangle[i <span class="number">-1</span>][j]</span><br><span class="line">        row[j] = val</span><br><span class="line">        <span class="keyword">if</span>  i != <span class="number">2</span>*j:</span><br><span class="line">            row[-j-i] = val</span><br><span class="line">print(triangle)</span><br></pre></td></tr></table></figure>
+<p>单行覆盖法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">6</span></span><br><span class="line">row = [<span class="number">1</span>] *n</span><br><span class="line">print(row)</span><br><span class="line">print(<span class="string">'_'</span> * <span class="number">30</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>  i <span class="keyword">in</span> range(n):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i//<span class="number">2</span>):</span><br><span class="line">        val = row[j] + row[j+<span class="number">1</span>]</span><br><span class="line">        row[j+<span class="number">1</span>]=val</span><br><span class="line">        <span class="keyword">if</span> i != <span class="number">2</span>* (j+<span class="number">1</span>):</span><br><span class="line">            row[i-(j+<span class="number">1</span>)] =val</span><br><span class="line">    print(row[:i+<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 
       
     </div>
