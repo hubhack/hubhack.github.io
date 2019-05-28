@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-05-28T01:11:22.511Z</updated>
+  <updated>2019-05-28T05:55:49.196Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>方法</title>
+    <link href="https://hubhack.github.io/25/"/>
+    <id>https://hubhack.github.io/25/</id>
+    <published>2019-05-28T02:11:42.550Z</published>
+    <updated>2019-05-28T05:55:49.196Z</updated>
+    
+    <content type="html"><![CDATA[<p>魔术方法</p><table><thead><tr><th>类别</th><th>方法名</th></tr></thead><tbody><tr><td>可视化</td><td>__str__, __repr__, __format__, __bytes__</td></tr><tr><td>数值转换</td><td>__abs__, __bool__, __complex__, __int__, __float__, __hash__, __index__</td></tr><tr><td>容器模拟</td><td>__len__, __getitem__, __setitem__, __delitem__, __contains__.__misss__</td></tr><tr><td>迭代枚举</td><td>__iter__, __reversed__, __next__</td></tr><tr><td>可调用模拟</td><td>__call__</td></tr><tr><td>上下文管理</td><td>__enter__, __exit__</td></tr><tr><td>实例创建和销毁</td><td>__new__, __init__, __del__</td></tr><tr><td>属性管理(反射)</td><td>__dir__, __getattr__, __setattr__, __delattr__, __getattribute__</td></tr><tr><td>属性描述符(描述器)</td><td>__get__, __set__, __delete__</td></tr><tr><td>特殊属性</td><td>__name__, __module__, __class__, __bases__, __doc__, __mro__, __dir__</td></tr><tr><td>比较运算符</td><td>__eq__,__lt__, __le__, __gt__, __ge__, __ne__</td></tr><tr><td>算数运算符</td><td>__add__, __sub__, __mul__, __truediv__, __mod__, __floordiv__, __pow__, __divmod__</td></tr><tr><td>增量运算符</td><td>__iadd__, __isub__, __imul__, __itruediv__, __imod__, __ifloordiv__, __ipow__</td></tr><tr><td>反向运算符</td><td>__radd__, __rsub__</td></tr><tr><td>其他</td><td>__slots__</td></tr></tbody></table><p>内置函数</p><table><thead><tr><th>内置函数名</th><th>方法名</th></tr></thead><tbody><tr><td>数学运算</td><td>abs, divmod,max,min,pow, round, sum</td></tr><tr><td>类型转换</td><td>bool,int,float, complex, str, bytearray, bytes, memoryview, ord,chr, bin,oct,hex</td></tr><tr><td>序列操作</td><td>all, any, filter, map,next,reversed, sorted, zip</td></tr><tr><td>对象操作</td><td>help,dir,id,hash, type,len, ascii,format, vars,</td></tr><tr><td>反射操作</td><td>__import__, isinstance, issubclass, hasattr, getattr, setattr, delattr,callable</td></tr><tr><td>变量操作</td><td>globals, locals,</td></tr><tr><td>交互操作</td><td>print,input</td></tr><tr><td>文件操作</td><td>open</td></tr><tr><td>编译执行</td><td>compile, eval,exec, repr</td></tr><tr><td>装饰器</td><td>property,classmethod, staticmethod,</td></tr><tr><td>数据结构</td><td>tuple, list, dict, set,frozenset, enumerate, range,iter, slice,super, object</td></tr></tbody></table><p>标识符:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">False</span>      <span class="keyword">await</span>      <span class="keyword">else</span>       <span class="keyword">import</span>     <span class="keyword">pass</span></span><br><span class="line"><span class="literal">None</span>       <span class="keyword">break</span>      <span class="keyword">except</span>     <span class="keyword">in</span>         <span class="keyword">raise</span></span><br><span class="line"><span class="literal">True</span>       <span class="class"><span class="keyword">class</span>      <span class="title">finally</span>    <span class="title">is</span>         <span class="title">return</span></span></span><br><span class="line"><span class="class"><span class="title">and</span>        <span class="title">continue</span>   <span class="title">for</span>        <span class="title">lambda</span>     <span class="title">try</span></span></span><br><span class="line"><span class="class"><span class="title">as</span>         <span class="title">def</span>        <span class="title">from</span>       <span class="title">nonlocal</span>   <span class="title">while</span></span></span><br><span class="line"><span class="class"><span class="title">assert</span>     <span class="title">del</span>        <span class="title">global</span>     <span class="title">not</span>        <span class="title">with</span></span></span><br><span class="line"><span class="class"><span class="title">async</span>      <span class="title">elif</span>       <span class="title">if</span>         <span class="title">or</span>         <span class="title">yield</span></span></span><br></pre></td></tr></table></figure><p>模块常用方法</p><table><thead><tr><th>内置模块</th><th>方法名</th></tr></thead><tbody><tr><td>re</td><td>compile, search, match, fullmatch,split,findall, sub,</td></tr><tr><td>string</td><td>ascii_letters,ascii_lowercase.digits</td></tr><tr><td>datetime</td><td>datetime</td></tr><tr><td>collections</td><td>nametuple, deque, OrderdDict, defaultdict,</td></tr><tr><td>bisect</td><td>bisect_left,bisect_right,</td></tr><tr><td>math</td><td>ceil</td></tr><tr><td>random</td><td>randint, choice, randrange,shuffle, sample</td></tr><tr><td>functools</td><td>reduce, partial,lru_cache</td></tr><tr><td>pathlib</td><td></td></tr><tr><td>os</td><td></td></tr><tr><td>shutil</td><td>copyfileobj, copyfile,  copymode, copystat,copy,copy2,copytree,rmtree,move,</td></tr><tr><td>pickle</td><td></td></tr><tr><td>csv</td><td>reader</td></tr><tr><td>time</td><td></td></tr><tr><td>threading</td><td></td></tr><tr><td>queue</td><td></td></tr><tr><td>json</td><td></td></tr><tr><td>base64</td><td></td></tr><tr><td>sys</td><td></td></tr><tr><td>inspect</td><td>signature(callable)获取签名,</td></tr><tr><td>ConfigParser</td><td></td></tr><tr><td>argparse</td><td></td></tr><tr><td>heapq</td><td>hea</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;魔术方法&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类别&lt;/th&gt;
+&lt;th&gt;方法名&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;可视化&lt;/td&gt;
+&lt;td&gt;__str__, __repr__, __format__, __byte
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>描述器</title>

@@ -148,18 +148,18 @@
 
 
 
-  <meta name="description" content="文件io常用操作一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络ioopen:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取seek: 文件指针操作 tell: 指针位置 打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.文件操作中,最常用的操作就是读和写.文件访问的模式有两种:">
+  <meta name="description" content="魔术方法    类别 方法名     可视化 __str__, __repr__, __format__, __bytes__   数值转换 __abs__, __bool__, __complex__, __int__, __float__, __hash__, __index__   容器模拟 __len__, __getitem__, __setitem__, __delitem__, __">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python文件io">
-<meta property="og:url" content="https://hubhack.github.io/16/index.html">
+<meta property="og:title" content="方法">
+<meta property="og:url" content="https://hubhack.github.io/25/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="文件io常用操作一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络ioopen:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取seek: 文件指针操作 tell: 指针位置 打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.文件操作中,最常用的操作就是读和写.文件访问的模式有两种:">
+<meta property="og:description" content="魔术方法    类别 方法名     可视化 __str__, __repr__, __format__, __bytes__   数值转换 __abs__, __bool__, __complex__, __int__, __float__, __hash__, __index__   容器模拟 __len__, __getitem__, __setitem__, __delitem__, __">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-26T04:01:19.827Z">
+<meta property="og:updated_time" content="2019-05-28T05:55:49.196Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python文件io">
-<meta name="twitter:description" content="文件io常用操作一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络ioopen:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取seek: 文件指针操作 tell: 指针位置 打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.文件操作中,最常用的操作就是读和写.文件访问的模式有两种:">
+<meta name="twitter:title" content="方法">
+<meta name="twitter:description" content="魔术方法    类别 方法名     可视化 __str__, __repr__, __format__, __bytes__   数值转换 __abs__, __bool__, __complex__, __int__, __float__, __hash__, __index__   容器模拟 __len__, __getitem__, __setitem__, __delitem__, __">
 
 
 
@@ -168,7 +168,7 @@
 
 
 
-  <link rel="canonical" href="https://hubhack.github.io/16/">
+  <link rel="canonical" href="https://hubhack.github.io/25/">
 
 
 
@@ -178,7 +178,7 @@
   };
 </script>
 
-  <title>python文件io | 千分无言</title>
+  <title>方法 | 千分无言</title>
   
 
 
@@ -437,7 +437,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/16/">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/25/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
@@ -454,7 +454,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python文件io
+          <h1 class="post-title" itemprop="name headline">方法
 
               
             
@@ -480,24 +480,12 @@
                 
               
 
-              <time title="创建时间：2019-04-28 19:41:45" itemprop="dateCreated datePublished" datetime="2019-04-28T19:41:45+08:00">2019-04-28</time>
+              <time title="创建时间：2019-05-28 10:11:42 / 修改时间：13:55:49" itemprop="dateCreated datePublished" datetime="2019-05-28T10:11:42+08:00">2019-05-28</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-26 12:01:19" itemprop="dateModified" datetime="2019-05-26T12:01:19+08:00">2019-05-26</time>
               
             
           </span>
@@ -549,35 +537,237 @@
       
 
       
-        <h1 id="文件io常用操作"><a href="#文件io常用操作" class="headerlink" title="文件io常用操作"></a>文件io常用操作</h1><p>一般说io操作,指的是文件io, 如果指的是网络io,都会直接说网络io<br>open:打开 read:读取 write:写入 close:关闭 readline: 行读取 readlines: 多行读取<br>seek: 文件指针操作 tell: 指针位置</p>
-<p>打开操作:打开一个文件,返回一个文件对象和文件描述符,打开文件失败,则返回异常.<br>文件操作中,最常用的操作就是读和写.<br>文件访问的模式有两种:文本模式和二进制模式.不同模式下,操作函数不尽相同,表现的结果也不一样.<br>注: windows中使用codepage代码页,可以认为每一个代码页就是一张编码表.cp936等同于GBK.<br>open的参数:file打开或者要创建的文件名.如果不指定路径,默认是当前路径.<br>mode模式 r:缺省,表示只读打开. w: 只写打开 x:创建并写入一个新文件<br>a: 写入打开,如果文件存在,则追加<br>b:二进制模式 t:缺省,文本模式 +: 读写打开一个文件.给原来只读,只写方式打开提供缺失的读或者写能力.</p>
-<p>open默认是只读模式r打开已经存在的文件.</p>
-<p>文件指针:mode=r, 指针起始在0, mode=a,指针起始在EOF<br>buffering:缓冲区<br>0:只在二进制模式打开,表示关buffer<br>1:只在文本模式使用, 表示使用行缓冲,意思就是见到换行符就flush<br>大于1:用于指定buffer的大小.</p>
-<h1 id="上下文管理"><a href="#上下文管理" class="headerlink" title="上下文管理"></a>上下文管理</h1><p>1.异常处理<br>当出现异常的时候,拦截异常.但是,因为很多代码都可能出现OSError异常,还不好判断异常就是应为资源限制产生的.<br>使用finally可以保证打开的文件可以被关闭.<br>2.上下文管理<br>一种特殊的语法, 交给解释器去释放文件对象.<br>使用with … as关键字<br>上下文管理的语句并不会开启新的作用域<br>with语句执行的时候,自动关闭文件对象.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f1 = open(&apos;text&apos;)</span><br><span class="line">with f1:</span><br><span class="line">    f1.write(&apos;abc&apos;)</span><br><span class="line">f1.closed</span><br></pre></td></tr></table></figure></p>
-<p>对于类似于文件对象的io对象,一般来说都需要在不使用的时候关闭,注销,以释放资源<br>io被打开的时候,会获得一个文件描述符,计算机资源是有限的,所以操作系统都会做限制,就是为了保护计算机的资源不要被完全耗尽,计算资源是共享的,不是独占的,一般情况下,除非特别明确的知道资源情况,否则不要提高资源的限制值来解决问题.</p>
-<p>StringIO和BytesIO<br>StringIO<br>io模块中的类<br>from io import StringIO<br>内存中,开辟的一个文本模式的buffer,可以像对象一样操作它.<br>当close方法被调用的时候,这个buffer被释放.</p>
-<p>好处:一般来说,磁盘的操作比内存的操作要慢的多,内存足够的情况下,一般的优化思路是少落地,减少磁盘io的过程,可以大大提高程序的运行效率.</p>
-<p>BytesIO<br>io模块中的类<br>from io import BytesIO<br>内存中,开辟的一个二进制模式的buffer, 可以像文件对象一样操作它.<br>当close方法被调用的时候, 这个buffer会释放.</p>
-<p>file-like对象<br>类文件对象,可以像文件一样操作<br>socket对象,输入输出对象都是类文件对象.</p>
-<h1 id="路径操作"><a href="#路径操作" class="headerlink" title="路径操作"></a>路径操作</h1><p>from os import path<br>3.4版本开始<br>建议使用pathlib模块,提供path对象来操作.包括目录和文件<br>Pathlib模块</p>
-<p>目录操作初始化<br>路径拼接和分解<br>操作符<br>分解<br>joinpath</p>
-<h1 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h1><p>glob通配给定的模式<br>rglob通配给定的模式,递归目录<br>都返回一个生成器<br>?代表一个字符<br>*表示任意个字符<br>[abc]或[a-z]表示一个字符</p>
-<p>匹配<br>match(pattern)<br>模式匹配,成功返回True</p>
-<p>文件操作<br>os模块<br>os.name windows是nt, linux是posix<br>os.uname() *nix支持<br>sys.platform windows显示win32, linux 显示linux<br>os.listdir返回指定目录内容列表, 不递归<br>os也有open,read,write等方法,但是太底层建议使用内建函数open,read ,write,使用方式相似.</p>
-<h1 id="shutil模块"><a href="#shutil模块" class="headerlink" title="shutil模块"></a>shutil模块</h1><p>文件拷贝:使用打开2个文件对象,源文件读取内容,写入目标文件中来完成拷贝过程,但是这样丢失stat数据信息,因为根本没有复制这些信息过去.<br>python提供了一个方便的shutil(高级文件操作)<br>copy复制<br>copyfileobj(fsrc, fdst[, length])</p>
-<p>文件对象的复制,fsrc和fdst是open打开的文件对象,复制内容.fdst要求可写.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import shutil</span><br><span class="line">with open (&apos;text&apos;, &apos;r+&apos;) as f:</span><br><span class="line">    f.write(&apos;abcd&apos;)</span><br><span class="line">    with open(&apos;text1&apos;, &apos;w+&apos;) as f1:</span><br><span class="line">        shutil.copyfileobj(f, f1)</span><br></pre></td></tr></table></figure></p>
-<p>复制文件内容,不含元数据,src,dst为文件的路径字符串.</p>
-<h1 id="rm删除"><a href="#rm删除" class="headerlink" title="rm删除"></a>rm删除</h1><p>shutil.rmtree(path, ignore_errors=False, oneerror=None)<br>递归删除,如同rm -rf一样危险,慎用.<br>他不是原子操作,有可能删除错误,就会中断,已经删除的就删除了.<br>shutil.retree(“text”) 类似rm -rf</p>
-<h1 id="move移动"><a href="#move移动" class="headerlink" title="move移动"></a>move移动</h1><p>递归移动文件,目标到目标,返回目标<br>本身使用的是os.rename方法<br>如果不支持rename,如果是目录则copytree再删除源目录.<br>shutil 还有打包功能,生成tar并压缩,支持zip,gz,bz,xz</p>
-<h1 id="csv文件"><a href="#csv文件" class="headerlink" title="csv文件"></a>csv文件</h1><p>csv是一个被行分隔符,列分割符划分成行和列的文本文件.<br>csv不指定字符编码.<br>行分割符为\r\n,最后一行可以没有换行符.<br>列分割符常用逗号或者制表符.<br>每一行称为一条记录record.<br>字段可以使用双引号括起来,也可以不使用.如果字段中出现了双引号,逗号,换行符必须使用双引号括起来.<br>csv模块<br>返回reader对象,是一个行迭代器<br>默认使用excel方言.<br>delimiter列分割符,逗号.<br>lineterminator行分割符\r\n</p>
-<h1 id="ini文件处理"><a href="#ini文件处理" class="headerlink" title="ini文件处理"></a>ini文件处理</h1><p>作为配置文件,ini文件格式的很流行.</p>
-<p>中括号里面的部分称为section,译作节,区, 段<br>每一个section内, 都是key=value形成的键值对,key称为option选项.<br>注意这里的DEFAULT是缺省section的名字,必须大写.<br>configparser<br>configparser模块的configparser类就是用来操作.<br>可以将section当做key,section存储键值对组成的字典,可以吧ini配置文件当成一个且套的字典.默认使用的是有序字典.</p>
-<h1 id="序列化和反序列化"><a href="#序列化和反序列化" class="headerlink" title="序列化和反序列化"></a>序列化和反序列化</h1><p>为什么要序列化<br>内存要中的字典,列表,集合以及各种对象,如何保存到一个文件中.<br>要设计一套协议,按照某种规则,把内存中数据保存到文件中,文件是一个字节序列,所以必须把数据转换成字节序列,输出到文件,这就是序列化,反之,把文件的字节序列恢复到内存并且还是原来的类型.就是反序列化.<br>serialization序列化<br>将内存中对象存储下来,把他变为一个个字节.<br>deserialization反序列化<br>将文件的一个个字节恢复成内存中的对象<br>序列化保存到文件就是持久化<br>可以将数据序列后持久化,或者网络传输,也可以将文件中或者网络收到的字节序列反序列化<br>python提供了pickle库</p>
-<p>dumps 对象序列化为bytes对象<br>dump 对象序列化到文件对象,就是存入文件<br>loads 从bytes对象反序列化<br>load 对象反序列化,从文件读取数据</p>
-<p>序列化应用<br>一般来说本地序列化的情况,应用较少,大多数场景都应用在网络传输中.<br>将数据序列化后通过网络传输到远程结点,远程服务器上的服务将收到数据序列化后,就可以使用<br>但是,要注意一点,大多数项目,都不是单机的,也不是单服务的,需要多个程序之间配合,需要通过网络将数据传送到其他节点上去,这就需要大量的序列化,反序列化的过程.<br>但是,问题是,python程序之间还可以都是用pickle解决序列化,反序列化,如果是跨平台,跨语言,跨协议pickle就不太适合了,就需要公共的协议.<br>不同的协议,效率不同,学习曲线不同,适合不同场景,要根据不同的情况分析选型<br>json<br>json的数据类型</p>
-<p>messagepack<br>messagepack是一个基于二进制高效的对象序列化库,可用于跨语言通信.<br>他可以像json那样,在许多语言之间交换结构对象.<br>但是他比json更快速也跟轻巧.<br>支持python.ruby,java等众多语言,<br>兼容json 和pickle</p>
-<p>安装pip install msgpack</p>
-<p>常用方法序列化对象,提供dumps来兼容pickle和json<br>unpackb反序列化对象.提供了loads来兼容.<br>pack序列化对象保存到文件对象,提供了dump来兼容.<br>unpack反序列化对象保存到文件对象,提供了load来兼容.<br>messagepack简单易用,高效压缩,支持语言丰富.<br>所以,用它序列化也是一种很好的选择,python很多大名鼎鼎的库都是用了msgpack.</p>
+        <p>魔术方法</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>方法名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可视化</td>
+<td>__str__, __repr__, __format__, __bytes__</td>
+</tr>
+<tr>
+<td>数值转换</td>
+<td>__abs__, __bool__, __complex__, __int__, __float__, __hash__, __index__</td>
+</tr>
+<tr>
+<td>容器模拟</td>
+<td>__len__, __getitem__, __setitem__, __delitem__, __contains__.__misss__</td>
+</tr>
+<tr>
+<td>迭代枚举</td>
+<td>__iter__, __reversed__, __next__</td>
+</tr>
+<tr>
+<td>可调用模拟</td>
+<td>__call__</td>
+</tr>
+<tr>
+<td>上下文管理</td>
+<td>__enter__, __exit__</td>
+</tr>
+<tr>
+<td>实例创建和销毁</td>
+<td>__new__, __init__, __del__</td>
+</tr>
+<tr>
+<td>属性管理(反射)</td>
+<td>__dir__, __getattr__, __setattr__, __delattr__, __getattribute__</td>
+</tr>
+<tr>
+<td>属性描述符(描述器)</td>
+<td>__get__, __set__, __delete__</td>
+</tr>
+<tr>
+<td>特殊属性</td>
+<td>__name__, __module__, __class__, __bases__, __doc__, __mro__, __dir__</td>
+</tr>
+<tr>
+<td>比较运算符</td>
+<td>__eq__,__lt__, __le__, __gt__, __ge__, __ne__</td>
+</tr>
+<tr>
+<td>算数运算符</td>
+<td>__add__, __sub__, __mul__, __truediv__, __mod__, __floordiv__, __pow__, __divmod__</td>
+</tr>
+<tr>
+<td>增量运算符</td>
+<td>__iadd__, __isub__, __imul__, __itruediv__, __imod__, __ifloordiv__, __ipow__</td>
+</tr>
+<tr>
+<td>反向运算符</td>
+<td>__radd__, __rsub__</td>
+</tr>
+<tr>
+<td>其他</td>
+<td>__slots__</td>
+</tr>
+</tbody>
+</table>
+<p>内置函数</p>
+<table>
+<thead>
+<tr>
+<th>内置函数名</th>
+<th>方法名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数学运算</td>
+<td>abs, divmod,max,min,pow, round, sum</td>
+</tr>
+<tr>
+<td>类型转换</td>
+<td>bool,int,float, complex, str, bytearray, bytes, memoryview, ord,chr, bin,oct,hex</td>
+</tr>
+<tr>
+<td>序列操作</td>
+<td>all, any, filter, map,next,reversed, sorted, zip</td>
+</tr>
+<tr>
+<td>对象操作</td>
+<td>help,dir,id,hash, type,len, ascii,format, vars,</td>
+</tr>
+<tr>
+<td>反射操作</td>
+<td>__import__, isinstance, issubclass, hasattr, getattr, setattr, delattr,callable</td>
+</tr>
+<tr>
+<td>变量操作</td>
+<td>globals, locals,</td>
+</tr>
+<tr>
+<td>交互操作</td>
+<td>print,input</td>
+</tr>
+<tr>
+<td>文件操作</td>
+<td>open</td>
+</tr>
+<tr>
+<td>编译执行</td>
+<td>compile, eval,exec, repr</td>
+</tr>
+<tr>
+<td>装饰器</td>
+<td>property,classmethod, staticmethod,</td>
+</tr>
+<tr>
+<td>数据结构</td>
+<td>tuple, list, dict, set,frozenset, enumerate, range,iter, slice,super, object</td>
+</tr>
+</tbody>
+</table>
+<p>标识符:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">False</span>      <span class="keyword">await</span>      <span class="keyword">else</span>       <span class="keyword">import</span>     <span class="keyword">pass</span></span><br><span class="line"><span class="literal">None</span>       <span class="keyword">break</span>      <span class="keyword">except</span>     <span class="keyword">in</span>         <span class="keyword">raise</span></span><br><span class="line"><span class="literal">True</span>       <span class="class"><span class="keyword">class</span>      <span class="title">finally</span>    <span class="title">is</span>         <span class="title">return</span></span></span><br><span class="line"><span class="class"><span class="title">and</span>        <span class="title">continue</span>   <span class="title">for</span>        <span class="title">lambda</span>     <span class="title">try</span></span></span><br><span class="line"><span class="class"><span class="title">as</span>         <span class="title">def</span>        <span class="title">from</span>       <span class="title">nonlocal</span>   <span class="title">while</span></span></span><br><span class="line"><span class="class"><span class="title">assert</span>     <span class="title">del</span>        <span class="title">global</span>     <span class="title">not</span>        <span class="title">with</span></span></span><br><span class="line"><span class="class"><span class="title">async</span>      <span class="title">elif</span>       <span class="title">if</span>         <span class="title">or</span>         <span class="title">yield</span></span></span><br></pre></td></tr></table></figure>
+<p>模块常用方法</p>
+<table>
+<thead>
+<tr>
+<th>内置模块</th>
+<th>方法名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>re</td>
+<td>compile, search, match, fullmatch,split,findall, sub,</td>
+</tr>
+<tr>
+<td>string</td>
+<td>ascii_letters,ascii_lowercase.digits</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>collections</td>
+<td>nametuple, deque, OrderdDict, defaultdict,</td>
+</tr>
+<tr>
+<td>bisect</td>
+<td>bisect_left,bisect_right,</td>
+</tr>
+<tr>
+<td>math</td>
+<td>ceil</td>
+</tr>
+<tr>
+<td>random</td>
+<td>randint, choice, randrange,shuffle, sample</td>
+</tr>
+<tr>
+<td>functools</td>
+<td>reduce, partial,lru_cache</td>
+</tr>
+<tr>
+<td>pathlib</td>
+<td></td>
+</tr>
+<tr>
+<td>os</td>
+<td></td>
+</tr>
+<tr>
+<td>shutil</td>
+<td>copyfileobj, copyfile,  copymode, copystat,copy,copy2,copytree,rmtree,move,</td>
+</tr>
+<tr>
+<td>pickle</td>
+<td></td>
+</tr>
+<tr>
+<td>csv</td>
+<td>reader</td>
+</tr>
+<tr>
+<td>time</td>
+<td></td>
+</tr>
+<tr>
+<td>threading</td>
+<td></td>
+</tr>
+<tr>
+<td>queue</td>
+<td></td>
+</tr>
+<tr>
+<td>json</td>
+<td></td>
+</tr>
+<tr>
+<td>base64</td>
+<td></td>
+</tr>
+<tr>
+<td>sys</td>
+<td></td>
+</tr>
+<tr>
+<td>inspect</td>
+<td>signature(callable)获取签名,</td>
+</tr>
+<tr>
+<td>ConfigParser</td>
+<td></td>
+</tr>
+<tr>
+<td>argparse</td>
+<td></td>
+</tr>
+<tr>
+<td>heapq</td>
+<td>hea</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -614,8 +804,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/15/" rel="next" title="python数据结构">
-                <i class="fa fa-chevron-left"></i> python数据结构
+              <a href="/24/" rel="next" title="描述器">
+                <i class="fa fa-chevron-left"></i> 描述器
               </a>
             
           </div>
@@ -623,10 +813,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/17/" rel="prev" title="深入理解计算机系统">
-                深入理解计算机系统 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -670,17 +856,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -805,23 +982,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件io常用操作"><span class="nav-number">1.</span> <span class="nav-text">文件io常用操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上下文管理"><span class="nav-number">2.</span> <span class="nav-text">上下文管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#路径操作"><span class="nav-number">3.</span> <span class="nav-text">路径操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通配符"><span class="nav-number">4.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#shutil模块"><span class="nav-number">5.</span> <span class="nav-text">shutil模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rm删除"><span class="nav-number">6.</span> <span class="nav-text">rm删除</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#move移动"><span class="nav-number">7.</span> <span class="nav-text">move移动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#csv文件"><span class="nav-number">8.</span> <span class="nav-text">csv文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ini文件处理"><span class="nav-number">9.</span> <span class="nav-text">ini文件处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#序列化和反序列化"><span class="nav-number">10.</span> <span class="nav-text">序列化和反序列化</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
