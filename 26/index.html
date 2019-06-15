@@ -148,18 +148,18 @@
 
 
 
-  <meta name="description" content="c">
-<meta name="keywords" content="c">
+  <meta name="description" content="预处理器编译一个c程序涉及很多步骤, 其中第一个步骤被称为预处理器阶段.c预处理器在源代码编译之前对其进行一些文本性质的操作,他的主要任务包括删除注释,插入被#include指令包含的文件的内容,定义和替换#define指令定义的符号以及确定代码的部分内容是否应该根据一些条件编译指令进行编译. 预定义符号预处理指令    指令 描述     #include 包含一个源代码   #define 定">
+<meta name="keywords" content="c语言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c语言">
+<meta property="og:title" content="c预处理器">
 <meta property="og:url" content="https://hubhack.github.io/26/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="c">
+<meta property="og:description" content="预处理器编译一个c程序涉及很多步骤, 其中第一个步骤被称为预处理器阶段.c预处理器在源代码编译之前对其进行一些文本性质的操作,他的主要任务包括删除注释,插入被#include指令包含的文件的内容,定义和替换#define指令定义的符号以及确定代码的部分内容是否应该根据一些条件编译指令进行编译. 预定义符号预处理指令    指令 描述     #include 包含一个源代码   #define 定">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-15T03:07:14.521Z">
+<meta property="og:updated_time" content="2019-06-15T03:31:21.655Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="c语言">
-<meta name="twitter:description" content="c">
+<meta name="twitter:title" content="c预处理器">
+<meta name="twitter:description" content="预处理器编译一个c程序涉及很多步骤, 其中第一个步骤被称为预处理器阶段.c预处理器在源代码编译之前对其进行一些文本性质的操作,他的主要任务包括删除注释,插入被#include指令包含的文件的内容,定义和替换#define指令定义的符号以及确定代码的部分内容是否应该根据一些条件编译指令进行编译. 预定义符号预处理指令    指令 描述     #include 包含一个源代码   #define 定">
 
 
 
@@ -178,7 +178,7 @@
   };
 </script>
 
-  <title>c语言 | 千分无言</title>
+  <title>c预处理器 | 千分无言</title>
   
 
 
@@ -318,7 +318,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">7</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">8</span></a>
 
   </li>
         
@@ -454,7 +454,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">c语言
+          <h1 class="post-title" itemprop="name headline">c预处理器
 
               
             
@@ -480,7 +480,7 @@
                 
               
 
-              <time title="创建时间：2019-06-15 09:09:15 / 修改时间：11:07:14" itemprop="dateCreated datePublished" datetime="2019-06-15T09:09:15+08:00">2019-06-15</time>
+              <time title="创建时间：2019-06-15 09:09:15 / 修改时间：11:31:21" itemprop="dateCreated datePublished" datetime="2019-06-15T09:09:15+08:00">2019-06-15</time>
             
 
             
@@ -537,7 +537,63 @@
       
 
       
-        <h1 id="c"><a href="#c" class="headerlink" title="c"></a>c</h1>
+        <h3 id="预处理器"><a href="#预处理器" class="headerlink" title="预处理器"></a>预处理器</h3><p>编译一个c程序涉及很多步骤, 其中第一个步骤被称为预处理器阶段.c预处理器在源代码编译之前对其进行一些文本性质的操作,他的主要任务包括删除注释,插入被#include指令包含的文件的内容,定义和替换#define指令定义的符号以及确定代码的部分内容是否应该根据一些条件编译指令进行编译.</p>
+<h4 id="预定义符号"><a href="#预定义符号" class="headerlink" title="预定义符号"></a>预定义符号</h4><p>预处理指令</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#include</td>
+<td>包含一个源代码</td>
+</tr>
+<tr>
+<td>#define</td>
+<td>定义宏</td>
+</tr>
+<tr>
+<td>#undef</td>
+<td>取消已定义的宏</td>
+</tr>
+<tr>
+<td>#ifdef</td>
+<td>如果宏已经定义,则返回真</td>
+</tr>
+<tr>
+<td>#ifndef</td>
+<td>如果宏没有定义,则返回真</td>
+</tr>
+<tr>
+<td>#if</td>
+<td>如果给定条件为真,则编译下面代码</td>
+</tr>
+<tr>
+<td>#else</td>
+<td>#if的替代方案</td>
+</tr>
+<tr>
+<td>#elif</td>
+<td>如果前面的#if给定条件不为真,当前条件为真,则编译下面代码</td>
+</tr>
+<tr>
+<td>#endif</td>
+<td>结束一个#if…#else 条件编译块</td>
+</tr>
+<tr>
+<td>#error</td>
+<td>当遇到标准错误时, 输出错误消息</td>
+</tr>
+<tr>
+<td>#pragma</td>
+<td>使用标准化方法, 向编译器发布特殊的命令道编译器中</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
 
@@ -560,7 +616,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/c/" rel="tag"># c</a>
+            <a href="/tags/c语言/" rel="tag"># c语言</a>
           
         </div>
       
@@ -706,6 +762,8 @@
                     
                       
                     
+                      
+                    
                     <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
@@ -775,7 +833,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#c"><span class="nav-number">1.</span> <span class="nav-text">c</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#预处理器"><span class="nav-number">1.</span> <span class="nav-text">预处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#预定义符号"><span class="nav-number">1.1.</span> <span class="nav-text">预定义符号</span></a></li></ol></li></ol></div>
             
 
           </div>
