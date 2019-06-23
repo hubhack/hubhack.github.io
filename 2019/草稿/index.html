@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+  <meta name="description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="草稿">
+<meta property="og:url" content="https://hubhack.github.io/2019/草稿/index.html">
+<meta property="og:site_name" content="千分无言">
+<meta property="og:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-19T14:46:58.076Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="草稿">
+<meta name="twitter:description" content="在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当 你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它并不真正构造列表。我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代器。list() 函数是另外一个（ 迭代器 ），它从可迭代（对象）中创建列">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="千分无言" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://hubhack.github.io/2019/草稿/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>草稿 | 千分无言</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+      
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">千分无言</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">人生苦短 我用python</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">8</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">8</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">27</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/2019/草稿/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mwq">
+      <meta itemprop="description" content="IT知识共享,与各位共同学习">
+      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千分无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">草稿
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-23 22:04:28" itemprop="dateCreated datePublished" datetime="2019-06-23T22:04:28+08:00">2019-06-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-19 22:46:58" itemprop="dateModified" datetime="2019-06-19T22:46:58+08:00">2019-06-19</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <pre><code>在不同方面 range() 函数返回的对象表现为它是一个列表，但事实上它并不是。当
+</code></pre><p>你迭代它时，它是一个能够像期望的序列返回连续项的对象；但为了节省空间，它<br>并不真正构造列表。<br>我们称此类对象是 可迭代的，即适合作为那些期望从某些东西中获得连续项直到结<br>束的函数或结构的一个目标（参数）。我们已经见过的 for 语句就是这样一个迭代<br>器。list() 函数是另外一个（ 迭代器 ），<br>它从可迭代（对象）中创建列表:迭代器（iterator）是一种对象，<br>它能够用来遍历标准模板库容器中的部分或全部元素，<br>每个迭代器对象代表容器中的确定的地址。迭代器修改了常规指针的接口，<br>所谓迭代器是一种概念上的抽象：那些行为上像迭代器的东西都可以叫做迭代器。<br>然而迭代器有很多不同的能力，它可以把抽象容器和通用算法有机的统一起来。</p>
+<p>整理:3.29</p>
+<p>回顾: 整型分长短,但在python3中已经没有了<br>bool 是整型的子类<br>math.sqrt 看帮助 官方文档<br>bin() 返回的字符串<br>type isinstance<br>list 是可迭代对象<br>index 匹配 count 匹配的次数<br>extend 魔术方法<br>“{},{}”.format(1.2)</p>
+<ul>
+<li><strong>随机数</strong><br>instantiate 实例<br>fields领域<br>random模块<br>import random<br>random.randint(1.2)<br>random.choice随机取数字 不均匀<br>for i in range(10):<br>sample 取样<br>元组: 不可变<br>命令元组namedtuple attribute属性特性<br>例子:<br>Point = namedtuple(‘Point’,[‘x’,’y’])<br>p = Point(11,y=22)<br>namespace<br>exec 当python语句执行<br>命名元组,返回一个元组的子类,并定义了字段<br>冒泡法 重点<br>map高阶函数 映射<br>aplit 默认使用空白字符分隔<br>maxsplit<br>replace<br>strip 默认去掉字符两端的空白字符<br>find 时间复杂度和index一样遍历<br>format 函数格式字符串语法<br>“{}”.format()<br>参数解构<em><br>“{}”.format(3**0.5)<br>序列都可以用in<br>内置函数 5</em>14 itertor迭代器</li>
+</ul>
+<p>冒泡法:经典排序算法</p>
+<blockquote>
+<p>for i in range(n):<br>   for j in range(n-i):<br>       num[j],num[j+1] = num[j+1],num[j]<br>print()<br>内置函数说明<br>len(s)<br>返回对象的长度（元素个数）。实参可以是序列（如 string、bytes、tuple、list 或 range 等）或集合（如 dictionary、set 或 frozen set 等）<br>zip()<br>创建一个聚合来自每个可迭代对象中元素的迭代器<br>返回一个元组的迭代器,其中<br>我们已经知道,可以直接作用于for循环的数据类型有以下几种:<br>一类是集合数据类型,如list tuple dictionary set str<br>一类是generator ,包括生成器和带yield的generator function<br>这些可以直接作用于for循环的对象统称为可迭代对象:iterable<br>而生成器不但可以作用于for循环,还可以被next()函数不断调用并返回下一个值,直到最后抛出stopiteration错误表示无法继续返回下一个值.</p>
+</blockquote>
+<h1 id="pythonnic"><a href="#pythonnic" class="headerlink" title="pythonnic"></a>pythonnic</h1><p>Python的世界里你会听到这个词”Pythonic”，大概就是指代码符合Python的惯用法，使用的都是Python的语法糖(我觉得可以翻译为『地道』)。比如从其他语言转到Python 的写出来的代码很可能受到以前思维方式的影响(别像 java 一样写一堆 getter/setter)，写出来的代码不够Pythonic: 比如:</p>
+<h1 id="不够Pythonic"><a href="#不够Pythonic" class="headerlink" title="不够Pythonic"></a>不够Pythonic</h1><p>if a &lt; b and a &gt; c:<br>    pass</p>
+<h1 id="python里却可以这么写"><a href="#python里却可以这么写" class="headerlink" title="python里却可以这么写"></a>python里却可以这么写</h1><p>if c &lt; a &lt; b:<br>    pass</p>
+<h1 id="bad"><a href="#bad" class="headerlink" title="bad"></a>bad</h1><p>i = 0<br>while i &lt; mylist_length:<br>    do_something(mylist[i])<br>    i += 1</p>
+<h1 id="good"><a href="#good" class="headerlink" title="good"></a>good</h1><p>for element in mylist:<br>   do_something(element)</p>
+<h1 id="bad-不要使用默认可变对象作为默认参数"><a href="#bad-不要使用默认可变对象作为默认参数" class="headerlink" title="bad, 不要使用默认可变对象作为默认参数"></a>bad, 不要使用默认可变对象作为默认参数</h1><p>def f(a, b=[])<br>    pass</p>
+<h1 id="good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题"><a href="#good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题" class="headerlink" title="good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题"></a>good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题</h1><p>def f(a, b=None):<br>    if b is None:<br>        b = []<br>Python有一些语法上的坑，比如默认参数只计算一次，不要使用可变类型作为默认参数等，看多了写多了就知道了。尤其是可变类型作为函数参数传入后被改变的情况（函数尽量不要有副作用,这里副作用指的就是修改了传入的可变参数的值），尤其要注意。</p>
+<h1 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式:"></a>列表生成式:</h1><p>list comprehensions 是python内置的非常简单却强大的可以用来创建list的生成式<br>举个例子 ,要生成list[1,2,3,4,5,6,7,8,9]可以用list(range(1,11))<br>但如果要生成[1x1, 2x2, 3x3, …, 10x10]怎么做？方法一是循环：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>L = []<br>for x in range(1, 11):<br>…    L.append(x * x)<br>…<br>L<br>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>c 程序主要包括以下部分<br>预处理指令<br>函数<br>变量<br>语句<br>注释</p>
+<h1 id="include-lt-stdio-h-gt"><a href="#include-lt-stdio-h-gt" class="headerlink" title="include &lt;stdio.h&gt;"></a>include &lt;stdio.h&gt;</h1><p>int main()<br>{<br>    print(“hello world”);<br>    return 0;<br>}</p>
+<h1 id="python-中的对象"><a href="#python-中的对象" class="headerlink" title="python 中的对象"></a>python 中的对象</h1><p>对象可以说是python最核心的一个概念, 在python的世界里,一切皆对象. 我们知道python是c 编写的,c并不是一个面向对象语言,而c编写的python确实面向对象,在python中,对象就是c中的结构体在堆上申请的一块内存.<br>Python对象的多态性</p>
+<p>　　面向对象中一个重要的特性是多态，那么Python是如何实现多态的呢？<br>　　在Python创建一个对象时，会分配内存，进行初始化，然后Python内部会使用一个PyObject<em>变量来保存和维护这个对象，Python中的所有对象均是如此。比如创建一个PyIntObject对象（整数对象），不是通过PyIntObject </em>变量来保存和维护这个对象，而是通过PyObject <em>，正因为所有对象均如此，所以Python内部各个函数之间传递的都是一种范型指针（Pyobject</em>)，而这个指针所指的对象究竟是什么类型的，我们是不知道的，只能从指针所指对象的ob_type域动态进行判断，而正是这个域，Python实现了多态。</p>
+<h1 id="python标准库"><a href="#python标准库" class="headerlink" title="python标准库"></a>python标准库</h1><p>文本处理服务:string re textwrap<br>二进制数据服务<br>数据类型<br>数字和数学模块<br>函数式编程模块<br>文件和目录访问<br>数据持久化<br>数据压缩和存档<br>文件格式<br>加密服务<br>通用操作系统服务 os io time<br>并发执行 threading<br>网络和进程间通信<br>互联网数据处理 email json<br>结构化标记处理工具 html xml<br>互联网协议和支持 urllib.request http.server<br>多媒体服务 imghdr<br>国际化<br>程序框架 cmd turtle<br>Tk图形用户界面 GUI<br>开发工具 调试和分析<br>软件打包和分发 venv<br>python运行时服务 sysbuiltins   gc垃圾回收器接口<br>自定义python解释器<br>导入模块<br>python语言服务<br>杂项服务<br>windows系统相关模块<br>unix专有服务<br>被取代的模块<br>未创建文档的模块</p>
+<p>none 与NUll的区别<br>表示该值是一个空对象,空值是python里一个特殊的值,用none表示,none不能理解为<br>0,因为0是有意义的,而none是一个特殊的空值<br>判断的时候 均是false<br>属性不同:使用dir()函数返回参数的属性,方法列表,如果参数包含方法dir(),该方法将被<br>调用.如果参数不包含dir(),该方法将最大限度地收集参数信息.</p>
+<p>功能性函数返回都为none<br>None是一个特殊的常量。<br>None和False不同。<br>None不是0。<br>None不是空字符串。<br>None和任何其他的数据类型比较永远返回False。<br>None有自己的数据类型NoneType。<br>你可以将None赋值给任何变量，但是你不能创建其他NoneType对象。<br>L.index(value, [start, [stop]])，这里的中括号表示：start和stop是可选参数。可选参数通常都这么写，用的时候别带中括号。</p>
+<p>单星号(<em>):</em>args 将所以参数以元组(tuple)的形式导入:<br>还有解压参数<br>双星号以字典的形式导入</p>
+<h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1><p>字典是python的半壁江山 要熟练<br>可变的 ,无序的,key不重复<br>d[key]<br>返回key对应的值value<br>key不存在抛出keyerror异常</p>
+<p>get(key[,defalut])<br>返回key对应的值value<br>key不存在返回缺省值,如果没有设置缺省值就返回none</p>
+<p>setdefalut(key[,default])<br>返回key对应的值value<br>key不存在,添加kv对,value设置为default,并返回default</p>
+<p>字典增加和修改</p>
+<p>d[key] = value<br>将key对应的值修改为value<br>key不存在添加新的kv对</p>
+<p>updata([other])<br>使用另一个字典的kv对更新本字典<br>key不存在,就添加<br>key存在,覆盖已经存在的key对应的值<br>就地修改</p>
+<p>字典删除</p>
+<p>pop(key[,default])<br>key不存在,移除他,并返回它的value<br>key不存在,返回给定的default<br>default未设置,key不存在则抛出Keyerror异常<br>popitem()<br>移除并返回一个任意的键值对<br>字典为empty,抛出KEyerror<br>clear()<br>清空字典</p>
+<p>字典删除<br>del语句<br>a = True<br>b = [6]</p>
+<p>字典遍历<br>for …in dict<br>遍历key<br>for k in d:<br>print(k)</p>
+<p>key的要求和set的元素要求一致<br>set的元素可以就是看做key,set可以看做dict的简化版<br>hashable可哈希才可以作为key, 可以使用hash()测试</p>
+<p>defaultdict</p>
+<h1 id="解析式"><a href="#解析式" class="headerlink" title="解析式"></a>解析式</h1><p>列表解析list comprehension</p>
+<p>语法<br>返回值 for 元素 in 可迭代 对象if 条件<br>使用中括号[],内部是for循环,if条件语句可选<br>返回一个新的列表</p>
+<p>列表解析式是一种语法糖<br>编译器会优化,不会因为简写而影响效率,反而因优化提高了效率</p>
+<h1 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h1><p>python三剑客 生成器 装饰器 描述器<br>熟练运用<br>生成器表达式是按需计算 或惰性求值,延迟计算<br>列表解析式是立即返回值<br>生成器 是可迭代对象 迭代器</p>
+<p>生成器表达式**<br>单从返回值本身来说,生成器表达式省内存,列表解析式返回新的列表<br>生成器没有数据,内存占用极少,他是使用时一个个返回数据如果合起来占用的内存也和列表解析式差不多.但是,它不需要占用这么多内存<br>列表解析式构造新的列表需要立即占用内存,不管你是否立即使用这么多数据</p>
+<p>计算速度<br>单看计算时间看,生成器表达式耗时非常短,列表解析式耗时长<br>但是生成器本身并没有返回任何值,只返回一个生成器对象<br>列表解析式构造并返回了一个新的列表,所以看起来耗时了</p>
+<p>类似:字典,集合解析式</p>
+<h1 id="collections-容器数据类型"><a href="#collections-容器数据类型" class="headerlink" title="collections 容器数据类型"></a>collections 容器数据类型</h1><p>这个模块实现了特定目标的容器<br>nametuple 创建命名元组子类的工厂函数</p>
+<p>counter 字典的子类,提供了可哈希对象的计数功能<br>OrderedDict 字典的子类,保存了他们被添加的顺序<br>defaultdict 字典的子类,提供了一个工厂函数,为字典查询提供一个默认值.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/网络协议/" rel="next" title="网络协议">
+                <i class="fa fa-chevron-left"></i> 网络协议
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/面向对象/" rel="prev" title="面向对象">
+                面向对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg" alt="mwq">
+            
+              <p class="site-author-name" itemprop="name">mwq</p>
+              <p class="site-description motion-element" itemprop="description">IT知识共享,与各位共同学习</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hubhack" title="GitHub &rarr; https://github.com/hubhack" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/5788964087/profile?rightmod=1&wvr=6&mod=personinfo" title="Weibo &rarr; https://weibo.com/5788964087/profile?rightmod=1&wvr=6&mod=personinfo" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pythonnic"><span class="nav-number">1.</span> <span class="nav-text">pythonnic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不够Pythonic"><span class="nav-number">2.</span> <span class="nav-text">不够Pythonic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python里却可以这么写"><span class="nav-number">3.</span> <span class="nav-text">python里却可以这么写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad"><span class="nav-number">4.</span> <span class="nav-text">bad</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good"><span class="nav-number">5.</span> <span class="nav-text">good</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bad-不要使用默认可变对象作为默认参数"><span class="nav-number">6.</span> <span class="nav-text">bad, 不要使用默认可变对象作为默认参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#good-可变类型使用-None-作为占位符，因为可变类型可能会被函数修改-副作用-，导致调用代码后边使用它的地方出问题"><span class="nav-number">7.</span> <span class="nav-text">good, 可变类型使用 None 作为占位符，因为可变类型可能会被函数修改(副作用)，导致调用代码后边使用它的地方出问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表生成式"><span class="nav-number">8.</span> <span class="nav-text">列表生成式:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include-lt-stdio-h-gt"><span class="nav-number">9.</span> <span class="nav-text">include &lt;stdio.h&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-中的对象"><span class="nav-number">10.</span> <span class="nav-text">python 中的对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python标准库"><span class="nav-number">11.</span> <span class="nav-text">python标准库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字典"><span class="nav-number">12.</span> <span class="nav-text">字典</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解析式"><span class="nav-number">13.</span> <span class="nav-text">解析式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成器"><span class="nav-number">14.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#collections-容器数据类型"><span class="nav-number">15.</span> <span class="nav-text">collections 容器数据类型</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mwq</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
