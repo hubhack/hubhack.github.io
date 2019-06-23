@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+  <meta name="description" content="前言程序的本质就是数据结构和算法.所以学习python的过程中,理解python中数据结构至关重要.  常用的8种数据结构:数组, 栈, 队列, 链表, 图, 树, 前缀树, 哈希表数据结构是一门研究非数值计算的程序设计问题的操作对象的学科.数据(data)是对客观事物的符号表示,在计算机科学中是指所有能输入带计算机中并被计算机程序处理的符号的总称.数据元素(data element)是数据的基本">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python数据结构">
+<meta property="og:url" content="https://hubhack.github.io/1 (15)/index.html">
+<meta property="og:site_name" content="千分无言">
+<meta property="og:description" content="前言程序的本质就是数据结构和算法.所以学习python的过程中,理解python中数据结构至关重要.  常用的8种数据结构:数组, 栈, 队列, 链表, 图, 树, 前缀树, 哈希表数据结构是一门研究非数值计算的程序设计问题的操作对象的学科.数据(data)是对客观事物的符号表示,在计算机科学中是指所有能输入带计算机中并被计算机程序处理的符号的总称.数据元素(data element)是数据的基本">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-19T14:48:28.808Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python数据结构">
+<meta name="twitter:description" content="前言程序的本质就是数据结构和算法.所以学习python的过程中,理解python中数据结构至关重要.  常用的8种数据结构:数组, 栈, 队列, 链表, 图, 树, 前缀树, 哈希表数据结构是一门研究非数值计算的程序设计问题的操作对象的学科.数据(data)是对客观事物的符号表示,在计算机科学中是指所有能输入带计算机中并被计算机程序处理的符号的总称.数据元素(data element)是数据的基本">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="千分无言" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://hubhack.github.io/1 (15)/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>python数据结构 | 千分无言</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+      
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">千分无言</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">人生苦短 我用python</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">8</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">8</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">27</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/1 (15)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mwq">
+      <meta itemprop="description" content="IT知识共享,与各位共同学习">
+      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千分无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python数据结构
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-26 20:27:21" itemprop="dateCreated datePublished" datetime="2019-04-26T20:27:21+08:00">2019-04-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-19 22:48:28" itemprop="dateModified" datetime="2019-06-19T22:48:28+08:00">2019-06-19</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>程序的本质就是数据结构和算法.所以学习python的过程中,理解python中数据结构至关重要.</p>
+<blockquote>
+<p>常用的8种数据结构:数组, 栈, 队列, 链表, 图, 树, 前缀树, 哈希表<br>数据结构是一门研究非数值计算的程序设计问题的操作对象的学科.<br>数据(data)是对客观事物的符号表示,在计算机科学中是指所有能输入带计算机中并被计算机程序处理的符号的总称.<br>数据元素(data element)是数据的基本单位,在计算机程序中通常作为一个整体进行考虑和处理.有时数据元素可有若干个数据项组成.<br>数据对象(data object)是性质相同的数据元素的集合,是数据的一个子集.<br>数据结构(data structure)是相互之间存在的一种或多种特定关系的数据元素的集合.</p>
+</blockquote>
+<p>数据元素之间关系的不同特性,通常有下列4类基本结构:集合,线性结构,树形结构,图状结构.<br>数据结构在计算机中的表示称为数据的物理结构,又称存储结构.它包括数据元素的表示和关系的表示.在计算机中表示信息的最小单位是二进制数的一位叫做位bit.<br>数据元素之间的关系在计算机中有两种不同的表示方法:顺序映像和非顺序映像,并由此得到两种不同的存储结构:顺序存储结构和链式存储结构.<br>数据类型(data type)是和数据结构密切相关的一个概念,用以刻画程序操作对象的特性,按值的不同特性高级程序语言中的数据类型可分为两类:一类是非结构的原子类型,一类是结构类型.</p>
+<h1 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h1><p>抽象数据类型:是指一个数学模型及定义在该模型上的一组操作.<br>抽象的意义在于数据类型的数学抽象特性.</p>
+<h1 id="内存单元和地址"><a href="#内存单元和地址" class="headerlink" title="内存单元和地址"></a>内存单元和地址</h1><p>计算中(程序中)直接使用的数据保存在计算机的内存储器.内存是cpu可以直接访问的数据存储设备.与之相对相应的是外存储器.<br>内存的基本结构是线性排列的一批存储单元.每个单元的大小相同,可以保存一个单位大小的数据.内存单元具有唯一编号,称为单元地址,或简称地址.单元地址从0开始排列,全部可用地址为从开始的一个连续的正整数空间.<br>在程序执行中,对内存单元的访问(存取其中数据)都通过单元的地址进行,因此,要访问一个地址,必须先掌握其地址,在许多计算机中,一次内存访问可以存取若干单元的内容.例如目前常见的64位计算机,一次存取8个字节的数据,与单元的位置或整个内存的大小无关,<br>在计算机内存里表示数据元素之间的联系,只有两种技术:<br>利用数据元素的存储位置隐式表示,由于内存是单元的线性序列,知道了前一个元素的位置及其大小,就能确定下一个元素的位置,如果存储的是一系列大小相同的元素,就可以利用前面公式直接算出序列中任何一个元素的位置.显然序列数据类型中元素的线性关系可以用这种方式表示.<br>在文档管理的数学模型中,计算机处理的对象之间通常存在着一中最简单的线性关系,这类数学模型可称为线性的数据结构.</p>
+<p>数据结构是相互之间存在一种或多种特定关系的数据元素的集合.<br>逻辑上分:集合结构, 线性结构, 树形结构, 图形结构<br>物理结构:顺序存储结构, 链式存储结构.</p>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p>算法是解决特定问题求解步骤的描述,在计算机中表现为指令的有限序列,并且每条指令表示一个或多个操作.<br>我们不关心编写程序所用的程序设计语言是什么,也不关心这些程序将跑在什么样的计算机中,我们只关心她所实现的算法,最终,在分析程序的运行时间,最重要的是把程序看成独立于程序设计语言的算法或一系列步骤.<br>函数渐进式增长.<br>判断一个算法的效率时, 函数中的常数和其他次要项常常可以忽略,而更应该关注主项(最高阶项)的阶数.<br>用O()来体现时间复杂度的记法, 我们称为大O记法.<br>O(1)叫做常数阶, O(n)线性阶, O(n^2)叫做平方阶.</p>
+<h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><p>从名字上就能感觉到,是更具有像线一样的性质的表,如同一根线串联起来.</p>
+<p>线性表的顺序存储结构<br>指的是用一段地址连续的存储单元依次存储线性表的数据元素.<br>插入删除的时间复杂度为O(n).<br>它比较适合元素个数不太变化,而更多存取数据的应用.<br>优点:无序为表示表中元素之间的逻辑关系而增加额外的存储空间.<br>    可以快速地存取表中任意位置的元素.<br>缺点:插入和删除操作需要移动大量元素,当线性表长度变化较大时,难以确定存储空间的容量<br>造成存储空间的”碎片”.</p>
+<p>线性表链式存储结构<br>线性表的链式存储结构的特点是用一组任意的存储单元存储线性表的数据元素,这组存储单元可以是连续,也可以是不连续的,<br>以前在顺序结构中, 每个数据元素只需要存数据元素信息可以了,现在链式结构中,除了要存储数据元素信息外,还要存储它的后继元素的存储地址.<br>我们把存储数据元素信息的域称为数据域,把存储直接后继位置的域称为指针域.指针域中存储的信息称为指针或链,这两部分组成数据元素的存储映像称为结点.</p>
+<p>头指针是指链表指向第一个结点的指针,若链表有头结点,则是指向头结点的指针.<br>头指针具有标识作用,所以常用头指针冠以链表的名字.<br>无论链表是否为空,头指针均不为空,头指针是链表的必要元素.<br>由于单链表的结构中没有定义表长,所以不能事先知道循环多少次,因此也就不方便用for来控制循环,其主要核心思想就是工作指针后移,<br>对于插入或删除数据越频繁的操作,单链表的效率优势就是越明显.</p>
+<p>若线性表需要频繁查找,很少进行插入或和删除操作,采用顺序存储结构,若需要频繁插入和和删除,就采用链表结构.</p>
+<p>静态链表是为了给没有指针的高级语言设计的一种实现单链表能力的方法</p>
+<p>将单链表中终端结点的指针端由空指针指向头结点,就使整个单链表形成一个环,这种头尾相接的单链表称为单循环链表,简称循环链表.<br>双向链表是在单链表的每个结点,再设置一个指向其前驱结点的指针.</p>
+<h1 id="栈与队列"><a href="#栈与队列" class="headerlink" title="栈与队列"></a>栈与队列</h1><p>栈是限定仅在表尾进行插入和删除操作的线性表.<br>对列是只允许在一端进行插入操作而在另一端进行删除操作的线性表.</p>
+<p>在word等文档或图像编辑软件中,都有撤销undo的操作,也是用栈这种方式来实现的,<br>栈是限定仅在表尾进行插入和删除操作的线性表.<br>我们把允许插入和删除的一端称为栈顶top,另一端称为栈底bottom,不含任何数据元素的栈称为空栈,栈又称为后进先出的线性表,简称LIFO结构.<br>首先它是一个线性表,栈元素具有线性关系,即前驱后继关系,只不过它是一种特殊的线性表而已,表尾是指栈顶.</p>
+<p>栈的插入操作叫做进栈,也称压栈入栈,类似子弹入弹夹.<br>栈的删除操作,也叫出栈,或弹栈栈.<br>特别是插入和删除操作,我们改名为push 和pop.<br>两栈共享空间</p>
+<p>栈的链式存储结构<br>简称链栈<br>顺序栈与链栈他们在时间复杂度是一样的,均为O(1),对于空间性能,顺序栈需要事先确定一个固定的长度,可能会存在内存空间浪费的问题,如果栈的使用中元素变化不可预料,有时很小,有时非常大,那么最好是用链栈,反之,如果他的变化在可控范围内,建议使用顺序栈会更好一些.</p>
+<p>对列<br>对列是只允许在一端进行插入操作,而在另一端进行删除操作的线性表.<br>对列是一种先进先出的线性表,简称FIFO,允许插入的一端称为队尾,允许删除的一端称为对头.<br>对列在程序设计用的非常频繁,键盘进行各种字母或数字的输入,到显示器记事本的输出.</p>
+<h1 id="串"><a href="#串" class="headerlink" title="串"></a>串</h1><p>串是有零个或多个字符组成的有限序列,又名字符串.<br>串(string)是有零个或多个字符组成的有限序列.所谓的序列,说明串的相邻之间具有前驱和后继的关系.<br>他们在计算机的大小其实取决于他们挨个字母的前后顺序.串的比较是通过组成串的字符之间的编码来进行的,而字符的编码指的是字符串在对应字符集中的序号.<br>计算机中的常用字符是使用标准的ASCII编码,比较常见的是有16位的二进制表示一个字符.<br>电子词典查找单词实现的原理,其实就是字符串这种数据结构的典型应用.<br>串的顺序存储结构<br>串的顺序存储结构使用一组地址连续的存储单元来存储串中的字符序列.<br>在计算机中存在一个自由存储区,叫做堆.</p>
+<p>模式匹配算法<br>子串的定位操作通常称为串的模式匹配,这应该是串中最重要的操作之一.<br>一个字符的ASCII码可以看成是8位的二进制01串.</p>
+<p>本质上,它是一种线性表的扩展,但对于线性表关注的一个个元素来说, 我们对串这种机构更多的是关注它子串的应用问题,比如查找,替换.<br>所谓的回文就是一个字符串的逆转显示reverse的操作.</p>
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><p>树是n个结点的有限集.n=0时称为空树.在任意一颗非空树中:(1)有且仅有一个特定称为树root的结点:当n&gt; 1时,其余结点可分 m个互不相交的有限集t,其中每一个集合本身又是一个棵树,并且称为根的子树.</p>
+<p>所以我们需要研究这种一对多的数据结构–树,考虑它的各种特性,来解决我们在编程中碰到的相关问题.<br>树的定义其实就是我们在讲解栈提到的递归的方法.<br>树的结点包含一个数据元素及若干指向其子树的分支.结点拥有的子树称为结点的度.度为0的结点称为叶结点或终端结点;度不为0的结点称为非终端结点或分支结点,除根结点之外,分支结点也称为内部结点.树的度是树内结点的度的最大值.</p>
+<p>结点的子树的根称为该结点的孩子,相应地,该结点称为孩子的双亲.<br>树中结点的最大层次称为树的深度或高度.</p>
+<p>树的存储结构</p>
+<p>树中某个结点的孩子可以有多个,这就意味着,无论按何种顺序将树中所有结点存储到数组中,结点的存储位置都无法直接反应逻辑关系,你想想看,数据元素挨个的存储,谁是谁的双亲,谁是谁的孩子,简单的顺序存储结构是不能满足树的实现要求的.<br>主要有三种不同的表示法:双亲表示法,孩子表示法,孩子兄弟表示法.<br>双亲表示法:<br>我们假设以一组双亲结点连续空间存储树的结点,同时在每个结点中,附设一个指示器指示其<br>双亲结点到链表中的位置,也就是说,每个结点除了知道自己是谁以为,还知道它的双亲在哪里.这样的存储结构,我们可以根据结点的parent指正很容易找到它的双亲结点,所以时间复杂度为O(1),直到parent为-1时,表示找到了树结点的根,可如果我们要知道结点的孩子是什么,对不起请遍历整个结构才行.</p>
+<p>二叉树是n各节点的有限集合,该集合或者为空集,或者由一个根结点和两颗互不相交的分别称为根结点的左子树和右子树组成.</p>
+<p>二叉树每个结点最多有两颗子树,所以二叉树不存在大于2的结点.注意不是只有两颗子树,而是最多有,没有子树或者由一颗子树都是可以的,<br>左子树和右子树是有顺序的,次序不能任意颠倒,</p>
+<p>顺序存储结构一般只用于完全二叉树.<br>二叉树的遍历是指从根结点出发,按照某种次序依次访问二叉树中所有结点,使得每个结点被访问一次仅被访问一次.<br>这里有两个关键词:访问和次序<br>二叉树本质上,是对链表和数组的一个折中.<br>每种数据结构都相当于一种容器,我们需要把数据存放在里面后供我们高效地操作这些数据.</p>
+<p>压缩编码方法:赫夫曼编码</p>
+<h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><p>图是有顶点的有穷非空集合和顶点之间边的集合组成,通常表示G.<br>在线性表中,数据元素之间是被串起来的,仅有线性关系,每个数据元素只有一个前驱和一个直接后驱,在树形结构中,数据元素之间有着明显的层次关系,并且每一层上的数据元素可能和下一层中多个元素相关比如我认识的朋友,可能他们之间也互相认识,这就不是简单的一对多.<br>图是由顶点的有穷非空集合和顶点之间边的集合组成.<br>图不能用简单的顺序结构来表示,而是多重链表.</p>
+<p>搜索引擎的工作原理:<br>它抓取并复制你的网页,且通过你网页,上的链接爬上更多的页面,将所有信息纳入到搜索引擎网站的索引数据库.服务器拆解你网页上的文字内容,标记关键词的位置,字体,颜色以及相关图片,音频,视屏的位置等信息,并生成庞大的索引记录.</p>
+<p>查找就是根据给定的某个值,在查找表中确定一个其关键字等于给定值的数据元素.</p>
+<h1 id="python-对象特性"><a href="#python-对象特性" class="headerlink" title="python 对象特性"></a>python 对象特性</h1><p>python使用对象模型来储存数据.构造任何类型的值都是一个对象.所有python都拥有三个特性:身份,类型,值:</p>
+<p>身份:每个对象都有一个的身份标识自己,任何对象的身份可以使用内建函数id()来得到.<br>类型:对象的类型决定了该对象可以保存什么类型的值,可以进行什么样的操作,以及遵循什么样的规则.可以使用type()函数查看python对象的类型.type()返回的是对象而不是简单的字符串.<br>值:对象表示的数据.</p>
+<h1 id="python基本数据类型"><a href="#python基本数据类型" class="headerlink" title="python基本数据类型"></a>python基本数据类型</h1><p>python的数据类型:<br>number(数字), string(字符串), bool(布尔), None(空值)</p>
+<h1 id="python-内建数据结构"><a href="#python-内建数据结构" class="headerlink" title="python 内建数据结构"></a>python 内建数据结构</h1><h2 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>在内存连续排放, 类似list.也可以看成容器.只是这种容器不可变.</p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3><h3 id="bytes"><a href="#bytes" class="headerlink" title="bytes"></a>bytes</h3><h2 id="非线性结构"><a href="#非线性结构" class="headerlink" title="非线性结构"></a>非线性结构</h2><h3 id="集合set"><a href="#集合set" class="headerlink" title="集合set"></a>集合set</h3><h3 id="字典dict"><a href="#字典dict" class="headerlink" title="字典dict"></a>字典dict</h3>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/1 (12)/" rel="next" title="python 三大器">
+                <i class="fa fa-chevron-left"></i> python 三大器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/1 (17)/" rel="prev" title="python文件io">
+                python文件io <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg" alt="mwq">
+            
+              <p class="site-author-name" itemprop="name">mwq</p>
+              <p class="site-description motion-element" itemprop="description">IT知识共享,与各位共同学习</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">27</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hubhack" title="GitHub &rarr; https://github.com/hubhack" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/5788964087/profile?rightmod=1&wvr=6&mod=personinfo" title="Weibo &rarr; https://weibo.com/5788964087/profile?rightmod=1&wvr=6&mod=personinfo" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#抽象数据类型"><span class="nav-number">2.</span> <span class="nav-text">抽象数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存单元和地址"><span class="nav-number">3.</span> <span class="nav-text">内存单元和地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">4.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线性表"><span class="nav-number">5.</span> <span class="nav-text">线性表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#栈与队列"><span class="nav-number">6.</span> <span class="nav-text">栈与队列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#串"><span class="nav-number">7.</span> <span class="nav-text">串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#树"><span class="nav-number">8.</span> <span class="nav-text">树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图"><span class="nav-number">9.</span> <span class="nav-text">图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-对象特性"><span class="nav-number">10.</span> <span class="nav-text">python 对象特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python基本数据类型"><span class="nav-number">11.</span> <span class="nav-text">python基本数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-内建数据结构"><span class="nav-number">12.</span> <span class="nav-text">python 内建数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线性结构"><span class="nav-number">12.1.</span> <span class="nav-text">线性结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-number">12.1.1.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">12.1.2.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元组"><span class="nav-number">12.1.3.</span> <span class="nav-text">元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bytes"><span class="nav-number">12.1.4.</span> <span class="nav-text">bytes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非线性结构"><span class="nav-number">12.2.</span> <span class="nav-text">非线性结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集合set"><span class="nav-number">12.2.1.</span> <span class="nav-text">集合set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典dict"><span class="nav-number">12.2.2.</span> <span class="nav-text">字典dict</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mwq</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+  
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
