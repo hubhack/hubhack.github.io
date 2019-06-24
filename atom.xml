@@ -18,8 +18,8 @@
   
   <entry>
     <title>魔术方法</title>
-    <link href="https://hubhack.github.io/2019/%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95/"/>
-    <id>https://hubhack.github.io/2019/魔术方法/</id>
+    <link href="https://hubhack.github.io/book/%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95/"/>
+    <id>https://hubhack.github.io/book/魔术方法/</id>
     <published>2019-06-23T14:04:28.585Z</published>
     <updated>2019-06-19T14:49:09.429Z</updated>
     
@@ -50,8 +50,8 @@
   
   <entry>
     <title>面向对象</title>
-    <link href="https://hubhack.github.io/2019/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
-    <id>https://hubhack.github.io/2019/面向对象/</id>
+    <link href="https://hubhack.github.io/book/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    <id>https://hubhack.github.io/book/面向对象/</id>
     <published>2019-06-23T14:04:28.568Z</published>
     <updated>2019-06-19T14:48:56.747Z</updated>
     
@@ -75,8 +75,8 @@
   
   <entry>
     <title>草稿</title>
-    <link href="https://hubhack.github.io/2019/%E8%8D%89%E7%A8%BF/"/>
-    <id>https://hubhack.github.io/2019/草稿/</id>
+    <link href="https://hubhack.github.io/book/%E8%8D%89%E7%A8%BF/"/>
+    <id>https://hubhack.github.io/book/草稿/</id>
     <published>2019-06-23T14:04:28.545Z</published>
     <updated>2019-06-19T14:46:58.076Z</updated>
     
@@ -97,8 +97,8 @@
   
   <entry>
     <title>网络协议</title>
-    <link href="https://hubhack.github.io/2019/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
-    <id>https://hubhack.github.io/2019/网络协议/</id>
+    <link href="https://hubhack.github.io/book/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"/>
+    <id>https://hubhack.github.io/book/网络协议/</id>
     <published>2019-06-23T14:04:28.528Z</published>
     <updated>2019-06-19T14:49:50.767Z</updated>
     
@@ -128,8 +128,8 @@
   
   <entry>
     <title>算素数和杨辉三角</title>
-    <link href="https://hubhack.github.io/2019/%E7%AE%97%E7%B4%A0%E6%95%B0%E5%92%8C%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/"/>
-    <id>https://hubhack.github.io/2019/算素数和杨辉三角/</id>
+    <link href="https://hubhack.github.io/book/%E7%AE%97%E7%B4%A0%E6%95%B0%E5%92%8C%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/"/>
+    <id>https://hubhack.github.io/book/算素数和杨辉三角/</id>
     <published>2019-06-23T14:04:28.509Z</published>
     <updated>2019-06-19T14:47:41.472Z</updated>
     
@@ -155,8 +155,8 @@
   
   <entry>
     <title>深入理解计算机系统</title>
-    <link href="https://hubhack.github.io/2019/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://hubhack.github.io/2019/深入理解计算机系统/</id>
+    <link href="https://hubhack.github.io/book/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://hubhack.github.io/book/深入理解计算机系统/</id>
     <published>2019-06-23T14:04:28.491Z</published>
     <updated>2019-06-19T14:48:44.301Z</updated>
     
@@ -180,8 +180,8 @@
   
   <entry>
     <title>深入浅出理解预处理器</title>
-    <link href="https://hubhack.github.io/2019/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E7%90%86%E8%A7%A3%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/"/>
-    <id>https://hubhack.github.io/2019/深入浅出理解预处理器/</id>
+    <link href="https://hubhack.github.io/book/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E7%90%86%E8%A7%A3%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/"/>
+    <id>https://hubhack.github.io/book/深入浅出理解预处理器/</id>
     <published>2019-06-23T14:04:28.473Z</published>
     <updated>2019-06-19T14:49:44.230Z</updated>
     
@@ -205,8 +205,8 @@
   
   <entry>
     <title>正则表达式</title>
-    <link href="https://hubhack.github.io/2019/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>https://hubhack.github.io/2019/正则表达式/</id>
+    <link href="https://hubhack.github.io/book/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>https://hubhack.github.io/book/正则表达式/</id>
     <published>2019-06-23T14:04:28.457Z</published>
     <updated>2019-06-19T14:48:50.730Z</updated>
     
@@ -230,8 +230,8 @@
   
   <entry>
     <title>魔术方法</title>
-    <link href="https://hubhack.github.io/2019/%E6%96%B9%E6%B3%95/"/>
-    <id>https://hubhack.github.io/2019/方法/</id>
+    <link href="https://hubhack.github.io/book/%E6%96%B9%E6%B3%95/"/>
+    <id>https://hubhack.github.io/book/方法/</id>
     <published>2019-06-23T14:04:28.447Z</published>
     <updated>2019-06-19T14:50:04.679Z</updated>
     
@@ -266,8 +266,8 @@
   
   <entry>
     <title>描述器</title>
-    <link href="https://hubhack.github.io/2019/%E6%8F%8F%E8%BF%B0%E5%99%A8/"/>
-    <id>https://hubhack.github.io/2019/描述器/</id>
+    <link href="https://hubhack.github.io/book/%E6%8F%8F%E8%BF%B0%E5%99%A8/"/>
+    <id>https://hubhack.github.io/book/描述器/</id>
     <published>2019-06-23T14:04:28.437Z</published>
     <updated>2019-06-19T14:49:26.925Z</updated>
     
@@ -291,8 +291,8 @@
   
   <entry>
     <title>处理异常</title>
-    <link href="https://hubhack.github.io/2019/%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/"/>
-    <id>https://hubhack.github.io/2019/处理异常/</id>
+    <link href="https://hubhack.github.io/book/%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/"/>
+    <id>https://hubhack.github.io/book/处理异常/</id>
     <published>2019-06-23T14:04:28.427Z</published>
     <updated>2019-06-19T14:49:03.134Z</updated>
     
@@ -316,8 +316,8 @@
   
   <entry>
     <title>二分法</title>
-    <link href="https://hubhack.github.io/2019/%E4%BA%8C%E5%88%86%E6%B3%95/"/>
-    <id>https://hubhack.github.io/2019/二分法/</id>
+    <link href="https://hubhack.github.io/book/%E4%BA%8C%E5%88%86%E6%B3%95/"/>
+    <id>https://hubhack.github.io/book/二分法/</id>
     <published>2019-06-23T14:04:28.417Z</published>
     <updated>2019-06-19T14:49:21.051Z</updated>
     
@@ -342,8 +342,8 @@
   
   <entry>
     <title>python知识框架</title>
-    <link href="https://hubhack.github.io/2019/python%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6/"/>
-    <id>https://hubhack.github.io/2019/python知识框架/</id>
+    <link href="https://hubhack.github.io/book/python%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6/"/>
+    <id>https://hubhack.github.io/book/python知识框架/</id>
     <published>2019-06-23T14:04:28.408Z</published>
     <updated>2019-06-19T14:47:10.292Z</updated>
     
@@ -369,8 +369,8 @@
   
   <entry>
     <title>python特殊函数</title>
-    <link href="https://hubhack.github.io/2019/python%E7%89%B9%E6%AE%8A%E5%87%BD%E6%95%B0/"/>
-    <id>https://hubhack.github.io/2019/python特殊函数/</id>
+    <link href="https://hubhack.github.io/book/python%E7%89%B9%E6%AE%8A%E5%87%BD%E6%95%B0/"/>
+    <id>https://hubhack.github.io/book/python特殊函数/</id>
     <published>2019-06-23T14:04:28.398Z</published>
     <updated>2019-06-19T14:48:15.380Z</updated>
     
@@ -394,8 +394,8 @@
   
   <entry>
     <title>python文件io</title>
-    <link href="https://hubhack.github.io/2019/python%E6%96%87%E4%BB%B6io/"/>
-    <id>https://hubhack.github.io/2019/python文件io/</id>
+    <link href="https://hubhack.github.io/book/python%E6%96%87%E4%BB%B6io/"/>
+    <id>https://hubhack.github.io/book/python文件io/</id>
     <published>2019-06-23T14:04:28.388Z</published>
     <updated>2019-06-19T14:48:36.385Z</updated>
     
@@ -419,8 +419,8 @@
   
   <entry>
     <title>python数据结构</title>
-    <link href="https://hubhack.github.io/2019/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    <id>https://hubhack.github.io/2019/python数据结构/</id>
+    <link href="https://hubhack.github.io/book/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <id>https://hubhack.github.io/book/python数据结构/</id>
     <published>2019-06-23T14:04:28.378Z</published>
     <updated>2019-06-19T14:48:28.808Z</updated>
     
@@ -446,8 +446,8 @@
   
   <entry>
     <title>python小技巧</title>
-    <link href="https://hubhack.github.io/2019/python%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
-    <id>https://hubhack.github.io/2019/python小技巧/</id>
+    <link href="https://hubhack.github.io/book/python%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    <id>https://hubhack.github.io/book/python小技巧/</id>
     <published>2019-06-23T14:04:28.368Z</published>
     <updated>2019-06-19T14:48:02.388Z</updated>
     
@@ -471,8 +471,8 @@
   
   <entry>
     <title>python函数</title>
-    <link href="https://hubhack.github.io/2019/python%E5%87%BD%E6%95%B0/"/>
-    <id>https://hubhack.github.io/2019/python函数/</id>
+    <link href="https://hubhack.github.io/book/python%E5%87%BD%E6%95%B0/"/>
+    <id>https://hubhack.github.io/book/python函数/</id>
     <published>2019-06-23T14:04:28.358Z</published>
     <updated>2019-06-19T14:47:48.442Z</updated>
     
@@ -496,8 +496,8 @@
   
   <entry>
     <title>python入门笔记</title>
-    <link href="https://hubhack.github.io/2019/python%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/"/>
-    <id>https://hubhack.github.io/2019/python入门笔记/</id>
+    <link href="https://hubhack.github.io/book/python%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>https://hubhack.github.io/book/python入门笔记/</id>
     <published>2019-06-23T14:04:28.348Z</published>
     <updated>2019-06-19T14:45:55.339Z</updated>
     
@@ -521,8 +521,8 @@
   
   <entry>
     <title>python 三大器</title>
-    <link href="https://hubhack.github.io/2019/python%20%E4%B8%89%E5%A4%A7%E5%99%A8/"/>
-    <id>https://hubhack.github.io/2019/python 三大器/</id>
+    <link href="https://hubhack.github.io/book/python%20%E4%B8%89%E5%A4%A7%E5%99%A8/"/>
+    <id>https://hubhack.github.io/book/python 三大器/</id>
     <published>2019-06-23T14:04:28.337Z</published>
     <updated>2019-06-19T14:48:22.337Z</updated>
     
@@ -546,8 +546,8 @@
   
   <entry>
     <title>pep</title>
-    <link href="https://hubhack.github.io/2019/pep/"/>
-    <id>https://hubhack.github.io/2019/pep/</id>
+    <link href="https://hubhack.github.io/book/pep/"/>
+    <id>https://hubhack.github.io/book/pep/</id>
     <published>2019-06-23T14:04:28.324Z</published>
     <updated>2019-06-19T14:49:15.394Z</updated>
     
@@ -571,8 +571,8 @@
   
   <entry>
     <title>linux知识框架</title>
-    <link href="https://hubhack.github.io/2019/linux%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6/"/>
-    <id>https://hubhack.github.io/2019/linux知识框架/</id>
+    <link href="https://hubhack.github.io/book/linux%E7%9F%A5%E8%AF%86%E6%A1%86%E6%9E%B6/"/>
+    <id>https://hubhack.github.io/book/linux知识框架/</id>
     <published>2019-06-23T14:04:28.312Z</published>
     <updated>2019-06-19T14:44:59.257Z</updated>
     
@@ -596,8 +596,8 @@
   
   <entry>
     <title>linux命令整理(3)</title>
-    <link href="https://hubhack.github.io/2019/linux%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86(3)/"/>
-    <id>https://hubhack.github.io/2019/linux命令整理(3)/</id>
+    <link href="https://hubhack.github.io/book/linux%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86(3)/"/>
+    <id>https://hubhack.github.io/book/linux命令整理(3)/</id>
     <published>2019-06-23T14:04:28.302Z</published>
     <updated>2019-06-19T14:47:31.806Z</updated>
     
@@ -621,8 +621,8 @@
   
   <entry>
     <title>linux命令整理(2)</title>
-    <link href="https://hubhack.github.io/2019/linux%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86(2)/"/>
-    <id>https://hubhack.github.io/2019/linux命令整理(2)/</id>
+    <link href="https://hubhack.github.io/book/linux%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86(2)/"/>
+    <id>https://hubhack.github.io/book/linux命令整理(2)/</id>
     <published>2019-06-23T14:04:28.291Z</published>
     <updated>2019-06-19T14:47:24.952Z</updated>
     
@@ -646,8 +646,8 @@
   
   <entry>
     <title>linux命令整理(1)</title>
-    <link href="https://hubhack.github.io/2019/linux%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86(1)/"/>
-    <id>https://hubhack.github.io/2019/linux命令整理(1)/</id>
+    <link href="https://hubhack.github.io/book/linux%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86(1)/"/>
+    <id>https://hubhack.github.io/book/linux命令整理(1)/</id>
     <published>2019-06-23T14:04:28.278Z</published>
     <updated>2019-06-19T14:46:07.833Z</updated>
     
@@ -671,8 +671,8 @@
   
   <entry>
     <title>99乘法表的不同解法</title>
-    <link href="https://hubhack.github.io/2019/99%E4%B9%98%E6%B3%95%E8%A1%A8%E7%9A%84%E4%B8%8D%E5%90%8C%E8%A7%A3%E6%B3%95/"/>
-    <id>https://hubhack.github.io/2019/99乘法表的不同解法/</id>
+    <link href="https://hubhack.github.io/book/99%E4%B9%98%E6%B3%95%E8%A1%A8%E7%9A%84%E4%B8%8D%E5%90%8C%E8%A7%A3%E6%B3%95/"/>
+    <id>https://hubhack.github.io/book/99乘法表的不同解法/</id>
     <published>2019-06-23T14:04:28.267Z</published>
     <updated>2019-06-19T14:47:17.090Z</updated>
     
@@ -697,8 +697,8 @@
   
   <entry>
     <title>10大排序算法</title>
-    <link href="https://hubhack.github.io/2019/10%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
-    <id>https://hubhack.github.io/2019/10大排序算法/</id>
+    <link href="https://hubhack.github.io/book/10%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    <id>https://hubhack.github.io/book/10大排序算法/</id>
     <published>2019-06-23T14:04:28.257Z</published>
     <updated>2019-06-19T14:46:36.504Z</updated>
     
