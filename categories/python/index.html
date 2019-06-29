@@ -11,10 +11,8 @@
 
 
 
-  
 
-
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next pisces" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,12 +22,6 @@
 
 
 
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
 
 
 
@@ -37,7 +29,8 @@
 
 
 
-
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -52,66 +45,7 @@
 
   
   
-  
-  
-
-  
-    
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
-  
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+  <link href="/lib/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css">
 
 
 
@@ -119,18 +53,42 @@
 
 
 
-<script id="hexo.configurations">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.7.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicon-48.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/icons/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '7.0.1',
-    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
-    fancybox: false,
-    fastclick: false,
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: true,
     lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -144,6 +102,8 @@
 
   
 
+
+<!--站长验证-->
 
 
 
@@ -170,7 +130,7 @@
 
 
 
-<script id="page.configurations">
+<script type="text/javascript" id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -184,34 +144,43 @@
 
 
 
-
-
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxx";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
 
   <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
   </style>
 </noscript>
 
@@ -226,7 +195,7 @@
 
   <div class="container sidebar-position-left ">
     <div class="headband"></div>
-      
+
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta">
@@ -241,7 +210,7 @@
     </div>
     
       
-        <p class="site-subtitle">人生苦短 我用python</p>
+        <h1 class="site-subtitle" itemprop="description">人生苦短 我用python</h1>
       
     
     
@@ -255,6 +224,7 @@
     </button>
   </div>
 </div>
+
 
 
 
@@ -275,48 +245,8 @@
     
 
     
-      
-    
 
     <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories menu-item-active">
-
-    
-    
-    
-      
-    
-
-    
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">8</span></a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-      
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">8</span></a>
 
   </li>
         
@@ -332,10 +262,98 @@
     
 
     
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>日志</a>
+
+  </li>
+        
+        
+        
+          
+            
+            
+            
+              
+              
+
+  
+  
+    
+  
+  <li class="menu-item menu-item-docs">
+
+    
+    
+    
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">27</span></a>
+    
+
+    <a href="/docs/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>归档</a>
+
+  </li>
+
+
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+        
+        
+        
+        
+          
+          <li class="menu-item menu-item-rui-site">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://hubhack.github.io/python-book/" rel="section"><i class="menu-item-icon fa fa-fw fa-paper-plane"></i> <br>小书</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-guestbook">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comments"></i> <br>留言</a>
 
   </li>
         
@@ -351,10 +369,8 @@
     
 
     
-      
-    
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br>关于</a>
 
   </li>
 
@@ -367,6 +383,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
+		
       
     </ul>
   
@@ -388,13 +405,87 @@
       <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
-  <div id="local-search-result"></div>
+  <div id="local-search-result">
+    
+      <div style="text-align: center;padding: 3px 0 0;">
+       <div style="margin-top: 20px;font-size: 18px;font-weight: 600;border-bottom: 1px solid #ccc;">
+         <i class="fa fa-history" aria-hidden="true"></i>
+         近期文章
+       </div>
+       <ul style="margin: 0;padding: 0;list-style: none;">
+         
+         
+           <li>
+             <a href="/book/魔术方法/" title="魔术方法" target="_blank">魔术方法</a>
+           </li>
+         
+           <li>
+             <a href="/book/面向对象/" title="面向对象" target="_blank">面向对象</a>
+           </li>
+         
+           <li>
+             <a href="/book/草稿/" title="草稿" target="_blank">草稿</a>
+           </li>
+         
+           <li>
+             <a href="/book/网络协议/" title="网络协议" target="_blank">网络协议</a>
+           </li>
+         
+           <li>
+             <a href="/book/算素数和杨辉三角/" title="算素数和杨辉三角" target="_blank">算素数和杨辉三角</a>
+           </li>
+         
+           <li>
+             <a href="/book/深入理解计算机系统/" title="深入理解计算机系统" target="_blank">深入理解计算机系统</a>
+           </li>
+         
+           <li>
+             <a href="/book/深入浅出理解预处理器/" title="深入浅出理解预处理器" target="_blank">深入浅出理解预处理器</a>
+           </li>
+         
+           <li>
+             <a href="/book/正则表达式/" title="正则表达式" target="_blank">正则表达式</a>
+           </li>
+         
+           <li>
+             <a href="/book/方法/" title="魔术方法" target="_blank">魔术方法</a>
+           </li>
+         
+           <li>
+             <a href="/book/描述器/" title="描述器" target="_blank">描述器</a>
+           </li>
+         
+           <li>
+             <a href="/book/处理异常/" title="处理异常" target="_blank">处理异常</a>
+           </li>
+         
+           <li>
+             <a href="/book/二分法/" title="二分法" target="_blank">二分法</a>
+           </li>
+         
+           <li>
+             <a href="/book/python知识框架/" title="python知识框架" target="_blank">python知识框架</a>
+           </li>
+         
+           <li>
+             <a href="/book/python特殊函数/" title="python特殊函数" target="_blank">python特殊函数</a>
+           </li>
+         
+           <li>
+             <a href="/book/python文件io/" title="python文件io" target="_blank">python文件io</a>
+           </li>
+         
+       </ul>
+      </div>
+    
+  </div>
 </div>
 
 
 
     </div>
   
+
 </nav>
 
 
@@ -407,6 +498,17 @@
     </header>
 
     
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/hubhack/hubhack.github.io" class="github-corner" target="_blank" title="万水千山总是情,给个star行不行！" aria-label="万水千山总是情,给个star行不行！"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg>
+    
+      </a>
+    
+
 
 
     <main id="main" class="main">
@@ -421,6 +523,16 @@
       
     
       
+      
+    
+      
+      
+
+        
+        
+        
+        
+
       
     
       
@@ -448,8 +560,8 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>python<small>分类</small>
-        </h1>
+        <h2>python<small>分类</small>
+        </h2>
       </div>
 
       
@@ -458,7 +570,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
           <a class="post-title-link" href="/book/魔术方法/" itemprop="url">
             
@@ -466,7 +578,7 @@
             
           </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
@@ -484,7 +596,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
           <a class="post-title-link" href="/book/面向对象/" itemprop="url">
             
@@ -492,7 +604,7 @@
             
           </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
@@ -510,7 +622,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
           <a class="post-title-link" href="/book/正则表达式/" itemprop="url">
             
@@ -518,7 +630,7 @@
             
           </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
@@ -536,7 +648,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
           <a class="post-title-link" href="/book/方法/" itemprop="url">
             
@@ -544,7 +656,7 @@
             
           </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
@@ -562,7 +674,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
           <a class="post-title-link" href="/book/描述器/" itemprop="url">
             
@@ -570,7 +682,7 @@
             
           </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
@@ -588,7 +700,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
           <a class="post-title-link" href="/book/处理异常/" itemprop="url">
             
@@ -596,7 +708,7 @@
             
           </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
@@ -614,7 +726,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
           <a class="post-title-link" href="/book/二分法/" itemprop="url">
             
@@ -622,7 +734,7 @@
             
           </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
@@ -640,7 +752,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
           <a class="post-title-link" href="/book/python知识框架/" itemprop="url">
             
@@ -648,7 +760,7 @@
             
           </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
@@ -666,7 +778,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
           <a class="post-title-link" href="/book/python特殊函数/" itemprop="url">
             
@@ -674,7 +786,7 @@
             
           </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
@@ -692,7 +804,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
           <a class="post-title-link" href="/book/python文件io/" itemprop="url">
             
@@ -700,7 +812,7 @@
             
           </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
@@ -730,7 +842,6 @@
 
           </div>
           
-
         </div>
         
           
@@ -744,6 +855,9 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
     <div class="sidebar-inner">
 
       
@@ -754,7 +868,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg" alt="mwq">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="mwq">
             
               <p class="site-author-name" itemprop="name">mwq</p>
               <p class="site-description motion-element" itemprop="description">IT知识共享,与各位共同学习</p>
@@ -832,7 +946,7 @@
               
             </nav>
           
-
+          
           
             <div class="feed-link motion-element">
               <a href="/atom.xml" rel="alternate">
@@ -848,38 +962,33 @@
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <a href="https://github.com/hubhack" title="GitHub &rarr; https://github.com/hubhack" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://weibo.com/5788964087/profile?rightmod=1&wvr=6&mod=personinfo" title="Weibo &rarr; https://weibo.com/5788964087/profile?rightmod=1&wvr=6&mod=personinfo" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  <a href="https://github.com/hubhack" title="GitHub &rarr; https://github.com/hubhack" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
                 </span>
               
             </div>
           
 
           
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
 
           
+          
+
           
 
           
             
           
           
-
         </div>
       </div>
 
@@ -889,7 +998,6 @@
 
     </div>
   </aside>
-  
 
 
         
@@ -898,11 +1006,12 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">Copyright &copy; 2018 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heartbeat"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">mwq</span>
+  <span class="author" itemprop="copyrightHolder">LRH.&ensp;</span>
+  <span title="博客总字数"><i class="fa fa-edit"></i>&ensp;<span class="post-count"></span>字</span>
 
   
 
@@ -910,26 +1019,69 @@
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+  
 
 
 
-  <span class="post-meta-divider">|</span>
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>&thinsp;人次
+    </span>
+  
+
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&thinsp;次
+    </span>
+  
+</div>
+
+
+
+
+
 
 
 
 
         
 
+<!--左下角公众号二维码-->
+<div class="weixin-box">
+  <div class="weixin-menu">
+    <div class="weixin-hover">
+      <div class="weixin-description">微信扫一扫，订阅本博客</div>
+    </div>
+  </div>
+</div>
 
 
 
+<!--使用hubhack修改后的主题建议保留hubhack.cn-->
 
-
+	<div>BASE on Next.Pisces and <a href="https://github.com/hubhack/hexo-theme-next" target="_blank">MODIFIED</a> BY <a href="https://hubhack.cn" target="_blank">hubhack</a> .</div>
 
 
         
@@ -940,6 +1092,8 @@
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
         
+          <span id="scrollpercent"><span>0</span>%</span>
+        
       </div>
     
 
@@ -948,11 +1102,14 @@
     
 
     
+
+    
+    
   </div>
 
   
 
-<script>
+<script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -962,7 +1119,7 @@
 
 
 
-
+  
 
 
 
@@ -972,10 +1129,6 @@
 
 
   
-    
-    
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
 
@@ -990,31 +1143,56 @@
 
 
   
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=7.0.1"></script>
-
-  <script src="/js/src/motion.js?v=7.0.1"></script>
 
 
 
   
   
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
 
 
-  <script src="/js/src/affix.js?v=7.0.1"></script>
+  
 
-  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.7.0"></script>
 
 
 
@@ -1023,16 +1201,151 @@
   
 
 
-  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+  
+
+  
+<script>
+if ($('body').find('pre.mermaid').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      mermaid.initialize({
+        theme: 'forest',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 }
+      });
+    }
+  });
+}
+</script>
+
+
+  
+
+  
+
+  <!--Custom javascript for hubhack.cn-->
+
+<!--console.log-->
+<script type="text/javascript">
+  console.log("\n`              @@#``@@@@@@@@@@@@@@@@@@##,`   \n`              @@#`;@@@@@@@@@@@@@@@@@@@':'   \n`              @@#`@@@@@@@@@@@@@@@@@@@#+#;`  \n`              @@#`@@@@@@@@@@@@@@@@@@###@'.  \n`              @@+.@@@@@@@@@@@@@@@@@@@@@##,  \n`              @@#,@@@@@@@@@@@@@@@@@@@@@@#,  \n`              #@#:@@@@@@@@@@@@@@@@@@@@@@@,  \n`              #@#'@@@@@@@@@@@@@@@@@@@@@@@.  \n`              +@#;@@@@@@@@@@@@@@@@@@@@@@#   \n`          `;: ;@#'@@@@@@@@@@@@@@@@@@+'+@'   \n`    `,,;';'+';'@@+:@@@@@@@@@@@@##@#',.:#;   \n,, ``    ``..,:;@@#'@@@@@@@@#####@@@@#:`:.   \n`       `````:++@@@@@@@@@@@@@###@@@@#+,..    \n        ``````.#@@@@@@@@@@@@@@#@@@#++#'``    \n`    ```.,,:,.`:@@@@@@@@@@@@@###@@@##'.`     \n``..`````..,::;+@@@@@@@@@@@@#+`::+##'`.      \n`      ````.```,@@@@@@@@@@@##;``.,';` `      \n``.;@@@@@@@@@@@@@@@@@@@@@@###;``..``````     \n#@@@@@@@@@@@@@@@@@@@@@@@@##@#;``,``,.``      \n@@@@@@@@@@@@@@@@@@@.`````..``.. +` `:`       \n@+''++#####@@#`.@@@``````` ` `,```  ``       \n';;;;'+##+'+.`;+@@@,..```` `` :,.            \n;::,,:;+#++``,,#@@@'..``````` ,`.``          \n;,,,,...'#.,,..#@@@#,,.`````` .````          \n:,,,,....`,::;''+#@#;,..`````````.``         \n:,,,.....'##++''';:+':,.`..,,...`            \n:,,,...#####+'+#@@@'.';+:.  ` ``             \n;,,.`'####'#,`.`+@@@+'``` `.`                \n;,.`#@@@#+:'+++##+@##@,,,,`                  \n',.#@@###'''';:,.```,+#.                     \n+,#@@@####;,,..```````````````         `.:,::\n+@@@@###+;,,..``````````````````          `.,\n#@@@##+',,,........``````````````            \n@@@@#+:,,,,`........``````````               \n@@@#+:,,,,.`````.....``````````           `` \n@@##':,......`````....```  `````          ```\n@@@#':,....,..``````..````    ```         ```\n@@@#',....,,,..```````````     ```         ..\n@@@#,.....,,,,.``  ````````   ``````         \n@@@+....,,,,,..`````````````   ``````````    \n@@@:....,,,,.LiRuihao````````  ```````````` \n#@@,....,,,,.Always Be Yourself !````````````\n,##,,...,::,.https://hubhack.cn `   `......``\n,'#,,..,,:::.`````````........``````   `.,,..\n\n您好！\n这里是的个人博客--博採眾長！\n我的主页是 https://www.hubhack.cn\n\n\n");
+</script>
+
+<!--此处为建站时间 -->
+
+<script>
+  var now = new Date(); 
+  function createtime() { 
+      var grt= new Date("");
+      now.setTime(now.getTime()+250); 
+      days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+      if(String(hnum).length ==1 ){
+        hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+        mnum = "0" + mnum;
+      } 
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+        snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML =dnum+"&thinsp;天"; 
+      document.getElementById("times").innerHTML = hnum + "&thinsp;时" + mnum + "&thinsp;分" + snum + "&thinsp;秒"; 
+  } 
+setInterval("createtime()",250);
+</script>
+
+<!--知乎卡片链接-->
+<script type="text/javascript" src="/js/src/linkcard.js"></script>
+
+<!--夜间模式-->
+<script type="text/javascript" src="/js/src/night.js"></script>
+<div class="cover"></div>
+
+<!--崩溃欺骗-->
+<!--<script type="text/javascript" src="/js/src/crash_cheat.js"></script>-->
+
+<!--input特效-->
+<script src="/js/src/activate-power-mode.js"></script>
+<script>
+POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = false; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script>
+
+<!-- 鼠标点击特效 -->
+
+ <script type="text/javascript" src="/js/src/love.js"></script>
+
 
 
   
   
+  
+
+  
+
+  
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'xxxxxxxxxxxxx',
+    appKey: 'xxxxxxxxxxxxx',
+    placeholder: 'ヾﾉ≧∀≦)o~ 有事请留言！\n评论功能以邮件作为通知方式！\n如有必要请填写正确邮箱！',
+    avatar: 'wavatar',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
 
 
 
   
-  <script>
+
+  <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -1118,7 +1431,7 @@
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -1287,9 +1600,9 @@
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -1361,26 +1674,130 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
 
   
 
   
 
   
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script type="text/javascript">
+  
+    bookmark.loadBookmark();
+  
+  </script>
+
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      
+        background-color: #1b1b1b;
+        color: #b0b0b0;
+        border: 1px solid #b0b0b0;
+        border-radius: 3px;
+      
+      user-select: none;
+      outline: 0;
+    }
 
-  
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 9px;
+      top: 4px;
+    }
 
-  
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1;
+    }
 
-  
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
 
-  
-
-  
-
-  
 
 </body>
 </html>

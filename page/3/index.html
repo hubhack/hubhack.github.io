@@ -11,10 +11,8 @@
 
 
 
-  
 
-
-<html class="theme-next pisces use-motion" lang="zh-CN">
+<html class="theme-next pisces" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,12 +22,6 @@
 
 
 
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
 
 
 
@@ -37,7 +29,8 @@
 
 
 
-
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -52,66 +45,7 @@
 
   
   
-  
-  
-
-  
-    
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
-  
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.0.1">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+  <link href="/lib/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css">
 
 
 
@@ -119,18 +53,42 @@
 
 
 
-<script id="hexo.configurations">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.7.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicon-48.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/icons/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '7.0.1',
-    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
-    fancybox: false,
-    fastclick: false,
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: true,
     lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -144,6 +102,8 @@
 
   
 
+
+<!--站长验证-->
 
 
 
@@ -170,13 +130,13 @@
 
 
 
-<script id="page.configurations">
+<script type="text/javascript" id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
 </script>
 
-  <title>千分无言</title>
+  <title>千分无言 – 人生苦短 我用python</title>
   
 
 
@@ -184,34 +144,43 @@
 
 
 
-
-
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxx";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
 
   <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
   </style>
 </noscript>
 
@@ -227,7 +196,7 @@
   <div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
-      
+
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta">
@@ -242,7 +211,7 @@
     </div>
     
       
-        <p class="site-subtitle">人生苦短 我用python</p>
+        <h1 class="site-subtitle" itemprop="description">人生苦短 我用python</h1>
       
     
     
@@ -256,6 +225,7 @@
     </button>
   </div>
 </div>
+
 
 
 
@@ -276,48 +246,8 @@
     
 
     
-      
-    
 
     <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">8</span></a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-      
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">8</span></a>
 
   </li>
         
@@ -333,10 +263,98 @@
     
 
     
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>日志</a>
+
+  </li>
+        
+        
+        
+          
+            
+            
+            
+              
+              
+
+  
+  
+    
+  
+  <li class="menu-item menu-item-docs">
+
+    
+    
+    
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">27</span></a>
+    
+
+    <a href="/docs/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>归档</a>
+
+  </li>
+
+
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+        
+        
+        
+        
+          
+          <li class="menu-item menu-item-rui-site">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://hubhack.github.io/python-book/" rel="section"><i class="menu-item-icon fa fa-fw fa-paper-plane"></i> <br>小书</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-guestbook">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comments"></i> <br>留言</a>
 
   </li>
         
@@ -352,10 +370,8 @@
     
 
     
-      
-    
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br>关于</a>
 
   </li>
 
@@ -368,6 +384,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
+		
       
     </ul>
   
@@ -389,13 +406,87 @@
       <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
-  <div id="local-search-result"></div>
+  <div id="local-search-result">
+    
+      <div style="text-align: center;padding: 3px 0 0;">
+       <div style="margin-top: 20px;font-size: 18px;font-weight: 600;border-bottom: 1px solid #ccc;">
+         <i class="fa fa-history" aria-hidden="true"></i>
+         近期文章
+       </div>
+       <ul style="margin: 0;padding: 0;list-style: none;">
+         
+         
+           <li>
+             <a href="/book/魔术方法/" title="魔术方法" target="_blank">魔术方法</a>
+           </li>
+         
+           <li>
+             <a href="/book/面向对象/" title="面向对象" target="_blank">面向对象</a>
+           </li>
+         
+           <li>
+             <a href="/book/草稿/" title="草稿" target="_blank">草稿</a>
+           </li>
+         
+           <li>
+             <a href="/book/网络协议/" title="网络协议" target="_blank">网络协议</a>
+           </li>
+         
+           <li>
+             <a href="/book/算素数和杨辉三角/" title="算素数和杨辉三角" target="_blank">算素数和杨辉三角</a>
+           </li>
+         
+           <li>
+             <a href="/book/深入理解计算机系统/" title="深入理解计算机系统" target="_blank">深入理解计算机系统</a>
+           </li>
+         
+           <li>
+             <a href="/book/深入浅出理解预处理器/" title="深入浅出理解预处理器" target="_blank">深入浅出理解预处理器</a>
+           </li>
+         
+           <li>
+             <a href="/book/正则表达式/" title="正则表达式" target="_blank">正则表达式</a>
+           </li>
+         
+           <li>
+             <a href="/book/方法/" title="魔术方法" target="_blank">魔术方法</a>
+           </li>
+         
+           <li>
+             <a href="/book/描述器/" title="描述器" target="_blank">描述器</a>
+           </li>
+         
+           <li>
+             <a href="/book/处理异常/" title="处理异常" target="_blank">处理异常</a>
+           </li>
+         
+           <li>
+             <a href="/book/二分法/" title="二分法" target="_blank">二分法</a>
+           </li>
+         
+           <li>
+             <a href="/book/python知识框架/" title="python知识框架" target="_blank">python知识框架</a>
+           </li>
+         
+           <li>
+             <a href="/book/python特殊函数/" title="python特殊函数" target="_blank">python特殊函数</a>
+           </li>
+         
+           <li>
+             <a href="/book/python文件io/" title="python文件io" target="_blank">python文件io</a>
+           </li>
+         
+       </ul>
+      </div>
+    
+  </div>
 </div>
 
 
 
     </div>
   
+
 </nav>
 
 
@@ -408,6 +499,17 @@
     </header>
 
     
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/hubhack/hubhack.github.io" class="github-corner" target="_blank" title="万水千山总是情,给个star行不行！" aria-label="万水千山总是情,给个star行不行！"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg>
+    
+      </a>
+    
+
 
 
     <main id="main" class="main">
@@ -421,7 +523,8 @@
             
   <section id="posts" class="posts-expand">
     
-      
+    	
+    		
 
   
 
@@ -429,6 +532,7 @@
   
   
 
+  
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -441,7 +545,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
       <meta itemprop="description" content="IT知识共享,与各位共同学习">
-      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -453,13 +557,15 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/book/pep/" class="post-title-link" itemprop="url">pep</a>
+                <a class="post-title-link" href="/book/pep/" itemprop="url">
+                  
+                  pep
+                </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -484,22 +590,6 @@
               <time title="创建时间：2019-06-23 22:04:28" itemprop="dateCreated datePublished" datetime="2019-06-23T22:04:28+08:00">2019-06-23</time>
             
 
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-19 22:49:15" itemprop="dateModified" datetime="2019-06-19T22:49:15+08:00">2019-06-19</time>
-              
             
           </span>
 
@@ -525,12 +615,39 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                
+                <span class="post-meta-item-text"> 评论数： </span>
+                
+                <a href="/book/pep/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/book/pep/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
           
           
+             <span id="/book/pep/" class="leancloud_visitors" data-flag-title="pep">
+               <span class="post-meta-divider">|</span>
+               <span title="阅读次数">
+                 <span class="post-meta-item-icon">
+                   <i class="fa fa-eye"></i>
+                 </span>
+                 
+                   <span class="post-meta-item-text">阅读次数：</span>
+                 
+                   <span class="leancloud-visitors-count"></span>
+               </span>
+             </span>
+          
 
+          
+          
           
 
           
@@ -552,41 +669,36 @@
       
         
           
-            <p>
-              PEPPEP是每一个Python程序员必须知道的。 PEP是Python Enhancement Proposals的缩写（Python增强提案）。一个PEP是一份为Python社区提供各种增强 功能的技术规格，也是提交新特性，以便让社区指出问题，精确化技术文档的提案。每一个Python版本的新特性或变化都是将PEP提案通过社区决策层讨论、投票决议，通过后才有我们看到的功能变 化。Guido van Rossum被戏称为”仁慈的独裁者”(benevolent dictator for life，BDFL)。他会亲自签署并确认每一份 PEP。但在2018年7月，由于PEP 572（Assignm
-              ...
-            </p>
+          PEPPEP是每一个Python程序员必须知道的。 PEP是Python Enhancement Proposals的缩写（Python增强提案）。一个PEP是一份为Python社区提供各种增强 功能的技术规格，也是提交新特性，以便让社区指出问题，精确化技术文档的提案。每一个Python版本的新特性
+          ...
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/book/pep/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/book/pep/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
+    
+    
+    
+
+    
+
+    
+
+    
+    
     
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -603,8 +715,10 @@
   </article>
 
 
+    	
     
-      
+    	
+    		
 
   
 
@@ -612,6 +726,7 @@
   
   
 
+  
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -624,7 +739,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
       <meta itemprop="description" content="IT知识共享,与各位共同学习">
-      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -636,13 +751,15 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/book/linux知识框架/" class="post-title-link" itemprop="url">linux知识框架</a>
+                <a class="post-title-link" href="/book/linux知识框架/" itemprop="url">
+                  
+                  linux知识框架
+                </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -668,22 +785,6 @@
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-19 22:44:59" itemprop="dateModified" datetime="2019-06-19T22:44:59+08:00">2019-06-19</time>
-              
-            
           </span>
 
           
@@ -708,12 +809,39 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                
+                <span class="post-meta-item-text"> 评论数： </span>
+                
+                <a href="/book/linux知识框架/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/book/linux知识框架/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
           
           
+             <span id="/book/linux知识框架/" class="leancloud_visitors" data-flag-title="linux知识框架">
+               <span class="post-meta-divider">|</span>
+               <span title="阅读次数">
+                 <span class="post-meta-item-icon">
+                   <i class="fa fa-eye"></i>
+                 </span>
+                 
+                   <span class="post-meta-item-text">阅读次数：</span>
+                 
+                   <span class="leancloud-visitors-count"></span>
+               </span>
+             </span>
+          
 
+          
+          
           
 
           
@@ -735,46 +863,41 @@
       
         
           
-            <p>
-              介绍操作系统os(operating system),通用目的的软件程序
+          介绍操作系统os(operating system),通用目的的软件程序
 
 硬件驱动进程管理内存管理网络管理安全管理文件管理
 
 安装linux
-linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的manjaro或mint分区和启动:硬盘MBR分区(主引导记录)他有自己的启动器最大支持2tbuefi的GPT分区:逐渐代替MBR标准主分区 一块硬盘最多4个,不能划分更小,最小单位扩展分区:一块硬盘最多一个,不能直接创建文件系统安装过程大同小异 详细步骤需要注意的是如何分区:这里的分区在虚拟机上只是虚拟的,分100g不影响物理硬盘实际占用.实际情况要自己斟酌./dev
-              ...
-            </p>
+linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的manjaro或mint分区和启动:硬盘MBR分区(主引导记录)他有自己
+          ...
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/book/linux知识框架/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/book/linux知识框架/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
+    
+    
+    
+
+    
+
+    
+
+    
+    
     
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -791,8 +914,10 @@ linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的
   </article>
 
 
+    	
     
-      
+    	
+    		
 
   
 
@@ -800,6 +925,7 @@ linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的
   
   
 
+  
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -812,7 +938,7 @@ linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
       <meta itemprop="description" content="IT知识共享,与各位共同学习">
-      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -824,13 +950,15 @@ linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/book/linux命令整理(3)/" class="post-title-link" itemprop="url">linux命令整理(3)</a>
+                <a class="post-title-link" href="/book/linux命令整理(3)/" itemprop="url">
+                  
+                  linux命令整理(3)
+                </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -856,22 +984,6 @@ linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-19 22:47:31" itemprop="dateModified" datetime="2019-06-19T22:47:31+08:00">2019-06-19</time>
-              
-            
           </span>
 
           
@@ -896,12 +1008,39 @@ linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                
+                <span class="post-meta-item-text"> 评论数： </span>
+                
+                <a href="/book/linux命令整理(3)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/book/linux命令整理(3)/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
           
           
+             <span id="/book/linux命令整理(3)/" class="leancloud_visitors" data-flag-title="linux命令整理(3)">
+               <span class="post-meta-divider">|</span>
+               <span title="阅读次数">
+                 <span class="post-meta-item-icon">
+                   <i class="fa fa-eye"></i>
+                 </span>
+                 
+                   <span class="post-meta-item-text">阅读次数：</span>
+                 
+                   <span class="leancloud-visitors-count"></span>
+               </span>
+             </span>
+          
 
+          
+          
           
 
           
@@ -923,46 +1062,38 @@ linux发行版企业多用红帽(redhat)的centos 个人电脑推荐kde桌面的
       
         
           
-            <p>
-              磁盘管理cdLinux cd命令用于切换当前工作目录至 dirName(目录参数)。
+          磁盘管理cdLinux cd命令用于切换当前工作目录至 dirName(目录参数)。
 其中 dirName 表示法可为绝对路径或相对路径。若目录名称省略，则变换至使用者的 home 目录 (也就是刚 login 时所在的目录)。
-另外，”~” 也表示为 home 目录 的意思，”.” 则是表示目前所在的目录，”..” 则表示目前目录位置的上一层目录。
-语法cd [dirName]dirName：要切换的目标目录。
-dfLinux df命令用于显示目前在Linux系统上的文件系统的磁盘使用情况统计。
-语法df [选项]… [FILE]…文件-a, –all 包含所有的具有 0 Blocks 的文
-              ...
-            </p>
+另外，”~” 也表示为 home 目录 的意思，”.” 则是表示目前所
+          ...
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/book/linux命令整理(3)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/book/linux命令整理(3)/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
+    
+    
+    
+
+    
+
+    
+
+    
+    
     
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -979,8 +1110,10 @@ dfLinux df命令用于显示目前在Linux系统上的文件系统的磁盘使�
   </article>
 
 
+    	
     
-      
+    	
+    		
 
   
 
@@ -988,6 +1121,7 @@ dfLinux df命令用于显示目前在Linux系统上的文件系统的磁盘使�
   
   
 
+  
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1000,7 +1134,7 @@ dfLinux df命令用于显示目前在Linux系统上的文件系统的磁盘使�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
       <meta itemprop="description" content="IT知识共享,与各位共同学习">
-      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1012,13 +1146,15 @@ dfLinux df命令用于显示目前在Linux系统上的文件系统的磁盘使�
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/book/linux命令整理(2)/" class="post-title-link" itemprop="url">linux命令整理(2)</a>
+                <a class="post-title-link" href="/book/linux命令整理(2)/" itemprop="url">
+                  
+                  linux命令整理(2)
+                </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1044,22 +1180,6 @@ dfLinux df命令用于显示目前在Linux系统上的文件系统的磁盘使�
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-19 22:47:24" itemprop="dateModified" datetime="2019-06-19T22:47:24+08:00">2019-06-19</time>
-              
-            
           </span>
 
           
@@ -1084,12 +1204,39 @@ dfLinux df命令用于显示目前在Linux系统上的文件系统的磁盘使�
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                
+                <span class="post-meta-item-text"> 评论数： </span>
+                
+                <a href="/book/linux命令整理(2)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/book/linux命令整理(2)/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
           
           
+             <span id="/book/linux命令整理(2)/" class="leancloud_visitors" data-flag-title="linux命令整理(2)">
+               <span class="post-meta-divider">|</span>
+               <span title="阅读次数">
+                 <span class="post-meta-item-icon">
+                   <i class="fa fa-eye"></i>
+                 </span>
+                 
+                   <span class="post-meta-item-text">阅读次数：</span>
+                 
+                   <span class="leancloud-visitors-count"></span>
+               </span>
+             </span>
+          
 
+          
+          
           
 
           
@@ -1111,43 +1258,37 @@ dfLinux df命令用于显示目前在Linux系统上的文件系统的磁盘使�
       
         
           
-            <p>
-              文档编辑grepLinux grep命令用于查找文件里符合条件的字符串。
-grep指令用于查找内容包含指定的范本样式的文件，如果发现某文件的内容符合所指定的范本样式，预设grep指令会把含有范本样式的那一列显示出来。若不指定任何文件名称，或是所给予的文件名为”-“，则grep指令会从标准输入设备读取数据。
-语法grep [-abcEFGhHilLnqrsvVwxy][-A&lt;显示列数&gt;][-B&lt;显示列数&gt;][-C&lt;显示列数&gt;][-d&lt;进行动作&gt;][-e&lt;范本样式&gt;][-f&lt;范本文件&gt;][–help][范本样式][文件或目录…
-              ...
-            </p>
+          文档编辑grepLinux grep命令用于查找文件里符合条件的字符串。
+grep指令用于查找内容包含指定的范本样式的文件，如果发现某文件的内容符合所指定的范本样式，预设grep指令会把含有范本样式的那一列显示出来。若不指定任何文件名称，或是所给予的文件名为”-“，则grep指令会从标准输入设备读取
+          ...
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/book/linux命令整理(2)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/book/linux命令整理(2)/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
+    
+    
+    
+
+    
+
+    
+
+    
+    
     
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -1164,8 +1305,10 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
   </article>
 
 
+    	
     
-      
+    	
+    		
 
   
 
@@ -1173,6 +1316,7 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
   
   
 
+  
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1185,7 +1329,7 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
       <meta itemprop="description" content="IT知识共享,与各位共同学习">
-      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1197,13 +1341,15 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/book/linux命令整理(1)/" class="post-title-link" itemprop="url">linux命令整理(1)</a>
+                <a class="post-title-link" href="/book/linux命令整理(1)/" itemprop="url">
+                  
+                  linux命令整理(1)
+                </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1228,22 +1374,6 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
               <time title="创建时间：2019-06-23 22:04:28" itemprop="dateCreated datePublished" datetime="2019-06-23T22:04:28+08:00">2019-06-23</time>
             
 
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-19 22:46:07" itemprop="dateModified" datetime="2019-06-19T22:46:07+08:00">2019-06-19</time>
-              
             
           </span>
 
@@ -1269,12 +1399,39 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                
+                <span class="post-meta-item-text"> 评论数： </span>
+                
+                <a href="/book/linux命令整理(1)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/book/linux命令整理(1)/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
           
           
+             <span id="/book/linux命令整理(1)/" class="leancloud_visitors" data-flag-title="linux命令整理(1)">
+               <span class="post-meta-divider">|</span>
+               <span title="阅读次数">
+                 <span class="post-meta-item-icon">
+                   <i class="fa fa-eye"></i>
+                 </span>
+                 
+                   <span class="post-meta-item-text">阅读次数：</span>
+                 
+                   <span class="leancloud-visitors-count"></span>
+               </span>
+             </span>
+          
 
+          
+          
           
 
           
@@ -1296,41 +1453,36 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
       
         
           
-            <p>
-              1 文档管理cat chgrp chmod chown file find  cut in less more mv tee touch which cp read2 文档编辑:grep sed tr sort uniq wc let3 磁盘管理:cd df du mkdir pwd mount stat tree ls4 网络通讯:telnet httpd ifconfig netatat ping tty write5 系统管理:useradd data adduser exit kill ps  pstree top reboot sudo uname who whoami whois 
-              ...
-            </p>
+          1 文档管理cat chgrp chmod chown file find  cut in less more mv tee touch which cp read2 文档编辑:grep sed tr sort uniq wc let3 磁盘管理:cd df du mkdir pwd mount s
+          ...
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/book/linux命令整理(1)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/book/linux命令整理(1)/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
+    
+    
+    
+
+    
+
+    
+
+    
+    
     
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -1347,8 +1499,10 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
   </article>
 
 
+    	
     
-      
+    	
+    		
 
   
 
@@ -1356,6 +1510,7 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
   
   
 
+  
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1368,7 +1523,7 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
       <meta itemprop="description" content="IT知识共享,与各位共同学习">
-      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1380,13 +1535,15 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/book/99乘法表的不同解法/" class="post-title-link" itemprop="url">99乘法表的不同解法</a>
+                <a class="post-title-link" href="/book/99乘法表的不同解法/" itemprop="url">
+                  
+                  99乘法表的不同解法
+                </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1411,22 +1568,6 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
               <time title="创建时间：2019-06-23 22:04:28" itemprop="dateCreated datePublished" datetime="2019-06-23T22:04:28+08:00">2019-06-23</time>
             
 
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-19 22:47:17" itemprop="dateModified" datetime="2019-06-19T22:47:17+08:00">2019-06-19</time>
-              
             
           </span>
 
@@ -1452,12 +1593,39 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                
+                <span class="post-meta-item-text"> 评论数： </span>
+                
+                <a href="/book/99乘法表的不同解法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/book/99乘法表的不同解法/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
           
           
+             <span id="/book/99乘法表的不同解法/" class="leancloud_visitors" data-flag-title="99乘法表的不同解法">
+               <span class="post-meta-divider">|</span>
+               <span title="阅读次数">
+                 <span class="post-meta-item-icon">
+                   <i class="fa fa-eye"></i>
+                 </span>
+                 
+                   <span class="post-meta-item-text">阅读次数：</span>
+                 
+                   <span class="leancloud-visitors-count"></span>
+               </span>
+             </span>
+          
 
+          
+          
           
 
           
@@ -1479,44 +1647,37 @@ grep指令用于查找内容包含指定的范本样式的文件，如果发现�
       
         
           
-            <p>
-              第一种方法：用先打印正方形之后打印下三角 
-for i in range (1,10):    line = ''    for j in range (1,10):        if i &gt;=j:                        line += str (j) +'*'+str(i) +'='+ str(i*j) + ' '    print(line)
-第二种用format 格式化字符串
-for i range(1,10):    line =''    for j in range(1,10):        line += "&#123;&#125;*&#123;
-              ...
-            </p>
+          第一种方法：用先打印正方形之后打印下三角 
+1234567for i in range (1,10):    line = ''    for j in range (1,10):        if i &gt;=j:                        line += str (j) 
+          ...
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/book/99乘法表的不同解法/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/book/99乘法表的不同解法/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
+    
+    
+    
+
+    
+
+    
+
+    
+    
     
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -1533,8 +1694,10 @@ for i range(1,10):    line =''    for j in range(1,10):        line += "&#123;&#
   </article>
 
 
+    	
     
-      
+    	
+    		
 
   
 
@@ -1542,6 +1705,7 @@ for i range(1,10):    line =''    for j in range(1,10):        line += "&#123;&#
   
   
 
+  
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1554,7 +1718,7 @@ for i range(1,10):    line =''    for j in range(1,10):        line += "&#123;&#
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
       <meta itemprop="description" content="IT知识共享,与各位共同学习">
-      <meta itemprop="image" content="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1566,13 +1730,15 @@ for i range(1,10):    line =''    for j in range(1,10):        line += "&#123;&#
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/book/10大排序算法/" class="post-title-link" itemprop="url">10大排序算法</a>
+                <a class="post-title-link" href="/book/10大排序算法/" itemprop="url">
+                  
+                  10大排序算法
+                </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1598,22 +1764,6 @@ for i range(1,10):    line =''    for j in range(1,10):        line += "&#123;&#
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-19 22:46:36" itemprop="dateModified" datetime="2019-06-19T22:46:36+08:00">2019-06-19</time>
-              
-            
           </span>
 
           
@@ -1638,12 +1788,39 @@ for i range(1,10):    line =''    for j in range(1,10):        line += "&#123;&#
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                
+                <span class="post-meta-item-text"> 评论数： </span>
+                
+                <a href="/book/10大排序算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/book/10大排序算法/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
           
           
+             <span id="/book/10大排序算法/" class="leancloud_visitors" data-flag-title="10大排序算法">
+               <span class="post-meta-divider">|</span>
+               <span title="阅读次数">
+                 <span class="post-meta-item-icon">
+                   <i class="fa fa-eye"></i>
+                 </span>
+                 
+                   <span class="post-meta-item-text">阅读次数：</span>
+                 
+                   <span class="leancloud-visitors-count"></span>
+               </span>
+             </span>
+          
 
+          
+          
           
 
           
@@ -1665,8 +1842,7 @@ for i range(1,10):    line =''    for j in range(1,10):        line += "&#123;&#
       
         
           
-            <p>
-              基本入门算法有三个经典算法:冒泡,选择和插入算法
+          基本入门算法有三个经典算法:冒泡,选择和插入算法
 选择排序简单选择排序属于选择排序两两比较大小,找出极值或极小值被放置在固定的位置,这个固定一般指的是某一端结果分为升序和降序排列
 基本思路:
 
@@ -1675,40 +1851,36 @@ for i range(1,10):    line =''    for j in range(1,10):        line += "&#123;&#
 补充特殊情况,完善代码
 
 先用几个数做测试
-nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length):    if nums[i] &gt; nums[maxindex]:        maxindex = iprint(maxindex, nums[ma
-              ...
-            </p>
+123456789
+          ...
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/book/10大排序算法/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/book/10大排序算法/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
     </div>
 
     
-
-    
-    
-    
-
-    
-
-    
-      
     
     
 
+    
+    
+    
+
+    
+
+    
+
+    
+    
     
 
     <footer class="post-footer">
-      
-
       
 
       
@@ -1725,6 +1897,7 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
   </article>
 
 
+    	
     
   </section>
 
@@ -1737,7 +1910,6 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
 
           </div>
           
-
         </div>
         
           
@@ -1751,6 +1923,9 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
     <div class="sidebar-inner">
 
       
@@ -1761,7 +1936,7 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://b-ssl.duitang.com/uploads/item/201611/25/20161125123307_tnZsL.thumb.700_0.jpeg" alt="mwq">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="mwq">
             
               <p class="site-author-name" itemprop="name">mwq</p>
               <p class="site-description motion-element" itemprop="description">IT知识共享,与各位共同学习</p>
@@ -1839,7 +2014,7 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
               
             </nav>
           
-
+          
           
             <div class="feed-link motion-element">
               <a href="/atom.xml" rel="alternate">
@@ -1855,38 +2030,33 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
                 <span class="links-of-author-item">
                   
                   
-                    
-                  
                   
                     
                   
-                  <a href="https://github.com/hubhack" title="GitHub &rarr; https://github.com/hubhack" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://weibo.com/5788964087/profile?rightmod=1&wvr=6&mod=personinfo" title="Weibo &rarr; https://weibo.com/5788964087/profile?rightmod=1&wvr=6&mod=personinfo" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  <a href="https://github.com/hubhack" title="GitHub &rarr; https://github.com/hubhack" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
                 </span>
               
             </div>
           
 
           
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
 
           
+          
+
           
 
           
             
           
           
-
         </div>
       </div>
 
@@ -1896,7 +2066,6 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
 
     </div>
   </aside>
-  
 
 
         
@@ -1905,11 +2074,12 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">Copyright &copy; 2018 – <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heartbeat"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">mwq</span>
+  <span class="author" itemprop="copyrightHolder">LRH.&ensp;</span>
+  <span title="博客总字数"><i class="fa fa-edit"></i>&ensp;<span class="post-count"></span>字</span>
 
   
 
@@ -1917,26 +2087,69 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+  
 
 
 
-  <span class="post-meta-divider">|</span>
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>&thinsp;人次
+    </span>
+  
+
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&thinsp;次
+    </span>
+  
+</div>
+
+
+
+
+
 
 
 
 
         
 
+<!--左下角公众号二维码-->
+<div class="weixin-box">
+  <div class="weixin-menu">
+    <div class="weixin-hover">
+      <div class="weixin-description">微信扫一扫，订阅本博客</div>
+    </div>
+  </div>
+</div>
 
 
 
+<!--使用hubhack修改后的主题建议保留hubhack.cn-->
 
-
+	<div>BASE on Next.Pisces and <a href="https://github.com/hubhack/hexo-theme-next" target="_blank">MODIFIED</a> BY <a href="https://hubhack.cn" target="_blank">hubhack</a> .</div>
 
 
         
@@ -1947,6 +2160,8 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
         
+          <span id="scrollpercent"><span>0</span>%</span>
+        
       </div>
     
 
@@ -1955,11 +2170,14 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
     
 
     
+
+    
+    
   </div>
 
   
 
-<script>
+<script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1969,6 +2187,7 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
 
 
 
+  
 
 
 
@@ -1977,69 +2196,243 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
 
 
 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+  
+
+  
+<script>
+if ($('body').find('pre.mermaid').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      mermaid.initialize({
+        theme: 'forest',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 }
+      });
+    }
+  });
+}
+</script>
+
+
+  
+
+  
+
+  <!--Custom javascript for hubhack.cn-->
+
+<!--console.log-->
+<script type="text/javascript">
+  console.log("\n`              @@#``@@@@@@@@@@@@@@@@@@##,`   \n`              @@#`;@@@@@@@@@@@@@@@@@@@':'   \n`              @@#`@@@@@@@@@@@@@@@@@@@#+#;`  \n`              @@#`@@@@@@@@@@@@@@@@@@###@'.  \n`              @@+.@@@@@@@@@@@@@@@@@@@@@##,  \n`              @@#,@@@@@@@@@@@@@@@@@@@@@@#,  \n`              #@#:@@@@@@@@@@@@@@@@@@@@@@@,  \n`              #@#'@@@@@@@@@@@@@@@@@@@@@@@.  \n`              +@#;@@@@@@@@@@@@@@@@@@@@@@#   \n`          `;: ;@#'@@@@@@@@@@@@@@@@@@+'+@'   \n`    `,,;';'+';'@@+:@@@@@@@@@@@@##@#',.:#;   \n,, ``    ``..,:;@@#'@@@@@@@@#####@@@@#:`:.   \n`       `````:++@@@@@@@@@@@@@###@@@@#+,..    \n        ``````.#@@@@@@@@@@@@@@#@@@#++#'``    \n`    ```.,,:,.`:@@@@@@@@@@@@@###@@@##'.`     \n``..`````..,::;+@@@@@@@@@@@@#+`::+##'`.      \n`      ````.```,@@@@@@@@@@@##;``.,';` `      \n``.;@@@@@@@@@@@@@@@@@@@@@@###;``..``````     \n#@@@@@@@@@@@@@@@@@@@@@@@@##@#;``,``,.``      \n@@@@@@@@@@@@@@@@@@@.`````..``.. +` `:`       \n@+''++#####@@#`.@@@``````` ` `,```  ``       \n';;;;'+##+'+.`;+@@@,..```` `` :,.            \n;::,,:;+#++``,,#@@@'..``````` ,`.``          \n;,,,,...'#.,,..#@@@#,,.`````` .````          \n:,,,,....`,::;''+#@#;,..`````````.``         \n:,,,.....'##++''';:+':,.`..,,...`            \n:,,,...#####+'+#@@@'.';+:.  ` ``             \n;,,.`'####'#,`.`+@@@+'``` `.`                \n;,.`#@@@#+:'+++##+@##@,,,,`                  \n',.#@@###'''';:,.```,+#.                     \n+,#@@@####;,,..```````````````         `.:,::\n+@@@@###+;,,..``````````````````          `.,\n#@@@##+',,,........``````````````            \n@@@@#+:,,,,`........``````````               \n@@@#+:,,,,.`````.....``````````           `` \n@@##':,......`````....```  `````          ```\n@@@#':,....,..``````..````    ```         ```\n@@@#',....,,,..```````````     ```         ..\n@@@#,.....,,,,.``  ````````   ``````         \n@@@+....,,,,,..`````````````   ``````````    \n@@@:....,,,,.LiRuihao````````  ```````````` \n#@@,....,,,,.Always Be Yourself !````````````\n,##,,...,::,.https://hubhack.cn `   `......``\n,'#,,..,,:::.`````````........``````   `.,,..\n\n您好！\n这里是的个人博客--博採眾長！\n我的主页是 https://www.hubhack.cn\n\n\n");
+</script>
+
+<!--此处为建站时间 -->
+
+<script>
+  var now = new Date(); 
+  function createtime() { 
+      var grt= new Date("");
+      now.setTime(now.getTime()+250); 
+      days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+      if(String(hnum).length ==1 ){
+        hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+        mnum = "0" + mnum;
+      } 
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+        snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML =dnum+"&thinsp;天"; 
+      document.getElementById("times").innerHTML = hnum + "&thinsp;时" + mnum + "&thinsp;分" + snum + "&thinsp;秒"; 
+  } 
+setInterval("createtime()",250);
+</script>
+
+<!--知乎卡片链接-->
+<script type="text/javascript" src="/js/src/linkcard.js"></script>
+
+<!--夜间模式-->
+<script type="text/javascript" src="/js/src/night.js"></script>
+<div class="cover"></div>
+
+<!--崩溃欺骗-->
+<!--<script type="text/javascript" src="/js/src/crash_cheat.js"></script>-->
+
+<!--input特效-->
+<script src="/js/src/activate-power-mode.js"></script>
+<script>
+POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = false; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script>
+
+<!-- 鼠标点击特效 -->
+
+ <script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+  
+  
+  
 
   
     
+      
     
   
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=7.0.1"></script>
-
-  <script src="/js/src/motion.js?v=7.0.1"></script>
-
-
 
   
   
-
-
-  <script src="/js/src/affix.js?v=7.0.1"></script>
-
-  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
-
-
-
+  
+    <script src="/lib/quicklink/dist/quicklink.umd.js"></script>
+    <script>
+      
+        window.addEventListener('load', () => {
+      
+        quicklink({
+          timeout: 3000,
+          priority: true,
+          ignores: [uri => uri.includes('#'),uri => uri == 'https://hubhack.github.io/page/3/',]
+        });
+      
+        });
+      
+    </script>
   
 
   
 
 
-  <script src="/js/src/bootstrap.js?v=7.0.1"></script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'xxxxxxxxxxxxx',
+    appKey: 'xxxxxxxxxxxxx',
+    placeholder: 'ヾﾉ≧∀≦)o~ 有事请留言！\n评论功能以邮件作为通知方式！\n如有必要请填写正确邮箱！',
+    avatar: 'wavatar',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
 
 
   
-  
 
-
-
-  
-  <script>
+  <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -2125,7 +2518,7 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
                 
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -2294,9 +2687,9 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -2368,26 +2761,146 @@ nums = [1, 9, 8]length = len(nums)maxindex = 0for i in range(maxindex+1, length)
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+
+
+  
+
+  
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
 
   
 
   
 
   
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script type="text/javascript">
+  
+    bookmark.loadBookmark();
+  
+  </script>
+
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      
+        background-color: #1b1b1b;
+        color: #b0b0b0;
+        border: 1px solid #b0b0b0;
+        border-radius: 3px;
+      
+      user-select: none;
+      outline: 0;
+    }
 
-  
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 9px;
+      top: 4px;
+    }
 
-  
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1;
+    }
 
-  
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
 
-  
-
-  
-
-  
 
 </body>
 </html>
