@@ -310,18 +310,6 @@
             
             
           
-            
-            
-            
-          
-            
-            
-            
-          
-            
-            
-            
-          
         
         
         
@@ -338,23 +326,6 @@
     
 
     <a href="https://hubhack.github.io/python-book/" rel="section"><i class="menu-item-icon fa fa-fw fa-paper-plane"></i> <br>小书</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-guestbook">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comments"></i> <br>留言</a>
 
   </li>
         
@@ -542,9 +513,6 @@
       
       
     
-      
-      
-    
     
 
   
@@ -641,10 +609,6 @@
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-    </div>
 
   
 
@@ -1119,37 +1083,6 @@ document.body.addEventListener('input', POWERMODE);
 
 
 
-
-
-
-
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: 'xxxxxxxxxxxxx',
-    appKey: 'xxxxxxxxxxxxx',
-    placeholder: 'ヾﾉ≧∀≦)o~ 有事请留言！\n评论功能以邮件作为通知方式！\n如有必要请填写正确邮箱！',
-    avatar: 'wavatar',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn'
-  });
-</script>
 
 
 

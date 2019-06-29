@@ -311,18 +311,6 @@
             
             
           
-            
-            
-            
-          
-            
-            
-            
-          
-            
-            
-            
-          
         
         
         
@@ -339,23 +327,6 @@
     
 
     <a href="https://hubhack.github.io/python-book/" rel="section"><i class="menu-item-icon fa fa-fw fa-paper-plane"></i> <br>小书</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-guestbook">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comments"></i> <br>留言</a>
 
   </li>
         
@@ -614,35 +585,9 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                
-                <span class="post-meta-item-text"> 评论数： </span>
-                
-                <a href="/book/二分法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/book/二分法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
-          
-             <span id="/book/二分法/" class="leancloud_visitors" data-flag-title="二分法">
-               <span class="post-meta-divider">|</span>
-               <span title="阅读次数">
-                 <span class="post-meta-item-icon">
-                   <i class="fa fa-eye"></i>
-                 </span>
-                 
-                   <span class="post-meta-item-text">阅读次数：</span>
-                 
-                   <span class="leancloud-visitors-count"></span>
-               </span>
-             </span>
           
 
           
@@ -707,15 +652,10 @@
   <div id="QR" style="display: none;">
 
     
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatpay.gif" alt="mwq 微信支付">
-        <p>微信支付</p>
-      </div>
-    
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipay.gif" alt="mwq 支付宝">
+        <img id="alipay_qr" src="/images/alipay.png" alt="mwq 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -798,10 +738,6 @@
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-    </div>
 
   
 
@@ -1302,37 +1238,6 @@ document.body.addEventListener('input', POWERMODE);
 
 
 
-
-
-
-
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: 'xxxxxxxxxxxxx',
-    appKey: 'xxxxxxxxxxxxx',
-    placeholder: 'ヾﾉ≧∀≦)o~ 有事请留言！\n评论功能以邮件作为通知方式！\n如有必要请填写正确邮箱！',
-    avatar: 'wavatar',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: true,
-    lang: '' || 'zh-cn'
-  });
-</script>
 
 
 
