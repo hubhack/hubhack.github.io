@@ -2147,7 +2147,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #86980e;
+  background: #6578bd;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2561,26 +2561,6 @@ img:hover {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   color: #ccc;
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .busuanzi-count {
-    width: auto;
-  }
-}
-@media (max-width: 767px) {
-  .busuanzi-count {
-    width: auto;
-  }
-}
-.site-uv,
-.site-pv,
-.page-pv {
-  display: inline-block;
-}
-.site-uv .busuanzi-value,
-.site-pv .busuanzi-value,
-.page-pv .busuanzi-value {
-  margin: 0 5px;
 }
 .popular-posts-header {
   margin-top: 60px;
@@ -3818,9 +3798,6 @@ body {
     font-size: 12px;
     bottom: -30px;
   }
-}
-.busuanzi-count {
-  color: DarkSlateGray;
 }
 ::selection {
   background: #00ced1;
