@@ -7,8 +7,7 @@ public/
 .deploy*/
 .vscode/
 package-lock.json/
-push_all.bat/
-push_hexo.bat/
-themes/hexo-theme-next/
 
+push_all.bat
+push_hexo.bat
 themes/hexo-theme-next
