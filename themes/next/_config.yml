@@ -99,11 +99,6 @@ footer:
 #   enable: true
 #   creat_date: 05/28/2018 20:01:01
 
-# beian:
-#   enable: false
-#   gov: 湘公网安备 43030402000254号
-#   recordcode: 43030402000254
-#   icp: 湘ICP备18020535号
 
 # ---------------------------------------------------------------
 # SEO Settings
@@ -142,12 +137,8 @@ menu:
   #   default: /docs/ || book
   #   top: /top/ || signal
     # donators: /donators/ || fa-fw fa-puzzle-piece
-    # friends: /friends/ || users
-   
-      
-     
+    # friends: /friends/ || users 
   rui-site: https://hubhack.github.io/python-book/ || paper-plane
-  
   # guestbook: /guestbook/ || comments
   about: /about/ || address-card
   #photos: /photos/ || image
@@ -194,15 +185,15 @@ site_state: true
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 #mailto:yourname@gmail.com
 social:
-  #导航: https://www.hubhack.cn || paper-plane
+  导航: https://hubhack.github.io/python-book/ || paper-plane
   GitHub: https://github.com/hubhack || github
   #码云: https://gitee.com/hubhack/events || google
-  # CSDN: https://blog.csdn.net/qq_39520417 || contao
-  #简书: https://www.jianshu.com/u/c6f0f534498d ||  
+  # CSDN: https://blog.csdn.net/ || contao
+  #简书: https://www.jianshu.com/u/ ||  
   # 微博: https://weibo.com/ || weibo
   # 微信: /images/wechat.png || wechat
   # QQ: /images/qq.jpg || qq
-  # E-Mail: mailto:1074627678@qq.com || envelope
+  E-Mail: mailto:2329259856@qq.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
@@ -234,7 +225,7 @@ links_layout: inline
 #   友情链接: /docs/friends/
 #   收藏夹: /posts/links.html
 #   MMT: /posts/font-mmt.html
-#   APP: /posts/fas-app.html #https://ziyuan.hubhack.cn/app/i%20am_2.5.9_beta.apk
+#   APP: /posts/fas-app.html #
   #Title: http://example.com/
 
 # Sidebar Avatar
