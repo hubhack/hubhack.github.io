@@ -1,2 +1,3 @@
+{% include 'tinysou.swig' %}
 {% include 'localsearch.swig' %}
-{% include 'algolia-search.swig' %}
+{% include 'algolia-search/assets.swig' %}

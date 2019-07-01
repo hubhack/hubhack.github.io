@@ -1,6 +1,7 @@
 // CSS Style Guide: http://codeguide.co/#css
 
 
+
 $scheme    = hexo-config('scheme') ? hexo-config('scheme') : 'Muse';
 
 $custom_styles = hexo-config('custom_file_path.styles') ? "../../../../../" + hexo-config('custom_file_path.styles') : custom;
@@ -9,6 +10,7 @@ $custom_variables = hexo-config('custom_file_path.variables') ? "../../../../../
 
 $variables = base $scheme $custom_variables;
 $mixins    = base $scheme $custom_mixins;
+
 
 
 // Variables Layer
@@ -21,6 +23,7 @@ for $variable in $variables
 // --------------------------------------------------
 for $mixin in $mixins
   @import "_mixins/" + $mixin;
+
 
 
 // Common Layer
@@ -39,6 +42,7 @@ for $mixin in $mixins
 // Schemes Layer
 // --------------------------------------------------
 @import "_schemes/" + $scheme;
+
 
 
 // Custom Layer

@@ -15,7 +15,7 @@
       <div id="vk_comments"></div>
     </div>
 
-  {% elif theme.disqus.enable %}
+  {% elif theme.disqus.enable or (theme.disqusjs.enable and theme.disqusjs.apikey and theme.disqusjs.shortname) %}
     <div class="comments" id="comments">
       <div id="disqus_thread">
         <noscript>{#
@@ -24,9 +24,9 @@
       </div>
     </div>
 
-  {% elif theme.livere_uid %}
+  {% elif theme.livere.enable and theme.livere.livere_uid %}
     <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="{{ theme.livere_uid }}"></div>
+      <div id="lv-container" data-id="city" data-uid="{{ theme.livere.livere_uid }}"></div>
     </div>
 
   {% elif theme.changyan.enable and theme.changyan.appid and theme.changyan.appkey %}

@@ -1,4 +1,7 @@
 {% import '../../_macro/menu/menu-item.swig' as menu_item %}
+{% import '../../_macro/menu/menu-badge-1.swig' as menu_badge_1 %}
+{% import '../../_macro/menu/menu-badge-2.swig' as menu_badge_2 %}
+
 
 <nav class="site-nav">
   {% if theme.menu %}
@@ -22,20 +25,21 @@
         {%- endif -%}
       {%- endfor %}
 
-      {% set hasSearch = theme.swiftype_key || theme.algolia_search.enable || theme.local_search.enable %}
+      {% set hasSearch = theme.swiftype_key || theme.algolia_search.enable || theme.tinysou_Key || theme.local_search.enable %}
       {% if hasSearch %}
         <li class="menu-item menu-item-search">
           {% if theme.swiftype_key %}
             <a href="javascript:;" class="st-search-show-outputs">
-          {% elif theme.local_search.enable || theme.algolia_search.enable %}
+          {% elseif theme.local_search.enable || theme.algolia_search.enable %}
             <a href="javascript:;" class="popup-trigger">
           {% endif %}
             {% if theme.menu_settings.icons %}
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>{#
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />{#
           #}{% endif %}{#
           #}{{ __('menu.search') }}{#
         #}</a>
         </li>
+		
       {% endif %}
     </ul>
   {% endif %}
@@ -49,4 +53,5 @@
       {% include '../search/index.swig' %}
     </div>
   {% endif %}
+
 </nav>

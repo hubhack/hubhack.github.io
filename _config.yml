@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-next
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -81,13 +81,6 @@ deploy:
   type: git
   repo: https://github.com/hubhack/hubhack.github.io.git
   branch: master
-
-feed: # RSS订阅插件
-  type: atom
-  path: atom.xml
-  limit: 0
-
-plugins: hexo-generate-feed
 
 #搜索
 search:

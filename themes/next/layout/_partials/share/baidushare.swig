@@ -30,7 +30,7 @@
       }
     }
   </script>
-{% elif theme.baidushare.type === "slide" %}
+{% elseif theme.baidushare.type === "slide" %}
   <script>
     window._bd_share_config = {
       "common": {

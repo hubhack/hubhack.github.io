@@ -5,10 +5,6 @@
   float: right;
 }
 
-.menu-item-active a {
-  background: #e1e1e1;
-}
-
 .menu {
   //float: right;
   margin: 8px 0 0 0;
@@ -44,8 +40,7 @@
 
   }
 
-  .menu-item a,
-  .menu-item span.exturl {
+  .menu-item a {
     padding: 0 10px;
     border: none;
     border-radius: 2px;
@@ -55,11 +50,7 @@
       text-align: left;
     }
 
-    &:hover {
-      @extend .menu-item-active a;
-    }
-
-    disable-touch-hover();
+    &:hover { background: #e1e1e1; }
   }
 
   a::before {
@@ -69,4 +60,8 @@
     }
 
   +mobile() { float: none; }
+}
+
+.menu-item-active a {
+  @extend .menu .menu-item a:hover;
 }

@@ -1,4 +1,5 @@
-<script>
+{% if page.comments and theme.livere.enable and theme.livere.livere_uid %}
+  <script>
   window.livereOptions = {
     refer: '{{ page.path }}'
   };
@@ -11,3 +12,4 @@
     e.parentNode.insertBefore(j, e);
   })(document, 'script');
 </script>
+{% endif %}

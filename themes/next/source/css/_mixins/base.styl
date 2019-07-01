@@ -53,12 +53,6 @@ desktop() {
 }
 
 desktop-large() {
-  @media (min-width: 1200px) {
-    {block}
-  }
-}
-
-desktop-largest() {
   @media (min-width: 1600px) {
     {block}
   }
@@ -101,18 +95,4 @@ clearfix() {
     display: table;
   }
   &:after { clear: both; }
-}
-
-word-wrap() {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-
-disable-touch-hover() {
-  // To prevent hover on external links with touch devices after click.
-  @media (hover:none) {
-    &:hover {
-      background: none;
-    }
-  }
 }

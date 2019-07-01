@@ -1,3 +1,5 @@
+{% if theme.valine.enable and theme.valine.appid and theme.valine.appkey %}
+
 {% set leancloud_uri = '//cdn1.lncld.net/static/js/3.11.1/av-min.js' %}
 {% if theme.vendors.leancloud %}
   {% set leancloud_uri = theme.vendors.leancloud %}
@@ -26,6 +28,9 @@
     avatar: '{{ theme.valine.avatar }}',
     meta: guest,
     pageSize: '{{ theme.valine.pageSize }}' || 10,
-    visitor: {{ theme.valine.visitor }}
+    visitor: {{ theme.valine.visitor }},
+    lang: '{{ theme.valine.language }}' || 'zh-cn'
   });
 </script>
+
+{% endif %}

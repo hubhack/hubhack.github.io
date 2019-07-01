@@ -1,19 +1,29 @@
 ---
 title:
-  archive: 归档
+  archive: 日志
   category: 分类
   tag: 标签
   schedule: 日程表
 menu:
   home: 首页
-  archives: 归档
+  top: 热度
+  rui-site: 小书
+  music: 音乐
+  archives: 日志
   categories: 分类
   tags: 标签
+  photos: 相册
+  docs: 归档
   about: 关于
+  guestbook: 留言
+  love: 一生所爱
   search: 搜索
   schedule: 日程表
   sitemap: 站点地图
   commonweal: 公益 404
+  donators: 赞助记录
+  friends: 友情链接
+  other: 其他
 sidebar:
   overview: 站点概览
   toc: 文章目录
@@ -30,6 +40,7 @@ post:
   sticky: 置顶
   toc_empty: 此文章未包含目录
   views: 阅读次数
+  words: 本文字数
   comments_count: 评论数
   related_posts: 相关文章
   copy_button: 复制
@@ -81,7 +92,7 @@ symbol:
   period: "。"
   colon: "："
 reward:
-  donate: 打赏
+  donate: 赞赏
   wechatpay: 微信支付
   alipay: 支付宝
   bitcoin: 比特币

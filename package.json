@@ -16,7 +16,7 @@
     "hexo-generator-index": "^0.2.1",
     "hexo-generator-searchdb": "^1.0.8",
     "hexo-generator-tag": "^0.2.0",
-    "hexo-migrator-rss": "^0.1.4",
+   
     "hexo-renderer-ejs": "^0.3.1",
     "hexo-renderer-marked": "^0.3.2",
     "hexo-renderer-stylus": "^0.3.3",
