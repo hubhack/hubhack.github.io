@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-07-01T02:20:41.729Z</updated>
+  <updated>2019-07-01T02:21:07.511Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://hubhack.github.io/book/js/"/>
     <id>https://hubhack.github.io/book/js/</id>
     <published>2019-06-30T11:53:54.879Z</published>
-    <updated>2019-07-01T02:20:41.729Z</updated>
+    <updated>2019-07-01T02:21:07.511Z</updated>
     
     <content type="html"><![CDATA[<h3 id="js基础语法"><a href="#js基础语法" class="headerlink" title="js基础语法"></a>js基础语法</h3><p>常量和变量</p><p>标识符: 标识符必须是字母, 下划线, 美元符号$和数字, 但必须是字母, 下划线,美元符号开头,依然是不能数字开头就行.</p><p>标识符区分大小写.</p><p>声明</p><p>var声明一个变量</p><p>let声明一个块作用域中的局部变量</p><p>const声明一个常量</p><p>js中的变量声明和初始化时可以分开的.</p><p>var会把变量提升到全局或函数作用域,如果明确知道一个标识符定义后不再修改,应该声明成const常量,减少被修改的风险,减少bug.</p><p>数据类型</p><table><thead><tr><th>序号</th><th>名称</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>number</td><td>数值型,包括整型和浮点型</td></tr><tr><td>2</td><td>boolean</td><td>布尔型,true和false</td></tr><tr><td>3</td><td>string</td><td>字符串</td></tr><tr><td>4</td><td>null</td><td>只有一个值null</td></tr><tr><td>5</td><td>undefined</td><td>变量声明未赋值的;对象未定义的属性</td></tr><tr><td>6</td><td>symbol</td><td>ES6新引入类型</td></tr><tr><td>7</td><td>object</td><td>是以上基本类型的复合类型,是容器</td></tr></tbody></table><p>弱类型,不需要强制类型转换, 会隐式类型转换.</p><p>NaN,即Not a Number,转换数字失败, 它和任何值都不等,和自己也不等, 只能使用Number.isNaN</p><p>总结:</p><p>遇到字符串, 加号就是拼接字符串,所有非字符串隐式转换为字符串.</p><p>如果没有字符串, 加号把其他所有类型都当做数字处理, 非数字类型隐式转换为数字, undefined特殊, 因为它都没有定义值, 所以转换数字失败得到一个特殊值NaN.</p><p>如果运算符是逻辑运算符, 短路符, 返回就是短路时的类型, 没有隐式转换.</p><p>除非你十分明确, 否则不要依赖隐式转换. 写代码的时候, 往往为了程序的健壮,请隐式转换.</p><p>三元运算符</p><p>条件表达式?真值:假值</p><p>等价于简单的if…else结构</p><p>函数, 匿名函数,函数表达式的差异</p><p>函数和匿名函数, 本质上都是一样的, 都是函数对象, 只不过函数由自己的标识符—函数名, 匿名函数u需要借助其他的标识符而已.</p><p>区别在于, 函数会声明提升, 函数表达式不会 .</p><p>高阶函数: 函数作为参数或返回 一个函数.</p><p>箭头函数</p><p>箭头函数就是匿名函数,它是一种更加精简的格式.</p><p>箭头函数参数</p><p>如果一个函数没有参数,使用()</p><p>如果只有一个参数,参数列表可以省略小括号()</p><p>多个参数不能省略小括号,且使用逗号间隔.</p><p>箭头函数返回值.</p><p>如果函数体部分有多行,就需要使用{}, 如果有返回值使用return.</p><p>如果只有一行语句, 可以同时省略大括号和return.</p><p>只有return语句, 就不能省略大括号, </p><p>如果只有一条非return语句, 加上大括号, 函数就成了无返回值, </p>]]></content>
     
