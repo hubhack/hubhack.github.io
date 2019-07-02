@@ -132,21 +132,10 @@ menu:
   home: / || home
   archives: /archives/ || archive
   rui-site: https://hubhack.github.io/python-book/ || paper-plane
-  docs:
-    
-    default: /docs/ || book
-    操作系统原理: /操作系统原理/
-    数据结构与算法: /数据结构与算法/
-    数据库系统: /数据库系统/
-    计算机网络: /计算机网络/
-    其他: /其他/
-    # top: /top/ || signal
-    # donators: /donators/ || fa-fw fa-puzzle-piece
-    # friends: /friends/ || users 
+  docs: /docs/ || book
   tags: /tags/ || tags
   categories: /categories/ || th
   about: /about/ || address-card
-  
   # guestbook: /guestbook/ || comments
   #photos: /photos/ || image
   #sitemap: /sitemap.xml || sitemap
