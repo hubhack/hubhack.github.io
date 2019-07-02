@@ -2147,7 +2147,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #08ff53;
+  background: #4b8157;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3620,7 +3620,7 @@ ul.breadcrumb li+li:last-child {
   height: 24px;
   width: 24px;
   cursor: pointer;
-  background: url("/images/wechat.svg");
+  background: url("https://hubhack.cn/images/wechat.svg");
   background-size: 24px 24px;
 }
 .weixin-hover {
