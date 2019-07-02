@@ -372,7 +372,7 @@ post_copyright:
 # Dependencies: https://github.com/hexojs/hexo-deployer-git
 post_edit:
   enable: true
-  url: https://github.com/hubhack/hubhack.github.io/tree/hexo/source/ # Link for view source.
+  url: https://github.com/hubhack/hubhack.github.io/tree/dev/source/ # Link for view source.
   #url: https://github.com/hubhack/hubhack.github.io/edit/hexo/source/ # Link for fork & edit.
 
 
