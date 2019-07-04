@@ -108,21 +108,23 @@
 
 
 
-  <meta name="description" content="IT知识共享,与各位共同学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="千分无言">
-<meta property="og:url" content="https://hubhack.github.io/archives/2019/index.html">
+  <meta name="description" content="序列化与反序列化内存中的字典,列表,集合以及各种对象,如何保存到一个文件中. 如果是自己定义的类的实例, 如何保存到一个文件中. 如何从文件中读取数据,并让他们再内存中再次恢复成自己对应的类的实例. 要设计一套协议, 按照某种规则,把内存中的数据保存到文件中. 文件是一个字节序列,所以必须把数据转换成字节序列,输出到文件.这就是序列化, 反之, 从文件的字节序列恢复到内存并且还是原来的类型,就是反">
+<meta name="keywords" content="序列化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="序列化与json">
+<meta property="og:url" content="https://hubhack.github.io/book/序列化与json/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="IT知识共享,与各位共同学习">
+<meta property="og:description" content="序列化与反序列化内存中的字典,列表,集合以及各种对象,如何保存到一个文件中. 如果是自己定义的类的实例, 如何保存到一个文件中. 如何从文件中读取数据,并让他们再内存中再次恢复成自己对应的类的实例. 要设计一套协议, 按照某种规则,把内存中的数据保存到文件中. 文件是一个字节序列,所以必须把数据转换成字节序列,输出到文件.这就是序列化, 反之, 从文件的字节序列恢复到内存并且还是原来的类型,就是反">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-04T02:45:41.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="千分无言">
-<meta name="twitter:description" content="IT知识共享,与各位共同学习">
+<meta name="twitter:title" content="序列化与json">
+<meta name="twitter:description" content="序列化与反序列化内存中的字典,列表,集合以及各种对象,如何保存到一个文件中. 如果是自己定义的类的实例, 如何保存到一个文件中. 如何从文件中读取数据,并让他们再内存中再次恢复成自己对应的类的实例. 要设计一套协议, 按照某种规则,把内存中的数据保存到文件中. 文件是一个字节序列,所以必须把数据转换成字节序列,输出到文件.这就是序列化, 反之, 从文件的字节序列恢复到内存并且还是原来的类型,就是反">
 
 
 
 
-  <link rel="canonical" href="https://hubhack.github.io/archives/2019/">
+  <link rel="canonical" href="https://hubhack.github.io/book/序列化与json/">
 
 
 
@@ -132,7 +134,7 @@
   };
 </script>
 
-  <title>日志 | 千分无言</title>
+  <title>序列化与json | 千分无言</title>
   
 
 
@@ -189,7 +191,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -249,7 +251,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -491,428 +493,273 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        还行! 目前共计 31 篇日志。 继续努力。
-      </span>
-      
+  
+    <div class="reading-progress-bar"></div>
+  
+  
 
-      
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/book/序列化与json/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mwq">
+      <meta itemprop="description" content="IT知识共享,与各位共同学习">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千分无言">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h2 class="post-title" itemprop="name headline">
+                序列化与json<a href="https://github.com/hubhack/hubhack.github.io/tree/dev/source/_posts/book/序列化与json.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h2>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-04 10:31:22" itemprop="dateCreated datePublished" datetime="2019-07-04T10:31:22+08:00">2019-07-04</time>
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2019">2019</h2>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/book/序列化与json/" itemprop="url">
+            <span class="post-category">
             
-              <span itemprop="name">序列化与json</span>
+              <span class="post-meta-divider">|</span>
             
-          </a>
-        
-      </h3>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/json/" itemprop="url" rel="index"><span itemprop="name">json</span></a></span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-04T10:31:22+08:00" content="2019-07-04">
-          07-04
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
+            
+          
 
+          
+          
 
+          
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/book/计算机4科/" itemprop="url">
-            
-              <span itemprop="name">编程的4门功课</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-01T16:29:49+08:00" content="2019-07-01">
-          07-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/book/web路由/" itemprop="url">
-            
-              <span itemprop="name">web路由</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-01T10:02:08+08:00" content="2019-07-01">
-          07-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/book/Yaml语言编程/" itemprop="url">
-            
-              <span itemprop="name">yaml语言</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-01T10:00:31+08:00" content="2019-07-01">
-          07-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        <h3 id="序列化与反序列化"><a href="#序列化与反序列化" class="headerlink" title="序列化与反序列化"></a>序列化与反序列化</h3><p>内存中的字典,列表,集合以及各种对象,如何保存到一个文件中.</p>
+<p>如果是自己定义的类的实例, 如何保存到一个文件中.</p>
+<p>如何从文件中读取数据,并让他们再内存中再次恢复成自己对应的类的实例.</p>
+<p>要设计一套协议, 按照某种规则,把内存中的数据保存到文件中. 文件是一个字节序列,所以必须把数据转换成字节序列,输出到文件.这就是序列化, 反之, 从文件的字节序列恢复到内存并且还是原来的类型,就是反序列化.</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>serialization 序列化</p>
+<p>将内存中的对象存储下来,把它变成一个个字节.-&gt;二进制</p>
+<p>deserialization 反序列化</p>
+<p>将文件的一个个字节恢复成内存中对象 &lt;-二进制</p>
+<p>序列化保存到文件就是持久化.</p>
+<p>可以将数据序列化后持久化,或者网络传输; 也可以将从文件中或者网络收到的字节序列反序列化.</p>
+<h3 id="json"><a href="#json" class="headerlink" title="json"></a>json</h3><p>JSON是JavaScript Object Notation的缩写，中文译为JavaScript对象表示法。用来作为数据交换的文本格式，作用类似于XML，而2001年Douglas Crockford提出的目的就是为了取代XML，它不是一种编程语言，仅用来描述数据结构。</p>
+<p>json是对js对象文本的一个描述， 相比xml来说更轻在web中流行广泛，因为是js的一部分，所以在浏览器中直接被被解析，网页传输中应用广泛。</p>
+<h2 id="1、JSON语法规则"><a href="#1、JSON语法规则" class="headerlink" title="1、JSON语法规则"></a>1、JSON语法规则</h2><p>JSON的语法可以表示以下三种类型的值：简单值、JSON对象和数组。</p>
+<p><strong>（1）简单值</strong></p>
+<p>简单值使用与JavaScript相同的语法，可以在JSON中表示字符串、数值、布尔值和null。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 简单值</span></span><br><span class="line"><span class="string">"Hello World!"</span> <span class="comment">// 字符串</span></span><br><span class="line"><span class="number">99</span> <span class="comment">// 数值</span></span><br><span class="line"><span class="literal">true</span> <span class="comment">// 布尔型</span></span><br><span class="line"><span class="literal">false</span> <span class="comment">// 布尔型</span></span><br><span class="line"><span class="literal">null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在JSON中不能使用的值</span></span><br><span class="line"><span class="literal">NaN</span> <span class="comment">// 数值不能是NaN</span></span><br><span class="line"><span class="literal">Infinity</span> <span class="comment">// 数值不能是Infinity</span></span><br><span class="line"><span class="literal">undefined</span> <span class="comment">// 在JSON也不可以使用JavaScript中的undefined</span></span><br><span class="line"><span class="string">'Hello World!'</span> <span class="comment">// 字符串必须使用双引号表示，不能使用单引号</span></span><br><span class="line"><span class="number">0x1</span> <span class="comment">// 数值必须以十进制表示，不能使用十六进制</span></span><br></pre></td></tr></table></figure>
+<p><strong>（2）对象</strong></p>
+<p>对象是一组有序的键值对的数据组成的数据类型。键值对中，值可以是简单值，也可以是对象和数组（数组也是用来表示JSON的数据类型，见接下来内容）。一般很多刚入门的同学都在JavaScript中使用JSON所以经常会和JSON对象混淆，要十分注意。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对象，对象的属性名必须使用双引号，值要是字符串也必须使用双引号</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"Andy"</span>,</span><br><span class="line">  <span class="string">"age"</span>: <span class="number">18</span>,</span><br><span class="line">  <span class="string">"isStudent"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"isLeader"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"mark"</span>: <span class="literal">null</span>,</span><br><span class="line">  <span class="string">"school"</span>: &#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"BIT"</span>,</span><br><span class="line">    <span class="string">"region"</span>: <span class="string">"Beijing"</span> <span class="comment">// 这个地方不能有逗号，因为是对象的最后一个属性成员</span></span><br><span class="line">  &#125; <span class="comment">// 这个地方也不可以有逗号，因为也是对象的最后一个属性成员</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>（3）数组</strong></p>
+<p>数组是由一组有序的数组组成的列表。在数组中，值可以是简单值，也可以是对象和数组。记住，记住，再记住，在JSON中数组最后一个元素一定不要有逗号。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例一</span></span><br><span class="line">[<span class="string">"Andy"</span>, <span class="string">"Ruby"</span>, <span class="string">"Danny"</span>, <span class="string">"Peter"</span>, <span class="string">"Lisa"</span>]</span><br><span class="line"><span class="comment">// 示例二</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">0</span>]</span><br><span class="line"><span class="comment">// 示例三</span></span><br><span class="line">[</span><br><span class="line">  &#123;<span class="string">"name"</span>: <span class="string">"Andy"</span>, <span class="string">"age"</span>: <span class="number">18</span>&#125;,</span><br><span class="line">  &#123;<span class="string">"name"</span>: <span class="string">"Ruby"</span>, <span class="string">"age"</span>: <span class="number">18</span>&#125;,</span><br><span class="line">  &#123;<span class="string">"name"</span>: <span class="string">"Danny"</span>, <span class="string">"age"</span>: <span class="number">20</span>&#125;</span><br><span class="line">]</span><br><span class="line"><span class="comment">// 示例四</span></span><br><span class="line">[</span><br><span class="line">  [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line">  [<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>],</span><br><span class="line">  [<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="2、JSON字符串和JSON对象"><a href="#2、JSON字符串和JSON对象" class="headerlink" title="2、JSON字符串和JSON对象"></a>2、JSON字符串和JSON对象</h2><p><strong>（1）JSON字符串</strong></p>
+<p>JSON字符串与普通的字符串没有任何特殊的地方，但是之所以称为JSON字符串是因为，这个字符串符合我们前面介绍的语法规则。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JSON字符串</span></span><br><span class="line"><span class="keyword">var</span> p =<span class="string">'&#123;"name":"Andy","gender":"男","age":"18"&#125;'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(p); <span class="comment">// &#123;"name":"Andy","gender":"男","age":"18"&#125;</span></span><br><span class="line">alert(<span class="keyword">typeof</span>(p));<span class="comment">// string</span></span><br></pre></td></tr></table></figure>
+<p><strong>（2）JSON对象</strong></p>
+<p>JSON对象主要是在JavaScript的说法。在面向对象编程中，类的实例化叫做对象，对象拥有不同的属性，键值对就是对象的属性和值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JSON对象</span></span><br><span class="line"><span class="keyword">var</span> person=&#123;</span><br><span class="line">  <span class="string">"name"</span>:<span class="string">"Andy"</span>,</span><br><span class="line">  <span class="string">"gender"</span>:<span class="string">"男"</span>,</span><br><span class="line">  <span class="string">"age"</span>:<span class="string">"18"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(person.name);<span class="comment">// 在控制台输出Andy，可以通过点运算直接访问对象属性</span></span><br><span class="line">alert(<span class="keyword">typeof</span>(person));<span class="comment">// object</span></span><br></pre></td></tr></table></figure>
+<p><strong>（3）JSON字符串和JSON对象互相转换</strong></p>
+<p>JavaScript中有一个全局的对象，JSON。JSON中有两个方法 <em>stringify() 和 parse()。</em></p>
+<p><em>JSON.parse()</em> 把JSON字符串解析为JSON对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JSON字符串通过parse转化为JSON对象</span></span><br><span class="line"><span class="keyword">var</span> p =<span class="string">'&#123;"name":"Andy","gender":"男","age":"18"&#125;'</span>;</span><br><span class="line">person = <span class="built_in">JSON</span>.parse(p)</span><br><span class="line"><span class="built_in">console</span>.log(person.name);<span class="comment">// 在控制台输出Andy，可以通过点运算直接访问对象属性</span></span><br><span class="line">alert(<span class="keyword">typeof</span>(person));<span class="comment">// object</span></span><br></pre></td></tr></table></figure>
+<p><em>JSON.stringify()</em> 用于把JSON对象序列化为JSON字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JSON对象通过stringify转化为JSON字符串</span></span><br><span class="line"><span class="keyword">var</span> person=&#123;</span><br><span class="line">  <span class="string">"name"</span>:<span class="string">"Andy"</span>,</span><br><span class="line">  <span class="string">"gender"</span>:<span class="string">"男"</span>,</span><br><span class="line">  <span class="string">"age"</span>:<span class="string">"18"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">JSON</span>.stringify(person)</span><br><span class="line"><span class="built_in">console</span>.log(p); <span class="comment">// &#123;"name":"Andy","gender":"男","age":"18"&#125;</span></span><br><span class="line">alert(<span class="keyword">typeof</span>(p));<span class="comment">// string</span></span><br></pre></td></tr></table></figure>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/book/js基础/" itemprop="url">
-            
-              <span itemprop="name">js基础</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-30T19:53:54+08:00" content="2019-06-30">
-          06-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/book/魔术方法/" itemprop="url">
-            
-              <span itemprop="name">魔术方法</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/book/面向对象/" itemprop="url">
-            
-              <span itemprop="name">面向对象</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/book/草稿/" itemprop="url">
-            
-              <span itemprop="name">草稿</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/book/网络协议/" itemprop="url">
-            
-              <span itemprop="name">网络协议</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/book/深入理解计算机系统/" itemprop="url">
-            
-              <span itemprop="name">深入理解计算机系统</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T22:04:28+08:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+    
+    
+
+    
+      
+
+
+    
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>欢迎关注公众号，感谢支持 ！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="mwq 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>mwq</li>
+  <li>
+  <strong>修改时间： </strong>2019-07-04 10:45:41</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://hubhack.github.io/book/序列化与json/" title="序列化与json">https://hubhack.github.io/book/序列化与json/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    
+      <div class="post-tags">
+        
+          <a href="/tags/序列化/" rel="tag"><i class="fa fa-tag"></i> 序列化</a>
+        
+      </div>
+    
+    
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/book/计算机4科/" rel="next" title="编程的4门功课">
+                <i class="fa fa-chevron-left"></i> 编程的4门功课
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/4/">4</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+
+
         </div>
         
           
@@ -934,8 +781,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1092,6 +948,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化与反序列化"><span class="nav-number">1.</span> <span class="nav-text">序列化与反序列化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json"><span class="nav-number">3.</span> <span class="nav-text">json</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#1、JSON语法规则"><span class="nav-number"></span> <span class="nav-text">1、JSON语法规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、JSON字符串和JSON对象"><span class="nav-number"></span> <span class="nav-text">2、JSON字符串和JSON对象</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1265,6 +1138,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.7.0"></script>
+
+
 
   
 
@@ -1366,26 +1243,7 @@ document.body.addEventListener('input', POWERMODE);
   
 
   
-    
-      
-    
   
-  
-  
-    <script src="/lib/quicklink/dist/quicklink.umd.js"></script>
-    <script>
-      
-        window.addEventListener('load', () => {
-      
-        quicklink({
-          timeout: 3000,
-          priority: true,
-          ignores: [uri => uri.includes('#'),uri => uri == 'https://hubhack.github.io/archives/2019/',]
-        });
-      
-        });
-      
-    </script>
   
 
   
@@ -1777,7 +1635,7 @@ document.body.addEventListener('input', POWERMODE);
   <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
   <script type="text/javascript">
   
-    bookmark.loadBookmark();
+    bookmark.scrollToMark('manual', "#更多");
   
   </script>
 
