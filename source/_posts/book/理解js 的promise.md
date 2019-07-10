@@ -49,5 +49,52 @@ Promise提供2个方法:
 * Promise.resolve(value)返回 状态为fulfilled的Promise对象
 * Promise.reject(reason)返回 状态为rejected状态的Promise对象.
 
+catch其实是then(undefined, () => {})的语法糖,如下:
+
+```js
+let p = Promise.reject('error');
+p.catch(err => {
+    console.log('catch' + err);
+})
+```
+
+Promise对象内部其实自带了try catch, 当同步代码发生运行时错误时, 会自动将错误对象作为值reject, 这样就会触发catch注册的回调.
+
+实例
+
+```js
+function runAsync(){
+    return new Promise(function(resolve, reject){
+        setInterval(function(){
+            console.log('do sth ----')
+            resolve('ok----')
+
+        }, 3000);
+    });
+}
+
+//调用
+runAsync().then(
+    value => {
+        console.log(value);
+        return Promise.reject(value + '*');
+
+    }
+).catch(
+    reason => {
+        console.log(reason);
+        return Promise.resolve(reason + '*');
+    }
+).then(
+    value => {
+        console.log(value);
+        console.log('Promise end')
+    }
+)
+console.log('=========')
+```
+
+
+
 
 
