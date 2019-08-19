@@ -1,12 +1,23 @@
+---
+title: 数据分析
+
+categories:
+- 数据分析
+tags:
+- 数据分析
+
+---
+
+
 Pandas:最流行的Python数据分析库
 
 基于Numpy, 专用于数据预处理和数据分析的Python第三方库, 最适合处理大型结构化表格数据.
 
 Pandas两大数据类型
-```
-- Series
-- DataFrame
-```
+
+- Series: 一维
+- DataFrame: 二维
+
 Series数据类型
 
 ```
