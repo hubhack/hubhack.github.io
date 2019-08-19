@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="Yaml语言编程Yaml是专门用来写配置文件的语言, 非常简洁和强大.远比json格式方便. 一、简介YAML 语言（发音 /ˈjæməl/ ）的设计目标，就是方便人类读写。它实质上是一种通用的数据串行化格式。 它的基本语法规则如下。   大小写敏感 使用缩进表示层级关系 缩进时不允许使用Tab键，只允许使用空格。 缩进的空格数目不重要，只要相同层级的元素左侧对齐即可   # 表示注释，从这个字符">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-01T02:24:34.296Z">
+<meta property="og:updated_time" content="2019-07-12T14:12:06.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yaml语言">
 <meta name="twitter:description" content="Yaml语言编程Yaml是专门用来写配置文件的语言, 非常简洁和强大.远比json格式方便. 一、简介YAML 语言（发音 /ˈjæməl/ ）的设计目标，就是方便人类读写。它实质上是一种通用的数据串行化格式。 它的基本语法规则如下。   大小写敏感 使用缩进表示层级关系 缩进时不允许使用Tab键，只允许使用空格。 缩进的空格数目不重要，只要相同层级的元素左侧对齐即可   # 表示注释，从这个字符">
@@ -392,6 +392,22 @@
          
          
            <li>
+             <a href="/book/PyUnit单元测试/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/book/RabbitMQ/" title="RabbitMQ" target="_blank">RabbitMQ</a>
+           </li>
+         
+           <li>
+             <a href="/book/理解restful/" title="理解restful" target="_blank">理解restful</a>
+           </li>
+         
+           <li>
+             <a href="/book/部署/" title="python部署" target="_blank">python部署</a>
+           </li>
+         
+           <li>
              <a href="/book/理解js 的promise/" title="理解js中的promise" target="_blank">理解js中的promise</a>
            </li>
          
@@ -433,22 +449,6 @@
          
            <li>
              <a href="/book/深入理解计算机系统/" title="深入理解计算机系统" target="_blank">深入理解计算机系统</a>
-           </li>
-         
-           <li>
-             <a href="/book/深入浅出理解预处理器/" title="深入浅出理解预处理器" target="_blank">深入浅出理解预处理器</a>
-           </li>
-         
-           <li>
-             <a href="/book/正则表达式/" title="正则表达式" target="_blank">正则表达式</a>
-           </li>
-         
-           <li>
-             <a href="/book/方法/" title="魔术方法" target="_blank">魔术方法</a>
-           </li>
-         
-           <li>
-             <a href="/book/描述器/" title="描述器" target="_blank">描述器</a>
            </li>
          
        </ul>
@@ -835,7 +835,8 @@
 </blockquote>
 <p>从 JavaScript 对象还原到 yaml 文件的代码如下。</p>
 <blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> yaml = <span class="built_in">require</span>(<span class="string">'js-yaml'</span>);</span><br><span class="line">&gt; <span class="keyword">var</span> fs   = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">var</span> obj = &#123;</span><br><span class="line">&gt;   fn: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="number">1</span> &#125;,</span><br><span class="line">&gt;   reg: <span class="regexp">/test/</span></span><br><span class="line">&gt; &#125;;</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">try</span> &#123;</span><br><span class="line">&gt;   fs.writeFileSync(</span><br><span class="line">&gt;     <span class="string">'./example.yml'</span>,</span><br><span class="line">&gt;     yaml.dump(obj),</span><br><span class="line">&gt;     <span class="string">'utf8'</span></span><br><span class="line">&gt;   );</span><br><span class="line">&gt; &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">&gt;   <span class="built_in">console</span>.log(e);</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> yaml = <span class="built_in">require</span>(<span class="string">'js-yaml'</span>);</span><br><span class="line">&gt; <span class="keyword">var</span> fs   = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">var</span> obj = &#123;</span><br><span class="line">&gt;   fn: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="number">1</span> &#125;,</span><br><span class="line">&gt;   reg: <span class="regexp">/test/</span></span><br><span class="line">&gt; &#125;;</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">try</span> &#123;</span><br><span class="line">&gt;   fs.writeFileSync(</span><br><span class="line">&gt;     <span class="string">'./example.yml'</span>,</span><br><span class="line">&gt;     yaml.dump(obj),</span><br><span class="line">&gt;     <span class="string">'utf8'</span></span><br><span class="line">&gt;   );</span><br><span class="line">&gt; &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">&gt;   <span class="built_in">console</span>.log(e);</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
 
       
     </div>
@@ -884,7 +885,7 @@
   <li class="post-copyright-author">
     <strong>本文作者： </strong>mwq</li>
   <li>
-  <strong>修改时间： </strong>2019-07-01 10:24:34</li>
+  <strong>修改时间： </strong>2019-07-12 22:12:06</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     <a href="https://hubhack.github.io/book/Yaml语言编程/" title="yaml语言">https://hubhack.github.io/book/Yaml语言编程/</a>
@@ -1000,7 +1001,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1041,7 +1042,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1084,7 +1091,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
