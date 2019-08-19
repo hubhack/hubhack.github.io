@@ -12,3 +12,6 @@ push_all.bat
 push_hexo.bat
 themes/hexo-theme-next
 python-book - 快捷方式.lnk
+package-lock.json
+package-lock.json/
+db.json/
