@@ -9,4 +9,5 @@ hexo init blog
 cd blog
 npm install
 hexo server
-
+hexo -d -g
+```
