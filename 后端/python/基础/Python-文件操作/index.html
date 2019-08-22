@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.7.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicon-48.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/icons/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: true,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+<!--站长验证-->
+
+
+
+
+  <meta name="description" content="@TOC 文件操作冯诺依曼体系架构  CPU由运算器和控制器组成 运算器，完成各种算数运算、逻辑运算、数据传输等数据加工处理 控制器，控制计算机各部件协调运行 存储器，用于记忆程序和数据，例如内存 输入设备，将数据或者程序输入到计算机中，例如键盘、鼠标 输出设备，将数据或程序的处理结果展示给用户，例如显示器、打印机等一般说IO操作，指的是文件IO，如果指的是网络IO，都会直接说网络IO文件IO常用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="千分无言">
+<meta property="og:url" content="https://hubhack.github.io/后端/python/基础/Python-文件操作/index.html">
+<meta property="og:site_name" content="千分无言">
+<meta property="og:description" content="@TOC 文件操作冯诺依曼体系架构  CPU由运算器和控制器组成 运算器，完成各种算数运算、逻辑运算、数据传输等数据加工处理 控制器，控制计算机各部件协调运行 存储器，用于记忆程序和数据，例如内存 输入设备，将数据或者程序输入到计算机中，例如键盘、鼠标 输出设备，将数据或程序的处理结果展示给用户，例如显示器、打印机等一般说IO操作，指的是文件IO，如果指的是网络IO，都会直接说网络IO文件IO常用">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190427091513300.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190427091934524.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190427093330677.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190427094141925.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019042709395468.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190427093815910.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190427094259496.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190427100502491.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190427101032466.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190502165107715.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190502173052740.png">
+<meta property="og:updated_time" content="2019-08-19T01:39:28.619Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="千分无言">
+<meta name="twitter:description" content="@TOC 文件操作冯诺依曼体系架构  CPU由运算器和控制器组成 运算器，完成各种算数运算、逻辑运算、数据传输等数据加工处理 控制器，控制计算机各部件协调运行 存储器，用于记忆程序和数据，例如内存 输入设备，将数据或者程序输入到计算机中，例如键盘、鼠标 输出设备，将数据或程序的处理结果展示给用户，例如显示器、打印机等一般说IO操作，指的是文件IO，如果指的是网络IO，都会直接说网络IO文件IO常用">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190427091513300.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+
+
+
+
+  <link rel="canonical" href="https://hubhack.github.io/后端/python/基础/Python-文件操作/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | 千分无言</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxx";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">千分无言</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">人生苦短 我用python</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>我的首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rui-site">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://hubhack.github.io/python-book/" rel="section"><i class="menu-item-icon fa fa-fw fa-paper-plane"></i> <br>Python</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>博客分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-docs">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/docs/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>技术书库</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>文章标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br>关于作者</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>全站搜索</a>
+        </li>
+		
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result">
+    
+      <div style="text-align: center;padding: 3px 0 0;">
+       <div style="margin-top: 20px;font-size: 18px;font-weight: 600;border-bottom: 1px solid #ccc;">
+         <i class="fa fa-history" aria-hidden="true"></i>
+         近期文章
+       </div>
+       <ul style="margin: 0;padding: 0;list-style: none;">
+         
+         
+           <li>
+             <a href="/后端/python/基础/Python类型注解/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python算法---插入排序/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python的对象模型/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python生成器函数---yield、协程应用/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/python各种模块使用/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python匿名函数lambda/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python函数返回值作用域（闭包）/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python函数、参数、参数解构/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-装饰器的应用（命令分发器）/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-正则表达式（re模块）/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-正则表达式/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-树Tree/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-文件操作/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-反射/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python--魔术方法--上下文管理/" title target="_blank"></a>
+           </li>
+         
+       </ul>
+      </div>
+    
+  </div>
+</div>
+
+
+
+    </div>
+  
+
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/hubhack/hubhack.github.io" class="github-corner" target="_blank" title="万水千山总是情,给个star行不行！" aria-label="万水千山总是情,给个star行不行！"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/后端/python/基础/Python-文件操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mwq">
+      <meta itemprop="description" content="IT知识共享,与各位共同学习">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千分无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                <a href="https://github.com/hubhack/hubhack.github.io/tree/dev/source/_posts/后端/python/基础/Python-文件操作.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>@<a href>TOC</a></p>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><h2 id="冯诺依曼体系架构"><a href="#冯诺依曼体系架构" class="headerlink" title="冯诺依曼体系架构"></a>冯诺依曼体系架构</h2><p><img src="https://img-blog.csdnimg.cn/20190427091513300.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>CPU由运算器和控制器组成</li>
+<li>运算器，完成各种算数运算、逻辑运算、数据传输等数据加工处理</li>
+<li>控制器，控制计算机各部件协调运行</li>
+<li>存储器，用于记忆程序和数据，例如内存</li>
+<li>输入设备，将数据或者程序输入到计算机中，例如键盘、鼠标</li>
+<li>输出设备，将数据或程序的处理结果展示给用户，例如显示器、打印机等<br>一般说IO操作，指的是文件IO，如果指的是网络IO，都会直接说网络IO<h2 id="文件IO常用操作"><a href="#文件IO常用操作" class="headerlink" title="文件IO常用操作"></a>文件IO常用操作</h2><img src="https://img-blog.csdnimg.cn/20190427091934524.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="打开操作"><a href="#打开操作" class="headerlink" title="打开操作"></a>打开操作</h2>open(file, mode=’r’, buffering=-1, encoding=None, errors=None, newline=None, closefd= True, opener=None)</li>
+<li>打开一个文件，返回一个文件对象（流对象）和文件描述符。打开文件失败，则返回异常</li>
+<li><p>基本使用：<br>创建一个文件test，然后打开它，用完关闭</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">"tese"</span>) <span class="comment"># file对象</span></span><br><span class="line"><span class="comment"># windows &lt;_io.TextIOWrapper name='tese' mode='r' encoding='cp936'&gt;</span></span><br><span class="line"><span class="comment"># linux &lt;_io.TextIOWrapper name='tese' mode='r' encoding='UTF-8'&gt;</span></span><br><span class="line">print(f.read()) <span class="comment"># 读取文件</span></span><br><span class="line">f.close() <span class="comment"># 关闭文件</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文件操作中，最常用的操作就是 <strong>“读”</strong> 和 <strong>“写”</strong></p>
+</li>
+<li>文件访问的模式有两种：</li>
+<li>文本模式和二进制模式。不同模式下，操作函数不相同，表现的结果也不一样<br>注：</li>
+<li>windows中使用codepage代码页，可以认为每一个代码页就是一张编码表。cp936等同于GBK<h2 id="open的参数"><a href="#open的参数" class="headerlink" title="open的参数"></a>open的参数</h2></li>
+<li>file</li>
+<li>打开或者要创建的文件名。如果不指定路径，默认是当前路径</li>
+<li>mode模式<br><img src="https://img-blog.csdnimg.cn/20190427093330677.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在上面的例子中，可以看到默认是文本打开模式，且是只读的<h3 id="r-模式"><a href="#r-模式" class="headerlink" title="r 模式"></a>r 模式</h3></li>
+<li>只读打开文件，如果使用write方法，会抛异常</li>
+<li>如果文件不存在，抛出FileNotFoundError异常</li>
+<li>open模式是只读模式r打开已存在的文件<br><img src="https://img-blog.csdnimg.cn/20190427094141925.png" alt="在这里插入图片描述"><h3 id="w-模式"><a href="#w-模式" class="headerlink" title="w 模式"></a>w 模式</h3></li>
+<li>表示只写打开方式，如果读取则抛出异常</li>
+<li>如果文件不存在，则直接创建文件</li>
+<li>如果文件存在，则清空文件内容<br><img src="https://img-blog.csdnimg.cn/2019042709395468.png" alt="在这里插入图片描述"></li>
+</ul>
+<h3 id="x-模式"><a href="#x-模式" class="headerlink" title="x 模式"></a>x 模式</h3><ul>
+<li>文件不存在，创建文件，并只写方式打开</li>
+<li>文件存在，抛出FileExistsError异常<br><img src="https://img-blog.csdnimg.cn/20190427093815910.png" alt="在这里插入图片描述"><h3 id="a-模式"><a href="#a-模式" class="headerlink" title="a 模式"></a>a 模式</h3></li>
+<li>文件存在，只写打开，追加内容</li>
+<li>文件不存在，则创建后，只写打开，追加内容<br><img src="https://img-blog.csdnimg.cn/20190427094259496.png" alt="在这里插入图片描述"><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3></li>
+<li>r 是只读，wxa 都是只写</li>
+<li>wxa 模式都可以产生新文件<br>w 不管文件存在与否，都会生成全新内容的文件<br>a 不管文件是否存在，都能在打开的文件尾部追加<br>x 必须要求文件事先不存在，自己创建一个新文件<h2 id="文本模式-t"><a href="#文本模式-t" class="headerlink" title="文本模式 t"></a>文本模式 t</h2></li>
+<li>字符流，将文件的字节按照某种字符编码理解，按照字符操作。open的默认mode就是 rt<h2 id="二进制模式-b"><a href="#二进制模式-b" class="headerlink" title="二进制模式 b"></a>二进制模式 b</h2></li>
+<li>字节流，将文件就按照字节理解，与字符编码无关。二进制模式操作时，字节操作使用bytes类型<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">"test3"</span>,<span class="string">'rb'</span>) <span class="comment"># 二进制只读</span></span><br><span class="line">s = f.read()</span><br><span class="line">print(type(s)) <span class="comment"># bytes</span></span><br><span class="line">print(s)</span><br><span class="line">f.close() <span class="comment"># 关闭文件</span></span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"tese3"</span>,<span class="string">'wb'</span>) <span class="comment"># IO对象</span></span><br><span class="line">s = f.write(<span class="string">"你好"</span>.encode()) <span class="comment"># encode默认使用UTF-8编码，一个中文3个字节</span></span><br><span class="line">print(s) <span class="comment">#   6</span></span><br><span class="line">f.ckose()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="模式"><a href="#模式" class="headerlink" title="+ 模式"></a>+ 模式</h2><ul>
+<li>为r、w、a、x提供缺失的读或写功能，但是获取文件对象依旧按照r、w、a、x自己的特征</li>
+<li>+模式不能单独使用，可以认为它是为前面的模式字符做增强功能的<h2 id="文件指针"><a href="#文件指针" class="headerlink" title="文件指针"></a>文件指针</h2></li>
+<li>文件指针，指向当前字节位置</li>
+<li>mode=r，指针起始在0</li>
+<li>mode=a，指针起始在EOF</li>
+<li>tell()显示指针当前位置</li>
+<li>seek(offset[,whence])  移动文件指针位置。offest偏移多少字节，whence从哪里开始<h3 id="文本模式下"><a href="#文本模式下" class="headerlink" title="文本模式下"></a>文本模式下</h3>whence 0 缺省值，表示从头开始，offest只能正整数<br>whence 1 表示从当前位置，offest只接受0<br>whence 2 表示从EOF开始，offest只接受0<br><img src="https://img-blog.csdnimg.cn/20190427100502491.png" alt="在这里插入图片描述"></li>
+<li>文本模式支持从开头向后偏移的方式</li>
+<li>whence为1表示从当前位置开始偏移，但是只支持偏移0，相当于原地不动，所以没什么用</li>
+<li>whence为2表示从EOF开始，只支持偏移0，相当于移动文件指针到EOF</li>
+<li>seek是按照字节偏移的</li>
+<li>read在文本模式是按照字符读取的</li>
+</ul>
+<h3 id="二进制模式下"><a href="#二进制模式下" class="headerlink" title="二进制模式下"></a>二进制模式下</h3><p>whence 0 缺省值，表示从头开始，offest只能正整数<br>whence 1 表示从当前位置，offest可正可负<br>whence 2 表示从EOF开始，offest可正可负<br><img src="https://img-blog.csdnimg.cn/20190427101032466.png" alt="在这里插入图片描述"><br>二进制模式支持任意起点的便宜，从头、从尾、从中间位置开始<br>向后seek可以超界，但是向前seek的时候，不能超界，否则抛异常</p>
+<h2 id="buffering：缓冲区"><a href="#buffering：缓冲区" class="headerlink" title="buffering：缓冲区"></a>buffering：缓冲区</h2><ul>
+<li>-1表示使用缺省大小的buffer。如果是二进制模式，使用价格io.DEFAULT_BUFFER_SIZE值，默认是4096或者8192。如果是文本模式，如果是终端设备，实行缓存方式，如果不是，则使用二进制模式的策略</li>
+<li>0，只在二进制模式使用，表示关buffer</li>
+<li>1，只在文本模式使用，表示使用行缓冲。意思就是见到换行符就flush</li>
+<li>大于1，用于指定buffer的大小<h3 id="buffer缓冲区"><a href="#buffer缓冲区" class="headerlink" title="buffer缓冲区"></a>buffer缓冲区</h3></li>
+<li>缓冲区一个内存空间，一般来说是一个FIFO队列，到缓冲区满了或者达到阈值，数据才会flush到磁盘。<h4 id="fluch"><a href="#fluch" class="headerlink" title="fluch()"></a>fluch()</h4></li>
+<li>将缓冲区数据写入磁盘<h4 id="chlose"><a href="#chlose" class="headerlink" title="chlose()"></a>chlose()</h4></li>
+<li>关闭前会调用flush()</li>
+<li>io.DEFAULT_BUFFER_SIZE 缺省缓冲区大小，字节<h4 id="二进制模式"><a href="#二进制模式" class="headerlink" title="二进制模式"></a>二进制模式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'test'</span>,<span class="string">'w+b'</span>)</span><br><span class="line">print(io.DEFAULT_BUFFER_SIZE) <span class="comment"># 8192</span></span><br><span class="line">f.write(<span class="string">"hello"</span>.encode())</span><br><span class="line"><span class="comment"># cat test</span></span><br><span class="line">f.seek(<span class="number">0</span>) <span class="comment"># 指针回0</span></span><br><span class="line"><span class="comment"># cat test</span></span><br><span class="line">f.write(<span class="string">'python'</span>.encode())</span><br><span class="line">f.flush()</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'test'</span>,<span class="string">'w+b'</span>,<span class="number">4</span>) <span class="comment"># 缓冲区大小</span></span><br><span class="line">f.write(<span class="string">b'hello'</span>)</span><br><span class="line"><span class="comment"># cat test</span></span><br><span class="line">f.write(<span class="string">b'python'</span>)</span><br><span class="line"><span class="comment"># cat test</span></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="文本模式"><a href="#文本模式" class="headerlink" title="文本模式"></a>文本模式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io</span><br><span class="line"></span><br><span class="line"><span class="comment"># buffering=1，使用行缓冲</span></span><br><span class="line">f = open(<span class="string">'test'</span>,<span class="string">'w+'</span>,<span class="number">1</span>)</span><br><span class="line">f.write(<span class="string">'hello'</span>) <span class="comment"># cat test</span></span><br><span class="line">f.write(<span class="string">'python'</span>*<span class="number">4</span>) <span class="comment"># cat test</span></span><br><span class="line">f.write(<span class="string">'\n'</span>) <span class="comment"># cat test</span></span><br><span class="line">f.write(<span class="string">'hi\nPython'</span>) <span class="comment"># cat test</span></span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"><span class="comment">#buffering&gt;1，使用指定大小的缓冲区</span></span><br><span class="line">f = open(<span class="string">'test'</span>,<span class="string">'w+'</span>,<span class="number">15</span>)</span><br><span class="line">f.write(<span class="string">'hello'</span>) <span class="comment"># cat test</span></span><br><span class="line">f.write(<span class="string">'python'</span>) <span class="comment"># cat test</span></span><br><span class="line">f.write(<span class="string">'hi\n'</span>) <span class="comment"># cat test</span></span><br><span class="line">f.write(<span class="string">'\nPython'</span>) <span class="comment"># cat test</span></span><br><span class="line">f.write(<span class="string">'a'</span> * (io.DEFAULT_BUFFER_SIZE - <span class="number">20</span>)) <span class="comment"># 设置为大于1没什么用</span></span><br><span class="line">f.write(<span class="string">'\nhelloPython'</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>buffering=0</li>
+<li>这是一种特殊的二进制模式，不需要内存的buffer，可以看作是一个FIFO的文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'test'</span>,<span class="string">'wb+'</span>,<span class="number">0</span>)</span><br><span class="line">f.write(<span class="string">'hello'</span>) <span class="comment"># cat test</span></span><br><span class="line">f.write(<span class="string">'python'</span>*<span class="number">4</span>) <span class="comment"># cat test</span></span><br><span class="line">f.write(<span class="string">'\n'</span>) <span class="comment"># cat test</span></span><br><span class="line">f.write(<span class="string">'hi\nPython'</span>) <span class="comment"># cat test</span></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190502165107715.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ol>
+<li>文本模式，一般都用默认缓冲区大小</li>
+<li>二进制模式，是一个个字节的操作，可以指定buffer的大小</li>
+<li>一般来说，默认缓冲区大小是个比较好的选择，除非明确知道，否则不调整它</li>
+<li>一般编程中，明确知道需要写磁盘了，都会手动调用一次flush，而不是等到自动flush或者close的时候<h2 id="encoding：编码，仅文本模式使用"><a href="#encoding：编码，仅文本模式使用" class="headerlink" title="encoding：编码，仅文本模式使用"></a>encoding：编码，仅文本模式使用</h2></li>
+</ol>
+<ul>
+<li>None表示使用缺省编码，依赖操作系统。windows、linux下测试如下代码<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'test'</span>,<span class="string">'w'</span>)</span><br><span class="line">f.write(<span class="string">'啊'</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>windows下缺省GBK(0xB0A1)，linux下缺省UTF-8(0xE5 95 8A)</p>
+<h2 id="其他参数"><a href="#其他参数" class="headerlink" title="其他参数"></a>其他参数</h2><h3 id="errors"><a href="#errors" class="headerlink" title="errors"></a>errors</h3><ul>
+<li>什么样的编码错误将被捕获</li>
+<li>None和strict表示有编码错误将抛出ValueError异常；ignore表示忽略<h3 id="newline"><a href="#newline" class="headerlink" title="newline"></a>newline</h3></li>
+<li>文本模式中，换行的转换。可以用None、“空串、’\r’、’\n’、’\r\n’</li>
+<li>读时，None表示’\r’、’\n’、’\r\n’都被转换为’\n’；’’空串表示不会自动转换通用换行符；其它合法字符表示换行符就是指定字符，就会按照指定字符分行</li>
+<li>写时，None表示’\n’都会被替换为系统缺省行分割符os.linesep；’\n’或’’空串表示’\n’不替换；其它合法字符表示’\n’会被替换为指定的字符<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'/etc/test'</span>, <span class="string">'w'</span>)</span><br><span class="line"><span class="comment"># newline缺省为None，windows下会把\n替换为\r\n</span></span><br><span class="line">f.write(<span class="string">'python\rwww.python.org\nwww.baidu.com\r\npython3'</span>)</span><br><span class="line"><span class="comment"># 真正写入的是</span></span><br><span class="line"><span class="comment"># 'python\rwww.python.org\rwww.baidu.com\r\rpython3'</span></span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">newlines = [<span class="literal">None</span>, <span class="string">''</span>, <span class="string">'\n'</span>, <span class="string">'\r\n'</span>]</span><br><span class="line"><span class="keyword">for</span> nl <span class="keyword">in</span> newlines:</span><br><span class="line">    f = open(<span class="string">'/etc/test'</span>, newline=nl) <span class="comment"># 缺省替换所有换行符</span></span><br><span class="line">    print(f.readlines())</span><br><span class="line">    f.close()</span><br><span class="line"><span class="comment"># 运行结果如下</span></span><br><span class="line"><span class="comment"># ['python\n', 'www.python.org\n', 'www.baidu.con\n', '\n', 'python3']</span></span><br><span class="line"><span class="comment"># 常见换行符都替换为\n</span></span><br><span class="line"><span class="comment"># ['python\r', 'www.python.org\r\n', 'www.baidu.con\r', '\r\n', 'python3']</span></span><br><span class="line"><span class="comment"># ''表示什么都不做</span></span><br><span class="line"><span class="comment"># ['python\rwww.python.org\r\n', 'www.baidu.con\r\r\n', 'python3']</span></span><br><span class="line"><span class="comment">#  \n做作为换行符</span></span><br><span class="line"><span class="comment"># ['python\rwww.python.org\r\n', 'www.baidu.con\r\r\n', 'python3']</span></span><br><span class="line"><span class="comment"># \r\n作为换行符</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="closefd"><a href="#closefd" class="headerlink" title="closefd"></a>closefd</h3><ul>
+<li>表示文件描述符，True表示关闭它。False会在文件关闭后保持这个描述符。fileobj.fileno()查看<h2 id="read"><a href="#read" class="headerlink" title="read"></a>read</h2></li>
+<li>read(size=-1)</li>
+<li>size表示读取的多少个字符或字节；负数或者None表示读取到EOF<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'/etc/test'</span>, <span class="string">'r+'</span>)</span><br><span class="line">f.write(<span class="string">"hello"</span>)</span><br><span class="line">f.write(<span class="string">'\n'</span>)</span><br><span class="line">f.write(<span class="string">'你好'</span>)</span><br><span class="line">f.seek(<span class="number">0</span>)</span><br><span class="line">f.read(<span class="number">7</span>)</span><br><span class="line">f.close()</span><br><span class="line"><span class="comment"># 二进制</span></span><br><span class="line">f = open(<span class="string">'/etc/test'</span>, <span class="string">'rb+'</span>)</span><br><span class="line">f.read(<span class="number">7</span>)</span><br><span class="line">f.read(<span class="number">1</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="行读取"><a href="#行读取" class="headerlink" title="行读取"></a>行读取</h2><h3 id="readline-size-1"><a href="#readline-size-1" class="headerlink" title="readline(size=1)"></a>readline(size=1)</h3><ul>
+<li>一行行读取文件内容。size设置一次能读取行内几个字符或字节<h3 id="readlines-hint-1"><a href="#readlines-hint-1" class="headerlink" title="readlines(hint=-1)"></a>readlines(hint=-1)</h3></li>
+<li>读取所有行的列表。指定hint则返回指定的行数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按行迭代</span></span><br><span class="line">f = open(<span class="string">'test'</span>) <span class="comment"># 返回可迭代对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">	print(line.encode())</span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="write"><a href="#write" class="headerlink" title="write"></a>write</h2><ul>
+<li>write(s)，把字符串s写入到文件中并返回字符的个数</li>
+<li>writelines(lines)，将字符串列表写入文件<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'test'</span>, <span class="string">'w+'</span>）</span><br><span class="line"></span><br><span class="line">line = [<span class="string">'abc'</span>, <span class="string">'123\n'</span>, <span class="string">'hello'</span>] <span class="comment"># 提供换行符</span></span><br><span class="line">f.writelines(lines)</span><br><span class="line"></span><br><span class="line">f.seek(<span class="number">0</span>)</span><br><span class="line">print(f.read())</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="close"><a href="#close" class="headerlink" title="close"></a>close</h2><ul>
+<li>flush并关闭文件对象</li>
+<li>文件已经关闭，再次关闭没有任何效果<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><img src="https://img-blog.csdnimg.cn/20190502173052740.png" alt="在这里插入图片描述"><h2 id="上下文管理"><a href="#上下文管理" class="headerlink" title="上下文管理"></a>上下文管理</h2></li>
+<li>在Linux中，执行<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lst = []</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">2000</span>):</span><br><span class="line">	lst.append(open(<span class="string">'test'</span>))</span><br><span class="line"><span class="comment"># OSError: [Errno 24] Too many open files: 'test'</span></span><br><span class="line"></span><br><span class="line">print(len(lst))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="lsof：列出打开的文件"><a href="#lsof：列出打开的文件" class="headerlink" title="lsof：列出打开的文件"></a>lsof：列出打开的文件</h3><p>没有就# yum install lsof<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ps aux | grep python</span><br><span class="line">$ lsof -p <span class="number">9255</span> | grep test |wc <span class="number">-1</span></span><br><span class="line">$ ulimit -a</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>ps命令返回进程，grep处python进程ID</li>
+<li>lsof -p 进程号，列出该进程的所有文件描述符，grep出test文件的文件描述符，wc统计</li>
+<li>ulimit -a 查看所有限制。其中open files就是打开问价数的限制，默认1024<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> lst:</span><br><span class="line">	x.close()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>将文件一次关闭，然后就可以继续打开了。再看一次lsof<br>1、异常处理</p>
+<ul>
+<li><p>当出现异常的时候，拦截异常。但是，因为很多代码都可能出现OSError异常，还不好判断异常就是因为资源限制产生的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">'test'</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	f.writs(<span class="string">"abc"</span>) <span class="comment"># 文件只读，写入失败</span></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">	f.close() <span class="comment"># 这样才行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用finally可以保证打开的文件可以被关闭<br>2、上下文管理<br>一种的特殊语法，交给解释器去释放文件对象</p>
+<h3 id="上下文管理-1"><a href="#上下文管理-1" class="headerlink" title="上下文管理"></a>上下文管理</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> f</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'test'</span>) <span class="keyword">as</span> f:</span><br><span class="line">	f.write(<span class="string">'abc'</span>) <span class="comment"># 文件只读，写入失败</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#测试f是否关闭</span></span><br><span class="line">f1.closed</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于类似文件对象的IO对象，一般来说都需要在不使用的时候关闭、注销，以释放资源</p>
+</li>
+<li>IO被打开的时候，会获得一个文件描述符。计算机资源是有限的，所以操作系统都会做限制。就是为了保护计算机的资源不要被完全耗尽，计算资源是共享的，不是独占的</li>
+<li>一般情况下，除非特别明确的知道资源情况，否则不要提高资源的限制值来解决问题</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      
+
+
+    
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢支持 ！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="mwq 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+      </div>
+    
+
+    
+    
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/后端/python/基础/Python-反射/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/后端/python/基础/Python-树Tree/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="mwq">
+            
+              <p class="site-author-name" itemprop="name">mwq</p>
+              <p class="site-description motion-element" itemprop="description">IT知识共享,与各位共同学习</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+          
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://hubhack.github.io/python-book/" title="导航 &rarr; https://hubhack.github.io/python-book/"><i class="fa fa-fw fa-paper-plane"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hubhack" title="GitHub &rarr; https://github.com/hubhack" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:2329259856@qq.com" title="E-Mail &rarr; mailto:2329259856@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件操作"><span class="nav-number">1.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#冯诺依曼体系架构"><span class="nav-number">1.1.</span> <span class="nav-text">冯诺依曼体系架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件IO常用操作"><span class="nav-number">1.2.</span> <span class="nav-text">文件IO常用操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开操作"><span class="nav-number">1.3.</span> <span class="nav-text">打开操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#open的参数"><span class="nav-number">1.4.</span> <span class="nav-text">open的参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#r-模式"><span class="nav-number">1.4.1.</span> <span class="nav-text">r 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#w-模式"><span class="nav-number">1.4.2.</span> <span class="nav-text">w 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x-模式"><span class="nav-number">1.4.3.</span> <span class="nav-text">x 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-模式"><span class="nav-number">1.4.4.</span> <span class="nav-text">a 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.4.5.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本模式-t"><span class="nav-number">1.5.</span> <span class="nav-text">文本模式 t</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制模式-b"><span class="nav-number">1.6.</span> <span class="nav-text">二进制模式 b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式"><span class="nav-number">1.7.</span> <span class="nav-text">+ 模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件指针"><span class="nav-number">1.8.</span> <span class="nav-text">文件指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本模式下"><span class="nav-number">1.8.1.</span> <span class="nav-text">文本模式下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制模式下"><span class="nav-number">1.8.2.</span> <span class="nav-text">二进制模式下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#buffering：缓冲区"><span class="nav-number">1.9.</span> <span class="nav-text">buffering：缓冲区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#buffer缓冲区"><span class="nav-number">1.9.1.</span> <span class="nav-text">buffer缓冲区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#fluch"><span class="nav-number">1.9.1.1.</span> <span class="nav-text">fluch()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chlose"><span class="nav-number">1.9.1.2.</span> <span class="nav-text">chlose()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制模式"><span class="nav-number">1.9.1.3.</span> <span class="nav-text">二进制模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本模式"><span class="nav-number">1.9.1.4.</span> <span class="nav-text">文本模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#encoding：编码，仅文本模式使用"><span class="nav-number">1.10.</span> <span class="nav-text">encoding：编码，仅文本模式使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他参数"><span class="nav-number">1.11.</span> <span class="nav-text">其他参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#errors"><span class="nav-number">1.11.1.</span> <span class="nav-text">errors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newline"><span class="nav-number">1.11.2.</span> <span class="nav-text">newline</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#closefd"><span class="nav-number">1.11.3.</span> <span class="nav-text">closefd</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#read"><span class="nav-number">1.12.</span> <span class="nav-text">read</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行读取"><span class="nav-number">1.13.</span> <span class="nav-text">行读取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#readline-size-1"><span class="nav-number">1.13.1.</span> <span class="nav-text">readline(size=1)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#readlines-hint-1"><span class="nav-number">1.13.2.</span> <span class="nav-text">readlines(hint=-1)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#write"><span class="nav-number">1.14.</span> <span class="nav-text">write</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#close"><span class="nav-number">1.15.</span> <span class="nav-text">close</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">1.16.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文管理"><span class="nav-number">1.17.</span> <span class="nav-text">上下文管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lsof：列出打开的文件"><span class="nav-number">1.17.1.</span> <span class="nav-text">lsof：列出打开的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文管理-1"><span class="nav-number">1.17.2.</span> <span class="nav-text">上下文管理</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">Copyright &copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hubhack.&ensp;</span>
+  <span title="博客总字数"><i class="fa fa-edit"></i>&ensp;<span class="post-count"></span>字</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+<!--左下角公众号二维码-->
+<div class="weixin-box">
+  <div class="weixin-menu">
+    <div class="weixin-hover">
+      <div class="weixin-description">微信扫一扫，订阅本博客</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+  
+
+  
+<script>
+if ($('body').find('pre.mermaid').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      mermaid.initialize({
+        theme: 'forest',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 }
+      });
+    }
+  });
+}
+</script>
+
+
+  
+
+  
+
+  <!--Custom javascript for hubhack.cn-->
+
+<!--console.log-->
+<script type="text/javascript">
+  console.log("欢迎来到hubhack的博客");
+</script>
+
+<!--此处为建站时间 -->
+
+<script>
+  var now = new Date(); 
+  function createtime() { 
+      var grt= new Date("");
+      now.setTime(now.getTime()+250); 
+      days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+      if(String(hnum).length ==1 ){
+        hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+        mnum = "0" + mnum;
+      } 
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+        snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML =dnum+"&thinsp;天"; 
+      document.getElementById("times").innerHTML = hnum + "&thinsp;时" + mnum + "&thinsp;分" + snum + "&thinsp;秒"; 
+  } 
+setInterval("createtime()",250);
+</script>
+
+<!--知乎卡片链接-->
+<script type="text/javascript" src="/js/src/linkcard.js"></script>
+
+<!--夜间模式-->
+<script type="text/javascript" src="/js/src/night.js"></script>
+<div class="cover"></div>
+
+<!--崩溃欺骗-->
+<!--<script type="text/javascript" src="/js/src/crash_cheat.js"></script>-->
+
+<!--input特效-->
+<script src="/js/src/activate-power-mode.js"></script>
+<script>
+POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = false; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script>
+
+<!-- 鼠标点击特效 -->
+
+ <script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('manual', "#更多");
+  
+  </script>
+
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      
+        background-color: #1b1b1b;
+        color: #b0b0b0;
+        border: 1px solid #b0b0b0;
+        border-radius: 3px;
+      
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 9px;
+      top: 4px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1;
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.7.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicon-48.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/icons/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: true,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+<!--站长验证-->
+
+
+
+
+  <meta name="description" content="@toc 由来 Linux内核代码需要版本管理工具管理代码，2002年开始，使用的是BitMover公司的BitKeeper这个商用软件。但是Linux社区崇尚的是自由软件相悖。 2005年，Andrew Tridgell对BitKeeper的协议进行逆向工程，BitKeeper作者决定收回无偿使用授权。磋商无果，Linus又找不到合适的版本管理工具，决定自行开发分布式版本管理工具，一个月后，Li">
+<meta property="og:type" content="article">
+<meta property="og:title" content="千分无言">
+<meta property="og:url" content="https://hubhack.github.io/后端/python/基础/Python--GIT/index.html">
+<meta property="og:site_name" content="千分无言">
+<meta property="og:description" content="@toc 由来 Linux内核代码需要版本管理工具管理代码，2002年开始，使用的是BitMover公司的BitKeeper这个商用软件。但是Linux社区崇尚的是自由软件相悖。 2005年，Andrew Tridgell对BitKeeper的协议进行逆向工程，BitKeeper作者决定收回无偿使用授权。磋商无果，Linus又找不到合适的版本管理工具，决定自行开发分布式版本管理工具，一个月后，Li">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190604095730256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190604100511189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019060410081967.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190604100853871.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190604101202906.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190604102729923.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190604103320326.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190605083751500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019060508434049.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190605084816480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190607162802737.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190607160724181.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019060716290314.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190607162832888.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-08-19T01:36:10.948Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="千分无言">
+<meta name="twitter:description" content="@toc 由来 Linux内核代码需要版本管理工具管理代码，2002年开始，使用的是BitMover公司的BitKeeper这个商用软件。但是Linux社区崇尚的是自由软件相悖。 2005年，Andrew Tridgell对BitKeeper的协议进行逆向工程，BitKeeper作者决定收回无偿使用授权。磋商无果，Linus又找不到合适的版本管理工具，决定自行开发分布式版本管理工具，一个月后，Li">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190604095730256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+
+
+
+
+  <link rel="canonical" href="https://hubhack.github.io/后端/python/基础/Python--GIT/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title> | 千分无言</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxx";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">千分无言</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">人生苦短 我用python</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>我的首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rui-site">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://hubhack.github.io/python-book/" rel="section"><i class="menu-item-icon fa fa-fw fa-paper-plane"></i> <br>Python</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>博客分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-docs">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/docs/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>技术书库</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>文章标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br>关于作者</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>全站搜索</a>
+        </li>
+		
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result">
+    
+      <div style="text-align: center;padding: 3px 0 0;">
+       <div style="margin-top: 20px;font-size: 18px;font-weight: 600;border-bottom: 1px solid #ccc;">
+         <i class="fa fa-history" aria-hidden="true"></i>
+         近期文章
+       </div>
+       <ul style="margin: 0;padding: 0;list-style: none;">
+         
+         
+           <li>
+             <a href="/后端/python/基础/Python类型注解/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python算法---插入排序/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python的对象模型/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python生成器函数---yield、协程应用/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/python各种模块使用/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python匿名函数lambda/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python函数返回值作用域（闭包）/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python函数、参数、参数解构/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-装饰器的应用（命令分发器）/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-正则表达式（re模块）/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-正则表达式/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-树Tree/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-文件操作/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-反射/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python--魔术方法--上下文管理/" title target="_blank"></a>
+           </li>
+         
+       </ul>
+      </div>
+    
+  </div>
+</div>
+
+
+
+    </div>
+  
+
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/hubhack/hubhack.github.io" class="github-corner" target="_blank" title="万水千山总是情,给个star行不行！" aria-label="万水千山总是情,给个star行不行！"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/后端/python/基础/Python--GIT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mwq">
+      <meta itemprop="description" content="IT知识共享,与各位共同学习">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千分无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                <a href="https://github.com/hubhack/hubhack.github.io/tree/dev/source/_posts/后端/python/基础/Python--GIT.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>@<a href="GIT">toc</a></p>
+<h1 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h1><ul>
+<li>Linux内核代码需要版本管理工具管理代码，2002年开始，使用的是BitMover公司的BitKeeper这个商用软件。但是Linux社区崇尚的是自由软件相悖。</li>
+<li>2005年，Andrew Tridgell对BitKeeper的协议进行逆向工程，BitKeeper作者决定收回无偿使用授权。磋商无果，Linus又找不到合适的版本管理工具，决定自行开发分布式版本管理工具，一个月后，Linux内核代码被Git接管。</li>
+<li>2008年，基于WEB使用Git进行版本控制的软件托管服务的网站GitHub上线。</li>
+<li>2016年5月9日，11年后，BitKeeper开源，发布在了GitHub上。</li>
+<li>2018年6月4日，微软宣布，通过75亿美元的股票交易收购代码托管平台GitHub。<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a><br>下载对应操作系统的Git客户端版本<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2>从RHEL上安装非常简单<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install git</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><p>下载对应的32位或者64版本，点击安装即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git --version 查看版本号</span><br></pre></td></tr></table></figure></p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p><img src="https://img-blog.csdnimg.cn/20190604095730256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>|名称|  |<br>|:–|:–|<br>|Repository 仓库、版本库|git初始化后，会在当前目录生成一个<code>.git</code>目录，这就是版本库|<br>|Workspace工作空间、工作区|<code>.git</code>文件所在的目录就是工作区，一般是项目的根目录|<br>|index索引|介于工作区和版本库之间，暂存修改的|<br>|remote 远程版本库|网络上的另一个版本库，暂存修改的|</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="初始化一个版本库"><a href="#初始化一个版本库" class="headerlink" title="初始化一个版本库"></a>初始化一个版本库</h2><p><code>$ git init</code><br><img src="https://img-blog.csdnimg.cn/20190604100511189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>在当前目录中增加了一个<code>.git</code>目录,不要自行修改这个目录里面的文件</li>
+<li>当前目录一般是项目的根目录<h2 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h2></li>
+<li>创建一个html文件</li>
+<li><code>$ echo &#39;&lt;html&gt;&lt;head&gt;&lt;title&gt;test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;My Website&lt;/body&gt;&lt;/html&gt;&#39; &gt; index.html</code><br><img src="https://img-blog.csdnimg.cn/2019060410081967.png" alt="在这里插入图片描述"><h2 id="查看状态-git-status"><a href="#查看状态-git-status" class="headerlink" title="查看状态 git status"></a>查看状态 git status</h2></li>
+<li><code>-s, -short</code>短格式输出，<code>git status -s</code><img src="https://img-blog.csdnimg.cn/20190604100853871.png" alt="在这里插入图片描述"><br>可看到当前有一个刚创建的文件为红色，需将跟踪文件使用<code>add</code>命令添加到暂存区<code>index</code>，给git管理</li>
+</ul>
+<h2 id="添加-add"><a href="#添加-add" class="headerlink" title="添加 add"></a>添加 add</h2><ul>
+<li>单个文件添加 <code>git add file</code><br>这一步是把文件的==当前变化==添加到索引中，也就是以后这个文件需要版本库来跟踪管理，注意这不是提交。<br>此时，文件还可以继续修改，还可以添加新的被跟踪文件，一定要add才能把这些改变加入到索引中<br><img src="https://img-blog.csdnimg.cn/20190604101202906.png" alt="在这里插入图片描述"></li>
+<li>批量添加 <code>git add .</code><br><code>.</code>点号，代表当前目录,这条命令将==递归==添加当前目录及其子目录所有文件<br>只要是目录，就会递归添加改目录下的文件和子目录<h2 id="提交代码-git-commit"><a href="#提交代码-git-commit" class="headerlink" title="提交代码 git commit"></a>提交代码 git commit</h2></li>
+<li>命令行方式提交 <code>git commit -m &quot;explain&quot;</code><br><img src="https://img-blog.csdnimg.cn/20190604102729923.png" alt="在这里插入图片描述"></li>
+<li>可视化界面提交 <code>git commit file</code><br><img src="https://img-blog.csdnimg.cn/20190604103320326.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>操作如同Linux，<code>i</code>为输出，<code>wq</code>为保存退出<br>在红色区域输出提交时的说明，需描述本次提交改动了什么文件，什么内容。<h2 id="修改后再次提交"><a href="#修改后再次提交" class="headerlink" title="修改后再次提交"></a>修改后再次提交</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ sed -i -r <span class="string">'s@(&lt;body&gt;)(.*)(&lt;/body&gt;)@\1Welcome to \2\3@'</span> index.htm</span><br><span class="line"></span><br><span class="line">$ git status</span><br><span class="line"><span class="comment"># On branch master</span></span><br><span class="line"><span class="comment"># Changed but not updated:</span></span><br><span class="line"><span class="comment"># (use "git add &lt;file&gt;..." to update what will be committed)</span></span><br><span class="line"><span class="comment"># (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># modified: index.htm</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">no changes added to commit (use <span class="string">"git add"</span> <span class="keyword">and</span>/<span class="keyword">or</span> <span class="string">"git commit -a"</span>)</span><br><span class="line">$ git commit -m <span class="string">"Second Commit"</span></span><br><span class="line"><span class="comment"># On branch master</span></span><br><span class="line"><span class="comment"># Changed but not updated:</span></span><br><span class="line"><span class="comment"># (use "git add &lt;file&gt;..." to update what will be committed)</span></span><br><span class="line"><span class="comment"># (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># modified: index.htm</span></span><br><span class="line">no changes added to commit (use <span class="string">"git add"</span> <span class="keyword">and</span>/<span class="keyword">or</span> <span class="string">"git commit -a"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>看上面的信息，commit之后发现，变动的文件<code>index.htm</code>并没有提交<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ git add index.htm</span><br><span class="line"></span><br><span class="line">$ git commit -m <span class="string">"Second Commit"</span></span><br><span class="line">[master b22f4a1] Second Commit</span><br><span class="line">Committer: python &lt;python@nodex.(none)&gt;</span><br><span class="line">Your name <span class="keyword">and</span> email address were configured automatically based</span><br><span class="line">on your username <span class="keyword">and</span> hostname. Please check that they are accurate.</span><br><span class="line">You can suppress this message by setting them explicitly:</span><br><span class="line"></span><br><span class="line">git config --<span class="keyword">global</span> user.name <span class="string">"Your Name"</span></span><br><span class="line">git config --<span class="keyword">global</span> user.email you@example.com</span><br><span class="line"></span><br><span class="line">If the identity used <span class="keyword">for</span> this commit <span class="keyword">is</span> wrong, you can fix it <span class="keyword">with</span>:</span><br><span class="line"></span><br><span class="line">git commit --amend --author=<span class="string">'Your Name &lt;you@example.com&gt;'</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> files changed, <span class="number">1</span> insertions(+), <span class="number">1</span> deletions(-)</span><br></pre></td></tr></table></figure></p>
+<p>提交成功</p>
+<h2 id="Git的文件分类"><a href="#Git的文件分类" class="headerlink" title="Git的文件分类"></a>Git的文件分类</h2><ul>
+<li>追踪的Tracked，已经加入版本库的文件</li>
+<li>未追踪的Untracked，未加入到版本库的未被管理的文件</li>
+<li>忽略的Ignored，git不再关注的文件，例如一些临时文件</li>
+</ul>
+<p><code>.gitignore</code>文件中，目录以<code>/</code>结尾，行起始的<code>!</code>的是取反</p>
+<ul>
+<li><code>.gitignore</code>内容如下<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*.ipynb</span><br><span class="line">__pycache__/</span><br><span class="line">.python-version</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>忽略文件不需要自己写Python的已经有写好的<a href="https://github.com/github/gitignore/blob/master/Python.gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore/blob/master/Python.gitignore</a><br><code>$ wget -O .gitignore https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore</code><br>其他语言的在这里找<code>https://github.com/github/gitignore</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line"><span class="comment"># On branch master</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Initial commit</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Changes to be committed:</span></span><br><span class="line"><span class="comment"># (use "git rm --cached &lt;file&gt;..." to unstage)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># new file: index.htm</span></span><br><span class="line"><span class="comment">#</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="文件的生命周期"><a href="#文件的生命周期" class="headerlink" title="文件的生命周期"></a>文件的生命周期</h2><p><img src="https://img-blog.csdnimg.cn/20190605083751500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>文件add后，就成为可跟踪文件的未修改状态unmodified，修改后，文件就变成modified状态。</li>
+<li>再次add后，将变化提交到索引，状态变为staged，这才能提交。提交成功，文件状态从staged变回unmodified。<h2 id="git的提交"><a href="#git的提交" class="headerlink" title="git的提交"></a>git的提交</h2></li>
+<li>git的提交分为两个步骤：<ul>
+<li>暂存变更：<br>add作用是把新文件或者文件新的改动添加到一个暂存区stage，也就是加入到index中</li>
+<li>提交变更：<br>commit提交的是暂存区中的改动，而不是物理文件目前的改动，提交到当前分支，默认是master分支也可以使用下面命令，将两步合成一步<br><code>$ git commit index.htm</code></li>
+<li>如果改动了一批文件，一个个写名字很麻烦，使用下面的命令<br><code>$ git commit -a</code><br>-a，–all 会把所有跟踪的文件的改动自动暂存，然后commit。上面命令未提交message，会出现一个类似vi命令的操作界面，需要编写message之后，才行。<br>也可以使用下面的命令，把message信息一并填写了。<br><code>$ git commit -a -m &quot;message&quot;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="补增"><a href="#补增" class="headerlink" title="补增"></a>补增</h2><p>第二次提交后，忘记加入一个文件about.htm<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ touch about.htm</span><br><span class="line">$ git add about.htm</span><br><span class="line">$ git commit --amend</span><br><span class="line">[master <span class="number">40</span>dcd33] Second Commit amend</span><br><span class="line">	Committer: python &lt;python@nodex.(none)&gt;</span><br><span class="line">Your name <span class="keyword">and</span> email address were configured automatically based</span><br><span class="line">on your username <span class="keyword">and</span> hostname. Please check that they are accurate.</span><br><span class="line">You can suppress this message by setting them explicitly:</span><br><span class="line"></span><br><span class="line">	git config --<span class="keyword">global</span> user.name <span class="string">"Your Name"</span></span><br><span class="line">	git config --<span class="keyword">global</span> user.email you@example.com</span><br><span class="line"></span><br><span class="line">If the identity used <span class="keyword">for</span> this commit <span class="keyword">is</span> wrong, you can fix it <span class="keyword">with</span>:</span><br><span class="line"></span><br><span class="line">	git commit --amend --author=<span class="string">'Your Name &lt;you@example.com&gt;'</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span> files changed, <span class="number">1</span> insertions(+), <span class="number">1</span> deletions(-)</span><br><span class="line">create mode <span class="number">100644</span> about.htm</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>--amend</code> 修改，通过创建一个新的commit来replace当前分支的顶部。<br>也可以在命令中继续使用-m选项直接提交message。</li>
+<li><code>git log</code> 查看一下版本库里面提交的历史记录<h2 id="diff-比较"><a href="#diff-比较" class="headerlink" title="diff 比较"></a>diff 比较</h2><code>git diff</code> 查看被跟踪文件未暂存的修改，比较暂存区和工作区<br><code>git diff --cached</code> 查看被跟踪文件暂存的修改，比较暂存区和上一次commit的差异<br><code>git diff HEAD</code> ，查看被跟踪文件，比较工作区和上一次commit的差异。HEAD指代最后一次commit<br><img src="https://img-blog.csdnimg.cn/2019060508434049.png" alt="在这里插入图片描述"><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">$ echo <span class="string">"welcome about"</span> &gt; about.htm</span><br><span class="line"></span><br><span class="line"><span class="comment"># modified状态</span></span><br><span class="line">$ git diff</span><br><span class="line">diff --git a/about.htm b/about.htm</span><br><span class="line">index e69de29.<span class="number">.621</span>ec3a <span class="number">100644</span></span><br><span class="line">--- a/about.htm</span><br><span class="line">+++ b/about.htm</span><br><span class="line"><span class="meta">@@ -0,0 +1 @@</span></span><br><span class="line">+welcome about</span><br><span class="line">$ git add about.htm</span><br><span class="line"></span><br><span class="line"><span class="comment"># staged状态</span></span><br><span class="line">$ git diff</span><br><span class="line">$ git diff --cached</span><br><span class="line">diff --git a/about.htm b/about.htm</span><br><span class="line">index e69de29.<span class="number">.621</span>ec3a <span class="number">100644</span></span><br><span class="line">--- a/about.htm</span><br><span class="line">+++ b/about.htm</span><br><span class="line"><span class="meta">@@ -0,0 +1 @@</span></span><br><span class="line">+welcome about</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改about.htm为如下内容</span></span><br><span class="line">$ cat about.htm</span><br><span class="line">&lt;html&gt;</span><br><span class="line"> welcome about</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">$ git diff</span><br><span class="line">diff --git a/about.htm b/about.htm</span><br><span class="line">index <span class="number">621</span>ec3a.<span class="number">.5</span>a99d50 <span class="number">100644</span></span><br><span class="line">--- a/about.htm</span><br><span class="line">+++ b/about.htm</span><br><span class="line"><span class="meta">@@ -1 +1,3 @@</span></span><br><span class="line">+&lt;html&gt;</span><br><span class="line">welcome about</span><br><span class="line">+&lt;/html&gt;</span><br><span class="line">$ git diff --cached</span><br><span class="line">diff --git a/about.htm b/about.htm</span><br><span class="line">index e69de29.<span class="number">.621</span>ec3a <span class="number">100644</span></span><br><span class="line">--- a/about.htm</span><br><span class="line">+++ b/about.htm</span><br><span class="line"><span class="meta">@@ -0,0 +1 @@</span></span><br><span class="line">+welcome about</span><br><span class="line"></span><br><span class="line">$ git diff HEAD</span><br><span class="line">diff --git a/about.htm b/about.htm</span><br><span class="line">index e69de29.<span class="number">.5</span>a99d50 <span class="number">100644</span></span><br><span class="line">--- a/about.htm</span><br><span class="line">+++ b/about.htm</span><br><span class="line"><span class="meta">@@ -0,0 +1,3 @@</span></span><br><span class="line">+&lt;html&gt;</span><br><span class="line">+welcome about</span><br><span class="line">+&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><ul>
+<li>HEAD可以看做是一个游标，一般是指向当前分支最后一次提交。</li>
+<li>HEAD的值存储在.git/HEAD中。</li>
+<li><code>HEAD</code>，指代最后一次commit</li>
+<li><code>HEAD^</code>，指代上一次提交</li>
+<li><code>HEAD^^</code>，指代上上一次提交</li>
+<li>上n次提交，表示为<code>HEAD~n</code><br><img src="https://img-blog.csdnimg.cn/20190605084816480.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="检查和重置"><a href="#检查和重置" class="headerlink" title="检查和重置"></a>检查和重置</h2></li>
+<li><code>checkout</code> 用于切换分支，或恢复工作区文件。<br>==注意==：checkout会重写工作区，这个命令还是较为危险的</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>git checkout</code></td>
+<td style="text-align:left">列出暂存区可以被检出的文件</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git checkout file</code></td>
+<td style="text-align:left">从暂存区检出文件到工作区，就是覆盖工作区文件，可指定检出的文件。但是不清除stage</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git checkout commit file</code></td>
+<td style="text-align:left">检出某个commit的指定文件到暂存区和工作区</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git checkout .</code></td>
+<td style="text-align:left">检出暂存区的所有文件到工作区</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ echo &gt; about.htm <span class="comment"># 清除工作区文件内容</span></span><br><span class="line">$ git checkout about.htm <span class="comment"># 从暂存区检出到工作区，工作区文件有了内容</span></span><br><span class="line">$ git checkout HEAD about.htm <span class="comment"># 使用当前分支的最后一次commit检出覆盖暂存区和工作区</span></span><br><span class="line"><span class="comment"># 下面3条命令结果一致了</span></span><br><span class="line">$ git diff</span><br><span class="line">$ git diff --cached</span><br><span class="line">$ git diff HEAD</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>git reset</code></td>
+<td style="text-align:left">列出将被reset的文件</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git reset file</code></td>
+<td style="text-align:left">重置文件的暂存区，和上一次commit一致，工作区不影响</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git reset --hard</code></td>
+<td style="text-align:left">重置暂存区与工作区，与上一次commit保持一致</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ echo <span class="string">"&lt;html&gt;Welcome about&lt;/html&gt;"</span> &gt; about.htm</span><br><span class="line">$ git add about.htm <span class="comment"># 添加到暂存区</span></span><br><span class="line">$ git reset about.htm <span class="comment"># 使用最后一次提交覆盖暂存区</span></span><br><span class="line">$ cat about.htm <span class="comment"># 工作区文件有内容</span></span><br><span class="line">$ git add about.htm <span class="comment"># 添加到暂存区</span></span><br><span class="line">$ git reset --hard <span class="comment"># 重置暂存区与工作区为上一次commit</span></span><br><span class="line">$ cat about.htm <span class="comment"># 工作区文件无内容</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>git reflog</code></td>
+<td style="text-align:left">显示commit的信息，只要HEAD发生变化，就可以在这里看到</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git reset commit</code></td>
+<td style="text-align:left">重置当前分支的HEAD为指定commit，同时重置暂存区，但工作区不变</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git reset --hard [commit]</code></td>
+<td style="text-align:left">重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git reset --keep [commit]</code></td>
+<td style="text-align:left">重置当前HEAD为指定commit，但保持暂存区和工作区不变</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改并提交2个文件</span></span><br><span class="line">$ echo <span class="string">"&lt;html&gt;Welcom about&lt;/html&gt;"</span> &gt; about.htm</span><br><span class="line">$ sed -i -r <span class="string">'s@(&lt;body&gt;)(.*)(&lt;/body&gt;)@\1\2&lt;br&gt;www.magedu.com\3@'</span> index.htm</span><br><span class="line">$ git commit -a -m <span class="string">"Third Commit"</span></span><br><span class="line">[master cf914d1] Third Commit</span><br><span class="line"><span class="number">2</span> files changed, <span class="number">2</span> insertions(+), <span class="number">1</span> deletions(-)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置，使用hash值只要能唯一确定一个commit就行</span></span><br><span class="line">$ git reset --hard feccd8843</span><br><span class="line">HEAD <span class="keyword">is</span> now at feccd88 First Commit</span><br><span class="line">$ cat index.htm</span><br><span class="line">&lt;html&gt;&lt;head&gt;&lt;title&gt;test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;My Website&lt;/body&gt;&lt;/html&gt;</span><br><span class="line">$ git reflog</span><br><span class="line">feccd88 HEAD@&#123;<span class="number">0</span>&#125;: feccd8843: updating HEAD</span><br><span class="line">cf914d1 HEAD@&#123;<span class="number">1</span>&#125;: commit: Third Commit</span><br><span class="line"><span class="number">3</span>f330fb HEAD@&#123;<span class="number">2</span>&#125;: commit (amend): Second commit amend</span><br><span class="line"><span class="number">7</span>f238b5 HEAD@&#123;<span class="number">3</span>&#125;: commit: Second commit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 再次重置</span></span><br><span class="line">$ git reset --hard cf914d1</span><br><span class="line">$ cat index.htm</span><br><span class="line">&lt;html&gt;&lt;head&gt;&lt;title&gt;test&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Welcome to My Website&lt;br&gt;www.magedu.com&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>==reset操作，要慎重==</p>
+<h2 id="移动和删除"><a href="#移动和删除" class="headerlink" title="移动和删除"></a>移动和删除</h2><ul>
+<li><code>git mv src dest</code> 改名，直接把改名的改动放入暂存区</li>
+<li><code>git rm file</code> 会同时在版本库和工作目录中删除文件，真删除</li>
+<li><code>git rm --cached file</code> 将文件从暂存转成未暂存，从版本库中删除，但不删除工作目录的该文件，即文件恢复成不追踪的状态</li>
+<li>以上都算是改动，必须<code>commit</code>才算真改动<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">$ echo <span class="string">"Python"</span> &gt; python.htm</span><br><span class="line"></span><br><span class="line">$ git add python.htm</span><br><span class="line">$ git commit -m <span class="string">"add python"</span></span><br><span class="line">[master d2bc7d4] add python</span><br><span class="line"> Committer: python &lt;python@nodex.(none)&gt;</span><br><span class="line"> <span class="number">1</span> files changed, <span class="number">1</span> insertions(+), <span class="number">0</span> deletions(-)</span><br><span class="line"> create mode <span class="number">100644</span> python.htm</span><br><span class="line"></span><br><span class="line"><span class="comment"># MV</span></span><br><span class="line">$ git mv python.htm python.py</span><br><span class="line">$ git commit -m <span class="string">"mv python"</span></span><br><span class="line">[master <span class="number">62</span>c16ae] mv python</span><br><span class="line"> Committer: python &lt;python@nodex.(none)&gt;</span><br><span class="line"> <span class="number">1</span> files changed, <span class="number">0</span> insertions(+), <span class="number">0</span> deletions(-)</span><br><span class="line"> rename python.htm =&gt; python.py (100%)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 git rm --cached file</span></span><br><span class="line">$ echo <span class="string">"print('Hello Python')"</span> &gt; python.py</span><br><span class="line">$ git add python.py</span><br><span class="line">$ git diff --cached</span><br><span class="line">diff --git a/python.py b/python.py</span><br><span class="line">index <span class="number">46</span>c5d2c..f80df4f <span class="number">100644</span></span><br><span class="line">--- a/python.py</span><br><span class="line">+++ b/python.py</span><br><span class="line"><span class="meta">@@ -1 +1 @@</span></span><br><span class="line">-Python</span><br><span class="line">+print(<span class="string">'Hello Python'</span>)</span><br><span class="line"></span><br><span class="line">$ git rm --cached python.py</span><br><span class="line">rm <span class="string">'python.py'</span></span><br><span class="line"></span><br><span class="line">$ git diff --cached</span><br><span class="line">diff --git a/python.py b/python.py</span><br><span class="line">deleted file mode <span class="number">100644</span></span><br><span class="line">index <span class="number">46</span>c5d2c.<span class="number">.0000000</span></span><br><span class="line">--- a/python.py</span><br><span class="line">+++ /dev/null</span><br><span class="line"><span class="meta">@@ -1 +0,0 @@</span></span><br><span class="line">-Python</span><br><span class="line"></span><br><span class="line">$ git commit -m <span class="string">'delete python'</span></span><br><span class="line">[master <span class="number">891</span>c9a9] delete python</span><br><span class="line"> Committer: python &lt;python@nodex.(none)&gt;</span><br><span class="line"> <span class="number">1</span> files changed, <span class="number">0</span> insertions(+), <span class="number">1</span> deletions(-)</span><br><span class="line"> delete mode <span class="number">100644</span> python.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># ls 看到文件还在，文件没有删除</span></span><br><span class="line">$ ls</span><br><span class="line">about.htm __pycache__ Untitled1.ipynb</span><br><span class="line">index.htm python.py Untitled.ipynb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 但是文件已经变成了未跟踪的状态</span></span><br><span class="line">$ git status</span><br><span class="line"><span class="comment"># On branch master</span></span><br><span class="line"><span class="comment"># Untracked files:</span></span><br><span class="line"><span class="comment"># (use "git add &lt;file&gt;..." to include in what will be committed)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># python.py</span></span><br><span class="line">nothing added to commit but untracked files present (use <span class="string">"git add"</span> to track)</span><br><span class="line"><span class="comment"># 文件还在，内容依然是最后修改的</span></span><br><span class="line">$ cat python.py</span><br><span class="line">print(<span class="string">'Hello Python'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除 git rm file</span></span><br><span class="line">$ git add python.py</span><br><span class="line">$ git commit -m <span class="string">'add python again'</span></span><br><span class="line">[master <span class="number">5</span>a09fe9] add python again</span><br><span class="line"> Committer: python &lt;python@nodex.(none)&gt;</span><br><span class="line"> <span class="number">1</span> files changed, <span class="number">1</span> insertions(+), <span class="number">0</span> deletions(-)</span><br><span class="line"> create mode <span class="number">100644</span> python.py</span><br><span class="line"></span><br><span class="line">$ git rm python.py</span><br><span class="line">rm <span class="string">'python.py'</span></span><br><span class="line">$ git commit -m <span class="string">"delete python again"</span></span><br><span class="line">[master <span class="number">3</span>a0be16] delete python again</span><br><span class="line"> Committer: python &lt;python@nodex.(none)&gt;</span><br><span class="line"> <span class="number">1</span> files changed, <span class="number">0</span> insertions(+), <span class="number">1</span> deletions(-)</span><br><span class="line"> delete mode <span class="number">100644</span> python.py</span><br><span class="line"><span class="comment"># 工作区文件没有了，真删除了</span></span><br><span class="line">$ ls python.py</span><br><span class="line">ls: cannot access python.py: No such file <span class="keyword">or</span> directory</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="配置本地用户名和邮箱"><a href="#配置本地用户名和邮箱" class="headerlink" title="配置本地用户名和邮箱"></a>配置本地用户名和邮箱</h2><ul>
+<li>这是个好习惯，建议这时候一定要加上<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ git config --<span class="keyword">global</span> user.name <span class="string">"my"</span></span><br><span class="line">$ git config --<span class="keyword">global</span> user.email <span class="string">"my@163.com"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这些内容对应~/.gitconfig文件，是 用户级别 的配置文件</span></span><br><span class="line">$ cat ~/.gitconfig</span><br><span class="line">[user]</span><br><span class="line">	name = my</span><br><span class="line">	email = my@<span class="number">163.</span>com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 命令显示</span></span><br><span class="line">$ git config --<span class="keyword">global</span> user.name</span><br><span class="line">$ git config --<span class="keyword">global</span> user.email</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="push到服务器"><a href="#push到服务器" class="headerlink" title="push到服务器"></a>push到服务器</h2><p>本地搭建了一个github私服，模拟GitHub<br><a href="http://192.168.112.135:3000/my/test.git" target="_blank" rel="noopener">http://192.168.112.135:3000/my/test.git</a></p>
+<ul>
+<li>关联远程版本库<br><code>git remote</code> 列出所有远程仓库<br><code>git remote -v</code> 详细列出所有远程仓库<br><code>git remote add [shortname] [url]</code> 指定一个名称指向远程仓库<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin http://my@<span class="number">192.168</span><span class="number">.142</span><span class="number">.135</span>:<span class="number">3000</span>/my/test.git</span><br><span class="line">$ cat .git/config</span><br><span class="line">[core]</span><br><span class="line">	repositoryformatversion = <span class="number">0</span></span><br><span class="line">	filemode = true</span><br><span class="line">	bare = false</span><br><span class="line">	logallrefupdates = true</span><br><span class="line">[remote <span class="string">"origin"</span>]</span><br><span class="line">	url = http://my@<span class="number">192.168</span><span class="number">.142</span><span class="number">.135</span>:<span class="number">3000</span>/my/test.git</span><br><span class="line">	fetch = +refs/heads/*:refs/remotes/origin/*</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>远程版本库名origin，这是个习惯用法，将建立origin和后面url的映射，这些信息保存在.git/config文件的新的段[remote “origin”] 中<br>注意： <a href="http://my@192.168.112.135:3000/my/test.git" target="_blank" rel="noopener">http://my@192.168.112.135:3000/my/test.git</a> 加上用户名，否则push会报401</p>
+<ul>
+<li><code>git config --system</code> 在/etc/gitconfig 文件中读写配置</li>
+<li><code>git config --global</code> 在 ~/.gitconfig 文件中读写配置</li>
+<li><code>.git/config</code> 这个文件是 版本库级别 设置文件，这里的设置具有最高优先级</li>
+</ul>
+<p>推送数据<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master </span><br><span class="line">Password: </span><br><span class="line">Counting objects: <span class="number">7</span>, done. </span><br><span class="line">Delta compression using up to <span class="number">2</span> threads. </span><br><span class="line">Compressing objects: <span class="number">100</span>% (<span class="number">5</span>/<span class="number">5</span>), done. </span><br><span class="line">Writing objects: <span class="number">100</span>% (<span class="number">7</span>/<span class="number">7</span>), <span class="number">583</span> bytes, done. </span><br><span class="line">Total <span class="number">7</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>) </span><br><span class="line">To http://my@<span class="number">192.168</span><span class="number">.142</span><span class="number">.135</span>:<span class="number">3000</span>/my/test.git </span><br><span class="line">* [new branch]      master -&gt; master </span><br><span class="line">* Branch master set up to track remote branch master <span class="keyword">from</span> origin.</span><br></pre></td></tr></table></figure></p>
+<p>输入密码就可以连接到远程仓库了。<br>私有的仓库，必须登录，只能用户自己看，为了方便，修改为公有的。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master	<span class="comment"># 指定推送到的远程主机和分支</span></span><br><span class="line">$ git push origin			<span class="comment"># 指定当前分支推送到的主机和对应分支 </span></span><br><span class="line">$ git push -u origin master	<span class="comment"># 指定远程默认主机和分支 </span></span><br><span class="line">$ git push					<span class="comment"># simple方式，默认只推送当前分支到默认关联的远程仓库</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>-u 第一次远程推送的时候加上，以后就可以不使用-u参数，可以git push origin master，也可以git push都使用默认。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ echo <span class="string">"welcome about"</span> &gt; about.htm </span><br><span class="line">$ git commit -a </span><br><span class="line">Aborting commit due to empty commit message.</span><br><span class="line"> </span><br><span class="line">$ git commit -a -m <span class="string">"修改了about.htm"</span> </span><br><span class="line">[master <span class="number">6</span>c20f48] 修改了about.htm </span><br><span class="line">Committer: python &lt;python@nodex.(none)&gt; </span><br><span class="line">Your name <span class="keyword">and</span> email address were configured automatically based </span><br><span class="line">on your username <span class="keyword">and</span> hostname. Please check that they are accurate. </span><br><span class="line">You can suppress this message by setting them explicitly:</span><br><span class="line"> </span><br><span class="line">    git config --<span class="keyword">global</span> user.name <span class="string">"Your Name"</span></span><br><span class="line">    git config --<span class="keyword">global</span> user.email you@example.com</span><br><span class="line"> </span><br><span class="line">If the identity used <span class="keyword">for</span> this commit <span class="keyword">is</span> wrong, you can fix it <span class="keyword">with</span>:</span><br><span class="line"> </span><br><span class="line">    git commit --amend --author=<span class="string">'Your Name &lt;you@example.com&gt;'</span></span><br><span class="line"> </span><br><span class="line"> <span class="number">1</span> files changed, <span class="number">1</span> insertions(+), <span class="number">0</span> deletions(-)</span><br><span class="line"> </span><br><span class="line">$ git push origin master <span class="comment"># 或者git push</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h2><ul>
+<li>这一次使用git协议连接远程库。 </li>
+<li>为了演示跨平台，这里使用windows系统。</li>
+<li>建议使用Git的windows客户端的 <code>git bash</code> ，它含有常用ssh命令</li>
+<li><p>配置本地用户名、邮箱</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git config --<span class="keyword">global</span> user.name <span class="string">"jack"</span> </span><br><span class="line">$ git config --<span class="keyword">global</span> user.email <span class="string">"jack@163.com"</span> </span><br><span class="line">$ cat ~/.gitconfig </span><br><span class="line">[user]    </span><br><span class="line">	name = jack    </span><br><span class="line">	email = jack@<span class="number">163.</span>com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除windows当前用户<code>.ssh</code>文件夹</p>
+</li>
+<li><p><code>$ ssh-keygen -t rsa -C &quot;jack@163.com&quot;</code><br><code>-t</code> 加密算法类型<br><code>-C</code> comment 描述信息</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"jack@163.com"</span></span><br><span class="line">Generating public/private rsa key pair. </span><br><span class="line">Enter file <span class="keyword">in</span> which to save the key (/c/Users/Administrator/.ssh/id_rsa): <span class="comment"># 直接回车 </span></span><br><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): <span class="comment"># 直接回车 </span></span><br><span class="line">Enter same passphrase again: <span class="comment"># 直接回车 </span></span><br><span class="line">Your identification has been saved <span class="keyword">in</span> /c/Users/Administrator/.ssh/id_rsa. <span class="comment"># 私钥</span></span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /c/Users/Administrator/.ssh/id_rsa.pub. <span class="comment"># 公钥 </span></span><br><span class="line">The key fingerprint <span class="keyword">is</span>:</span><br><span class="line">SHA256:ZxALWxgiq1UUw6TpS+p/hBeTeYOmAbIRVQNUZZ0fUxs jack@<span class="number">163.</span>com </span><br><span class="line">The key<span class="string">'s randomart image is: </span></span><br><span class="line"><span class="string">+---[RSA 2048]----+ 0</span></span><br><span class="line"><span class="string">|.+=B@o=+o. .E    | </span></span><br><span class="line"><span class="string">|o. *.=.+ooo  o   | </span></span><br><span class="line"><span class="string">|.o*   = o. o.    | </span></span><br><span class="line"><span class="string">|.+ . B o ..      | </span></span><br><span class="line"><span class="string">|. o = + S o      | </span></span><br><span class="line"><span class="string">| o + o   o       | </span></span><br><span class="line"><span class="string">|. . o            | </span></span><br><span class="line"><span class="string">|.    .           | </span></span><br><span class="line"><span class="string">| ....            | </span></span><br><span class="line"><span class="string">+----[SHA256]-----+</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">$ cd $ ls .ssh id_rsa  id_rsa.pub</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">$ pwd </span></span><br><span class="line"><span class="string">/c/Users/Administrator</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开gogs的用户设置 -&gt; ssh密钥<br><img src="https://img-blog.csdnimg.cn/20190607162802737.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+<li>打开公钥文件<code>-/.ssh/id_rsa.pub</code>，将内容贴入“密钥内容”框中，点击“增加密钥”，密钥名称自己填写<br><img src="https://img-blog.csdnimg.cn/20190607160724181.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019060716290314.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>那么SSH登录的用户使用的链接如下图<br><img src="https://img-blog.csdnimg.cn/20190607162832888.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>SSH链接远程库<br>在windows上找一个空目录，执行下面的克隆命令<br>注意，第一次使用ssh连接有提示，敲入yes<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git@<span class="number">192.168</span><span class="number">.142</span><span class="number">.135</span>:my/test.git </span><br><span class="line">Cloning into <span class="string">'test'</span>... </span><br><span class="line">remote: Counting objects: <span class="number">28</span>, done. </span><br><span class="line">remote: Compressing objects: <span class="number">100</span>% (<span class="number">20</span>/<span class="number">20</span>), done. </span><br><span class="line">remote: Total <span class="number">28</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)</span><br><span class="line">Receiving objects: <span class="number">100</span>% (<span class="number">28</span>/<span class="number">28</span>), done.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>克隆成功</p>
+<ul>
+<li>下面就可以使用这个初始的项目文件开发了</li>
+<li>注：Linux和windows下交替演示，是想说明，git客户端无所谓在什么操作系统</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      
+
+
+    
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢支持 ！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="mwq 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+      </div>
+    
+
+    
+    
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/后端/python/基础/Python--functools模块/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/后端/python/基础/Python--shutil模块(目录复制)/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="mwq">
+            
+              <p class="site-author-name" itemprop="name">mwq</p>
+              <p class="site-description motion-element" itemprop="description">IT知识共享,与各位共同学习</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+          
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://hubhack.github.io/python-book/" title="导航 &rarr; https://hubhack.github.io/python-book/"><i class="fa fa-fw fa-paper-plane"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hubhack" title="GitHub &rarr; https://github.com/hubhack" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:2329259856@qq.com" title="E-Mail &rarr; mailto:2329259856@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#由来"><span class="nav-number">1.</span> <span class="nav-text">由来</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux"><span class="nav-number">2.1.</span> <span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#windows"><span class="nav-number">2.2.</span> <span class="nav-text">windows</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">3.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化一个版本库"><span class="nav-number">4.1.</span> <span class="nav-text">初始化一个版本库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加文件"><span class="nav-number">4.2.</span> <span class="nav-text">添加文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看状态-git-status"><span class="nav-number">4.3.</span> <span class="nav-text">查看状态 git status</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-add"><span class="nav-number">4.4.</span> <span class="nav-text">添加 add</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交代码-git-commit"><span class="nav-number">4.5.</span> <span class="nav-text">提交代码 git commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改后再次提交"><span class="nav-number">4.6.</span> <span class="nav-text">修改后再次提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git的文件分类"><span class="nav-number">4.7.</span> <span class="nav-text">Git的文件分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件的生命周期"><span class="nav-number">4.8.</span> <span class="nav-text">文件的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git的提交"><span class="nav-number">4.9.</span> <span class="nav-text">git的提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补增"><span class="nav-number">4.10.</span> <span class="nav-text">补增</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#diff-比较"><span class="nav-number">4.11.</span> <span class="nav-text">diff 比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HEAD"><span class="nav-number">4.12.</span> <span class="nav-text">HEAD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查和重置"><span class="nav-number">4.13.</span> <span class="nav-text">检查和重置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动和删除"><span class="nav-number">4.14.</span> <span class="nav-text">移动和删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置本地用户名和邮箱"><span class="nav-number">4.15.</span> <span class="nav-text">配置本地用户名和邮箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push到服务器"><span class="nav-number">4.16.</span> <span class="nav-text">push到服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">4.17.</span> <span class="nav-text">从远程库克隆</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">Copyright &copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hubhack.&ensp;</span>
+  <span title="博客总字数"><i class="fa fa-edit"></i>&ensp;<span class="post-count"></span>字</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+<!--左下角公众号二维码-->
+<div class="weixin-box">
+  <div class="weixin-menu">
+    <div class="weixin-hover">
+      <div class="weixin-description">微信扫一扫，订阅本博客</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+  
+
+  
+<script>
+if ($('body').find('pre.mermaid').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      mermaid.initialize({
+        theme: 'forest',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 }
+      });
+    }
+  });
+}
+</script>
+
+
+  
+
+  
+
+  <!--Custom javascript for hubhack.cn-->
+
+<!--console.log-->
+<script type="text/javascript">
+  console.log("欢迎来到hubhack的博客");
+</script>
+
+<!--此处为建站时间 -->
+
+<script>
+  var now = new Date(); 
+  function createtime() { 
+      var grt= new Date("");
+      now.setTime(now.getTime()+250); 
+      days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+      if(String(hnum).length ==1 ){
+        hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+        mnum = "0" + mnum;
+      } 
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+        snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML =dnum+"&thinsp;天"; 
+      document.getElementById("times").innerHTML = hnum + "&thinsp;时" + mnum + "&thinsp;分" + snum + "&thinsp;秒"; 
+  } 
+setInterval("createtime()",250);
+</script>
+
+<!--知乎卡片链接-->
+<script type="text/javascript" src="/js/src/linkcard.js"></script>
+
+<!--夜间模式-->
+<script type="text/javascript" src="/js/src/night.js"></script>
+<div class="cover"></div>
+
+<!--崩溃欺骗-->
+<!--<script type="text/javascript" src="/js/src/crash_cheat.js"></script>-->
+
+<!--input特效-->
+<script src="/js/src/activate-power-mode.js"></script>
+<script>
+POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = false; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script>
+
+<!-- 鼠标点击特效 -->
+
+ <script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('manual', "#更多");
+  
+  </script>
+
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      
+        background-color: #1b1b1b;
+        color: #b0b0b0;
+        border: 1px solid #b0b0b0;
+        border-radius: 3px;
+      
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 9px;
+      top: 4px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1;
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>

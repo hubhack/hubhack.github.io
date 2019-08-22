@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.7.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicon-48.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/icons/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: true,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+<!--站长验证-->
+
+
+
+
+  <meta name="description" content="@TOC 什么是网络 网络是由节点和连线构成的图，表示诸多对象及其关系什么是计算机网络 计算机网络指的是将地理位置不同的具有独立功能的多台计算机及其外部设备，通过通信线路物理连接（包括有线、无线连接），并在网络操作系统、网络管理软件和网络通信协议的管理和协调下，实现资源共享和信息传递的计算机系统带宽 在数字设备中，指的是单位时间数据的传输量 网络传输习惯上使用比特率，即bps每秒传输的二进制位数">
+<meta name="keywords" content="网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络概念">
+<meta property="og:url" content="https://hubhack.github.io/网络/网络概念/index.html">
+<meta property="og:site_name" content="千分无言">
+<meta property="og:description" content="@TOC 什么是网络 网络是由节点和连线构成的图，表示诸多对象及其关系什么是计算机网络 计算机网络指的是将地理位置不同的具有独立功能的多台计算机及其外部设备，通过通信线路物理连接（包括有线、无线连接），并在网络操作系统、网络管理软件和网络通信协议的管理和协调下，实现资源共享和信息传递的计算机系统带宽 在数字设备中，指的是单位时间数据的传输量 网络传输习惯上使用比特率，即bps每秒传输的二进制位数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615154410715.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615155831838.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019061516332569.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615163948529.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615164042867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615165633277.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615172331830.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615172404105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615172422550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615172440292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615172801917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615172909739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615173456608.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019061517424891.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615174348749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615175055272.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190615180852986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-08-22T04:15:11.858Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络概念">
+<meta name="twitter:description" content="@TOC 什么是网络 网络是由节点和连线构成的图，表示诸多对象及其关系什么是计算机网络 计算机网络指的是将地理位置不同的具有独立功能的多台计算机及其外部设备，通过通信线路物理连接（包括有线、无线连接），并在网络操作系统、网络管理软件和网络通信协议的管理和协调下，实现资源共享和信息传递的计算机系统带宽 在数字设备中，指的是单位时间数据的传输量 网络传输习惯上使用比特率，即bps每秒传输的二进制位数">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190615154410715.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+
+
+
+
+  <link rel="canonical" href="https://hubhack.github.io/网络/网络概念/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>网络概念 | 千分无言</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxx";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">千分无言</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">人生苦短 我用python</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>我的首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rui-site">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://hubhack.github.io/python-book/" rel="section"><i class="menu-item-icon fa fa-fw fa-paper-plane"></i> <br>Python</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>博客分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-docs">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/docs/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>技术书库</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>文章标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br>关于作者</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>全站搜索</a>
+        </li>
+		
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result">
+    
+      <div style="text-align: center;padding: 3px 0 0;">
+       <div style="margin-top: 20px;font-size: 18px;font-weight: 600;border-bottom: 1px solid #ccc;">
+         <i class="fa fa-history" aria-hidden="true"></i>
+         近期文章
+       </div>
+       <ul style="margin: 0;padding: 0;list-style: none;">
+         
+         
+           <li>
+             <a href="/后端/python/基础/Python类型注解/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python算法---插入排序/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python的对象模型/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python生成器函数---yield、协程应用/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/python各种模块使用/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python匿名函数lambda/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python函数返回值作用域（闭包）/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python函数、参数、参数解构/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-装饰器的应用（命令分发器）/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-正则表达式（re模块）/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-正则表达式/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-树Tree/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-文件操作/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python-反射/" title target="_blank"></a>
+           </li>
+         
+           <li>
+             <a href="/后端/python/基础/Python--魔术方法--上下文管理/" title target="_blank"></a>
+           </li>
+         
+       </ul>
+      </div>
+    
+  </div>
+</div>
+
+
+
+    </div>
+  
+
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/hubhack/hubhack.github.io" class="github-corner" target="_blank" title="万水千山总是情,给个star行不行！" aria-label="万水千山总是情,给个star行不行！"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/网络/网络概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mwq">
+      <meta itemprop="description" content="IT知识共享,与各位共同学习">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千分无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                网络概念<a href="https://github.com/hubhack/hubhack.github.io/tree/dev/source/_posts/网络/网络概念.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络/" itemprop="url" rel="index"><span itemprop="name">网络</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>@<a href="网络概念">TOC</a></p>
+<h1 id="什么是网络"><a href="#什么是网络" class="headerlink" title="什么是网络"></a>什么是网络</h1><ul>
+<li>网络是由节点和连线构成的图，表示诸多对象及其关系<h1 id="什么是计算机网络"><a href="#什么是计算机网络" class="headerlink" title="什么是计算机网络"></a>什么是计算机网络</h1></li>
+<li>计算机网络指的是将地理位置不同的具有独立功能的多台计算机及其外部设备，通过通信线路物理连接（包括有线、无线连接），并在网络操作系统、网络管理软件和网络通信协议的管理和协调下，实现<strong>资源共享</strong>和<strong>信息传递</strong>的计算机系统<h1 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h1></li>
+<li>在数字设备中，指的是单位时间数据的传输量</li>
+<li>网络传输习惯上使用比特率，即bps每秒传输的二进制位数</li>
+</ul>
+<h1 id="拓扑"><a href="#拓扑" class="headerlink" title="拓扑"></a>拓扑</h1><h2 id="总线型"><a href="#总线型" class="headerlink" title="总线型"></a>总线型</h2><p><img src="https://img-blog.csdnimg.cn/20190615154410715.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>所有设备都连接到公共总线上，结点间使用广播通信方式。一个结点发出的信息，总线上所有其他结点都可以接收到。一段时间只允许一个结点独占总线</li>
+<li>常见使用同轴电缆连接，总线两端需要终结器<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3></li>
+</ul>
+<ol>
+<li>结构简单、易于实现</li>
+<li>易于扩充，增加或者移除结点比较灵活</li>
+<li>可靠性较高，个别结点发生故障时，不影响网络中其他结点的正常工作</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>网络传输能力低，安全性低，总线发生故障时，会导致全网瘫痪</li>
+<li>所有数据都需要经过总线传输，总线是整个网络的瓶颈。结点数量的增多会影响网络性能<h2 id="环形结构"><a href="#环形结构" class="headerlink" title="环形结构"></a>环形结构</h2><img src="https://img-blog.csdnimg.cn/20190615155831838.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+<ul>
+<li>环形结构是将联网的计算机由通信线路连接成一个闭合的环，在环形结构网络中信息按照固定方向流动，或顺时针方向，或逆时针方向<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3>令牌控制，没有线路竞争，实时性强，传输控制容易<h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3>维护困难，可靠性不高。一个结点发生故障时，可能导致全网瘫痪。可以使用双环拓扑结构，但是复杂性提升<h2 id="星型拓扑"><a href="#星型拓扑" class="headerlink" title="星型拓扑"></a>星型拓扑</h2><img src="https://img-blog.csdnimg.cn/2019061516332569.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>每个结点都由一条单独的通信线路与中心结点连结。其他各结点都与该中心结点有着物理链路的直接互连，其他结点直接不能直接通信，其他结点直接的通信需要该中心结点进行转发。因此中心结点必须有着较强的功能和较高的可靠性。需要中心设备，例如hub、switch、router<h3 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h3></li>
+<li>可靠性高，方便管理，易于扩展，传输效率高<h3 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h3></li>
+<li>线路利用率低，中心节点需要很高的可靠性和冗余度<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3></li>
+<li>hub工作在一层，这种星型实际上就是芯片化的总线网络。只是物理拓扑结构上感觉像是星型<h2 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h2></li>
+<li>OSI是Open System Interconnection的缩写，意为开放式系统互联。国际标准化组织（ISO）制定了OSI模型，该模型定义了不同计算机互联的标准，是设计和描述计算机网络通信的基本框架</li>
+<li>OSI模型把网络通信的工作分为7层，分别是物理层、数据链路层、网络层、传输层、会话层、表示层和应用层</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190615163948529.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190615164042867.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h3><ul>
+<li>定义了电气规范，设备规范、物理接口等，电信号的变化，或数字信号变化，<strong>比特</strong><h3 id="链路层"><a href="#链路层" class="headerlink" title="链路层"></a>链路层</h3></li>
+<li><strong>二层</strong>。将比特组织成<strong>帧</strong>，即对字节进行定义，支持错误检查。使用物理地址、MAC地址。MAC有48位，前24位厂商编号由IEEE分配，后24位设备序号<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3></li>
+<li><strong>三层</strong>。将帧组织成<strong>包</strong>，包传递的路径选择（<strong>路由</strong>），将包传输到目标地址。使用逻辑地址、<strong>IP地址</strong><h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3></li>
+<li><strong>四层</strong>。解决传输的问题，确保数据传输的可靠性；建立、维护、终止虚拟电路；错误检测和恢复<h3 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h3></li>
+<li>建立、管理、终止应用程序间的逻辑通路，即会话<h3 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h3></li>
+<li>对应用数据格式化、加密解密等。将上层数据转换为适合网络传输的格式，或将下层数据转化为上<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3></li>
+<li><strong>七层</strong>。为应用程序提供网络服务接口，用户使用的时候并不关心会话如何建立保持，也不关心协议的协商是否加密等<h2 id="数据传输"><a href="#数据传输" class="headerlink" title="数据传输"></a>数据传输</h2><img src="https://img-blog.csdnimg.cn/20190615165633277.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>数据很大，在应用层切分，每一份数据都会在下一层被封装</li>
+<li>在数据链路层会增加tail即校验位，最后在物理层上都是电平信号0、1发送出去</li>
+<li>到了对端设备，由下至上逐层解包组合。直到合成并还原应用层的一份数据<h2 id="通讯的三种模式"><a href="#通讯的三种模式" class="headerlink" title="通讯的三种模式"></a>通讯的三种模式</h2><h3 id="单播"><a href="#单播" class="headerlink" title="单播"></a>单播</h3></li>
+<li>包在计算机网络传输中，目的地址为单一目标的传输方式。每次都是点对点的2个实体间相互通信</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190615172331830.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="广播"><a href="#广播" class="headerlink" title="广播"></a>广播</h3><ul>
+<li>数据在网络中传输，目标地址是网络中所有设备的传输方式。所有设备是有范围的，这个范围称为广播域</li>
+<li>IP v6不支持广播，由组播替代</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190615172404105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="多播、组播："><a href="#多播、组播：" class="headerlink" title="多播、组播："></a>多播、组播：</h3><ul>
+<li>把数据同时传递给一组目的地址。数据源只发出一份数据，会在尽可能远的的设备上复制和分发</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190615172422550.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190615172440292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="冲突域、广播域"><a href="#冲突域、广播域" class="headerlink" title="冲突域、广播域"></a>冲突域、广播域</h2><p>参看<a href="https://baike.baidu.com/item/%E5%B9%BF%E6%92%AD%E5%9F%9F" target="_blank" rel="noopener">https://baike.baidu.com/item/%E5%B9%BF%E6%92%AD%E5%9F%9F</a></p>
+<h3 id="冲突域"><a href="#冲突域" class="headerlink" title="冲突域"></a>冲突域</h3><ul>
+<li>网络中设备A发送数据时，设备B也发送数据，数据碰撞，发生了冲突，这两个设备就属于同一个冲突域</li>
+<li><strong>交换机</strong>可以隔离<strong>冲突域</strong></li>
+<li><strong>路由器</strong>可以隔离<strong>广播域</strong><h2 id="局域网LAN"><a href="#局域网LAN" class="headerlink" title="局域网LAN"></a>局域网LAN</h2><img src="https://img-blog.csdnimg.cn/20190615172801917.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>局域网Local Area Network，指的是某一个区域内，多台计算机互联的计算机组<h3 id="常见组网设备"><a href="#常见组网设备" class="headerlink" title="常见组网设备"></a>常见组网设备</h3>网线、有线网卡、无线网卡、集线器、交换机、路由器等<h2 id="网络设备"><a href="#网络设备" class="headerlink" title="网络设备"></a>网络设备</h2><h3 id="网络线缆"><a href="#网络线缆" class="headerlink" title="网络线缆"></a>网络线缆</h3></li>
+<li>有线连接，需要使用网线，最早使用同轴电缆，后来使用双绞线，现在高速网络布线可以采用光纤</li>
+<li>常用的双绞线使用RJ45水晶头</li>
+<li>直通采用两端T568B，互连使用一端T568A一端T568B的交叉线，不过目前新型网卡可以自适应，都使用直通线连接即可<br><img src="https://img-blog.csdnimg.cn/20190615172909739.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="-"><h3 id="集线器hub"><a href="#集线器hub" class="headerlink" title="集线器hub"></a>集线器hub</h3><ul>
+<li>工作在一层。使用HUB连接的设备看似是星型，实际是总线型</li>
+<li>它是物理层设备，只认识电信号，所以根本不认识什么MAC地址之类的信息。早期用来多机互连，信号中继的作用户</li>
+<li>连入设备越多，广播信号，在一个冲突域，网络效率很低</li>
+<li>使用HUB连接的所有设备，都在同一个冲突域<h3 id="交换机switch"><a href="#交换机switch" class="headerlink" title="交换机switch"></a>交换机switch</h3></li>
+</ul>
+</li>
+<li>工作在二层。内部记录着MAC表，通过自学习，建立交换机端口和MAC地址对应表。内部有电路交换数据，如同信号立交桥。网桥也工作这一层<h3 id="路由器Router"><a href="#路由器Router" class="headerlink" title="路由器Router"></a>路由器Router</h3></li>
+<li>工作在三层。内部记录路由表，记录着路由器的端口到 网络 对应关系。这个表可以静态配置，也可以动态更新</li>
+<li>功能：分割广播域；选择路由；维护和检查路由信息；连接广域网<h3 id="广域网WAN"><a href="#广域网WAN" class="headerlink" title="广域网WAN"></a>广域网WAN</h3></li>
+<li>广域网，又称外网、公网。连接不同局域网或城域网的计算机通讯网络<h3 id="互联网Internet"><a href="#互联网Internet" class="headerlink" title="互联网Internet"></a>互联网Internet</h3></li>
+<li>互联网Internet，也称因特网。前身是美国军用ARPA网，后来连入了很多的科研院校，并逐步商业化走向全球</li>
+<li>它连接了覆盖全球的网络，是众多的广域网互联的大型网络</li>
+<li>互联网使用了TCP/IP协议<h3 id="TCP-IP协议栈"><a href="#TCP-IP协议栈" class="headerlink" title="TCP/IP协议栈"></a>TCP/IP协议栈</h3></li>
+<li>TCP/IP，Transmission Control Protocol/Internet Protocol ，传输控制协议/因特网互联协议</li>
+<li>它是一个包含很多工作在不同层的协议的协议族，其中最著名的2个协议分别是TCP和IP协议</li>
+<li>它最早起源于美国国防部（缩写为DoD）的ARPA网项目，共定义了四层：网络访问层、Internet层、传输层、应用层<br><img src="https://img-blog.csdnimg.cn/20190615173456608.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li><strong>TCP/IP协议是事实标准。目前局域网和广域网基本上也都用该协议</strong><h2 id="传输层协议"><a href="#传输层协议" class="headerlink" title="传输层协议"></a>传输层协议</h2>|  |  TCP|UDP|<br>|:–|:–|:–|<br>|连续类型  |面向连接  |无连接  |<br>|  可靠性| 可靠 | 不可靠 |<br>| 有序 | 数据包有序号 | 没有包序 |<br>| 使用场景 | 大多数场合，数据不能出任何问题 | 视频、音频 |<h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3></li>
+<li>TCP需要通讯双方预先建立连接，需要三次握手、四次断开</li>
+<li>UDP不需要预先建立连接<h3 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a>可靠性</h3></li>
+<li>TCP需要确定每一个包是否收到，丢包重发，效率低一些</li>
+<li>UDP尽最大努力交付数据，不要要确认数据包，丢包无法知道，也不重复，效率高一些<h3 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h3></li>
+<li>TCP包有序号，可以进行顺序控制。第一个包序号随机生成，之后的序号都和它有关</li>
+<li>UDP包无序，无法纠正，只能在应用层进行验证<h3 id="TCP协议三次握手-四次断开"><a href="#TCP协议三次握手-四次断开" class="headerlink" title="TCP协议三次握手/四次断开"></a>TCP协议三次握手/四次断开</h3><img src="https://img-blog.csdnimg.cn/2019061517424891.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>三次握手建立连接 Three-way Handshake</li>
+</ul>
+<ol>
+<li>Client端首先发送一个SYN包告诉Server端我的初始序列号是X</li>
+<li>Server端收到SYN包后回复给Client一个ACK确认包，告诉Client说我收到了。Server端也需要告诉Client端自己的初始序列号，于是Server也发送一个SYN包告诉Client我的初始序列号是Y。这两个包一起发送</li>
+<li>Client收到后，回复Server一个ACK确认包说我知道了</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20190615174348749.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>四次断开</li>
+</ul>
+<ol>
+<li>Client发送一个FIN包来告诉Server需要断开</li>
+<li>Server收到后回复一个ACK确认FIN包收到</li>
+<li>Server在自己也没数据发送给Client后，Server也发送一个FIN包给Client，表示也无数据发送</li>
+<li>Client收到后，就会回复一个ACK确认Server的FIN包 </li>
+</ol>
+<p>主动发出Fin包就是主动关闭方，就会进入TIME_WAIT，原因是被动关闭方发来的FIN包需要确认，万一此包丢失，被动关闭方未收到确认会超时重发FIN包，主动关闭方还在，可以重发ACK。</p>
+<h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><ul>
+<li>IP地址是IP协议提供的一种同一个地址格式，它为互联网上的网络设备分配一个用来通信的逻辑地址</li>
+<li>目前分为IP v4和IP v6<h3 id="IP-v4"><a href="#IP-v4" class="headerlink" title="IP v4"></a>IP v4</h3></li>
+<li>IP v4 是一个32位二进制数，不便记忆，为了使用方便，使用“点分十进制”表示法，将这个二进制数每8位断开，每8位是一个字节，一个字节表示的十进制正整数范围是0~255</li>
+<li>IP v4地址早期比较充足，随着全球连入互联网，在2011年IP v4地址分配完毕<h4 id="IP地址的分类"><a href="#IP地址的分类" class="headerlink" title="IP地址的分类"></a>IP地址的分类</h4></li>
+<li>公有地址：<br>需向因特网信息中心申请，在互联网上可以直接使用的IP地址</li>
+<li><p>私有地址：<br>不需要注册，可以组织内部网络使用的IP地址</p>
+</li>
+<li><p>IP地址这个数被分成2部分，即网络位 + 主机位</p>
+</li>
+<li>网络位表示设备同属一个网络；主机位表示网络中不同的设备的唯一ID<h4 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h4></li>
+<li>子网掩码将IP地址划分为网络ID和主机ID</li>
+<li>IP地址 <strong>位与</strong> 子网掩码就是网络ID<h4 id="IP-v4地址被分为A、B、C、D、E五类"><a href="#IP-v4地址被分为A、B、C、D、E五类" class="headerlink" title="IP v4地址被分为A、B、C、D、E五类"></a>IP v4地址被分为A、B、C、D、E五类</h4><img src="https://img-blog.csdnimg.cn/20190615175055272.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h5 id="A类"><a href="#A类" class="headerlink" title="A类"></a>A类</h5></li>
+<li><strong>最高位是 0</strong></li>
+<li>第一字节（最高字节）为网络位。第一个字节变化为<br>  0000 0001 到<br>  0111  1111，共127，减去回环地址，剩余126个网络</li>
+<li>A类IP地址范围1.0.0.0到127.255.255.255。二进制表示为：<br>00000001 00000000 00000000 00000000 至<br>01111111 11111111 11111111 11111111。最后一个是广播地址。</li>
+<li>子网掩码 <code>255.0.0.0</code></li>
+<li>每一个网络中主机个数等于  <code>256³ - 2 = 1677716 -2 = 1677714</code><h5 id="B类"><a href="#B类" class="headerlink" title="B类"></a>B类</h5></li>
+<li><strong>最高位是10</strong></li>
+<li>前2个字节为网络位，其变化为128.0~191.255，相当于<br>  1000 0000 0000 0000 到<br>  1011 1111 1111 1111，实际上就是后14位变化，共2^14 = 16384个网络</li>
+<li>B类IP地址范围128.0.0.0-191.255.255.255 。二进制表示为：<br>10000000 00000000 00000000 00000000 至<br>10111111 11111111 11111111 11111111 最后一个是广播地址</li>
+<li>子网掩码255.255.0.0 </li>
+<li>每一个网络中主机个数等于 <code>256² - 2 = 65535 -2 = 65534</code><h5 id="C类"><a href="#C类" class="headerlink" title="C类"></a>C类</h5></li>
+<li><strong>最高位是110</strong></li>
+<li>前3个字节为网络位，其变化为192.0.0~223.255.255，相当于<br>1100 0000 0000 0000 0000 0000 到</li>
+</ul>
+<p>1101 1111 1111 1111 1111 1111 ，实际上就是后21位变化，共2^21 = 2097152个网络。</p>
+<ul>
+<li>C类IP地址地址范围192.0.0.0-223.255.255.255 。二进制表示为：<br>11000000 00000000 00000000 00000000 至<br>11011111 11111111 11111111 11111111。 最后一个是广播地址</li>
+<li>子网掩码255.255.255.0 </li>
+<li>每一个网络中主机个数等于 <code>256 -2 = 254</code><h5 id="D类"><a href="#D类" class="headerlink" title="D类"></a>D类</h5></li>
+<li>多播地址，或组播地址</li>
+<li>多播地址最高4位必须是1110，那么地址范围就是224.0.0.0到239.255.255.255</li>
+</ul>
+<p><strong><code>224.0.0.1特指所有主机</code></strong></p>
+<h5 id="E类"><a href="#E类" class="headerlink" title="E类"></a>E类</h5><ul>
+<li>实验用地址</li>
+</ul>
+<h4 id="特殊IP地址"><a href="#特殊IP地址" class="headerlink" title="特殊IP地址"></a>特殊IP地址</h4><ul>
+<li><code>0.0.0.0</code>表示当前主机</li>
+<li><code>255.255.255.255</code> 限制广播地址。路由器不会转发这个受限广播地址的数据报文，此地址只能用于本网广播</li>
+<li>IP地址中以127开头的地址称为Loopback回环地址</li>
+<li><code>169.254.x.x</code>，windows主机使用了DHCP获取IP，但没有获得地址，windows会临时获得这样的地址</li>
+</ul>
+<h4 id="网关GATEWAY"><a href="#网关GATEWAY" class="headerlink" title="网关GATEWAY"></a>网关GATEWAY</h4><ul>
+<li>网关(Gateway)又称网间连接器、协议转换器。网关在网络层以上实现网络互连，用于网络间互联<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4></li>
+<li>IP地址<code>192.168.3.200</code>，要配合子网掩码使用，假设子网掩码为<code>255.255.255.0</code>，说明它是C类地址</li>
+<li>网络ID为<code>192.168.3.0</code>，广播地址为<code>192.168.3.255</code></li>
+<li>剩余<code>192.168.3.1~192.168.3.254</code>能够分配给网络中其他设备</li>
+</ul>
+<p><strong>网关地址</strong>配置一般习惯使用1、100、254等。本例使用192.168.3.1<br>其作用是连接不同的网络，也称为处在不同的网段</p>
+<ul>
+<li>又有一个IP地址为<code>192.168.100.10/24</code>，它也是<code>C类地址</code>，<code>/16</code>指B类地址，<code>/8</code>指A类地址。网络ID是<code>192.168.100.0</code></li>
+<li>和上面的IP处在不同的网络，这两个地址的主机通信，就需要使用网关，由网关将数据包转发到另一个网络<h3 id="IP-v6"><a href="#IP-v6" class="headerlink" title="IP v6"></a>IP v6</h3></li>
+<li>互联网上的公有地址在2011年分配完，而随着互联网的发展，接入设备越来越多，尤其是物联网的到来，此问题必须解决。由此，提出了IP v6</li>
+<li>IP v6采用128位二进制数表示，基本解决IP地址短缺现象，同时，该协议还解决原有协议的诸多问题<h2 id="路由Routing"><a href="#路由Routing" class="headerlink" title="路由Routing"></a>路由Routing</h2></li>
+<li>跨网络通信就需要使用路由，通过路由器将数据包从一个网络发往另一个网络</li>
+<li>路由器上维护着路由表，它知道如何将数据包发往另外的网络</li>
+<li><strong>windows</strong>使用 <code>route prin</code>t ，<strong>Linux</strong>使用 <code>route -n</code> 可以查看<strong>路由表</strong></li>
+<li>路由器所有端口都有自己的IP地址，这些IP地址往往处在不同的网络，所以，路由器连接了不同了网络</li>
+<li>路由表中记录着路由设备所有端口对应的网络，分为静态、动态配置</li>
+<li>静态路由：由管理员手动配置的固定的路由信息</li>
+<li>动态路由：网络中的路由器，根据实时网络拓扑变化，相互通信传递路由信息，利用这些路由信息通过路由选择协议动态计算，并更新路由表。常见的协议有RIP、OSPF等等<br><img src="https://img-blog.csdnimg.cn/20190615180852986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>网关：下一跳地址，就是到下一个网络，从哪个网关出去<br>到192.168.0.0/24和10.0.0.0/8网络，R1本身就直接连接着这些网络，所以网关为空，不需要<br>到172.16.0.0/16网络需要找到R2，所以写R2的接口1地址即可<h2 id="DHCP"><a href="#DHCP" class="headerlink" title="DHCP"></a>DHCP</h2></li>
+<li>动态主机设置协议（Dynamic Host Configuration Protocol，DHCP）是一个局域网的网络协议，基于UDP协议工作</li>
+<li>主要用途就是用于内部网或网络服务供应商自动给网络中的主机分配IP地址</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      
+
+
+    
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢支持 ！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="mwq 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+      </div>
+    
+
+    
+      <div class="post-tags">
+        
+          <a href="/tags/网络/" rel="tag"><i class="fa fa-tag"></i> 网络</a>
+        
+      </div>
+    
+    
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/js/HTML/" rel="next" title="html">
+                <i class="fa fa-chevron-left"></i> html
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/web/IO多种概念/" rel="prev" title="IO多种概念">
+                IO多种概念 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="mwq">
+            
+              <p class="site-author-name" itemprop="name">mwq</p>
+              <p class="site-description motion-element" itemprop="description">IT知识共享,与各位共同学习</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+          
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://hubhack.github.io/python-book/" title="导航 &rarr; https://hubhack.github.io/python-book/"><i class="fa fa-fw fa-paper-plane"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hubhack" title="GitHub &rarr; https://github.com/hubhack" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:2329259856@qq.com" title="E-Mail &rarr; mailto:2329259856@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是网络"><span class="nav-number">1.</span> <span class="nav-text">什么是网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是计算机网络"><span class="nav-number">2.</span> <span class="nav-text">什么是计算机网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#带宽"><span class="nav-number">3.</span> <span class="nav-text">带宽</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拓扑"><span class="nav-number">4.</span> <span class="nav-text">拓扑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总线型"><span class="nav-number">4.1.</span> <span class="nav-text">总线型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">4.1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">4.1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环形结构"><span class="nav-number">4.2.</span> <span class="nav-text">环形结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点-1"><span class="nav-number">4.2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#星型拓扑"><span class="nav-number">4.3.</span> <span class="nav-text">星型拓扑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点-2"><span class="nav-number">4.3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点-2"><span class="nav-number">4.3.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">4.3.3.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSI参考模型"><span class="nav-number">4.4.</span> <span class="nav-text">OSI参考模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物理层"><span class="nav-number">4.4.1.</span> <span class="nav-text">物理层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链路层"><span class="nav-number">4.4.2.</span> <span class="nav-text">链路层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层"><span class="nav-number">4.4.3.</span> <span class="nav-text">网络层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输层"><span class="nav-number">4.4.4.</span> <span class="nav-text">传输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话层"><span class="nav-number">4.4.5.</span> <span class="nav-text">会话层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表示层"><span class="nav-number">4.4.6.</span> <span class="nav-text">表示层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层"><span class="nav-number">4.4.7.</span> <span class="nav-text">应用层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据传输"><span class="nav-number">4.5.</span> <span class="nav-text">数据传输</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通讯的三种模式"><span class="nav-number">4.6.</span> <span class="nav-text">通讯的三种模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单播"><span class="nav-number">4.6.1.</span> <span class="nav-text">单播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广播"><span class="nav-number">4.6.2.</span> <span class="nav-text">广播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多播、组播："><span class="nav-number">4.6.3.</span> <span class="nav-text">多播、组播：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冲突域、广播域"><span class="nav-number">4.7.</span> <span class="nav-text">冲突域、广播域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冲突域"><span class="nav-number">4.7.1.</span> <span class="nav-text">冲突域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局域网LAN"><span class="nav-number">4.8.</span> <span class="nav-text">局域网LAN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见组网设备"><span class="nav-number">4.8.1.</span> <span class="nav-text">常见组网设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络设备"><span class="nav-number">4.9.</span> <span class="nav-text">网络设备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络线缆"><span class="nav-number">4.9.1.</span> <span class="nav-text">网络线缆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集线器hub"><span class="nav-number">4.9.2.</span> <span class="nav-text">集线器hub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交换机switch"><span class="nav-number">4.9.3.</span> <span class="nav-text">交换机switch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器Router"><span class="nav-number">4.9.4.</span> <span class="nav-text">路由器Router</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广域网WAN"><span class="nav-number">4.9.5.</span> <span class="nav-text">广域网WAN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#互联网Internet"><span class="nav-number">4.9.6.</span> <span class="nav-text">互联网Internet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP协议栈"><span class="nav-number">4.9.7.</span> <span class="nav-text">TCP/IP协议栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传输层协议"><span class="nav-number">4.10.</span> <span class="nav-text">传输层协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接"><span class="nav-number">4.10.1.</span> <span class="nav-text">连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可靠性"><span class="nav-number">4.10.2.</span> <span class="nav-text">可靠性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有序"><span class="nav-number">4.10.3.</span> <span class="nav-text">有序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP协议三次握手-四次断开"><span class="nav-number">4.10.4.</span> <span class="nav-text">TCP协议三次握手/四次断开</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IP地址"><span class="nav-number">4.11.</span> <span class="nav-text">IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-v4"><span class="nav-number">4.11.1.</span> <span class="nav-text">IP v4</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IP地址的分类"><span class="nav-number">4.11.1.1.</span> <span class="nav-text">IP地址的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子网掩码"><span class="nav-number">4.11.1.2.</span> <span class="nav-text">子网掩码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP-v4地址被分为A、B、C、D、E五类"><span class="nav-number">4.11.1.3.</span> <span class="nav-text">IP v4地址被分为A、B、C、D、E五类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#A类"><span class="nav-number">4.11.1.3.1.</span> <span class="nav-text">A类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#B类"><span class="nav-number">4.11.1.3.2.</span> <span class="nav-text">B类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#C类"><span class="nav-number">4.11.1.3.3.</span> <span class="nav-text">C类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#D类"><span class="nav-number">4.11.1.3.4.</span> <span class="nav-text">D类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#E类"><span class="nav-number">4.11.1.3.5.</span> <span class="nav-text">E类</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特殊IP地址"><span class="nav-number">4.11.1.4.</span> <span class="nav-text">特殊IP地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网关GATEWAY"><span class="nav-number">4.11.1.5.</span> <span class="nav-text">网关GATEWAY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#举例"><span class="nav-number">4.11.1.6.</span> <span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-v6"><span class="nav-number">4.11.2.</span> <span class="nav-text">IP v6</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由Routing"><span class="nav-number">4.12.</span> <span class="nav-text">路由Routing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DHCP"><span class="nav-number">4.13.</span> <span class="nav-text">DHCP</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">Copyright &copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hubhack.&ensp;</span>
+  <span title="博客总字数"><i class="fa fa-edit"></i>&ensp;<span class="post-count"></span>字</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+<!--左下角公众号二维码-->
+<div class="weixin-box">
+  <div class="weixin-menu">
+    <div class="weixin-hover">
+      <div class="weixin-description">微信扫一扫，订阅本博客</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+  
+
+  
+<script>
+if ($('body').find('pre.mermaid').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      mermaid.initialize({
+        theme: 'forest',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 }
+      });
+    }
+  });
+}
+</script>
+
+
+  
+
+  
+
+  <!--Custom javascript for hubhack.cn-->
+
+<!--console.log-->
+<script type="text/javascript">
+  console.log("欢迎来到hubhack的博客");
+</script>
+
+<!--此处为建站时间 -->
+
+<script>
+  var now = new Date(); 
+  function createtime() { 
+      var grt= new Date("");
+      now.setTime(now.getTime()+250); 
+      days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+      if(String(hnum).length ==1 ){
+        hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+        mnum = "0" + mnum;
+      } 
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+        snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML =dnum+"&thinsp;天"; 
+      document.getElementById("times").innerHTML = hnum + "&thinsp;时" + mnum + "&thinsp;分" + snum + "&thinsp;秒"; 
+  } 
+setInterval("createtime()",250);
+</script>
+
+<!--知乎卡片链接-->
+<script type="text/javascript" src="/js/src/linkcard.js"></script>
+
+<!--夜间模式-->
+<script type="text/javascript" src="/js/src/night.js"></script>
+<div class="cover"></div>
+
+<!--崩溃欺骗-->
+<!--<script type="text/javascript" src="/js/src/crash_cheat.js"></script>-->
+
+<!--input特效-->
+<script src="/js/src/activate-power-mode.js"></script>
+<script>
+POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = false; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script>
+
+<!-- 鼠标点击特效 -->
+
+ <script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('manual', "#更多");
+  
+  </script>
+
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      
+        background-color: #1b1b1b;
+        color: #b0b0b0;
+        border: 1px solid #b0b0b0;
+        border-radius: 3px;
+      
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 9px;
+      top: 4px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1;
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
