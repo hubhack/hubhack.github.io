@@ -2147,7 +2147,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a8a7df;
+  background: #b82f99;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3941,7 +3941,7 @@ input:focus {
 .posts-expand .post-meta {
   text-align: left;
 }
-.page-post-detail .,
+.page-post-detail .post-title,
 .page-post-detail .post-meta {
   text-align: center;
   border-left: none;
