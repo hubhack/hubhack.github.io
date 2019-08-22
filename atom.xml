@@ -66,6 +66,35 @@
   </entry>
   
   <entry>
+    <title></title>
+    <link href="https://hubhack.github.io/book/flask%E7%AC%94%E8%AE%B0/"/>
+    <id>https://hubhack.github.io/book/flask笔记/</id>
+    <published>2019-08-21T02:50:07.733Z</published>
+    <updated>2019-08-22T02:47:21.724Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>title: flask</p><p>categories: </p><ul><li>框架<br>tags:</li><li>python</li></ul><p>—下载示例代码, 安装到当前目录的flasky文件夹下.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/miguelgrinberg/flasky.git</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git checkout 1a</span><br><span class="line">git reset --hard</span><br><span class="line">git fetch --all</span><br><span class="line">git fetch --tags</span><br><span class="line">git reset --hard orign/master</span><br><span class="line">git diff 2a 2b</span><br></pre></td></tr></table></figure><h3 id="flask"><a href="#flask" class="headerlink" title="flask"></a>flask</h3><p>在大多数标准中, flask都算小型框架, 小到可以称为”微框架”.它具有一个包含接班服务的强健核心, 其他功能则可通过扩展实现.</p><p>flask有3个主要依赖: 路由,调试, web服务网关接口(wsgi)子系统由werkzeug提供, 模板系统由jinja2提供, 命令行集成有click提供.</p><p>创建应用目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/miguelgrinberg/flasky.git</span><br><span class="line">cd flasky</span><br></pre></td></tr></table></figure><p>初始化</p><p>所有的Flask应用都必须创建一个应用实例.web服务器使用一种名为web服务器网关接口(wsgi)的协议.把接收自客户端的所有请求都转交给这个对象处理.应用实例是Flask类的对象.通常有下列代码创建.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line">app = Flask(__name__)</span><br></pre></td></tr></table></figure><hr><p>在flask中有两种上下文: 应用上下文和请求上下文.</p><p>钩子函数:有时在处理请求之前或之后执行代码会很有用.</p><p>before_request</p><p>注册一个函数, 在每次请求之前运行</p><p>before_first_request</p><p>注册一个函数, 只在处理第一个请求之前运行,可以通过这个钩子函数添加服务器初始化任务.</p><p>after_request注册一个函数, 如果没有未处理的异常抛出, 在每次请求之后运行.</p><p>teardown_request</p><p>注册一个函数, 即使有未处理的异常抛出, 也在每次请求之后运行.</p><p>在请求钩子函数和视图函数之间共享数据一般使用上下文全局变量g, </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;p&gt;title: flask&lt;/p&gt;
+&lt;p&gt;categories: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;框架&lt;br&gt;tags:&lt;/li&gt;
+&lt;li&gt;python&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;—下载示例代码, 安装到当前目录的flasky文件夹下.&lt;/p&gt;
+&lt;figure cla
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>ansible</title>
     <link href="https://hubhack.github.io/book/andible/"/>
     <id>https://hubhack.github.io/book/andible/</id>
@@ -499,31 +528,6 @@
     
     
       <category term="系统" scheme="https://hubhack.github.io/tags/%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深入浅出理解预处理器</title>
-    <link href="https://hubhack.github.io/book/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E7%90%86%E8%A7%A3%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/"/>
-    <id>https://hubhack.github.io/book/深入浅出理解预处理器/</id>
-    <published>2019-06-23T14:04:28.473Z</published>
-    <updated>2019-06-19T14:49:44.230Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="预处理器"><a href="#预处理器" class="headerlink" title="预处理器"></a>预处理器</h3><p>编译一个c程序涉及很多步骤, 其中第一个步骤被称为预处理器阶段.c预处理器在源代码编译之前对其进行一些文本性质的操作,他的主要任务包括删除注释,插入被#include指令包含的文件的内容,定义和替换#define指令定义的符号以及确定代码的部分内容是否应该根据一些条件编译指令进行编译.</p><h4 id="预定义符号"><a href="#预定义符号" class="headerlink" title="预定义符号"></a>预定义符号</h4><p>预处理指令</p><table><thead><tr><th>指令</th><th>描述</th></tr></thead><tbody><tr><td>#include</td><td>包含一个源代码</td></tr><tr><td>#define</td><td>定义宏</td></tr><tr><td>#undef</td><td>取消已定义的宏</td></tr><tr><td>#ifdef</td><td>如果宏已经定义,则返回真</td></tr><tr><td>#ifndef</td><td>如果宏没有定义,则返回真</td></tr><tr><td>#if</td><td>如果给定条件为真,则编译下面代码</td></tr><tr><td>#else</td><td>#if的替代方案</td></tr><tr><td>#elif</td><td>如果前面的#if给定条件不为真,当前条件为真,则编译下面代码</td></tr><tr><td>#endif</td><td>结束一个#if…#else 条件编译块</td></tr><tr><td>#error</td><td>当遇到标准错误时, 输出错误消息</td></tr><tr><td>#pragma</td><td>使用标准化方法, 向编译器发布特殊的命令道编译器中</td></tr></tbody></table><p>typedef </p><p>c语言支持一种叫做typedef的机制, 它允许你为各种数据类型定义新名字.typedef声明的写法和普通的声明基本相同, 只是把typedef这个关键字出现在声明的前面 .</p><p>动态内存分配</p><p>当你声明数组时, 你必须用一个编译时常量指定数组的长度,但是,数组的长度常常在运行时才知道.这是由于他所需要的内存空间取决于输入数据.</p><p>c函数库提供了两个函数,malloc 和free 分别用于执行动态内存分配和释放,这些函数维护了一个可用内存池,当一个程序另外需要一些内存时,他就调用malloc函数,,malloc从内存中提取一块合适的内存,并向该程序返回一个指向这块内存的指针.这块内存此时并没有以任何方式进行初始化.如果对这块内存进行初始化非常重要,你要么自己动手对他进行初始化,要么使用calloc函数.当一块以前分配的内存不在使用时,程序调用free函数把它归还给内存池供以后之需.</p><p>python对象就是 c语言结构体在堆上申请的一块内存.</p><p>在 C 语言中，字符串实际上是使用 <strong>null</strong> 字符 ‘\0’ 终止的一维字符数组。因此，一个以 null 结尾的字符串，包含了组成字符串的字符。</p><p>c中大量操作字符串的函数</p><table><thead><tr><th>函数</th><th>目的</th></tr></thead><tbody><tr><td>strcpy</td><td>复制字符串s2到字符串s1</td></tr><tr><td>strcat</td><td>连接s2 到字符串s1的末尾</td></tr><tr><td>strlen</td><td>返回字符串s1的长度</td></tr><tr><td>strcmp</td><td>如果 s1 和 s2 是相同的，则返回 0；如果 s1<s2 则返回小于 0；如果 s1>s2 则返回大于 0。</s2></td></tr><tr><td>strchar</td><td>返回一个指针,指向字符串s1中字符ch的第一次出现的位置</td></tr><tr><td>strstr</td><td>返回一个指针,指向字符串s1中字符串s2的第一次出现的位置</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;预处理器&quot;&gt;&lt;a href=&quot;#预处理器&quot; class=&quot;headerlink&quot; title=&quot;预处理器&quot;&gt;&lt;/a&gt;预处理器&lt;/h3&gt;&lt;p&gt;编译一个c程序涉及很多步骤, 其中第一个步骤被称为预处理器阶段.c预处理器在源代码编译之前对其进行一些文本性质的操作,他的主
-      
-    
-    </summary>
-    
-      <category term="c语言" scheme="https://hubhack.github.io/categories/c%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="c语言" scheme="https://hubhack.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   

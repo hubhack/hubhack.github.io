@@ -17,6 +17,11 @@
     <content type="text"><![CDATA[变基rebase rebase, 有垫底的意思, git rebase我们称它为git变基, 即在当前分支外另一结点重新应用当前分支的提交历史, 变基是git整合变更的一种方式, 另一中方式是合并(merge).]]></content>
   </entry>
   <entry>
+    <title></title>
+    <url>%2Fbook%2Fflask%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[title: flask categories: 框架tags: python —下载示例代码, 安装到当前目录的flasky文件夹下. 1git clone https://github.com/miguelgrinberg/flasky.git 123456git checkout 1agit reset --hardgit fetch --allgit fetch --tagsgit reset --hard orign/mastergit diff 2a 2b flask在大多数标准中, flask都算小型框架, 小到可以称为”微框架”.它具有一个包含接班服务的强健核心, 其他功能则可通过扩展实现. flask有3个主要依赖: 路由,调试, web服务网关接口(wsgi)子系统由werkzeug提供, 模板系统由jinja2提供, 命令行集成有click提供. 创建应用目录 12git clone https://github.com/miguelgrinberg/flasky.gitcd flasky 初始化 所有的Flask应用都必须创建一个应用实例.web服务器使用一种名为web服务器网关接口(wsgi)的协议.把接收自客户端的所有请求都转交给这个对象处理.应用实例是Flask类的对象.通常有下列代码创建. 12from flask import Flaskapp = Flask(__name__) 在flask中有两种上下文: 应用上下文和请求上下文. 钩子函数:有时在处理请求之前或之后执行代码会很有用. before_request 注册一个函数, 在每次请求之前运行 before_first_request 注册一个函数, 只在处理第一个请求之前运行,可以通过这个钩子函数添加服务器初始化任务. after_request注册一个函数, 如果没有未处理的异常抛出, 在每次请求之后运行. teardown_request 注册一个函数, 即使有未处理的异常抛出, 也在每次请求之后运行. 在请求钩子函数和视图函数之间共享数据一般使用上下文全局变量g,]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[ansible]]></title>
     <url>%2Fbook%2Fandible%2F</url>
     <content type="text"><![CDATA[ansible简介安装ansibleyun install -y ansible todoansible 文档https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#foreword]]></content>
