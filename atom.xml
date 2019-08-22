@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-08-19T03:15:02.408Z</updated>
+  <updated>2019-08-22T01:21:59.720Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python面试题</title>
+    <link href="https://hubhack.github.io/book/python%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>https://hubhack.github.io/book/python面试题/</id>
+    <published>2019-08-22T01:21:59.718Z</published>
+    <updated>2019-08-22T01:21:59.720Z</updated>
+    
+    <content type="html"><![CDATA[<p>重点知识</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;重点知识&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://hubhack.github.io/book/git%E4%BD%BF%E7%94%A8/"/>
+    <id>https://hubhack.github.io/book/git使用/</id>
+    <published>2019-08-21T08:05:47.951Z</published>
+    <updated>2019-08-21T08:05:47.955Z</updated>
+    
+    <content type="html"><![CDATA[<p>变基rebase</p><p>rebase, 有垫底的意思, git rebase我们称它为git变基, 即在当前分支外另一结点重新应用当前分支的提交历史, 变基是git整合变更的一种方式, 另一中方式是合并(merge).</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;变基rebase&lt;/p&gt;
+&lt;p&gt;rebase, 有垫底的意思, git rebase我们称它为git变基, 即在当前分支外另一结点重新应用当前分支的提交历史, 变基是git整合变更的一种方式, 另一中方式是合并(merge).&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ansible</title>
+    <link href="https://hubhack.github.io/book/andible/"/>
+    <id>https://hubhack.github.io/book/andible/</id>
+    <published>2019-08-19T07:41:55.554Z</published>
+    <updated>2019-08-19T07:48:39.676Z</updated>
+    
+    <content type="html"><![CDATA[<p>ansible简介<br>安装ansible<br>yun install -y ansible</p><h2 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h2><p>ansible 文档<a href="https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#foreword" target="_blank" rel="noopener">https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#foreword</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;ansible简介&lt;br&gt;安装ansible&lt;br&gt;yun install -y ansible&lt;/p&gt;
+&lt;h2 id=&quot;todo&quot;&gt;&lt;a href=&quot;#todo&quot; class=&quot;headerlink&quot; title=&quot;todo&quot;&gt;&lt;/a&gt;todo&lt;/h2&gt;&lt;p&gt;ansibl
+      
+    
+    </summary>
+    
+      <category term="ansible" scheme="https://hubhack.github.io/categories/ansible/"/>
+    
+    
+      <category term="运维" scheme="https://hubhack.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>数据分析</title>
@@ -449,92 +524,6 @@
     
     
       <category term="c语言" scheme="https://hubhack.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则表达式</title>
-    <link href="https://hubhack.github.io/book/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>https://hubhack.github.io/book/正则表达式/</id>
-    <published>2019-06-23T14:04:28.457Z</published>
-    <updated>2019-06-19T14:48:50.730Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="正则表达式简绍"><a href="#正则表达式简绍" class="headerlink" title="正则表达式简绍"></a>正则表达式简绍</h1><p>概述:正则表达式<br>正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替换.<br>正则表达式应用及其广泛,shell中处理文本的命令,各种高级编程语言都支持正则表达式.<br>正则表达式 Regular Expression,缩写regex, regexp ,RE等.<br>分类<br>1.BRE<br>基本正则表达式,grep,sed,vi等软件支持.vim有扩展.<br>2.ERE<br>扩展正则表达式,egrep, sed -r等.<br>3.PCRE<br>几乎所有高级语言都是PCRE的方言或者变种.</p><h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><p>元字符 metacharacter<br>转义 凡是在正则表达式中有特殊意义的符号,如果使用它的本意,请使用\转义.<br>反斜杠自身,得使用\ \r \n还是转义后代表回车,换行</p><h1 id="贪婪与非贪婪"><a href="#贪婪与非贪婪" class="headerlink" title="贪婪与非贪婪"></a>贪婪与非贪婪</h1><p>默认是贪婪模式,也就是说尽量多匹配更长的字符串,<br>非贪婪很简单,在重复的符号后面加上一个?问号,就尽量的少匹配了.</p><p>单行模式:<br>. 可以匹配所有的字符, 包括换行符.<br>^ 表示整个字符串的开头, &amp;整个字符串的结尾<br>多行模式:<br>. 可以匹配除了换行符之外的字符,多行不影响.点号<br>^ 表示行首, &amp;行尾, 只不过这里的行是每一行</p><p>默认模式:可以看做待匹配的文本是一行, 不能看做多行, .点号不能匹配换行符, ^和&amp;表示行首和行尾, 而行首行尾就是整个字符串的开头和结尾.<br>单行模式:基本和默认模式一样,只是.点号终于可以匹配任意一个字符包括换行符,这时所有文本就是一个长长的只有一行的字符串. ^就是这一行字符串的行首, &amp;就是这一行的行尾.<br>多行模式:重新定义了行的概念, 但不影响.点号的行为, ^和&amp;还是行首行尾的意思,只不过因为多行模式可以识别换行符.开始指的是\n后紧接着下一个字符;结束指的是\n前的字符,注意最后一行可以没有\n</p><h1 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h1><p>re.M多行模式<br>re.S单行模式<br>re.I忽略大小写<br>re.X忽略表达式中的空白字符<br>使用 | 位或运算开启多种选项<br>方法<br>编译<br>re.compile(pattern, flag=0)<br>设定flags, 编译模式,返回正则表达式对象regex<br>pattern就是正则表达式字符串, flags是选项,正则表达式需要被编译,为了提高效率,这些编译后的结果被保存,下次使用同样的pattern的时候,就不需要再次编译.<br>单次匹配<br>re.match(pattern, string, flags=0)<br>match匹配从字符串的开头匹配,regex对象match方法可以重设开始位置.发挥match对象<br>从头搜索直到第一个匹配,regex对象seach()方法可以重设开始位置和结束位置,返回macth对象.</p><p>全局搜索<br>对整个字符串, 从左至右匹配,返回匹配项的列表.<br>匹配替换<br>使用pattern对字符串string进行匹配,对匹配使用repl替换.<br>replacement可以是string, bytes, function.</p><p>分割字符串<br>字符串的分割函数split,太难用, 不能指定多个字符进行分割.<br>分组<br>使用小括号的pattern捕获的match对象; findall返回字符串列表; finditer返回一个个match对象<br>如果pattern中使用了分组,如果有匹配的结果, 会在match对象中.<br>1.使用group()方式返回对应分组,1到n是对应的分组, 0返回整个匹配的字符串, N不写缺省为0.<br>2.如果使用了命名分组,可以使用group的方式取分组<br>3.也可以使用group返回所有组.<br>4.使用groupdict()返回命名的分组.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;正则表达式简绍&quot;&gt;&lt;a href=&quot;#正则表达式简绍&quot; class=&quot;headerlink&quot; title=&quot;正则表达式简绍&quot;&gt;&lt;/a&gt;正则表达式简绍&lt;/h1&gt;&lt;p&gt;概述:正则表达式&lt;br&gt;正则表达式是文本处理极为重要的技术,用它可以对字符串按照某种规则进行检索,替
-      
-    
-    </summary>
-    
-      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>魔术方法</title>
-    <link href="https://hubhack.github.io/book/%E6%96%B9%E6%B3%95/"/>
-    <id>https://hubhack.github.io/book/方法/</id>
-    <published>2019-06-23T14:04:28.447Z</published>
-    <updated>2019-06-19T14:50:04.679Z</updated>
-    
-    <content type="html"><![CDATA[<p>魔术方法</p><table><thead><tr><th>类别</th><th>方法名</th></tr></thead><tbody><tr><td>可视化</td><td>__str__, __repr__, __format__, __bytes__</td></tr><tr><td>数值转换</td><td>__abs__, __bool__, __complex__, __int__, __float__, __hash__, __index__</td></tr><tr><td>容器模拟</td><td>__len__, __getitem__, __setitem__, __delitem__, __contains__.__misss__</td></tr><tr><td>迭代枚举</td><td>__iter__, __reversed__, __next__</td></tr><tr><td>可调用模拟</td><td>__call__</td></tr><tr><td>上下文管理</td><td>__enter__, __exit__</td></tr><tr><td>实例创建和销毁</td><td>__new__, __init__, __del__</td></tr><tr><td>属性管理(反射)</td><td>__dir__, __getattr__, __setattr__, __delattr__, __getattribute__</td></tr><tr><td>属性描述符(描述器)</td><td>__get__, __set__, __delete__</td></tr><tr><td>特殊属性</td><td>__name__, __module__, __class__, __bases__, __doc__, __mro__, __dir__</td></tr><tr><td>比较运算符</td><td>__eq__,__lt__, __le__, __gt__, __ge__, __ne__</td></tr><tr><td>算数运算符</td><td>__add__, __sub__, __mul__, __truediv__, __mod__, __floordiv__, __pow__, __divmod__</td></tr><tr><td>增量运算符</td><td>__iadd__, __isub__, __imul__, __itruediv__, __imod__, __ifloordiv__, __ipow__</td></tr><tr><td>反向运算符</td><td>__radd__, __rsub__</td></tr><tr><td>其他</td><td>__slots__</td></tr></tbody></table><p>内置函数</p><table><thead><tr><th>内置函数名</th><th>方法名</th></tr></thead><tbody><tr><td>数学运算</td><td>abs, divmod,max,min,pow, round, sum</td></tr><tr><td>类型转换</td><td>bool,int,float, complex, str, bytearray, bytes, memoryview, ord,chr, bin,oct,hex</td></tr><tr><td>序列操作</td><td>all, any, filter, map,next,reversed, sorted, zip</td></tr><tr><td>对象操作</td><td>help,dir,id,hash, type,len, ascii,format, vars,</td></tr><tr><td>反射操作</td><td>__import__, isinstance, issubclass, hasattr, getattr, setattr, delattr,callable</td></tr><tr><td>变量操作</td><td>globals, locals,</td></tr><tr><td>交互操作</td><td>print,input</td></tr><tr><td>文件操作</td><td>open</td></tr><tr><td>编译执行</td><td>compile, eval,exec, repr</td></tr><tr><td>装饰器</td><td>property,classmethod, staticmethod,</td></tr><tr><td>数据结构</td><td>tuple, list, dict, set,frozenset, enumerate, range,iter, slice,super, object</td></tr></tbody></table><p>标识符:</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">False</span>      <span class="keyword">await</span>      <span class="keyword">else</span>       <span class="keyword">import</span>     <span class="keyword">pass</span></span><br><span class="line"><span class="literal">None</span>       <span class="keyword">break</span>      <span class="keyword">except</span>     <span class="keyword">in</span>         <span class="keyword">raise</span></span><br><span class="line"><span class="literal">True</span>       <span class="class"><span class="keyword">class</span>      <span class="title">finally</span>    <span class="title">is</span>         <span class="title">return</span></span></span><br><span class="line"><span class="class"><span class="title">and</span>        <span class="title">continue</span>   <span class="title">for</span>        <span class="title">lambda</span>     <span class="title">try</span></span></span><br><span class="line"><span class="class"><span class="title">as</span>         <span class="title">def</span>        <span class="title">from</span>       <span class="title">nonlocal</span>   <span class="title">while</span></span></span><br><span class="line"><span class="class"><span class="title">assert</span>     <span class="title">del</span>        <span class="title">global</span>     <span class="title">not</span>        <span class="title">with</span></span></span><br><span class="line"><span class="class"><span class="title">async</span>      <span class="title">elif</span>       <span class="title">if</span>         <span class="title">or</span>         <span class="title">yield</span></span></span><br></pre></td></tr></table></figure><p>模块常用方法</p><table><thead><tr><th>内置模块</th><th>方法名</th></tr></thead><tbody><tr><td>re</td><td>compile, search, match, fullmatch,split,findall, sub,</td></tr><tr><td>string</td><td>ascii_letters,ascii_lowercase.digits</td></tr><tr><td>datetime</td><td>datetime</td></tr><tr><td>collections</td><td>nametuple, deque, OrderdDict, defaultdict,</td></tr><tr><td>bisect</td><td>bisect_left,bisect_right,</td></tr><tr><td>math</td><td>ceil</td></tr><tr><td>random</td><td>randint, choice, randrange,shuffle, sample</td></tr><tr><td>functools</td><td>reduce, partial,lru_cache</td></tr><tr><td>pathlib</td><td></td></tr><tr><td>os</td><td></td></tr><tr><td>shutil</td><td>copyfileobj, copyfile,  copymode, copystat,copy,copy2,copytree,rmtree,move,</td></tr><tr><td>pickle</td><td></td></tr><tr><td>csv</td><td>reader</td></tr><tr><td>time</td><td></td></tr><tr><td>threading</td><td></td></tr><tr><td>queue</td><td></td></tr><tr><td>json</td><td></td></tr><tr><td>base64</td><td></td></tr><tr><td>sys</td><td></td></tr><tr><td>inspect</td><td>signature(callable)获取签名,</td></tr><tr><td>ConfigParser</td><td></td></tr><tr><td>argparse</td><td></td></tr><tr><td>heapq</td><td>hea</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;魔术方法&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;类别&lt;/th&gt;
-&lt;th&gt;方法名&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;可视化&lt;/td&gt;
-&lt;td&gt;__str__, __repr__, __format__, __byte
-      
-    
-    </summary>
-    
-      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>描述器</title>
-    <link href="https://hubhack.github.io/book/%E6%8F%8F%E8%BF%B0%E5%99%A8/"/>
-    <id>https://hubhack.github.io/book/描述器/</id>
-    <published>2019-06-23T14:04:28.437Z</published>
-    <updated>2019-06-19T14:49:26.925Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="描述器-Descriptors"><a href="#描述器-Descriptors" class="headerlink" title="描述器 Descriptors"></a><strong>描述器 Descriptors</strong></h3><p><strong>描述器的表现</strong></p><p><strong>用到3个魔术方法: __get__() 、 __set__() 、 __delete__()</strong></p><p><strong>方法签名如下</strong></p><p><strong>object.__get__(self, instance, owner)</strong></p><p><strong>object.__set__(self, instance, value)</strong></p><p><strong>object.__delete__(self, instance)</strong></p><p><strong>self 指代当前实例，调用者</strong></p><p><strong>instance 是owner的实例</strong></p><p><strong>owner 是属性的所属的类</strong></p><p><strong>请思考下面程序的执行流程是什么？</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">self.a1 = <span class="string">'a1'</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'A.init'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line"></span><br><span class="line">x = A()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'B.init'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'-'</span>*<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">print(B.x.a1)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'='</span>*<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">b = B()</span><br><span class="line"></span><br><span class="line">print(b.x.a1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行结果</span></span><br><span class="line"></span><br><span class="line">A.init</span><br><span class="line"></span><br><span class="line">--------------------</span><br><span class="line"></span><br><span class="line">a1</span><br><span class="line"></span><br><span class="line">====================</span><br><span class="line"></span><br><span class="line">B.init</span><br><span class="line"></span><br><span class="line">a1</span><br></pre></td></tr></table></figure><p><strong>可以看出执行的先后顺序吧？</strong></p><p><strong>类加载的时候，类变量需要先生成，而类B的x属性是类A的实例，所以类A先初始化，所以打印A.init。 然后执行到打印B.x.a1。</strong></p><p><strong>然后实例化并初始化B的实例b。</strong></p><p><strong>打印b.x.a1，会查找类属性b.x，指向A的实例，所以返回A实例的属性a1的值。</strong></p><h3 id="描述器定义"><a href="#描述器定义" class="headerlink" title="描述器定义"></a>描述器定义</h3><p><strong>Python中，一个类实现了 __get__ 、 __set__ 、 __delete__ 三个方法中的任何一个方法，就是描述器。实现这 三个中的某些方法，就支持了描述器协议。</strong></p><blockquote><p><strong>仅实现了 __get__ ，就是非数据描述符 non-data descriptor</strong></p><p><strong>实现了 __get__ 、 __set__ 就是数据描述符 data descriptor</strong></p></blockquote><p><strong>如果一个类的类属性设置为描述器实例，那么它被称为owner属主。</strong></p><p><strong>当该类的该类属性被查找、设置、删除时，就会调用描述器相应的方法。</strong></p><h3 id="属性的访问顺序"><a href="#属性的访问顺序" class="headerlink" title="属性的访问顺序"></a><strong>属性的访问顺序</strong></h3><p><strong>为上例中的类B增加实例属性x</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">self.a1 = <span class="string">'a1'</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'A.init'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, instance, owner)</span>:</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"A.__get__ &#123;&#125; &#123;&#125; &#123;&#125;"</span>.format(self, instance, owner))</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line"></span><br><span class="line">x = A()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'B.init'</span>)</span><br><span class="line"></span><br><span class="line">self.x = <span class="string">'b.x'</span> <span class="comment"># 增加实例属性x</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'-'</span>*<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">print(B.x)</span><br><span class="line"></span><br><span class="line">print(B.x.a1)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'='</span>*<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">b = B()</span><br><span class="line"></span><br><span class="line">print(b.x)</span><br><span class="line"></span><br><span class="line">print(b.x.a1) <span class="comment"># AttributeError: 'str' object has no attribute 'a1'</span></span><br></pre></td></tr></table></figure><p><strong>类A只实现了__get__()方法，b.x访问到了实例的属性，而不是描述器。</strong></p><p><strong>继续修改代码，为类A增加 __set__ 方法。</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">self.a1 = <span class="string">'a1'</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'A.init'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, instance, owner)</span>:</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"A.__get__ &#123;&#125; &#123;&#125; &#123;&#125;"</span>.format(self, instance, owner))</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__set__</span><span class="params">(self, instance, value)</span>:</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'A.__set__ &#123;&#125; &#123;&#125; &#123;&#125;'</span>.format(self, instance, value))</span><br><span class="line"></span><br><span class="line">self.data = value</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line"></span><br><span class="line">x = A()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'B.init'</span>)</span><br><span class="line"></span><br><span class="line">self.x = <span class="string">'b.x'</span> <span class="comment"># 增加实例属性x</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'-'</span>*<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">print(B.x)</span><br><span class="line"></span><br><span class="line">print(B.x.a1)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'='</span>*<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">b = B()</span><br><span class="line"></span><br><span class="line">print(b.x) <span class="comment"># 返回什么</span></span><br><span class="line"></span><br><span class="line">print(b.x.a1) <span class="comment"># 返回什么</span></span><br><span class="line"></span><br><span class="line">print(b.x.data) <span class="comment"># 返回什么？</span></span><br></pre></td></tr></table></figure><p><strong>所有的b.x就会访问描述器的__get__()方法，代码中返回的self就是描述器实例，它的实例字典中就保存着a1和data 属性，可以打印b.x.__dict__就可以看到这些属性。</strong></p><hr><h3 id="属性查找顺序"><a href="#属性查找顺序" class="headerlink" title="属性查找顺序"></a><strong>属性查找顺序</strong></h3><p><strong>实例的 __dict__ 优先于 非数据描述器</strong></p><p><strong>数据描述器 优先于 实例的 __dict__</strong></p><blockquote><p><strong>__delete__ 方法有同样的效果，有了这个方法，也是数据描述器。</strong></p></blockquote><p><strong>尝试着增加下面的2行代码，看看字典的变化</strong></p><p><strong>b.x = 500</strong></p><p><strong>B.x = 600</strong></p><p><strong>b.x = 500，这是调用数据描述器的 __set__ 方法，或调用非数据描述器的实例覆盖。</strong></p><p><strong>B.x = 600，赋值即定义，这是覆盖类属性。把描述器给替换了。</strong></p><hr><p>### </p><p><strong>Python中的描述器</strong></p><p><strong>描述器在Python中应用非常广泛。</strong></p><p><strong>Python的方法（包括staticmethod()和classmethod()）都实现为非数据描述器。因此，实例可以重新定义和覆盖 方法。这允许单个实例获取与同一类的其他实例不同的行为。</strong></p><p><strong>property()函数实现为一个数据描述器。因此，实例不能覆盖属性的行为。</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(cls)</span>:</span> <span class="comment"># 非数据描述器</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod # 非数据描述器</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @property # 数据描述器</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">z</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getfoo</span><span class="params">(self)</span>:</span> <span class="comment"># 非数据描述器</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> self.foo</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span> <span class="comment"># 非数据描述器</span></span><br><span class="line"></span><br><span class="line">    self.foo = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">    self.bar = <span class="number">200</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#self.z = 300</span></span><br><span class="line"></span><br><span class="line">a = A()</span><br><span class="line"></span><br><span class="line">print(a.__dict__)</span><br><span class="line"></span><br><span class="line">print(A.__dict__)</span><br></pre></td></tr></table></figure><blockquote></blockquote><p><strong>foo、bar都可以在实例中覆盖，但是z不可以。</strong></p><hr><p><strong>新增方法</strong></p><p><strong>3.6新增描述器方法 __set_name__ ，它在属主类构建的时候就会调用。</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">   print(<span class="string">'A init'</span>)</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, instance, owner)</span>:</span></span><br><span class="line"></span><br><span class="line">       print(<span class="number">1</span>, self, instance, owner)</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">def</span> <span class="title">set_name</span><span class="params">(self, owner, name)</span>:</span></span><br><span class="line">       print(<span class="number">2</span>, self, owner, name)</span><br><span class="line"></span><br><span class="line">       self.name = name</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line"></span><br><span class="line">x = A() <span class="comment"># 类属性创建时调用描述器的set_name方法 print('-' * 30)</span></span><br><span class="line"></span><br><span class="line">print(B().x)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;描述器-Descriptors&quot;&gt;&lt;a href=&quot;#描述器-Descriptors&quot; class=&quot;headerlink&quot; title=&quot;描述器 Descriptors&quot;&gt;&lt;/a&gt;&lt;strong&gt;描述器 Descriptors&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
     
   </entry>
   
