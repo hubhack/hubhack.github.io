@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.7.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicon-48.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/icons/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: true,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+<!--站长验证-->
+
+
+
+
+  <meta name="description" content="RabbitMQRabbitMQ 是由 LShift 提供的一个 Advanced Message Queuing Protocol (AMQP) 的开源实现，由以高性能、健壮以及可伸缩性出名的 Erlang 写成，因此也是继承了这些优点 很成熟，久经考验，应用广泛文档详细，客户端丰富，几乎常用语言都有RabbitMQ的开发库 安装http://www.rabbitmq.com/install-r">
+<meta name="keywords" content="RabbitMQ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RabbitMQ">
+<meta property="og:url" content="https://hubhack.github.io/中间件/RabbitMQ/index.html">
+<meta property="og:site_name" content="千分无言">
+<meta property="og:description" content="RabbitMQRabbitMQ 是由 LShift 提供的一个 Advanced Message Queuing Protocol (AMQP) 的开源实现，由以高性能、健壮以及可伸缩性出名的 Erlang 写成，因此也是继承了这些优点 很成熟，久经考验，应用广泛文档详细，客户端丰富，几乎常用语言都有RabbitMQ的开发库 安装http://www.rabbitmq.com/install-r">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729191430250.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729191759510.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729191819123.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729194051395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729204555167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729204832587.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729205034538.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019072920520662.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729205505380.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729205518319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729205955202.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019072921152386.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729211556374.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729212719501.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190730082511902.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190730082627599.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190730084300510.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019073008431632.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190730084353303.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190730090858453.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190730090921800.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190730090956797.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190730091116532.png">
+<meta property="og:updated_time" content="2019-08-22T08:52:28.632Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RabbitMQ">
+<meta name="twitter:description" content="RabbitMQRabbitMQ 是由 LShift 提供的一个 Advanced Message Queuing Protocol (AMQP) 的开源实现，由以高性能、健壮以及可伸缩性出名的 Erlang 写成，因此也是继承了这些优点 很成熟，久经考验，应用广泛文档详细，客户端丰富，几乎常用语言都有RabbitMQ的开发库 安装http://www.rabbitmq.com/install-r">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190729191430250.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+
+
+
+
+  <link rel="canonical" href="https://hubhack.github.io/中间件/RabbitMQ/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>RabbitMQ | 千分无言</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxx";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">千分无言</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">人生苦短 我用python</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>我的首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rui-site">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://hubhack.github.io/python-book/" rel="section"><i class="menu-item-icon fa fa-fw fa-paper-plane"></i> <br>Python</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>博客分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-docs">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/docs/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>技术书库</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>文章标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br>关于作者</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>全站搜索</a>
+        </li>
+		
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result">
+    
+      <div style="text-align: center;padding: 3px 0 0;">
+       <div style="margin-top: 20px;font-size: 18px;font-weight: 600;border-bottom: 1px solid #ccc;">
+         <i class="fa fa-history" aria-hidden="true"></i>
+         近期文章
+       </div>
+       <ul style="margin: 0;padding: 0;list-style: none;">
+         
+         
+           <li>
+             <a href="/web/Restful API设计最佳实践/" title="restful设计" target="_blank">restful设计</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫实战2-分布式异步爬虫/" title="分布式爬虫" target="_blank">分布式爬虫</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫实战 - 模拟登陆oschina/" title="模拟登录" target="_blank">模拟登录</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫/" title="爬虫概述" target="_blank">爬虫概述</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫 -- Scrapy框架/" title="scrapy" target="_blank">scrapy</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫 -- HTML解析、Json解析/" title="http解析, json解析" target="_blank">http解析, json解析</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/动态网页处理 -- Selenium和PhantomJS/" title="动态网页处理" target="_blank">动态网页处理</a>
+           </li>
+         
+           <li>
+             <a href="/web/WSGI/" title="WSGI" target="_blank">WSGI</a>
+           </li>
+         
+           <li>
+             <a href="/中间件/RabbitMQ/" title="RabbitMQ" target="_blank">RabbitMQ</a>
+           </li>
+         
+           <li>
+             <a href="/linux/CentOS7使用firewalld打开关闭防火墙与端口/" title="vmware" target="_blank">vmware</a>
+           </li>
+         
+           <li>
+             <a href="/linux/新手如何安装及配置VMware Workstation虚拟机及Xshell远程管理软件/" title="vmware" target="_blank">vmware</a>
+           </li>
+         
+           <li>
+             <a href="/python/python面试题/" title="python面试题" target="_blank">python面试题</a>
+           </li>
+         
+           <li>
+             <a href="/后端框架/flask笔记/" title="flask" target="_blank">flask</a>
+           </li>
+         
+           <li>
+             <a href="/linux/andible/" title="ansible" target="_blank">ansible</a>
+           </li>
+         
+           <li>
+             <a href="/数据分析/Pandas详解/" title="数据分析" target="_blank">数据分析</a>
+           </li>
+         
+       </ul>
+      </div>
+    
+  </div>
+</div>
+
+
+
+    </div>
+  
+
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/hubhack/hubhack.github.io" class="github-corner" target="_blank" title="万水千山总是情,给个star行不行！" aria-label="万水千山总是情,给个star行不行！"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/中间件/RabbitMQ/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mwq">
+      <meta itemprop="description" content="IT知识共享,与各位共同学习">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千分无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                RabbitMQ<a href="https://github.com/hubhack/hubhack.github.io/tree/dev/source/_posts/中间件/RabbitMQ.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/中间件/" itemprop="url" rel="index"><span itemprop="name">中间件</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h1><p>RabbitMQ 是由 LShift 提供的一个 Advanced Message Queuing Protocol (AMQP) 的开源实现，由以高性能、健壮以及可伸缩性出名的 Erlang 写成，因此也是继承了这些优点</p>
+<p>很成熟，久经考验，应用广泛<br>文档详细，客户端丰富，几乎常用语言都有RabbitMQ的开发库</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="http://www.rabbitmq.com/install-rpm.html" target="_blank" rel="noopener">http://www.rabbitmq.com/install-rpm.html</a></p>
+<p>选择RPM包下载，选择对应平台，本次安装在CentOS 7，其它平台类似</p>
+<p>由于使用了erlang语言开发，所以需要erlang的包。erlang和RabbitMQ的兼容性，参考 <a href="https://www.rabbitmq.com/which-erlang.html#compatibility-matrix" target="_blank" rel="noopener">https://www.rabbitmq.com/which-erlang.html#compatibility-matrix</a></p>
+<p>下载 <code>rabbitmq-server-3.7.16-1.el7.noarch.rpm</code>、<code>erlang-21.3.8.6-1.el7.x86_64.rpm</code>。socat在CentOS中源中有<br><img src="https://img-blog.csdnimg.cn/20190729191430250.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install erlang-21.3.8.6-1.el7.x86_64.rpm rabbitmq-server-3.7.16-1.el7.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>安装成功</p>
+<p>查看安装的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># rpm -ql rabbitmq-server</span><br><span class="line">/etc/profile.d/rabbitmqctl-autocomplete.sh</span><br><span class="line">/etc/rabbitmq</span><br><span class="line">/usr/lib/rabbitmq/bin/rabbitmq-plugins</span><br><span class="line">/usr/lib/rabbitmq/bin/rabbitmq-server</span><br><span class="line">/usr/lib/systemd/system/rabbitmq-server.service</span><br><span class="line">/usr/sbin/rabbitmq-diagnostics</span><br><span class="line">/usr/sbin/rabbitmq-plugins</span><br><span class="line">/usr/sbin/rabbitmq-server</span><br><span class="line">/usr/sbin/rabbitmqctl</span><br><span class="line">/var/lib/rabbitmq</span><br><span class="line">/var/lib/rabbitmq/mnesia</span><br><span class="line">/var/log/rabbitmq</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><a href="http://www.rabbitmq.com/configure.html#config-location" target="_blank" rel="noopener">http://www.rabbitmq.com/configure.html#config-location</a></p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>使用系统环境变量，如果没有使用rabbitmq-env.conf 中定义环境变量，否则使用缺省值<br>RABBITMQ_NODE_IP_ADDRESS the empty string, meaning that it should bind to all network interfaces.<br>RABBITMQ_NODE_PORT 5672<br>RABBITMQ_DIST_PORT RABBITMQ_NODE_PORT + 20000 内部节点和客户端工具通信用<br>RABBITMQ_CONFIG_FILE 配置文件路径默认为/etc/rabbitmq/rabbitmq<br>环境变量文件，<strong>可以不配置</strong></p>
+<h3 id="工作特性配置文件"><a href="#工作特性配置文件" class="headerlink" title="工作特性配置文件"></a>工作特性配置文件</h3><p>rabbitmq.config配置文件<br>3.7支持新旧两种配置文件格式</p>
+<ol>
+<li>erlang配置文件格式，为了兼容继续采用<br><img src="https://img-blog.csdnimg.cn/20190729191759510.png" alt="在这里插入图片描述"></li>
+<li>sysctl格式，如果不需要兼容，RabbitMQ鼓励使用<br><img src="https://img-blog.csdnimg.cn/20190729191819123.png" alt="在这里插入图片描述"></li>
+</ol>
+<p>这个文件也可以<strong>不配置</strong></p>
+<h2 id="插件管理"><a href="#插件管理" class="headerlink" title="插件管理"></a>插件管理</h2><p>列出所有可用插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># rabbitmq-plugins list</span><br></pre></td></tr></table></figure></p>
+<p>启动WEB管理插件，会依赖启用其它几个插件<br><code>rabbitmq-plugins enable rabbitmq_management</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># rabbitmq-plugins enable rabbitmq_management</span><br><span class="line">Enabling plugins on node rabbit@centos7:</span><br><span class="line">rabbitmq_management</span><br><span class="line">The following plugins have been configured:</span><br><span class="line">  rabbitmq_management</span><br><span class="line">  rabbitmq_management_agent</span><br><span class="line">  rabbitmq_web_dispatch</span><br><span class="line">Applying plugin configuration to rabbit@centos7...</span><br><span class="line">The following plugins have been enabled:</span><br><span class="line">  rabbitmq_management</span><br><span class="line">  rabbitmq_management_agent</span><br><span class="line">  rabbitmq_web_dispatch</span><br><span class="line"></span><br><span class="line">set 3 plugins.</span><br><span class="line">Offline change; changes will take effect at broker restart.</span><br></pre></td></tr></table></figure></p>
+<h2 id="启动rabbitmq服务"><a href="#启动rabbitmq服务" class="headerlink" title="启动rabbitmq服务"></a>启动rabbitmq服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl start rabbitmq-server</span><br></pre></td></tr></table></figure>
+<p>启动中，可能出现下面的错误<br><code>Error when reading /var/lib/rabbitmq/.erlang.cookie: eacces</code><br>就是这个文件的权限问题，修改属主、属组为rabbitmq即可<br><code>chown rabbitmq.rabbitmq /var/lib/rabbitmq/.erlang.cookie: eacces</code><br>服务启动成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># ss -tanl | grep 5672</span><br><span class="line">LISTEN     0      128          *:25672                    *:*                  </span><br><span class="line">LISTEN     0      128          *:15672                    *:*                  </span><br><span class="line">LISTEN     0      128         :::5672                    :::*</span><br></pre></td></tr></table></figure></p>
+<p>15672 http用的端口<br>25672 集群通信<br>5672 按协议访问，常用</p>
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><p>开始登录WEB界面，<a href="http://192.168.1.5:15672" target="_blank" rel="noopener">http://192.168.1.5:15672</a><br><img src="https://img-blog.csdnimg.cn/20190729194051395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>使用<code>guest/guest</code>只能本地地登录，远程登录会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl [-n &lt;node&gt;][-t timeout] [-l][-q] &lt;command&gt; [&lt;command options&gt;]</span><br><span class="line"></span><br><span class="line">General options:</span><br><span class="line">	 -n node </span><br><span class="line">	 -q, --quiet </span><br><span class="line">	 -t,--timeout timeout</span><br><span class="line">	 -l longnames</span><br><span class="line"> </span><br><span class="line">Commands:</span><br><span class="line">	 add_user &lt;username&gt; &lt;password&gt; 添加用户</span><br><span class="line">	 list_users 列出用户</span><br><span class="line">	 delete_user username 删除用户</span><br><span class="line">	 change_password &lt;username&gt; &lt;password&gt; 修改用户名、密码</span><br><span class="line"> 	 set_user_tags &lt;username&gt; &lt;tag&gt; [...] 设置用户tag</span><br><span class="line">	 list_user_permissions &lt;username&gt; 列出用户权限</span><br></pre></td></tr></table></figure></p>
+<p>创建用户 用户名和密码（只能在本地登录）</p>
+<ul>
+<li>添加用户:<br><code>rabbitmqctl add_user username password</code></li>
+<li>删除用户:<br><code>rabbitmqctl delete_user username</code></li>
+<li>更改密码:<br><code>rabbitmqctl change_password username newpassword</code></li>
+<li>设置权限Tags，其实就是分配组<br><code>rabbitmqctl set_user_tags username tag</code></li>
+</ul>
+<p>设置lqx用户为管理员tag后登录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 创建lqx用户</span><br><span class="line"># rabbitmqctl add_user lqx lqx</span><br><span class="line">Adding user &quot;lqx&quot; ...</span><br><span class="line"></span><br><span class="line"># 查看所有用户</span><br><span class="line"># rabbitmqctl list_users</span><br><span class="line">Listing users ...</span><br><span class="line">user	tags</span><br><span class="line">guest	[administrator]</span><br><span class="line">lqx	[]</span><br><span class="line"></span><br><span class="line">#授权用户权限</span><br><span class="line"># rabbitmqctl set_user_tags lqx administrator</span><br><span class="line">Setting tags for user &quot;lqx&quot; to [administrator] ...</span><br><span class="line"></span><br><span class="line"># 查看所有用户</span><br><span class="line"># rabbitmqctl list_users</span><br><span class="line">Listing users ...</span><br><span class="line">user	tags</span><br><span class="line">guest	[administrator]</span><br><span class="line">lqx	[administrator]</span><br></pre></td></tr></table></figure></p>
+<p>tag的意义如下</p>
+<p>administrator 可以管理用户、权限、虚拟主机<br><img src="https://img-blog.csdnimg.cn/20190729204555167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p><img src="https://img-blog.csdnimg.cn/20190729204832587.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="虚拟主机"><a href="#虚拟主机" class="headerlink" title="虚拟主机"></a>虚拟主机</h2><p><img src="https://img-blog.csdnimg.cn/20190729205034538.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li><code>/</code>为缺省虚拟主机</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/2019072920520662.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>缺省虚拟主机，默认只能是guest用户在本机连接。上图新建的用户<code>lqx</code>默认无法访问任何虚拟主机</p>
+<h1 id="Pika库"><a href="#Pika库" class="headerlink" title="Pika库"></a>Pika库</h1><p>Pika是纯Python实现的支持AMQP协议的库<br><code>$ pip install pika</code></p>
+<h1 id="RabbitMQ工作原理及应用"><a href="#RabbitMQ工作原理及应用" class="headerlink" title="RabbitMQ工作原理及应用"></a>RabbitMQ工作原理及应用</h1><h2 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h2><p><a href="https://www.rabbitmq.com/getstarted.html" target="_blank" rel="noopener">https://www.rabbitmq.com/getstarted.html</a><br><img src="https://img-blog.csdnimg.cn/20190729205505380.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190729205518319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>上图，列出了RabbitMQ的使用模式，学习上面的模式，对理解所有消息队列都很重要</p>
+<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">名词</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Server</td>
+<td style="text-align:left">服务器<br>接收客户端连接，实现消息队列及路由功能的进程（服务），也称为 消息代理<br>注意，客户端可以生产者，也可以是消费者，它们都需要连接到Server</td>
+</tr>
+<tr>
+<td style="text-align:left">Connection</td>
+<td style="text-align:left">网络物理连接</td>
+</tr>
+<tr>
+<td style="text-align:left">Channel</td>
+<td style="text-align:left">一个连接允许多个客户端连接</td>
+</tr>
+<tr>
+<td style="text-align:left">Exchange</td>
+<td style="text-align:left">交换器。接收生产者发来的消息，决定如何路由给服务器中的队列<br>常用的类型有：<br>direct (point-to-point) <br>topic (publish-subscribe) <br>fanout (multicast)</td>
+</tr>
+<tr>
+<td style="text-align:left">Message</td>
+<td style="text-align:left">消息</td>
+</tr>
+<tr>
+<td style="text-align:left">Message <br>Queue</td>
+<td style="text-align:left">消息队列<br>数据的存储载体</td>
+</tr>
+<tr>
+<td style="text-align:left">Bind</td>
+<td style="text-align:left">绑定<br>建立消息队列和交换器之间的关系，也就是说交换器拿到数据，把什么样的数据送给哪个队列</td>
+</tr>
+<tr>
+<td style="text-align:left">Virtual Host</td>
+<td style="text-align:left">虚拟主机<br>一批交换机、消息队列和相关对象的集合。为了多用户互不干扰，使用虚拟主机分组交换机、消息队列<br></td>
+</tr>
+<tr>
+<td style="text-align:left">Topic</td>
+<td style="text-align:left">主题、话题</td>
+</tr>
+<tr>
+<td style="text-align:left">Broker</td>
+<td style="text-align:left">可等价为Server</td>
+</tr>
+</tbody>
+</table>
+<p>先链接 然后信道，然后交换机（缺省默认配置）， 然后队列</p>
+<h2 id="1-队列"><a href="#1-队列" class="headerlink" title="1. 队列"></a>1. 队列</h2><p>这种模式就是最简单的 生产者消费者模型，消息队列就是一个FIFO的队列<br><img src="https://img-blog.csdnimg.cn/20190729205955202.png" alt="在这里插入图片描述"><br>生产者<code>send.py</code>，消费者<code>receive.py</code><br>官方例子 <a href="https://www.rabbitmq.com/tutorials/tutorial-one-python.html" target="_blank" rel="noopener">https://www.rabbitmq.com/tutorials/tutorial-one-python.html</a><br>参照官方例子，写一个程序<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"></span><br><span class="line">params = pika.ConnectionParameters(<span class="string">'192.168.1.5'</span>)</span><br><span class="line">connection = pika.BlockingConnection(params)</span><br><span class="line">channel = connection.channel()</span><br><span class="line"><span class="comment"># 交换机， 路由器</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 队列</span></span><br><span class="line">channel.queue_declare(queue=<span class="string">'hello'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connection:</span><br><span class="line">    <span class="comment"># 发消息</span></span><br><span class="line">    msg = <span class="string">'Hello World!'</span></span><br><span class="line">    channel.basic_publish(exchange=<span class="string">''</span>, <span class="comment"># 交换机为空</span></span><br><span class="line">                          routing_key=<span class="string">'hello'</span>, <span class="comment"># hello</span></span><br><span class="line">                          body=msg)</span><br><span class="line">    print(<span class="string">" [x] Sent 'Hello World!'"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>运行结果如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pika.exceptions.ProbableAuthenticationError: ConnectionClosedByBroker: (403) &apos;ACCESS_REFUSED </span><br><span class="line">- Login was refused using authentication mechanism PLAIN. For details see the broker logfile.&apos;</span><br></pre></td></tr></table></figure></p>
+<p>访问被拒绝，还是权限问题，原因还是guest用户只能访问localhost上的 <code>/</code> 缺省虚拟主机</p>
+<p><strong>解决办法*</strong></p>
+<ul>
+<li>缺省虚拟主机，默认只能在本机访问，不要修改为远程访问，是安全的考虑</li>
+<li>因此，在Admin中Virtual hosts中，新建一个虚拟主机test。</li>
+<li>注意，新建的test虚拟主机的Users是谁，本次是lqx用户</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/2019072921152386.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190729211556374.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="生产者代码"><a href="#生产者代码" class="headerlink" title="生产者代码"></a>生产者代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"></span><br><span class="line">queue_name = <span class="string">'hello'</span></span><br><span class="line">params = pika.URLParameters(<span class="string">'amqp://lqx:lqx@192.168.1.5:5672/test'</span>)</span><br><span class="line"></span><br><span class="line">connection = pika.BlockingConnection(params)</span><br><span class="line">channel = connection.channel()</span><br><span class="line"><span class="comment"># 交换机， 路由器</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 队列</span></span><br><span class="line">channel.queue_declare(queue=queue_name)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connection:</span><br><span class="line">    <span class="comment"># 发消息</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        msg = <span class="string">'data-&#123;:02&#125;'</span>.format(i)</span><br><span class="line">        channel.basic_publish(exchange=<span class="string">''</span>, <span class="comment"># 交换机为空</span></span><br><span class="line">                              routing_key=queue_name, <span class="comment"># hello</span></span><br><span class="line">                              body=msg)</span><br><span class="line">    print(<span class="string">" [x] Sent 'Hello World!'"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="消费者代码（get方法，非阻塞）"><a href="#消费者代码（get方法，非阻塞）" class="headerlink" title="消费者代码（get方法，非阻塞）"></a>消费者代码（get方法，非阻塞）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"></span><br><span class="line">queue_name = <span class="string">'hello'</span></span><br><span class="line">params = pika.URLParameters(<span class="string">'amqp://lqx:lqx@192.168.1.5:5672/test'</span>)</span><br><span class="line"></span><br><span class="line">connection = pika.BlockingConnection(params)</span><br><span class="line">channel = connection.channel()</span><br><span class="line"><span class="comment"># 交换机， 路由器</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 队列</span></span><br><span class="line">channel.queue_declare(queue=queue_name)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connection:</span><br><span class="line">    <span class="comment"># 消费</span></span><br><span class="line">    msg =channel.basic_get(queue_name, <span class="literal">True</span>) <span class="comment"># get方法需要ACK</span></span><br><span class="line">    method, properties, body = msg</span><br><span class="line">    print(<span class="string">'msg = &#123;&#125;'</span>.format(body))</span><br></pre></td></tr></table></figure>
+<h3 id="消费者代码（consume方法，阻塞）"><a href="#消费者代码（consume方法，阻塞）" class="headerlink" title="消费者代码（consume方法，阻塞）"></a>消费者代码（consume方法，阻塞）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"></span><br><span class="line">queue_name = <span class="string">'hello'</span></span><br><span class="line">params = pika.URLParameters(<span class="string">'amqp://lqx:lqx@192.168.1.5:5672/test'</span>)</span><br><span class="line"></span><br><span class="line">connection = pika.BlockingConnection(params)</span><br><span class="line">channel = connection.channel()</span><br><span class="line"><span class="comment"># 交换机， 路由器</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 队列</span></span><br><span class="line">channel.queue_declare(queue=queue_name)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">callback</span><span class="params">(ch ,method, properties, body)</span>:</span></span><br><span class="line">    print(<span class="string">" [x] Receivde %r"</span> % body)</span><br><span class="line"><span class="keyword">with</span> connection:</span><br><span class="line">    <span class="comment"># 消费者，每一个消费者使用过一个basic_consume</span></span><br><span class="line">    channel.basic_consume(queue_name,</span><br><span class="line">                          auto_ack=<span class="literal">True</span>,</span><br><span class="line">                          on_message_callback=callback)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    print(<span class="string">' [*] Waiting for messages. To exit press CTRL+C'</span>)</span><br><span class="line">    channel.start_consuming()</span><br></pre></td></tr></table></figure>
+<p>执行结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[*] Waiting <span class="keyword">for</span> messages. To exit press CTRL+C</span><br><span class="line">[x] Receivde <span class="string">b'data-00'</span></span><br><span class="line">[x] Receivde <span class="string">b'data-01'</span></span><br><span class="line">[x] Receivde <span class="string">b'data-02'</span></span><br><span class="line">[x] Receivde <span class="string">b'data-03'</span></span><br><span class="line">[x] Receivde <span class="string">b'data-04'</span></span><br><span class="line">[x] Receivde <span class="string">b'data-05'</span></span><br><span class="line">[x] Receivde <span class="string">b'data-06'</span></span><br><span class="line">[x] Receivde <span class="string">b'data-07'</span></span><br><span class="line">[x] Receivde <span class="string">b'data-08'</span></span><br><span class="line">[x] Receivde <span class="string">b'data-09'</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-工作队列"><a href="#2-工作队列" class="headerlink" title="2. 工作队列"></a>2. 工作队列</h2><p><img src="https://img-blog.csdnimg.cn/20190729212719501.png" alt="在这里插入图片描述"></p>
+<ul>
+<li>继续使用队列模式的生产者消费者代码</li>
+<li>一个链接里启2个消费<strong>或者</strong>启动2个链接消费</li>
+<li>结果都是一样的</li>
+</ul>
+<p><strong>生产者代码不变，修改消费者代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"></span><br><span class="line">queue_name = <span class="string">'hello'</span></span><br><span class="line">params = pika.URLParameters(<span class="string">'amqp://lqx:lqx@192.168.1.5:5672/test'</span>)</span><br><span class="line"></span><br><span class="line">connection = pika.BlockingConnection(params)</span><br><span class="line">channel = connection.channel()</span><br><span class="line"><span class="comment"># 交换机， 路由器</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 队列</span></span><br><span class="line">channel.queue_declare(queue=queue_name)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">callback</span><span class="params">(ch ,method, properties, body)</span>:</span></span><br><span class="line">    print(<span class="string">"mag = &#123;&#125;"</span>.format(body))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">callback1</span><span class="params">(ch ,method, properties, body)</span>:</span></span><br><span class="line">    print(<span class="string">"mag1 = &#123;&#125;"</span>.format(body))</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connection:</span><br><span class="line">    <span class="comment"># 消费者，每一个消费者使用过一个basic_consume</span></span><br><span class="line">    channel.basic_consume(queue_name,</span><br><span class="line">                          auto_ack=<span class="literal">True</span>,</span><br><span class="line">                          on_message_callback=callback)</span><br><span class="line"></span><br><span class="line">    channel.basic_consume(queue_name,</span><br><span class="line">                          auto_ack=<span class="literal">True</span>,</span><br><span class="line">                          on_message_callback=callback1)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">' [*] Waiting for messages. To exit press CTRL+C'</span>)</span><br><span class="line">    channel.start_consuming() <span class="comment"># 启动所有消费，直到所有消费结束，才能退出。阻塞的</span></span><br></pre></td></tr></table></figure></p>
+<p>执行结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> [*] Waiting <span class="keyword">for</span> messages. To exit press CTRL+C</span><br><span class="line">mag = <span class="string">b'data-00'</span></span><br><span class="line">mag1 = <span class="string">b'data-01'</span></span><br><span class="line">mag = <span class="string">b'data-02'</span></span><br><span class="line">mag1 = <span class="string">b'data-03'</span></span><br><span class="line">mag = <span class="string">b'data-04'</span></span><br><span class="line">mag1 = <span class="string">b'data-05'</span></span><br><span class="line">mag = <span class="string">b'data-06'</span></span><br><span class="line">mag1 = <span class="string">b'data-07'</span></span><br><span class="line">mag = <span class="string">b'data-08'</span></span><br><span class="line">mag1 = <span class="string">b'data-09'</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>这种工作模式是一种竞争工作方式，对某一个消息来说，只能有一个消费者拿走它</li>
+<li>从结果知道，使用的是轮询方式拿走数据的</li>
+<li>观察结果，可以看到，2个消费者是交替拿到不同的消息<br>注意：虽然上面的图中没有画出exchange，用到缺省exchange</li>
+</ul>
+<h2 id="3-发布、订阅模式-扇出"><a href="#3-发布、订阅模式-扇出" class="headerlink" title="3. 发布、订阅模式(扇出)"></a>3. 发布、订阅模式(扇出)</h2><p>Publish/Subscribe发布和订阅，想象一下订阅报纸，所有订阅者（消费者）订阅这个报纸（消息），都应该拿到一份同样内容的报纸</p>
+<ul>
+<li><p>订阅者和消费者之间还有一个exchange，可以想象成邮局，消费者去邮局订阅报纸，报社发报纸到邮局，邮局决定如何投递到消费者手中</p>
+</li>
+<li><p>上例中工作队列模式的使用，相当于，每个人只能拿到不同的报纸。所以，不适用发布订阅模式</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190730082511902.png" alt="在这里插入图片描述"><br>当前模式的exchange的type是fanout，就是一对多，即广播模式。<br>注意，同一个queue的消息只能被消费一次，所以，这里使用了多个queue，相当于为了保证不同的消费者拿到同<br>样的数据，每一个消费者都应该有自己的queue</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个交换机</span></span><br><span class="line">channel.exchange_declare(</span><br><span class="line">	exchange=<span class="string">'logs'</span>, <span class="comment"># 新交换机</span></span><br><span class="line">	exchange_type=<span class="string">'fanout'</span> <span class="comment"># 广播</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>生产者使用广播模式。在test虚拟主机主机下构建了一个logs交换机<br>至于queue，可以由生产者创建，也可以由消费者创建</p>
+<p>本次采用使用消费者端创建，生产者把数据发往交换机logs，采用了fanout，然后将数据通过交换机发往已经绑定到此交换机的所有queue<br><img src="https://img-blog.csdnimg.cn/20190730082627599.png" alt="在这里插入图片描述"><br>绑定Bingding，建立exchange和queue之间的联系</p>
+<p><strong>生产者代码</strong>（交换机缺省模式）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"></span><br><span class="line">queue_name = <span class="string">'hello'</span></span><br><span class="line">params = pika.URLParameters(<span class="string">'amqp://lqx:lqx@192.168.1.5:5672/test'</span>)</span><br><span class="line"></span><br><span class="line">connection = pika.BlockingConnection(params)</span><br><span class="line">channel = connection.channel()</span><br><span class="line"><span class="comment"># 交换机， 路由器</span></span><br><span class="line">channel.exchange_declare(exchange=<span class="string">''</span>,</span><br><span class="line">                         exchange_type=<span class="string">'direct'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 队列</span></span><br><span class="line">channel.queue_declare(queue=queue_name)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connection:</span><br><span class="line">    <span class="comment"># 发消息</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        msg = <span class="string">'data-&#123;:02&#125;'</span>.format(i)</span><br><span class="line">        channel.basic_publish(exchange=<span class="string">''</span>, <span class="comment"># 交换机为空</span></span><br><span class="line">                              routing_key=queue_name, <span class="comment"># hello</span></span><br><span class="line">                              body=msg)</span><br><span class="line">    print(<span class="string">" [x] Sent 'Hello World!'"</span>)</span><br></pre></td></tr></table></figure></p>
+<p><strong>生产者代码</strong>（指定交换机）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"></span><br><span class="line">queue_name = <span class="string">'hello'</span></span><br><span class="line">exchange_name = <span class="string">'logs'</span></span><br><span class="line">params = pika.URLParameters(<span class="string">'amqp://lqx:lqx@192.168.1.5:5672/test'</span>)</span><br><span class="line"></span><br><span class="line">connection = pika.BlockingConnection(params)</span><br><span class="line">channel = connection.channel()</span><br><span class="line"><span class="comment"># 交换机， 路由器</span></span><br><span class="line">channel.exchange_declare(exchange=exchange_name,</span><br><span class="line">                         exchange_type=<span class="string">'fanout'</span>) <span class="comment"># 广播，扇出</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connection:</span><br><span class="line">    <span class="comment"># 发消息</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        msg = <span class="string">'data-&#123;:02&#125;'</span>.format(i)</span><br><span class="line">        </span><br><span class="line">        channel.basic_publish(exchange=exchange_name, <span class="comment"># 指定交换机</span></span><br><span class="line">                              routing_key=<span class="string">''</span>, </span><br><span class="line">                              body=msg)</span><br><span class="line">    print(<span class="string">" [x] Sent 'Hello World!'"</span>)</span><br></pre></td></tr></table></figure></p>
+<p><strong>消费者代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"></span><br><span class="line">queue_name = <span class="string">'hello'</span></span><br><span class="line">exchange_name = <span class="string">'logs'</span></span><br><span class="line">params = pika.URLParameters(<span class="string">'amqp://lqx:lqx@192.168.18.100:5672/test'</span>)</span><br><span class="line"></span><br><span class="line">connection = pika.BlockingConnection(params)</span><br><span class="line">channel = connection.channel()</span><br><span class="line"><span class="comment"># 交换机， 路由器</span></span><br><span class="line">channel.exchange_declare(exchange=exchange_name,</span><br><span class="line">                         exchange_type=<span class="string">'fanout'</span>) <span class="comment"># 广播，扇出</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connection:</span><br><span class="line">    <span class="comment"># 发消息</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        msg = <span class="string">'data-&#123;:02&#125;'</span>.format(i)</span><br><span class="line"></span><br><span class="line">        channel.basic_publish(exchange=exchange_name, <span class="comment"># 指定交换机</span></span><br><span class="line">                              routing_key=<span class="string">''</span>,</span><br><span class="line">                              body=msg)</span><br><span class="line">    print(<span class="string">" [x] Sent 'Hello World!'"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>先启动消费者可以看到已经创建了exchange<br><img src="https://img-blog.csdnimg.cn/20190730084300510.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果exchange是fanout，也就是广播了，routing_key就无所谓是什么了<br><img src="https://img-blog.csdnimg.cn/2019073008431632.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">q1 = channel.queue_declare(queue=<span class="string">''</span>, exclusive=<span class="literal">True</span>) </span><br><span class="line">q2 = channel.queue_declare(queue=<span class="string">''</span>, exclusive=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure></p>
+<p>尝试先启动生产者，再启动消费者试试看。<br>部分数据丢失，因为，exchange收到了数据，没有queue接收，所以，exchange丢弃了这些数据</p>
+<h2 id="4-路由Routing"><a href="#4-路由Routing" class="headerlink" title="4.路由Routing"></a>4.路由Routing</h2><p><img src="https://img-blog.csdnimg.cn/20190730084353303.png" alt="在这里插入图片描述"><br>路由其实就是生成者的数据经过exchange的时候，通过匹配规则，决定数据的去向</p>
+<p><strong>生产者代码</strong><br>交换机类型为direct，指定路由的keyn<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">queue_name = <span class="string">'hello'</span></span><br><span class="line">exchange_name = <span class="string">'color'</span></span><br><span class="line">colors = (<span class="string">'orange'</span>, <span class="string">'red'</span>, <span class="string">'green'</span>)</span><br><span class="line">params = pika.URLParameters(<span class="string">'amqp://lqx:lqx@192.168.1.5:5672/test'</span>)</span><br><span class="line"></span><br><span class="line">connection = pika.BlockingConnection(params)</span><br><span class="line">channel = connection.channel()</span><br><span class="line"></span><br><span class="line"><span class="comment">#交换机， 路由器</span></span><br><span class="line">channel.exchange_declare(exchange=exchange_name,</span><br><span class="line">                         exchange_type=<span class="string">'direct'</span>) <span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connection:</span><br><span class="line">    <span class="comment"># 发消息</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">        rk = random.choice(colors)</span><br><span class="line">        msg = <span class="string">'&#123;&#125;: data-&#123;:02&#125;'</span>.format(rk, i)</span><br><span class="line">        channel.basic_publish(exchange=exchange_name, <span class="comment"># 指定交换机</span></span><br><span class="line">                              routing_key=rk,</span><br><span class="line">                              body=msg)</span><br><span class="line">    print(<span class="string">" [x] Sent 'Hello World!'"</span>)</span><br></pre></td></tr></table></figure></p>
+<p><strong>消费者代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"></span><br><span class="line">queue_name = <span class="string">'hello'</span></span><br><span class="line">exchange_name = <span class="string">'color'</span></span><br><span class="line">colors = (<span class="string">'orange'</span>, <span class="string">'black'</span>, <span class="string">'green'</span>)</span><br><span class="line">params = pika.URLParameters(<span class="string">'amqp://lqx:lqx@192.168.1.5:5672/test'</span>)</span><br><span class="line"></span><br><span class="line">connection = pika.BlockingConnection(params)</span><br><span class="line">channel = connection.channel()</span><br><span class="line"></span><br><span class="line"><span class="comment">#交换机，路由器</span></span><br><span class="line">channel.exchange_declare(exchange=exchange_name,exchange_type=<span class="string">'direct'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 队列</span></span><br><span class="line"><span class="comment">#channel.queue_declare(queue=queue_name)</span></span><br><span class="line"><span class="comment">#q = channel.queue_declare(queue='') 不指定名称，queue名称会随机生成 q.method.queue</span></span><br><span class="line">q1 = channel.queue_declare(queue=<span class="string">''</span>, exclusive=<span class="literal">True</span>) <span class="comment">#exclusive 在断开时，会queue删除</span></span><br><span class="line">q2 = channel.queue_declare(queue=<span class="string">''</span>, exclusive=<span class="literal">True</span>) <span class="comment">#exclusive 在断开时，会queue删除</span></span><br><span class="line">q1name = q1.method.queue</span><br><span class="line">q2name = q2.method.queue</span><br><span class="line"></span><br><span class="line">channel.queue_bind(exchange=exchange_name, queue=q1name, routing_key=colors[<span class="number">0</span>]) <span class="comment"># 将队列和某一个交换机关联</span></span><br><span class="line">channel.queue_bind(exchange=exchange_name, queue=q2name, routing_key=colors[<span class="number">1</span>]) <span class="comment"># 将队列和某一个交换机关联</span></span><br><span class="line">channel.queue_bind(exchange=exchange_name, queue=q2name, routing_key=colors[<span class="number">2</span>]) <span class="comment"># 将队列和某一个交换机关联</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">callback</span><span class="params">(ch, method, properties, body)</span>:</span></span><br><span class="line">    print(<span class="string">"msg  = &#123;&#125;"</span>.format(body), method)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connection:</span><br><span class="line">    <span class="comment"># 消费者，每一个消费者使用一个basic_consume</span></span><br><span class="line">    channel.basic_consume(queue=q1name,</span><br><span class="line">                          auto_ack=<span class="literal">True</span>,</span><br><span class="line">                          on_message_callback=callback)</span><br><span class="line"></span><br><span class="line">    channel.basic_consume(queue=q2name,</span><br><span class="line">                          auto_ack=<span class="literal">True</span>,</span><br><span class="line">                          on_message_callback=callback)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">' [*] Waiting for messages. To exit press CTRL+C'</span>)</span><br><span class="line">    channel.start_consuming() <span class="comment"># 启动所有消费，直到道所有消费结束，才能退出，阻塞的</span></span><br></pre></td></tr></table></figure></p>
+<p>绑定结果如下<br><img src="https://img-blog.csdnimg.cn/20190730090858453.png" alt="在这里插入图片描述"><br>如果routing_key设置的都一样，会怎么样？</p>
+<p><img src="https://img-blog.csdnimg.cn/20190730090921800.png" alt="在这里插入图片描述"><br>绑定的时候指定的<code>routing_key=&#39;black&#39;</code>，如上图，和fanout就类似了，都是1对多，但是不同<br>因为fanout时，exchange不做数据过滤的，1个消息，所有绑定的queue都会拿到一个副本<br>direct时候，要按照routing_key分配数据，上图的black有2个queue设置了，就会把1个消息分发给这2个queue</p>
+<h2 id="5、Topic-话题"><a href="#5、Topic-话题" class="headerlink" title="5、Topic 话题"></a>5、Topic 话题</h2><p><img src="https://img-blog.csdnimg.cn/20190730090956797.png" alt="在这里插入图片描述"><br>Topic就是更加高级的路由，支持模式匹配而已<br>Topic的routing_key必须使用 . 点号分割的单词组成。最多255个字节<br>支持使用通配符：</p>
+<ul>
+<li><code>*</code>表示严格的一个单词</li>
+<li><code>#</code>表示0个或者多个单词</li>
+</ul>
+<p>如果queue绑定的routing_key只是一个<code>#</code>，这个queue其实可以接收所有的消息<br>如果没有使用任何通配符，效果类似于direct，因为只能和字符匹配<br><strong>生产者代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">queue_name = <span class="string">'hello'</span></span><br><span class="line">exchange_name = <span class="string">'color'</span></span><br><span class="line"></span><br><span class="line">topics = (<span class="string">'phone.*'</span>, <span class="string">'*.red'</span>) <span class="comment"># * 一个单词</span></span><br><span class="line">products = (<span class="string">'phone'</span>, <span class="string">'pc'</span>, <span class="string">'tv'</span>)</span><br><span class="line">colors = (<span class="string">'orange'</span>, <span class="string">'black'</span>, <span class="string">'red'</span>)</span><br><span class="line"></span><br><span class="line">params = pika.URLParameters(<span class="string">'amqp://lqx:lqx@192.168.1.5:5672/test'</span>)</span><br><span class="line"></span><br><span class="line">connection = pika.BlockingConnection(params)</span><br><span class="line">channel = connection.channel()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 交换机，路由器</span></span><br><span class="line">channel.exchange_declare(exchange=exchange_name,</span><br><span class="line">                         exchange_type=<span class="string">'topic'</span>) <span class="comment"># 话题</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connection:</span><br><span class="line">    <span class="comment"># 发消息</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">        rk = random.choice(colors)</span><br><span class="line">        msg = <span class="string">'&#123;&#125;: data-&#123;:02&#125;'</span>.format(rk, i)</span><br><span class="line">        channel.basic_publish(exchange=exchange_name, <span class="comment"># 指定交换机</span></span><br><span class="line">                      routing_key=rk,</span><br><span class="line">                      body=msg)</span><br><span class="line">        print(<span class="string">'-'</span> * <span class="number">30</span>)</span><br><span class="line">    print(<span class="string">" [x] Sent 'Hello World!'"</span>)</span><br></pre></td></tr></table></figure></p>
+<p><strong>消费者代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pika</span><br><span class="line"></span><br><span class="line">queue_name = <span class="string">'hello'</span></span><br><span class="line">exchange_name = <span class="string">'color'</span></span><br><span class="line"></span><br><span class="line">topics = (<span class="string">'phone.*'</span>, <span class="string">'*.red'</span>) <span class="comment"># * 一个单词</span></span><br><span class="line">products = (<span class="string">'phone'</span>, <span class="string">'pc'</span>, <span class="string">'tv'</span>)</span><br><span class="line">colors = (<span class="string">'orange'</span>, <span class="string">'black'</span>, <span class="string">'red'</span>)</span><br><span class="line">params = pika.URLParameters(<span class="string">'amqp://lqx:lqx@192.168.1.5:5672/test'</span>)</span><br><span class="line"></span><br><span class="line">connection = pika.BlockingConnection(params)</span><br><span class="line">channel = connection.channel()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 交换机，路由器</span></span><br><span class="line">channel.exchange_declare(exchange=exchange_name,</span><br><span class="line">                         exchange_type=<span class="string">'topic'</span>) <span class="comment"># 话题</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 队列</span></span><br><span class="line"><span class="comment">#channel.queue_declare(queue=queue_name)</span></span><br><span class="line"><span class="comment">#q = channel.queue_declare(queue='') 不指定名称，queue名称会随机生成 q.method.queue</span></span><br><span class="line">q1 = channel.queue_declare(queue=<span class="string">''</span>, exclusive=<span class="literal">True</span>) <span class="comment">#exclusive 在断开时，会queue删除</span></span><br><span class="line">q2 = channel.queue_declare(queue=<span class="string">''</span>, exclusive=<span class="literal">True</span>) <span class="comment">#exclusive 在断开时，会queue删除</span></span><br><span class="line">q1name = q1.method.queue</span><br><span class="line">q2name = q2.method.queue</span><br><span class="line"></span><br><span class="line">channel.queue_bind(exchange=exchange_name, queue=q1name, routing_key=colors[<span class="number">0</span>]) <span class="comment"># 将队列和某一个交换机关联</span></span><br><span class="line">channel.queue_bind(exchange=exchange_name, queue=q2name, routing_key=colors[<span class="number">1</span>]) <span class="comment"># 将队列和某一个交换机关联</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">callback</span><span class="params">(ch, method, properties, body)</span>:</span></span><br><span class="line">    print(<span class="string">"msg  = &#123;&#125;"</span>.format(body), method)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> connection:</span><br><span class="line">    <span class="comment"># 消费者，每一个消费者使用一个basic_consume</span></span><br><span class="line">    channel.basic_consume(queue=q1name,</span><br><span class="line">                          auto_ack=<span class="literal">True</span>,</span><br><span class="line">                          on_message_callback=callback)</span><br><span class="line"></span><br><span class="line">    channel.basic_consume(queue=q2name,</span><br><span class="line">                          auto_ack=<span class="literal">True</span>,</span><br><span class="line">                          on_message_callback=callback)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">' [*] Waiting for messages. To exit press CTRL+C'</span>)</span><br><span class="line">    channel.start_consuming() <span class="comment"># 启动所有消费，直到道所有消费结束，才能退出，阻塞的</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://img-blog.csdnimg.cn/20190730091116532.png" alt="在这里插入图片描述"><br>观察消费者拿到的数据，注意观察 phone.red 的数据出现的次数<br>由此，可以知道 <strong>交换机在路由消息的时候，只要和queue的routing_key匹配，就把消息发给该queue</strong></p>
+<h2 id="RPC-远程过程调用"><a href="#RPC-远程过程调用" class="headerlink" title="RPC 远程过程调用"></a>RPC 远程过程调用</h2><p>RabbitMQ的RPC的应用场景较少，因为有更好的RPC通信框架</p>
+<h1 id="消息队列的作用"><a href="#消息队列的作用" class="headerlink" title="消息队列的作用"></a>消息队列的作用</h1><ol>
+<li>系统间解耦</li>
+<li>解决生产者、消费者速度匹配</li>
+</ol>
+<p>由于稍微上规模的项目都会分层、分模块开发，模块间或系统间尽量不要直接耦合，需要开放公共接口提供给别的模块或系统调用，而调用可能触发并发问题，为了缓冲和解耦，往往采用中间件技术</p>
+<p>RabbitMQ只是消息中间件中的一种应用程序，也是较常用的消息中间件服务</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      
+
+
+    
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢支持 ！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="mwq 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+      </div>
+    
+
+    
+      <div class="post-tags">
+        
+          <a href="/tags/RabbitMQ/" rel="tag"><i class="fa fa-tag"></i> RabbitMQ</a>
+        
+      </div>
+    
+    
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/linux/CentOS7使用firewalld打开关闭防火墙与端口/" rel="next" title="vmware">
+                <i class="fa fa-chevron-left"></i> vmware
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/web/WSGI/" rel="prev" title="WSGI">
+                WSGI <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="mwq">
+            
+              <p class="site-author-name" itemprop="name">mwq</p>
+              <p class="site-description motion-element" itemprop="description">IT知识共享,与各位共同学习</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">74</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+          
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://hubhack.github.io/python-book/" title="导航 &rarr; https://hubhack.github.io/python-book/"><i class="fa fa-fw fa-paper-plane"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hubhack" title="GitHub &rarr; https://github.com/hubhack" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:2329259856@qq.com" title="E-Mail &rarr; mailto:2329259856@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RabbitMQ"><span class="nav-number">1.</span> <span class="nav-text">RabbitMQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">1.2.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量"><span class="nav-number">1.2.1.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作特性配置文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">工作特性配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件管理"><span class="nav-number">1.3.</span> <span class="nav-text">插件管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动rabbitmq服务"><span class="nav-number">1.4.</span> <span class="nav-text">启动rabbitmq服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户管理"><span class="nav-number">1.5.</span> <span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本信息"><span class="nav-number">1.6.</span> <span class="nav-text">基本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟主机"><span class="nav-number">1.7.</span> <span class="nav-text">虚拟主机</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pika库"><span class="nav-number">2.</span> <span class="nav-text">Pika库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RabbitMQ工作原理及应用"><span class="nav-number">3.</span> <span class="nav-text">RabbitMQ工作原理及应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作模式"><span class="nav-number">3.1.</span> <span class="nav-text">工作模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#名词解释"><span class="nav-number">3.2.</span> <span class="nav-text">名词解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-队列"><span class="nav-number">3.3.</span> <span class="nav-text">1. 队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生产者代码"><span class="nav-number">3.3.1.</span> <span class="nav-text">生产者代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消费者代码（get方法，非阻塞）"><span class="nav-number">3.3.2.</span> <span class="nav-text">消费者代码（get方法，非阻塞）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消费者代码（consume方法，阻塞）"><span class="nav-number">3.3.3.</span> <span class="nav-text">消费者代码（consume方法，阻塞）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-工作队列"><span class="nav-number">3.4.</span> <span class="nav-text">2. 工作队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-发布、订阅模式-扇出"><span class="nav-number">3.5.</span> <span class="nav-text">3. 发布、订阅模式(扇出)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-路由Routing"><span class="nav-number">3.6.</span> <span class="nav-text">4.路由Routing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、Topic-话题"><span class="nav-number">3.7.</span> <span class="nav-text">5、Topic 话题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RPC-远程过程调用"><span class="nav-number">3.8.</span> <span class="nav-text">RPC 远程过程调用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#消息队列的作用"><span class="nav-number">4.</span> <span class="nav-text">消息队列的作用</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">Copyright &copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hubhack.&ensp;</span>
+  <span title="博客总字数"><i class="fa fa-edit"></i>&ensp;<span class="post-count"></span>字</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+<!--左下角公众号二维码-->
+<div class="weixin-box">
+  <div class="weixin-menu">
+    <div class="weixin-hover">
+      <div class="weixin-description">微信扫一扫，订阅本博客</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+  
+
+  
+<script>
+if ($('body').find('pre.mermaid').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      mermaid.initialize({
+        theme: 'forest',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 }
+      });
+    }
+  });
+}
+</script>
+
+
+  
+
+  
+
+  <!--Custom javascript for hubhack.cn-->
+
+<!--console.log-->
+<script type="text/javascript">
+  console.log("欢迎来到hubhack的博客");
+</script>
+
+<!--此处为建站时间 -->
+
+<script>
+  var now = new Date(); 
+  function createtime() { 
+      var grt= new Date("");
+      now.setTime(now.getTime()+250); 
+      days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+      if(String(hnum).length ==1 ){
+        hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+        mnum = "0" + mnum;
+      } 
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+        snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML =dnum+"&thinsp;天"; 
+      document.getElementById("times").innerHTML = hnum + "&thinsp;时" + mnum + "&thinsp;分" + snum + "&thinsp;秒"; 
+  } 
+setInterval("createtime()",250);
+</script>
+
+<!--知乎卡片链接-->
+<script type="text/javascript" src="/js/src/linkcard.js"></script>
+
+<!--夜间模式-->
+<script type="text/javascript" src="/js/src/night.js"></script>
+<div class="cover"></div>
+
+<!--崩溃欺骗-->
+<!--<script type="text/javascript" src="/js/src/crash_cheat.js"></script>-->
+
+<!--input特效-->
+<script src="/js/src/activate-power-mode.js"></script>
+<script>
+POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = false; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script>
+
+<!-- 鼠标点击特效 -->
+
+ <script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('manual', "#更多");
+  
+  </script>
+
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      
+        background-color: #1b1b1b;
+        color: #b0b0b0;
+        border: 1px solid #b0b0b0;
+        border-radius: 3px;
+      
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 9px;
+      top: 4px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1;
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.7.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicon-48.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/icons/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: true,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+<!--站长验证-->
+
+
+
+
+  <meta name="description" content="概述爬虫，应该称为网络爬虫，也叫网页蜘蛛、网络机器人、网络蚂蚁等。搜索引擎，就是网络爬虫的应用者 为什么到了今天，反而这个词汇被频繁的提起呢？有搜索引擎不就够了吗？实际上，大数据时代的到了，所有的企业都希望通过海量数据发现其中的价值所以，需要爬取对特定网站、特定类别的数据，而搜索引擎不能提供这样的功能，因此，需要自己开发爬虫来解决 爬虫分类通用爬虫常见就是搜索引擎，无差别的收集数据、存储，提取关键">
+<meta name="keywords" content="爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="爬虫概述">
+<meta property="og:url" content="https://hubhack.github.io/爬虫/爬虫/index.html">
+<meta property="og:site_name" content="千分无言">
+<meta property="og:description" content="概述爬虫，应该称为网络爬虫，也叫网页蜘蛛、网络机器人、网络蚂蚁等。搜索引擎，就是网络爬虫的应用者 为什么到了今天，反而这个词汇被频繁的提起呢？有搜索引擎不就够了吗？实际上，大数据时代的到了，所有的企业都希望通过海量数据发现其中的价值所以，需要爬取对特定网站、特定类别的数据，而搜索引擎不能提供这样的功能，因此，需要自己开发爬虫来解决 爬虫分类通用爬虫常见就是搜索引擎，无差别的收集数据、存储，提取关键">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019072617344289.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190726174525507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190726181931791.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190726182058172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190726182729741.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190726182843494.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190726184412709.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190726184835217.png">
+<meta property="og:updated_time" content="2019-08-22T08:53:51.304Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="爬虫概述">
+<meta name="twitter:description" content="概述爬虫，应该称为网络爬虫，也叫网页蜘蛛、网络机器人、网络蚂蚁等。搜索引擎，就是网络爬虫的应用者 为什么到了今天，反而这个词汇被频繁的提起呢？有搜索引擎不就够了吗？实际上，大数据时代的到了，所有的企业都希望通过海量数据发现其中的价值所以，需要爬取对特定网站、特定类别的数据，而搜索引擎不能提供这样的功能，因此，需要自己开发爬虫来解决 爬虫分类通用爬虫常见就是搜索引擎，无差别的收集数据、存储，提取关键">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019072617344289.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+
+
+
+
+  <link rel="canonical" href="https://hubhack.github.io/爬虫/爬虫/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>爬虫概述 | 千分无言</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxx";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">千分无言</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">人生苦短 我用python</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>我的首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rui-site">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://hubhack.github.io/python-book/" rel="section"><i class="menu-item-icon fa fa-fw fa-paper-plane"></i> <br>Python</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>博客分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-docs">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/docs/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>技术书库</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>文章标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br>关于作者</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>全站搜索</a>
+        </li>
+		
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result">
+    
+      <div style="text-align: center;padding: 3px 0 0;">
+       <div style="margin-top: 20px;font-size: 18px;font-weight: 600;border-bottom: 1px solid #ccc;">
+         <i class="fa fa-history" aria-hidden="true"></i>
+         近期文章
+       </div>
+       <ul style="margin: 0;padding: 0;list-style: none;">
+         
+         
+           <li>
+             <a href="/web/Restful API设计最佳实践/" title="restful设计" target="_blank">restful设计</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫实战2-分布式异步爬虫/" title="分布式爬虫" target="_blank">分布式爬虫</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫实战 - 模拟登陆oschina/" title="模拟登录" target="_blank">模拟登录</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫/" title="爬虫概述" target="_blank">爬虫概述</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫 -- Scrapy框架/" title="scrapy" target="_blank">scrapy</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫 -- HTML解析、Json解析/" title="http解析, json解析" target="_blank">http解析, json解析</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/动态网页处理 -- Selenium和PhantomJS/" title="动态网页处理" target="_blank">动态网页处理</a>
+           </li>
+         
+           <li>
+             <a href="/web/WSGI/" title="WSGI" target="_blank">WSGI</a>
+           </li>
+         
+           <li>
+             <a href="/中间件/RabbitMQ/" title="RabbitMQ" target="_blank">RabbitMQ</a>
+           </li>
+         
+           <li>
+             <a href="/linux/CentOS7使用firewalld打开关闭防火墙与端口/" title="vmware" target="_blank">vmware</a>
+           </li>
+         
+           <li>
+             <a href="/linux/新手如何安装及配置VMware Workstation虚拟机及Xshell远程管理软件/" title="vmware" target="_blank">vmware</a>
+           </li>
+         
+           <li>
+             <a href="/python/python面试题/" title="python面试题" target="_blank">python面试题</a>
+           </li>
+         
+           <li>
+             <a href="/后端框架/flask笔记/" title="flask" target="_blank">flask</a>
+           </li>
+         
+           <li>
+             <a href="/linux/andible/" title="ansible" target="_blank">ansible</a>
+           </li>
+         
+           <li>
+             <a href="/数据分析/Pandas详解/" title="数据分析" target="_blank">数据分析</a>
+           </li>
+         
+       </ul>
+      </div>
+    
+  </div>
+</div>
+
+
+
+    </div>
+  
+
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/hubhack/hubhack.github.io" class="github-corner" target="_blank" title="万水千山总是情,给个star行不行！" aria-label="万水千山总是情,给个star行不行！"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/爬虫/爬虫/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mwq">
+      <meta itemprop="description" content="IT知识共享,与各位共同学习">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千分无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                爬虫概述<a href="https://github.com/hubhack/hubhack.github.io/tree/dev/source/_posts/爬虫/爬虫.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>爬虫，应该称为网络爬虫，也叫网页蜘蛛、网络机器人、网络蚂蚁等。<br>搜索引擎，就是网络爬虫的应用者</p>
+<p>为什么到了今天，反而这个词汇被频繁的提起呢？有搜索引擎不就够了吗？<br>实际上，大数据时代的到了，所有的企业都希望通过海量数据发现其中的价值<br>所以，需要爬取对特定网站、特定类别的数据，而搜索引擎不能提供这样的功能，因此，需要自己开发爬虫来解决</p>
+<h2 id="爬虫分类"><a href="#爬虫分类" class="headerlink" title="爬虫分类"></a>爬虫分类</h2><h3 id="通用爬虫"><a href="#通用爬虫" class="headerlink" title="通用爬虫"></a>通用爬虫</h3><p>常见就是搜索引擎，无差别的收集数据、存储，提取关键字，构建索引库，给用户提供搜索接口</p>
+<p><strong>爬取一般流程</strong></p>
+<ol>
+<li>初始一批URL，将这些URL放到待爬取队列</li>
+<li>从队列取出这些URL，通过DNS解析IP，对IP对应的站点下载HTML页面，保存到本地服务器中，爬取完的URL放到已爬取队列</li>
+<li>分析这些网页内容，找出网页里面的其他关心的URL链接，继续执行第2步，直到爬取条件结束</li>
+</ol>
+<p><strong>搜索引擎如何获取一个新网站的URL</strong></p>
+<ul>
+<li>新网站主动提交给搜索引擎</li>
+<li>通过其它网站页面中设置的外链</li>
+<li>搜索引擎和DNS服务商合作，获取最新收录的网站</li>
+</ul>
+<h3 id="聚焦爬虫"><a href="#聚焦爬虫" class="headerlink" title="聚焦爬虫"></a>聚焦爬虫</h3><p>有针对性的编写特定领域数据的爬取程序，针对某些类别数据采集的爬虫，是面向主题的爬虫</p>
+<h2 id="Robots协议"><a href="#Robots协议" class="headerlink" title="Robots协议"></a>Robots协议</h2><p>指定一个<code>robots.txt</code>文件，告诉爬虫引擎什么可以爬取</p>
+<p><code>/</code> 表示网站根目录，表示网站所有目录。<br><code>Allow</code> 允许爬取的目录<br><code>Disallow</code> 禁止爬取的目录<br>可以使用通配符</p>
+<p><strong>淘宝</strong>  <a href="http://www.taobao.com/robots.txt" target="_blank" rel="noopener">http://www.taobao.com/robots.txt</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">User-agent:  Baiduspider</span><br><span class="line">Allow:  /article</span><br><span class="line">Allow:  /oshtml</span><br><span class="line">Allow:  /ershou</span><br><span class="line">Allow: /$</span><br><span class="line">Disallow:  /product/</span><br><span class="line">Disallow:  /</span><br><span class="line"></span><br><span class="line">User-Agent:  Googlebot</span><br><span class="line">Allow:  /article</span><br><span class="line">Allow:  /oshtml</span><br><span class="line">Allow:  /product</span><br><span class="line">Allow:  /spu</span><br><span class="line">Allow:  /dianpu</span><br><span class="line">Allow:  /oversea</span><br><span class="line">Allow:  /list</span><br><span class="line">Allow:  /ershou</span><br><span class="line">Allow: /$</span><br><span class="line">Disallow:  /</span><br><span class="line"></span><br><span class="line">User-agent:  Bingbot</span><br><span class="line">Allow:  /article</span><br><span class="line">Allow:  /oshtml</span><br><span class="line">Allow:  /product</span><br><span class="line">Allow:  /spu</span><br><span class="line">Allow:  /dianpu</span><br><span class="line">Allow:  /oversea</span><br><span class="line">Allow:  /list</span><br><span class="line">Allow:  /ershou</span><br><span class="line">Allow: /$</span><br><span class="line">Disallow:  /</span><br><span class="line"></span><br><span class="line">User-Agent:  360Spider</span><br><span class="line">Allow:  /article</span><br><span class="line">Allow:  /oshtml</span><br><span class="line">Allow:  /ershou</span><br><span class="line">Disallow:  /</span><br><span class="line"></span><br><span class="line">User-Agent:  Yisouspider</span><br><span class="line">Allow:  /article</span><br><span class="line">Allow:  /oshtml</span><br><span class="line">Allow:  /ershou</span><br><span class="line">Disallow:  /</span><br><span class="line"></span><br><span class="line">User-Agent:  Sogouspider</span><br><span class="line">Allow:  /article</span><br><span class="line">Allow:  /oshtml</span><br><span class="line">Allow:  /product</span><br><span class="line">Allow:  /ershou</span><br><span class="line">Disallow:  /</span><br><span class="line"></span><br><span class="line">User-Agent:  Yahoo!  Slurp</span><br><span class="line">Allow:  /product</span><br><span class="line">Allow:  /spu</span><br><span class="line">Allow:  /dianpu</span><br><span class="line">Allow:  /oversea</span><br><span class="line">Allow:  /list</span><br><span class="line">Allow:  /ershou</span><br><span class="line">Allow: /$</span><br><span class="line">Disallow:  /</span><br><span class="line"></span><br><span class="line">User-Agent:  *</span><br><span class="line">Disallow:  /</span><br></pre></td></tr></table></figure></p>
+<p>明确百度爬虫能爬取的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">User-agent: Baiduspider</span><br><span class="line">Allow: /article</span><br><span class="line">Allow: /oshtml</span><br><span class="line">Allow: /ershou</span><br><span class="line">Disallow: /product/</span><br><span class="line">Disallow: /</span><br></pre></td></tr></table></figure></p>
+<p>其它爬虫，不允许爬取<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User-Agent: *</span><br><span class="line">Disallow: /</span><br></pre></td></tr></table></figure></p>
+<p><strong>马蜂窝</strong> <a href="http://www.mafengwo.cn/robots.txt" target="_blank" rel="noopener">http://www.mafengwo.cn/robots.txt</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Disallow: /</span><br><span class="line">Disallow: /poi/detail.php</span><br><span class="line"></span><br><span class="line">Sitemap: http://www.mafengwo.cn/sitemapIndex.xml</span><br></pre></td></tr></table></figure></p>
+<p>这是一个君子协定，“爬亦有道”</p>
+<ul>
+<li>这个协议为了让搜索引擎更有效率搜索自己内容，提供了如Sitemap这样的文件。Sitemap往往是一个XML文件，提供了网站想让大家爬取的内容的更新信息</li>
+<li>这个文件禁止抓取的往往又是可能我们感兴趣的内容，它反而泄露了这些地址</li>
+</ul>
+<h1 id="HTTP请求和响应处理"><a href="#HTTP请求和响应处理" class="headerlink" title="HTTP请求和响应处理"></a>HTTP请求和响应处理</h1><p>其实爬取网页就是通过HTTP协议访问网页，不过通过浏览器访问往往是人的行为，把这种行为变成使用程序来访问</p>
+<h2 id="urllib包"><a href="#urllib包" class="headerlink" title="urllib包"></a>urllib包</h2><p><strong>urllib是标准库</strong>，它一个工具包模块，包含下面模块来处理url：</p>
+<ul>
+<li><code>urllib.request</code> 用于打开和读写url</li>
+<li><code>urllib.error</code> 包含了由 <code>urllib.request</code>引起的异常</li>
+<li><code>urllib.parse</code> 用于解析url</li>
+<li><code>urllib.robotparser</code> 分析 <code>robots.txt</code> 文件</li>
+</ul>
+<p>Python2中提供了urllib和urllib2。urllib提供较为底层的接口，urllib2对urllib进行了进一步封装</p>
+<p>Python3中将urllib合并到了urllib2中，并更名为<strong>标准库urllib包</strong></p>
+<h3 id="urllib-request模块"><a href="#urllib-request模块" class="headerlink" title="urllib.request模块"></a>urllib.request模块</h3><p>模块定义了在基本和摘要式身份验证、 重定向、 cookies等应用中打开 Url (主要是 HTTP) 的函数和类</p>
+<h4 id="urlopen方法"><a href="#urlopen方法" class="headerlink" title="urlopen方法"></a>urlopen方法</h4><p><code>urlopen(url, data=None)</code></p>
+<ul>
+<li>url是链接地址字符串，或请求类的实例</li>
+<li>data提交的数据，如果data为None发起GET请求，否则发起POST请求。见 <code>urllib.request.Request#get_method</code></li>
+<li>返回<code>http.client.HTTPResponse</code>类的响应对象，这是一个类文件对象<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开一个url返回一个响应对象，类文件对象</span></span><br><span class="line"><span class="comment"># 下面的链接访问后会有跳转</span></span><br><span class="line">response = urlopen(<span class="string">'http://www.bing.com'</span>) <span class="comment"># GET方法</span></span><br><span class="line">print(response.closed)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> response:</span><br><span class="line">    print(<span class="number">1</span>,type(response)) <span class="comment"># http.client.HTTPResponse 类文件对象</span></span><br><span class="line">    print(<span class="number">2</span>, response.status, response.reason)  <span class="comment"># 请求状态</span></span><br><span class="line">    print(<span class="number">3</span>, response.geturl())  <span class="comment"># 返回真正的URL</span></span><br><span class="line">    print(<span class="number">4</span>, response.info())  <span class="comment"># headers</span></span><br><span class="line">    print(<span class="number">5</span>, response.read())  <span class="comment"># 读取返回的内容</span></span><br><span class="line"></span><br><span class="line">print(response.closed)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>执行结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">D:\python\venvs\blog01\Scripts\python.exe D:/python/blog<span class="number">-1.0</span>/text.py</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="number">1</span> &lt;<span class="class"><span class="keyword">class</span> '<span class="title">http</span>.<span class="title">client</span>.<span class="title">HTTPResponse</span>'&gt;</span></span><br><span class="line"><span class="class">2 200 <span class="title">OK</span></span></span><br><span class="line"><span class="class">3 <span class="title">http</span>:</span>//cn.bing.com/</span><br><span class="line"><span class="number">4</span> Cache-Control: private, max-age=<span class="number">0</span></span><br><span class="line">Content-Length: <span class="number">114009</span></span><br><span class="line">Content-Type: text/html; charset=utf<span class="number">-8</span></span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">P3P: CP=<span class="string">"NON UNI COM NAV STA LOC CURa DEVa PSAa PSDa OUR IND"</span></span><br><span class="line">Set-Cookie: SRCHD=AF=NOFORM; domain=.bing.com; expires=Mon, <span class="number">26</span>-Jul<span class="number">-2021</span> <span class="number">09</span>:<span class="number">29</span>:<span class="number">04</span> GMT; path=/</span><br><span class="line">Set-Cookie: SRCHUID=V=<span class="number">2</span>&amp;GUID=DCAB9EC86F964A45A890787A7EF4CF93&amp;dmnchg=<span class="number">1</span>; domain=.bing.com; expires=Mon, <span class="number">26</span>-Jul<span class="number">-2021</span> <span class="number">09</span>:<span class="number">29</span>:<span class="number">04</span> GMT; path=/</span><br><span class="line">Set-Cookie: SRCHUSR=DOB=<span class="number">20190726</span>; domain=.bing.com; expires=Mon, <span class="number">26</span>-Jul<span class="number">-2021</span> <span class="number">09</span>:<span class="number">29</span>:<span class="number">04</span> GMT; path=/</span><br><span class="line">Set-Cookie: _SS=SID=<span class="number">10</span>B11589C8FA6E3003FE182CC9D46F33; domain=.bing.com; path=/</span><br><span class="line">X-MSEdge-Ref: Ref A: EAB1A96DB5534F5DB9BBD28A6BD85086 Ref B: BJ1EDGE0112 Ref C: <span class="number">2019</span><span class="number">-07</span><span class="number">-26</span>T09:<span class="number">29</span>:<span class="number">04</span>Z</span><br><span class="line">Set-Cookie: _EDGE_S=F=<span class="number">1</span>&amp;SID=<span class="number">10</span>B11589C8FA6E3003FE182CC9D46F33; path=/; httponly; domain=bing.com</span><br><span class="line">Set-Cookie: _EDGE_V=<span class="number">1</span>; path=/; httponly; expires=Wed, <span class="number">19</span>-Aug<span class="number">-2020</span> <span class="number">09</span>:<span class="number">29</span>:<span class="number">04</span> GMT; domain=bing.com</span><br><span class="line">Set-Cookie: MUID=<span class="number">2169749</span>B8FF26D6034DC793E8EDC6CF3; path=/; expires=Wed, <span class="number">19</span>-Aug<span class="number">-2020</span> <span class="number">09</span>:<span class="number">29</span>:<span class="number">04</span> GMT; domain=bing.com</span><br><span class="line">Set-Cookie: MUIDB=<span class="number">2169749</span>B8FF26D6034DC793E8EDC6CF3; path=/; httponly; expires=Wed, <span class="number">19</span>-Aug<span class="number">-2020</span> <span class="number">09</span>:<span class="number">29</span>:<span class="number">04</span> GMT</span><br><span class="line">Date: Fri, <span class="number">26</span> Jul <span class="number">2019</span> <span class="number">09</span>:<span class="number">29</span>:<span class="number">03</span> GMT</span><br><span class="line">Connection: close</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> <span class="string">b'&lt;!DOCTYPE html&gt;&lt;html lang="zh"&gt;&lt;script type="text/javascript" &gt;//&lt;![CDATA[\r\nsi_ST=new Date\r\n//]]&gt;&lt;/s'</span></span><br><span class="line">···</span><br><span class="line">···</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>上例，通过<code>urllib.request.urlopen</code>方法，发起一个HTTP的GET请求，WEB服务器返回了网页内容。响应的数据被封装到类文件对象中，可以通过<code>read方法</code>、<code>readline方法</code>、<code>readlines方法</code>获取数据，<code>status</code>和<code>reason</code>属性表示返回的状态码，<code>info</code>方法返回头信息，等等</p>
+<h4 id="User-Agent问题"><a href="#User-Agent问题" class="headerlink" title="User-Agent问题"></a>User-Agent问题</h4><p>上例的代码非常精简，即可以获得网站的响应数据。但目前urlopen方法通过url字符串和data发起HTTP的请求</p>
+<ul>
+<li>如果想修改HTTP头，例如useragent，就得借助其他方式</li>
+</ul>
+<p>源码中构造的useragent如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># urllib.request.OpenerDirector</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OpenerDirector</span>:</span> </span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span> </span><br><span class="line">		client_version = <span class="string">"Python-urllib/%s"</span> % __version__ </span><br><span class="line">		self.addheaders = [(<span class="string">'User-agent'</span>, client_version)]</span><br></pre></td></tr></table></figure></p>
+<p>当前显示为 <code>Python-urllib/3.6</code><br>有些网站是反爬虫的，所以要把爬虫伪装成浏览器。随便打开一个浏览器，复制浏览器的<strong>UA值</strong>，用来伪装</p>
+<ul>
+<li><strong>UA值</strong>获取方式：<br><img src="https://img-blog.csdnimg.cn/2019072617344289.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h4 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h4><code>Request(url, data=None, headers={})</code></li>
+<li>初始化方法，构造一个请求对象</li>
+<li>可添加一个header的字典</li>
+<li>data参数决定是GET还是POST请求</li>
+</ul>
+<p><code>add_header(key, val)</code> 为header中增加一个键值对<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen, Request</span><br><span class="line"><span class="keyword">from</span> http.client <span class="keyword">import</span> HTTPResponse</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开一个url返回一个Request请求对象</span></span><br><span class="line"><span class="comment"># url = 'https://movie.douban.com/' # 注意尾部的斜杠一定要有</span></span><br><span class="line">url = <span class="string">'http://www.bing.com/'</span></span><br><span class="line"></span><br><span class="line">ua_list = [</span><br><span class="line">    <span class="string">"Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 \</span></span><br><span class="line"><span class="string">    (KHTML, like Gecko)Chrome / 57.0.2987.133 Safari / 537.36"</span>,<span class="comment"># chrome"</span></span><br><span class="line">    <span class="string">"Mozilla/5.0 (Windows; U; Windows NT 6.1; zh-CN) AppleWebKit/537.36\</span></span><br><span class="line"><span class="string">     (KHTML, like Gecko)Version / 5.0.1 Safari / 537.36"</span>, <span class="comment"># safafi</span></span><br><span class="line">    <span class="string">"Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0"</span>,<span class="comment"># Firefox</span></span><br><span class="line">    <span class="string">"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)"</span>  <span class="comment"># IE</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">ua = random.choice(ua_list) <span class="comment"># pick one</span></span><br><span class="line"><span class="comment"># ua需要加到请求头中</span></span><br><span class="line">request = Request(url)</span><br><span class="line">request.add_header(<span class="string">'User-Agent'</span>, ua)</span><br><span class="line">print(type(request))</span><br><span class="line"></span><br><span class="line">response:HTTPResponse = urlopen(request, timeout=<span class="number">20</span>) <span class="comment"># request对象或者url都可以</span></span><br><span class="line">print(type(response))</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> response:</span><br><span class="line">    print(<span class="number">1</span>,response.status, response.getcode(), response.reason) <span class="comment"># 状态，getcode本质上就是返回status</span></span><br><span class="line">    print(<span class="number">2</span>, response.geturl()) <span class="comment"># 返回数据的url。如果重定向，这个url和原始url不一样</span></span><br><span class="line">    <span class="comment"># 例如原始url是http://www.bing.com/，返回http://cn.bing.com/</span></span><br><span class="line">    print(<span class="number">3</span>, response.info())  <span class="comment"># 返回响应头headers</span></span><br><span class="line">    print(<span class="number">4</span>, response.read())  <span class="comment"># 读取返回的内容</span></span><br><span class="line"></span><br><span class="line">print(<span class="number">5</span>, request.get_header(<span class="string">'User-agent'</span>))</span><br><span class="line">print(<span class="number">6</span>, request.headers)</span><br><span class="line">print(<span class="number">7</span>, <span class="string">'user-agent'</span>.capitalize())</span><br></pre></td></tr></table></figure></p>
+<p>执行结果<br><img src="https://img-blog.csdnimg.cn/20190726174525507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="urllib-parse模块"><a href="#urllib-parse模块" class="headerlink" title="urllib.parse模块"></a>urllib.parse模块</h3><p>该模块可以完成对url的编解码<br>先看一段代码，进行编码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> parse</span><br><span class="line"></span><br><span class="line">u = parse.urlencode(<span class="string">'https://www.bing.com/search'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行结果如下</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"C:\Users\mayn\AppData\Local\Programs\Python\Python36\Lib\urllib\parse.py"</span>, line <span class="number">854</span>, <span class="keyword">in</span> urlencode</span><br><span class="line">    <span class="keyword">raise</span> TypeError</span><br><span class="line">TypeError</span><br><span class="line"></span><br><span class="line">During handling of the above exception, another exception occurred:</span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"D:/python/blog-1.0/text.py"</span>, line <span class="number">3</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    u = parse.urlencode(<span class="string">'https://www.bing.com/search'</span>)</span><br><span class="line">  File <span class="string">"C:\Users\mayn\AppData\Local\Programs\Python\Python36\Lib\urllib\parse.py"</span>, line <span class="number">862</span>, <span class="keyword">in</span> urlencode</span><br><span class="line">    <span class="string">"or mapping object"</span>).with_traceback(tb)</span><br><span class="line">  File <span class="string">"C:\Users\mayn\AppData\Local\Programs\Python\Python36\Lib\urllib\parse.py"</span>, line <span class="number">854</span>, <span class="keyword">in</span> urlencode</span><br><span class="line">    <span class="keyword">raise</span> TypeError</span><br><span class="line">TypeError: <span class="keyword">not</span> a valid non-string sequence <span class="keyword">or</span> mapping object</span><br></pre></td></tr></table></figure></p>
+<p><code>urlencode函数</code>第一参数要求是一个字典或者二元组序列<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> parse</span><br><span class="line"></span><br><span class="line">u = parse.urlencode(&#123;</span><br><span class="line">    <span class="string">'url'</span>:<span class="string">'https://www.bing.com/search'</span>,</span><br><span class="line">    <span class="string">'p_url'</span>:<span class="string">'https://cn.bing.com/search?q=豆瓣&amp;qs=n'</span></span><br><span class="line">&#125;)</span><br><span class="line">print(u)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行结果如下</span></span><br><span class="line"></span><br><span class="line">url=https%<span class="number">3</span>A%<span class="number">2</span>F%<span class="number">2</span>Fwww.bing.com%<span class="number">2</span>Fsearch&amp;\</span><br><span class="line">p_url=https%<span class="number">3</span>A%<span class="number">2</span>F%<span class="number">2</span>Fcn.bing.com%<span class="number">2</span>Fsearch%<span class="number">3</span>Fq%<span class="number">3</span>D%E8%B1%<span class="number">86</span>%E7%<span class="number">93</span>%A3%<span class="number">26</span>qs%<span class="number">3</span>Dn</span><br></pre></td></tr></table></figure></p>
+<p>从运行结果来看冒号、斜杠、&amp;、等号、问号等符号全部被编码了，%之后实际上是单字节十六进制表示的值</p>
+<ul>
+<li>一般来说url中的地址部分，一般不需要使用中文路径，但是参数部分，不管GET还是POST方法，提交的数据中，可能有斜杆、等号、问号等符号，这样这些字符表示数据，不表示元字符</li>
+<li>如果直接发给服务器端，就会导致接收方无法判断谁是元字符，谁是数据了</li>
+<li>为了安全，一般会将数据部分的字符做url编码，这样就不会有歧义了</li>
+<li>后来可以传送中文，同样会做编码，一般先按照字符集的encoding要求转换成字节序列，每一个字节对应的十六进制字符串前加上百分号即可</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> parse</span><br><span class="line"></span><br><span class="line">u = parse.urlencode(&#123;<span class="string">'q'</span>:<span class="string">'豆瓣'</span>&#125;)</span><br><span class="line">url= <span class="string">"https://cn.bing.com/search?"</span>.format(u)</span><br><span class="line">print(url) <span class="comment"># https://cn.bing.com/search?</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'豆'</span>.encode(<span class="string">'utf-8'</span>)) <span class="comment"># b'\xe8\xb1\x86'</span></span><br><span class="line"></span><br><span class="line">print(parse.unquote(u)) <span class="comment"># q=豆瓣</span></span><br><span class="line">print(parse.unquote(url)) <span class="comment"># https://cn.bing.com/search?</span></span><br></pre></td></tr></table></figure>
+<h2 id="提交方法method"><a href="#提交方法method" class="headerlink" title="提交方法method"></a>提交方法method</h2><p>最常用的HTTP交互数据的方法是GET、POST</p>
+<ul>
+<li>GET方法，数据是通过URL传递的，也就是说数据是在HTTP报文的header部分</li>
+<li>POST方法，数据是放在HTTP报文的body部分提交的</li>
+</ul>
+<p>数据都是键值对形式，多个参数之间使用&amp;符号连接。例如<code>a=1&amp;b=abc</code></p>
+<h3 id="GET方法"><a href="#GET方法" class="headerlink" title="GET方法"></a>GET方法</h3><p>连接 必应 搜索引擎官网，获取一个搜索的URL <code>https://cn.bing.com/search?q=豆瓣</code></p>
+<p>需求<br>请写程序完成对关键字的bing搜索，将返回的结果保存到一个网页文件<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> Request, urlopen</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlencode</span><br><span class="line"></span><br><span class="line">keyword = input(<span class="string">'&gt;&gt; 请输入搜索关键字'</span>)</span><br><span class="line">data = urlencode(&#123;</span><br><span class="line">    <span class="string">'q'</span>:keyword</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">base_url = <span class="string">'http://cn.bing.com/search'</span></span><br><span class="line">url = <span class="string">'&#123;&#125;?&#123;&#125;'</span>.format(base_url, data)</span><br><span class="line">print(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 伪装</span></span><br><span class="line">ua = <span class="string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36"</span></span><br><span class="line">request = Request(url, headers=&#123;<span class="string">'User-agent'</span>:ua&#125;)</span><br><span class="line"></span><br><span class="line">response = urlopen(request)</span><br><span class="line"><span class="keyword">with</span> response:</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'d:/bing.html'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(response.read())</span><br><span class="line"></span><br><span class="line">print(<span class="string">'成功'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>注：生成的网页不会将读取文件里的二次请求数据写入。如<code>src=**</code></p>
+<h3 id="POST方法"><a href="#POST方法" class="headerlink" title="POST方法"></a>POST方法</h3><p><a href="http://httpbin.org/" target="_blank" rel="noopener">http://httpbin.org/</a> 测试网站<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> Request, urlopen</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlencode</span><br><span class="line"></span><br><span class="line">request = Request(<span class="string">'http://httpbin.org/post'</span>)</span><br><span class="line">request.add_header(</span><br><span class="line">    <span class="string">'User-agent'</span>,</span><br><span class="line">    <span class="string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, \</span></span><br><span class="line"><span class="string">    like Gecko) Chrome/55.0.2883.75Safari / 537.36"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">data = urlencode(&#123;<span class="string">'name'</span>:<span class="string">'张三,@=/&amp;*'</span>, <span class="string">'age'</span>:<span class="string">'6'</span>&#125;)</span><br><span class="line">print(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># res = urlopen(request, data='name=张三,@=/&amp;*,&amp;age=6'.encode()) # 不做url编码有风险</span></span><br><span class="line">res = urlopen(request, data=data.encode()) <span class="comment"># POST方法，Form提交数据</span></span><br><span class="line"><span class="keyword">with</span> res:</span><br><span class="line">    j = res.read().decode()  <span class="comment"># json</span></span><br><span class="line">    print(j)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://img-blog.csdnimg.cn/20190726181931791.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="处理JSON数据"><a href="#处理JSON数据" class="headerlink" title="处理JSON数据"></a>处理JSON数据</h3><p>查看“豆瓣电影”，看到“最近热门电影”的“热门”<br><img src="https://img-blog.csdnimg.cn/20190726182058172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>通过分析，我们知道这部分内容，是通过<code>AJAX</code>从后台拿到的Json数据<br><img src="https://img-blog.csdnimg.cn/20190726182729741.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>访问URL是</p>
+<ul>
+<li><code>https://movie.douban.com/j/search_subjects?type=movie&amp;tag=%E7%83%AD%E9%97%A8&amp;page_limit=50&amp;page_start=0</code> </li>
+<li>utf-8编码的中文“热门”</li>
+</ul>
+<p>服务器返回的Json数据如下<br><img src="https://img-blog.csdnimg.cn/20190726182843494.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>轮播组件，共需要50条数据</p>
+<p><code>https://movie.douban.com/j/search_subjects?type=movie&amp;tag=%E7%83%AD%E9%97%A8&amp;page_limit=50&amp;page_start=0</code> </p>
+<ul>
+<li>tag 标签“热门”，表示热门电影</li>
+<li>type 数据类型，movie是电影</li>
+<li>page_limit 表示返回数据的总数</li>
+<li>page_start 表示数据偏移<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> Request, urlopen</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlencode</span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://movie.douban.com/j/search_subjects'</span></span><br><span class="line">request = Request(url)</span><br><span class="line">request.add_header(</span><br><span class="line">    <span class="string">'User-agent'</span>,</span><br><span class="line">    <span class="string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36\</span></span><br><span class="line"><span class="string">     (KHTML, like Gecko) Chrome/55.0.2883.75Safari / 537.36"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">data = urlencode(&#123;</span><br><span class="line">    <span class="string">'type'</span>: <span class="string">'movie'</span>,</span><br><span class="line">    <span class="string">'tag'</span>: <span class="string">'热门'</span>,</span><br><span class="line">    <span class="string">'page_limit'</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="string">'page_start'</span>: <span class="number">10</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># POST方法</span></span><br><span class="line">res = urlopen(request, data=data.encode())</span><br><span class="line"><span class="keyword">with</span> res:</span><br><span class="line">    print(res._method)</span><br><span class="line">    print(res.read().decode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># GET方法</span></span><br><span class="line"><span class="keyword">with</span> urlopen(<span class="string">'&#123;&#125;?&#123;&#125;'</span>.format(url, data)) <span class="keyword">as</span> res:</span><br><span class="line">    print(res._method)</span><br><span class="line">    print(res.read().decode())</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">POST</span><br><span class="line">&#123;<span class="string">"subjects"</span>:[&#123;<span class="string">"rate"</span>:<span class="string">"6.9"</span>,<span class="string">"cover_x"</span>:<span class="number">7142</span>,<span class="string">"title"</span>:<span class="string">"飞驰人生"</span>,<span class="string">"url"</span>:<span class="string">"https:\/\/movie.douban.com\/subject\/30163509\/"</span>,\</span><br><span class="line"><span class="string">"playable"</span>:true,<span class="string">"cover"</span>:<span class="string">"https://img3.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2542973862.jpg"</span></span><br><span class="line">......</span><br><span class="line"><span class="comment"># 一共10条</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GET</span><br><span class="line">&#123;<span class="string">"subjects"</span>:[&#123;<span class="string">"rate"</span>:<span class="string">"6.9"</span>,<span class="string">"cover_x"</span>:<span class="number">7142</span>,<span class="string">"title"</span>:<span class="string">"飞驰人生"</span>\</span><br><span class="line">,<span class="string">"url"</span>:<span class="string">"https:\/\/movie.douban.com\/subject\/30163509\/"</span>,<span class="string">"playable"</span>:true,\</span><br><span class="line"><span class="string">"cover"</span>:<span class="string">"https://img3.doubanio.com\/view\/photo\/s_ratio_poster\/public\/p2542973862.jpg"</span></span><br><span class="line"><span class="comment"># 一共10条</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h1 id="HTTPS证书忽略"><a href="#HTTPS证书忽略" class="headerlink" title="HTTPS证书忽略"></a>HTTPS证书忽略</h1><p>HTTPS使用SSL安全套接层协议，在传输层对网络数据进行加密。HTTPS使用的时候需要证书，而证书需要CA认证</p>
+<ul>
+<li>CA(Certificate Authority)是数字证书认证中心的简称，是指发放、管理、废除数字证书的机构</li>
+<li>CA是受信任的第三方，有CA签发的证书具有可信性。如果用户由于信任了CA签发的证书导致的损失，可以追究CA的法律责任</li>
+<li>CA是层级结构，下级CA信任上级CA，且有上级CA颁发给下级CA证书并认证</li>
+</ul>
+<p>一些网站，例如淘宝，使用HTTPS加密数据更加安全<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> Request, urlopen</span><br><span class="line"></span><br><span class="line"><span class="comment"># request = Request('http://www.12306.cn/mormhweb/') # 可以访问</span></span><br><span class="line"><span class="comment"># request = Request('https://www.baidu.com/') # 可以访问</span></span><br><span class="line">request = Request(<span class="string">'https://www.12306.cn/mormhweb/'</span>)  <span class="comment"># 报SSL认证异常</span></span><br><span class="line">request.add_header(</span><br><span class="line">    <span class="string">'User-agent'</span>,</span><br><span class="line">    <span class="string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 \</span></span><br><span class="line"><span class="string">    (KHTML, like Gecko) Chrome/55.0.2883.75Safari / 537.36"</span></span><br><span class="line">)</span><br><span class="line"><span class="comment"># ssl.CertificateError: hostname 'www.12306.cn' doesn't match either of ......</span></span><br><span class="line"><span class="keyword">with</span> urlopen(request) <span class="keyword">as</span> res:</span><br><span class="line">    print(res._method)</span><br><span class="line">    print(res.read())</span><br></pre></td></tr></table></figure></p>
+<p>通过HTTPS访问12306的时候，失败的原因在于12306的证书未通过CA认证，它是自己生成的证书，不可信。而其它网站访问，如 <code>https://www.baidu.com/</code> 并没有提示的原因，它的证书的发行者受信任，且早就存储在当前系统中</p>
+<p>使用<code>ssl模块</code>可忽略证书不安全信息<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> Request, urlopen</span><br><span class="line"><span class="keyword">import</span> ssl <span class="comment"># 导入ssl模块</span></span><br><span class="line"><span class="comment"># request = Request('http://www.12306.cn/mormhweb/') # 可以访问</span></span><br><span class="line"><span class="comment"># request = Request('https://www.baidu.com/') # 可以访问</span></span><br><span class="line">request = Request(<span class="string">'https://www.12306.cn/mormhweb/'</span>)  <span class="comment"># 报SSL认证异常</span></span><br><span class="line">request.add_header(</span><br><span class="line">    <span class="string">'User-agent'</span>,</span><br><span class="line">    <span class="string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 \</span></span><br><span class="line"><span class="string">    (KHTML, like Gecko) Chrome/55.0.2883.75Safari / 537.36"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略不信任的证书</span></span><br><span class="line">context = ssl._create_unverified_context()</span><br><span class="line">res = urlopen(request, context=context)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ssl.CertificateError: hostname 'www.12306.cn' doesn't match either of ......</span></span><br><span class="line"><span class="keyword">with</span> res:</span><br><span class="line">    print(res._method)</span><br><span class="line">    print(res.read())</span><br></pre></td></tr></table></figure></p>
+<h2 id="urllib3库"><a href="#urllib3库" class="headerlink" title="urllib3库"></a>urllib3库</h2><p><a href="https://urllib3.readthedocs.io/en/latest/" target="_blank" rel="noopener">https://urllib3.readthedocs.io/en/latest/</a><br>标准库urllib缺少了一些关键的功能，非标准库的第三方库urllib3提供了，比如说连接池管理</p>
+<p>安装<br><code>$ pip install urllib3</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开一个url返回一个对象</span></span><br><span class="line">url = <span class="string">'https://movie.douban.com/'</span></span><br><span class="line"></span><br><span class="line">ua = <span class="string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 \</span></span><br><span class="line"><span class="string">(KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接池管理器</span></span><br><span class="line"><span class="keyword">with</span> urllib3.PoolManager() <span class="keyword">as</span> http:</span><br><span class="line">    response = http.request(<span class="string">'GET'</span>, url, headers=&#123;</span><br><span class="line">        <span class="string">'User-Agent'</span>: ua</span><br><span class="line">    &#125;)</span><br><span class="line">    print(type(response)) // &lt;<span class="class"><span class="keyword">class</span> '<span class="title">urllib3</span>.<span class="title">response</span>.<span class="title">HTTPResponse</span>'&gt;</span></span><br><span class="line"><span class="class">    <span class="title">print</span><span class="params">(response.status, response.reason)</span> // 200 <span class="title">OK</span></span></span><br><span class="line"><span class="class">    <span class="title">print</span><span class="params">(response.headers)</span></span></span><br><span class="line"><span class="class">    <span class="title">print</span><span class="params">(response.data)</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="requests库"><a href="#requests库" class="headerlink" title="requests库"></a>requests库</h2><p>requests使用了urllib3，但是API更加友好，推荐使用</p>
+<p>安装 <code>$ pip install requests</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">ua = <span class="string">"Mozilla/5.0 (Windows NT 6.1) \</span></span><br><span class="line"><span class="string">AppleWebKit/537.36 (KHTML, like Gecko) \</span></span><br><span class="line"><span class="string">Chrome/55.0.2883.75Safari / 537.36"</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://movie.douban.com/'</span></span><br><span class="line"></span><br><span class="line">response = requests.request(<span class="string">'GET'</span>, url, headers=&#123;<span class="string">'User-Agent'</span>: ua&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> response:</span><br><span class="line">    print(type(response))</span><br><span class="line">    print(response.url)</span><br><span class="line">    print(response.status_code)</span><br><span class="line">    print(response.request.headers)  <span class="comment"># 请求头</span></span><br><span class="line">    print(response.headers)  <span class="comment"># 响应头</span></span><br><span class="line">    response.encoding = <span class="string">'utf-8'</span></span><br><span class="line">    print(response.text[:<span class="number">200</span>])  <span class="comment"># HTML的内容</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'d:/movie.html'</span>, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(response.text)  <span class="comment"># 保存文件，以后备用</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://img-blog.csdnimg.cn/20190726184412709.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>requests默认使用Session对象，是为了在多次和服务器端交互中保留会话的信息，例如cookie<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">ua = <span class="string">"Mozilla/5.0 (Windows NT 6.1) \</span></span><br><span class="line"><span class="string">AppleWebKit/537.36 (KHTML, like Gecko) \</span></span><br><span class="line"><span class="string">Chrome/55.0.2883.75Safari / 537.36"</span></span><br><span class="line"></span><br><span class="line">urls = [<span class="string">'https://cn.bing.com/search?q=python'</span>, <span class="string">'https://cn.bing.com/search?q=python'</span>]</span><br><span class="line">session = requests.Session()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> session:</span><br><span class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">        response = session.get(url, headers=&#123;<span class="string">'User-Agent'</span>: ua&#125;)</span><br><span class="line">        <span class="comment"># response = requests.request('GET', url, headers=&#123;'User-agent':ua&#125;) # 观察两种方式区别</span></span><br><span class="line">        <span class="keyword">with</span> response:</span><br><span class="line">            print(response.request.headers)  <span class="comment"># 请求头</span></span><br><span class="line">            print(response.cookies)  <span class="comment"># 响应的cookie</span></span><br><span class="line">            print(response.text[:<span class="number">20</span>])  <span class="comment"># HTML的内容</span></span><br><span class="line">            print(<span class="string">'-'</span> * <span class="number">30</span>)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://img-blog.csdnimg.cn/20190726184835217.png" alt="在这里插入图片描述"><br>使用session访问，第二次带上了cookie</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      
+
+
+    
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢支持 ！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="mwq 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+      </div>
+    
+
+    
+      <div class="post-tags">
+        
+          <a href="/tags/爬虫/" rel="tag"><i class="fa fa-tag"></i> 爬虫</a>
+        
+      </div>
+    
+    
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/爬虫/爬虫 -- Scrapy框架/" rel="next" title="scrapy">
+                <i class="fa fa-chevron-left"></i> scrapy
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/爬虫/爬虫实战 - 模拟登陆oschina/" rel="prev" title="模拟登录">
+                模拟登录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="mwq">
+            
+              <p class="site-author-name" itemprop="name">mwq</p>
+              <p class="site-description motion-element" itemprop="description">IT知识共享,与各位共同学习</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">74</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+          
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://hubhack.github.io/python-book/" title="导航 &rarr; https://hubhack.github.io/python-book/"><i class="fa fa-fw fa-paper-plane"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hubhack" title="GitHub &rarr; https://github.com/hubhack" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:2329259856@qq.com" title="E-Mail &rarr; mailto:2329259856@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫分类"><span class="nav-number">1.1.</span> <span class="nav-text">爬虫分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通用爬虫"><span class="nav-number">1.1.1.</span> <span class="nav-text">通用爬虫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚焦爬虫"><span class="nav-number">1.1.2.</span> <span class="nav-text">聚焦爬虫</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Robots协议"><span class="nav-number">1.2.</span> <span class="nav-text">Robots协议</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP请求和响应处理"><span class="nav-number">2.</span> <span class="nav-text">HTTP请求和响应处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#urllib包"><span class="nav-number">2.1.</span> <span class="nav-text">urllib包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#urllib-request模块"><span class="nav-number">2.1.1.</span> <span class="nav-text">urllib.request模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#urlopen方法"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">urlopen方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#User-Agent问题"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">User-Agent问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Request类"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">Request类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#urllib-parse模块"><span class="nav-number">2.1.2.</span> <span class="nav-text">urllib.parse模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交方法method"><span class="nav-number">2.2.</span> <span class="nav-text">提交方法method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET方法"><span class="nav-number">2.2.1.</span> <span class="nav-text">GET方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">POST方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理JSON数据"><span class="nav-number">2.2.3.</span> <span class="nav-text">处理JSON数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTPS证书忽略"><span class="nav-number">3.</span> <span class="nav-text">HTTPS证书忽略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#urllib3库"><span class="nav-number">3.1.</span> <span class="nav-text">urllib3库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#requests库"><span class="nav-number">3.2.</span> <span class="nav-text">requests库</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">Copyright &copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hubhack.&ensp;</span>
+  <span title="博客总字数"><i class="fa fa-edit"></i>&ensp;<span class="post-count"></span>字</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+<!--左下角公众号二维码-->
+<div class="weixin-box">
+  <div class="weixin-menu">
+    <div class="weixin-hover">
+      <div class="weixin-description">微信扫一扫，订阅本博客</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+  
+
+  
+<script>
+if ($('body').find('pre.mermaid').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      mermaid.initialize({
+        theme: 'forest',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 }
+      });
+    }
+  });
+}
+</script>
+
+
+  
+
+  
+
+  <!--Custom javascript for hubhack.cn-->
+
+<!--console.log-->
+<script type="text/javascript">
+  console.log("欢迎来到hubhack的博客");
+</script>
+
+<!--此处为建站时间 -->
+
+<script>
+  var now = new Date(); 
+  function createtime() { 
+      var grt= new Date("");
+      now.setTime(now.getTime()+250); 
+      days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+      if(String(hnum).length ==1 ){
+        hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+        mnum = "0" + mnum;
+      } 
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+        snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML =dnum+"&thinsp;天"; 
+      document.getElementById("times").innerHTML = hnum + "&thinsp;时" + mnum + "&thinsp;分" + snum + "&thinsp;秒"; 
+  } 
+setInterval("createtime()",250);
+</script>
+
+<!--知乎卡片链接-->
+<script type="text/javascript" src="/js/src/linkcard.js"></script>
+
+<!--夜间模式-->
+<script type="text/javascript" src="/js/src/night.js"></script>
+<div class="cover"></div>
+
+<!--崩溃欺骗-->
+<!--<script type="text/javascript" src="/js/src/crash_cheat.js"></script>-->
+
+<!--input特效-->
+<script src="/js/src/activate-power-mode.js"></script>
+<script>
+POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = false; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script>
+
+<!-- 鼠标点击特效 -->
+
+ <script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('manual', "#更多");
+  
+  </script>
+
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      
+        background-color: #1b1b1b;
+        color: #b0b0b0;
+        border: 1px solid #b0b0b0;
+        border-radius: 3px;
+      
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 9px;
+      top: 4px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1;
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>

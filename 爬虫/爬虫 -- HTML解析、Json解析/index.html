@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.7.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicon-48.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/icons/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: true,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+<!--站长验证-->
+
+
+
+
+  <meta name="description" content="HTML解析HTML的内容返回给浏览器，浏览器就会解析它，并对它渲染 HTML 超文本表示语言设计的初衷就是为了超越普通文本，让文本表现力更强 XML 扩展标记语言，不是为了代替HTML，而是觉得HTML的设计中包含了过多的格式，承担了一部分数据之外的任务，所以才设计了XML只用来描述数据 HTML和XML都有结构，使用标记形成树型的嵌套结构DOM（Document Object Model）来解">
+<meta name="keywords" content="爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http解析, json解析">
+<meta property="og:url" content="https://hubhack.github.io/爬虫/爬虫 -- HTML解析、Json解析/index.html">
+<meta property="og:site_name" content="千分无言">
+<meta property="og:description" content="HTML解析HTML的内容返回给浏览器，浏览器就会解析它，并对它渲染 HTML 超文本表示语言设计的初衷就是为了超越普通文本，让文本表现力更强 XML 扩展标记语言，不是为了代替HTML，而是觉得HTML的设计中包含了过多的格式，承担了一部分数据之外的任务，所以才设计了XML只用来描述数据 HTML和XML都有结构，使用标记形成树型的嵌套结构DOM（Document Object Model）来解">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729114630567.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019072911463632.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729163431337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729164352440.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-08-22T08:53:26.259Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="http解析, json解析">
+<meta name="twitter:description" content="HTML解析HTML的内容返回给浏览器，浏览器就会解析它，并对它渲染 HTML 超文本表示语言设计的初衷就是为了超越普通文本，让文本表现力更强 XML 扩展标记语言，不是为了代替HTML，而是觉得HTML的设计中包含了过多的格式，承担了一部分数据之外的任务，所以才设计了XML只用来描述数据 HTML和XML都有结构，使用标记形成树型的嵌套结构DOM（Document Object Model）来解">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190729114630567.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+
+
+
+
+  <link rel="canonical" href="https://hubhack.github.io/爬虫/爬虫 -- HTML解析、Json解析/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>http解析, json解析 | 千分无言</title>
+  
+
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxx";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">千分无言</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">人生苦短 我用python</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>我的首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-rui-site">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://hubhack.github.io/python-book/" rel="section"><i class="menu-item-icon fa fa-fw fa-paper-plane"></i> <br>Python</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>博客分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-docs">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/docs/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>技术书库</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>文章标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br>关于作者</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>全站搜索</a>
+        </li>
+		
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result">
+    
+      <div style="text-align: center;padding: 3px 0 0;">
+       <div style="margin-top: 20px;font-size: 18px;font-weight: 600;border-bottom: 1px solid #ccc;">
+         <i class="fa fa-history" aria-hidden="true"></i>
+         近期文章
+       </div>
+       <ul style="margin: 0;padding: 0;list-style: none;">
+         
+         
+           <li>
+             <a href="/web/Restful API设计最佳实践/" title="restful设计" target="_blank">restful设计</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫实战2-分布式异步爬虫/" title="分布式爬虫" target="_blank">分布式爬虫</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫实战 - 模拟登陆oschina/" title="模拟登录" target="_blank">模拟登录</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫/" title="爬虫概述" target="_blank">爬虫概述</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫 -- Scrapy框架/" title="scrapy" target="_blank">scrapy</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/爬虫 -- HTML解析、Json解析/" title="http解析, json解析" target="_blank">http解析, json解析</a>
+           </li>
+         
+           <li>
+             <a href="/爬虫/动态网页处理 -- Selenium和PhantomJS/" title="动态网页处理" target="_blank">动态网页处理</a>
+           </li>
+         
+           <li>
+             <a href="/web/WSGI/" title="WSGI" target="_blank">WSGI</a>
+           </li>
+         
+           <li>
+             <a href="/中间件/RabbitMQ/" title="RabbitMQ" target="_blank">RabbitMQ</a>
+           </li>
+         
+           <li>
+             <a href="/linux/CentOS7使用firewalld打开关闭防火墙与端口/" title="vmware" target="_blank">vmware</a>
+           </li>
+         
+           <li>
+             <a href="/linux/新手如何安装及配置VMware Workstation虚拟机及Xshell远程管理软件/" title="vmware" target="_blank">vmware</a>
+           </li>
+         
+           <li>
+             <a href="/python/python面试题/" title="python面试题" target="_blank">python面试题</a>
+           </li>
+         
+           <li>
+             <a href="/后端框架/flask笔记/" title="flask" target="_blank">flask</a>
+           </li>
+         
+           <li>
+             <a href="/linux/andible/" title="ansible" target="_blank">ansible</a>
+           </li>
+         
+           <li>
+             <a href="/数据分析/Pandas详解/" title="数据分析" target="_blank">数据分析</a>
+           </li>
+         
+       </ul>
+      </div>
+    
+  </div>
+</div>
+
+
+
+    </div>
+  
+
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/hubhack/hubhack.github.io" class="github-corner" target="_blank" title="万水千山总是情,给个star行不行！" aria-label="万水千山总是情,给个star行不行！"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/爬虫/爬虫 -- HTML解析、Json解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="mwq">
+      <meta itemprop="description" content="IT知识共享,与各位共同学习">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="千分无言">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                http解析, json解析<a href="https://github.com/hubhack/hubhack.github.io/tree/dev/source/_posts/爬虫/爬虫 -- HTML解析、Json解析.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/爬虫/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="HTML解析"><a href="#HTML解析" class="headerlink" title="HTML解析"></a>HTML解析</h1><p>HTML的内容返回给浏览器，浏览器就会解析它，并对它渲染</p>
+<p>HTML 超文本表示语言设计的初衷就是为了超越普通文本，让文本表现力更强</p>
+<p>XML 扩展标记语言，不是为了代替HTML，而是觉得HTML的设计中包含了过多的格式，承担了一部分数据之外的任务，所以才设计了XML只用来描述数据</p>
+<p>HTML和XML都有结构，使用标记形成树型的嵌套结构DOM（Document Object Model）来解析这种嵌套树型结构，浏览器往往都提供了对DOM操作的API，可以用面向对象的方式来操作DOM</p>
+<h2 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h2><p><a href="http://www.w3school.com.cn/xpath/index.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/xpath/index.asp</a> 中文教程<br>XPath 是一门在 XML 文档中查找信息的语言。XPath 可用来在 XML 文档中对元素和属性进行遍历</p>
+<p>工具<br>XMLQuire win7+需要.NET框架4.0-4.5。<br>测试XML、XPath</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">book</span> <span class="attr">id</span>=<span class="string">"bk101"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">author</span>&gt;</span>Gambardella, Matthew<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>XML Developer's Guide<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">genre</span>&gt;</span>Computer<span class="tag">&lt;/<span class="name">genre</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>44.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">publish_date</span>&gt;</span>2000-10-01<span class="tag">&lt;/<span class="name">publish_date</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>An in-depth look at creating applications</span><br><span class="line">      with XML.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">book</span> <span class="attr">id</span>=<span class="string">"bk102"</span> <span class="attr">class</span>=<span class="string">"bookinfo even"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">author</span>&gt;</span>Ralls, Kim<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Midnight Rain<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">genre</span>&gt;</span>Fantasy<span class="tag">&lt;/<span class="name">genre</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>5.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">publish_date</span>&gt;</span>2000-12-16<span class="tag">&lt;/<span class="name">publish_date</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>A former architect battles corporate zombies,</span><br><span class="line">      an evil sorceress, and her own childhood to become queen</span><br><span class="line">      of the world.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">book</span> <span class="attr">id</span>=<span class="string">"bk103"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">author</span>&gt;</span>Corets, Eva<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Maeve Ascendant<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">genre</span>&gt;</span>Fantasy<span class="tag">&lt;/<span class="name">genre</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>5.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">publish_date</span>&gt;</span>2000-11-17<span class="tag">&lt;/<span class="name">publish_date</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>After the collapse of a nanotechnology</span><br><span class="line">      society in England, the young survivors lay the</span><br><span class="line">      foundation for a new society.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">book</span> <span class="attr">id</span>=<span class="string">"bk104"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">author</span>&gt;</span>Corets, Eva<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Oberon's Legacy<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">genre</span>&gt;</span>Fantasy<span class="tag">&lt;/<span class="name">genre</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">price</span>&gt;</span>5.95<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">publish_date</span>&gt;</span>2001-03-10<span class="tag">&lt;/<span class="name">publish_date</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>In post-apocalypse England, the mysterious</span><br><span class="line">      agent known only as Oberon helps to create a new life</span><br><span class="line">      for the inhabitants of London. Sequel to Maeve</span><br><span class="line">      Ascendant.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><p>在 XPath 中，有七种类型的节点：元素、属性、文本、命名空间、处理指令、注释以及文档（根）节点</p>
+<ul>
+<li><code>/</code>根结点</li>
+<li><code>&lt;bookstore&gt;</code> 元素节点</li>
+<li><code>&lt;author&gt;Corets, Eva&lt;/author&gt;</code> 元素节点</li>
+<li><code>id=&quot;bk104&quot;</code> 是属性节点，id是元素节点book的属性</li>
+</ul>
+<p>节点之间的嵌套形成<strong>父子(parent、children)关系</strong><br>具有同一个父节点的不同节点是<strong>兄弟(sibling)关系</strong></p>
+<h3 id="节点选择"><a href="#节点选择" class="headerlink" title="节点选择"></a>节点选择</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">操作符或表达式</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>/</code></td>
+<td style="text-align:left">从根节点开始找</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>//</code></td>
+<td style="text-align:left">从当前节点开始的任意层找</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.</code></td>
+<td style="text-align:left">当前节点</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>..</code></td>
+<td style="text-align:left">当前节点的父节点</td>
+</tr>
+<tr>
+<td style="text-align:left">@</td>
+<td style="text-align:left">选择属性</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>节点名</code></td>
+<td style="text-align:left">选取所有这个节点名的节点</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>*</code></td>
+<td style="text-align:left">匹配任意元素节点</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>@*</code></td>
+<td style="text-align:left">匹配任意属性节点</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>node()</code></td>
+<td style="text-align:left">匹配任意类型的节点</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>text()</code></td>
+<td style="text-align:left">匹配text类型节点</td>
+</tr>
+</tbody>
+</table>
+<h3 id="谓语（Predicates）"><a href="#谓语（Predicates）" class="headerlink" title="谓语（Predicates）"></a>谓语（Predicates）</h3><p>谓语用来查找某个特定的节点或者包含某个指定的值的节点</p>
+<ul>
+<li><strong>谓语被嵌在方括号中</strong></li>
+<li>谓语就是查询的条件<br>即在路径选择时，在中括号内指定查询条件<h3 id="XPath-轴（Axes）"><a href="#XPath-轴（Axes）" class="headerlink" title="XPath 轴（Axes）"></a>XPath 轴（Axes）</h3>轴的意思是相对于当前节点的节点集<br>|  轴名称| 结果 |<br>|:–|:–|<br>|<code>ancestor</code> |选取当前节点的所有先辈（父、祖父等）|<br>|<code>ancestor-or-self</code> |选取当前节点的所有先辈（父、祖父等）以及当前节点本身|<br>|<code>attribute</code> |选取当前节点的所有属性<br><code>@id</code> 等价于 <code>attribute::id</code>|<br>|<code>child</code>| 选取当前节点的所有子元素<br><code>title</code> 等价于 <code>child:title</code>|<br>|<code>descendant</code> |选取当前节点的所有后代元素（子、孙等）|<br>|<code>descendant-or-self</code> |选取当前节点的所有后代元素（子、孙等）以及当前节点本身|<br>|<code>following</code> |选取文档中当前节点的结束标签之后的所有节点|<br>|<code>namespace</code> |选取当前节点的所有命名空间节点|<br>|<code>parent</code> |选取当前节点的父节点|<br>|<code>preceding</code>| 直到所有这个节点的父辈节点，顺序选择每个父辈节点前的所有同级节点|<br>|<code>preceding-sibling</code> |选取当前节点之前的所有同级节点|<br>|<code>self</code> |选取当前节点<br><code>.</code> 等价于 <code>self::node()</code>|<h3 id="步Step"><a href="#步Step" class="headerlink" title="步Step"></a>步Step</h3>步的语法 <code>轴名称::节点测试[谓语]</code><br>|  例子| 结果 |<br>|:–|:–|<br>|<code>child::book</code>  |选取所有属于当前节点的子元素的 book 节点 |<br>|<code>attribute::lang</code>  |选取当前节点的 lang 属性 |<br>|<code>child::*</code> |选取当前节点的所有子元素 |<br>|<code>attribute::*</code>  |选取当前节点的所有属性 |<br>|<code>child::text()</code>  |选取当前节点的所有文本子节点 |<br>|<code>child::node()</code>  |选取当前节点的所有子节点 |<br>|<code>descendant::book</code>  |选取当前节点的所有 book 后代 |<br>|<code>ancestor::book</code> | 选择当前节点的所有 book 先辈 |<br>|<code>ancestor-or-self::book</code>  |选取当前节点的所有 book 先辈以及当前节点（如果此节点是 book 节点） |<br>|<code>child::*/child::price</code>  |选取当前节点的所有 price 孙节点 |<br><img src="https://img-blog.csdnimg.cn/20190729114630567.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/2019072911463632.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<h3 id="XPATH实例"><a href="#XPATH实例" class="headerlink" title="XPATH实例"></a>XPATH实例</h3><p>以斜杠开始的称为绝对路径，表示从根开始</p>
+<p>不以斜杆开始的称为相对路径，一般都是依照当前节点来计算。当前节点在上下文环境中，当前节点很可能已经不是根节点了</p>
+<p>一般为了方便，往往xml如果层次很深，都会使用<code>//</code>来查找节点<br>|  路径表达式| 含义 |<br>|:–|:–|<br>|<code>title</code> |选取当前节点下所有title子节点|<br>|<code>/book</code> |从根结点找子节点是book的，找不到|<br>|<code>book/title</code> |当前节点下所有子节点book下的title节点|<br>|<code>//title</code> |从根节点向下找任意层中title的节点|<br>|<code>book//title</code> |当前节点下所有book子节点下任意层次的title节点|<br>|<code>//@id</code> |任意层下含有id的 <strong>属性</strong>，取回的是属性|<br>|<code>//book[@id]</code>| 任意层下含有id属性的book节点|<br>|<code>//*[@id]</code>| 任意层下含有id属性的节点|<br>|<code>//book[@id=&quot;bk102&quot;]</code>| 任意层下含有id属性且等于’bk102’的book节点|<br>|<code>/bookstore/book[1]</code> |根节点bookstore下第一个book节点，从1开始|<br>|<code>/bookstore/book[1]/@id</code>| 根节点bookstore下第一个book节点的id属性|<br>|<code>/bookstore/book[last()-1]</code>| 根节点bookstore下倒数第二个book节点，函数last()|<br>|<code>/bookstore/*</code>| 匹配根节点bookstore的所有子节点，不递归|<br>|<code>//*</code>| 匹配所有子孙节点|<br>|<code>//*[@*]</code>| 匹配所有有属性的节点|<br>|<code>//book[@*]</code>| 匹配所有有属性的book节点|<br>|<code>//@*</code>| 匹配所有属性|<br>|<code>//book/title| //price</code> |匹配book下的title节点或者任意层下的price|<br>|<code>//book[position()=2]</code>| 匹配book节点，取第二个|<br>|<code>//book[position()&lt;last()-1]</code> |匹配book节点，取位置小于倒数第二个|<br>|<code>//book[price&gt;40]</code>| 匹配price节点值大于40的book节点|<br>|<code>//book[2]/node()</code> |匹配位置为2的book节点下的所有类型的节点|<br>|<code>//book[1]/text()</code>| 匹配第一个book节点下的所有文本子节点|<br>|<code>//book[1]//text()</code>| 匹配第一个book节点下的所有文本节点|<br>|<code>//*[local-name()=&#39;book&#39;]</code>|匹配所有节点且不带限定名的节点名称为book的所有节点<br>local-name函数取不带限定名的名称|<br>|<code>//book/child::node()[local-name()=&#39;price&#39; and text()&lt;10]</code>|所有book节点的子节点中名字叫做price的且其内容小于10的节点<br>等价于 <code>//book/price[text()&lt;10]</code>|<br>||<code>//book[price&lt;6]/price</code> <br><code>//book/price[text()&lt;6]</code> <br><code>//book/child::node()[local-name()=&#39;price&#39; and text()&lt;6]</code> <br>这三种等价 |<br>|<code>//book//*[self::title or self::price]</code>|所有book节点下子孙节点，这些节点是title或者price<br>等价于<code>//book//title | //book/price</code><br> 也等价于<code>//book//*[local-name()=&#39;title&#39; or local￾name()=&#39;price&#39;]</code><br>|<code>//*[@class]</code>| 所有有class属性的节点|<br>|<code>//*[@class=&quot;bookinfo even&quot;]</code>| 所有属性为<code>&quot;bookinfo even&quot;</code>的节点|<br>|<code>//*[contains(@class, &#39;even&#39;)]</code> |属性class中包含even字符串的节点|<br>|<code>//*[contains(local-name(), &#39;book&#39;)]</code>| 标签名包含book的节点|<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">//book/title</span><br><span class="line">//book//title</span><br><span class="line">//title</span><br><span class="line"></span><br><span class="line">title</span><br><span class="line">//div</span><br><span class="line">//@*</span><br><span class="line">//*[@id]</span><br><span class="line">//* 元素节点</span><br><span class="line">//text() 文本</span><br><span class="line">//node() 全部节点</span><br><span class="line">/bookstore//*</span><br><span class="line"></span><br><span class="line">//book[@id=<span class="string">"bk102"</span>]</span><br><span class="line">//book[<span class="number">2</span>]</span><br><span class="line">//book[<span class="number">2</span>]/title</span><br><span class="line">//book[<span class="number">2</span>]/title/text()</span><br><span class="line">//book[last()]/title/text()</span><br><span class="line">//book[last()]//text()</span><br><span class="line">//book[last()<span class="number">-1</span>]/title</span><br><span class="line">//book[last()<span class="number">-1</span>]/@id</span><br><span class="line"></span><br><span class="line">//book/title | //book/price</span><br><span class="line">//book/title | //book/price | //book//text()</span><br><span class="line">//book[position()=<span class="number">2</span>]</span><br><span class="line">//book[position()=<span class="number">1</span> <span class="keyword">or</span> position()=<span class="number">3</span>]</span><br><span class="line">//book[position()&gt;<span class="number">1</span> <span class="keyword">and</span> position()&lt;<span class="number">4</span>]</span><br><span class="line">//book[position() &lt; last()]/title</span><br><span class="line">//*[local-name()=<span class="string">'book'</span>] 等价 //book</span><br><span class="line"></span><br><span class="line">//book[price]/price/text()</span><br><span class="line">//book[price &gt; <span class="number">40</span>]/price</span><br><span class="line">//book/price/text()</span><br><span class="line">//book/child::node()[local-name()=<span class="string">"price"</span> <span class="keyword">and</span> text() &gt; <span class="number">10</span>]</span><br><span class="line">//book/child::price</span><br><span class="line">//title/../self::node()</span><br><span class="line">//title/ancestor::node()</span><br><span class="line">//title/ancestor::node()[starts-<span class="keyword">with</span>(local-name(), <span class="string">'book'</span>)]</span><br><span class="line">//title/ancestor::node()[contains(local-name(), <span class="string">'store'</span>)]</span><br><span class="line">//book//*[self::price <span class="keyword">or</span> self::title] 等价 //book/title | //book/price</span><br><span class="line">//book//node()[self::price <span class="keyword">or</span> self::title]</span><br><span class="line"></span><br><span class="line">//book//@<span class="class"><span class="keyword">class</span> </span></span><br><span class="line"><span class="class">//<span class="title">book</span>//*[@<span class="title">class</span>]</span></span><br><span class="line"><span class="class"></span></span><br><span class="line">&lt;book id="bk102" class="bookinfo even"&gt;</span><br><span class="line">//*[@<span class="class"><span class="keyword">class</span>]</span></span><br><span class="line">//book[@class="bookinfo even"] =表示exact</span><br><span class="line">//book[contains(@class, 'bookinfo')]</span><br><span class="line">//book[contains(@class, 'even')]</span><br></pre></td></tr></table></figure></p>
+<h2 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h2><p>lxml是Python下功能丰富的XML、HTML解析库，性能非常好，是对libxml2 和 libxslt的封装</p>
+<p>最新版支持Python 2.6+，python3支持到3.6</p>
+<p>CentOS编译安装需要<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># yum install libxml2-devel libxslt-devel</span><br></pre></td></tr></table></figure></p>
+<p>注意，不同平台不一样，参看 <a href="http://lxml.de/installation.html" target="_blank" rel="noopener">http://lxml.de/installation.html</a></p>
+<p><strong>lxml安装</strong><br><code>$ pip install lxml</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line">root = etree.Element(<span class="string">'html'</span>)</span><br><span class="line">print(type(root)) <span class="comment"># &lt;class 'lxml.etree._Element'&gt;</span></span><br><span class="line">print(root.tag) <span class="comment"># html</span></span><br><span class="line"></span><br><span class="line">body = etree.Element(<span class="string">'body'</span>)</span><br><span class="line">root.append(body)</span><br><span class="line"></span><br><span class="line">print(etree.tostring(root)) <span class="comment"># b'&lt;html&gt;&lt;body/&gt;&lt;/html&gt;'</span></span><br><span class="line"></span><br><span class="line">sub = etree.SubElement(body, <span class="string">'child1'</span>) <span class="comment"># 增加子节点</span></span><br><span class="line">print(type(sub)) <span class="comment"># &lt;class 'lxml.etree._Element'&gt;</span></span><br><span class="line">sub = etree.SubElement(body, <span class="string">'child2'</span>).append(etree.Element(<span class="string">'child21'</span>))</span><br><span class="line"></span><br><span class="line">html = etree.tostring(root, pretty_print=<span class="literal">True</span>).decode()</span><br><span class="line">print(html)</span><br><span class="line"><span class="comment">#&lt;html&gt;</span></span><br><span class="line"><span class="comment">#  &lt;body&gt;</span></span><br><span class="line"><span class="comment">#    &lt;child1/&gt;</span></span><br><span class="line"><span class="comment">#    &lt;child2&gt;</span></span><br><span class="line"><span class="comment">#      &lt;child21/&gt;</span></span><br><span class="line"><span class="comment">#    &lt;/child2&gt;</span></span><br><span class="line"><span class="comment">#  &lt;/body&gt;</span></span><br><span class="line"><span class="comment">#&lt;/html&gt;</span></span><br><span class="line"></span><br><span class="line">r = etree.HTML(html)</span><br><span class="line">print(r.tag) <span class="comment"># html</span></span><br><span class="line">print(r.xpath(<span class="string">'//*[contains(local-name(), "child")]'</span>))</span><br><span class="line"><span class="comment"># [&lt;Element child1 at 0x1ee49c1de08&gt;, &lt;Element child2 at 0x1ee49c1ddc8&gt;, &lt;Element child21 at 0x1ee49c1de48&gt;]</span></span><br></pre></td></tr></table></figure></p>
+<p>etree还提供了2个有用的函数</p>
+<ul>
+<li><code>etree.HTML(text)</code> 解析HTML文档，返回根节点</li>
+<li><code>anode.xpath(&#39;xpath路径&#39;)</code> 对节点使用xpath语法<h3 id="练习：爬取“口碑榜”"><a href="#练习：爬取“口碑榜”" class="headerlink" title="练习：爬取“口碑榜”"></a>练习：爬取“口碑榜”</h3>从豆瓣电影中提取“本周口碑榜”<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://movie.douban.com'</span></span><br><span class="line">ua = <span class="string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) "</span> \</span><br><span class="line">     <span class="string">"Chrome/55.0.2883.75 Safari/537.36"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> requests.get(url, headers=&#123;<span class="string">'User-agent'</span>:ua&#125;) <span class="keyword">as</span> response:</span><br><span class="line">    content = response.text <span class="comment"># HTML内容</span></span><br><span class="line"></span><br><span class="line">    html = etree.HTML(content) <span class="comment"># 分析HTML，返回DOM根节点</span></span><br><span class="line">    titles = html.xpath(<span class="string">"//div[@class='billboard-bd']//tr/td/a/text()"</span>) <span class="comment"># 返回文本列表</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> titles: <span class="comment"># 豆瓣电影之 本周口碑榜</span></span><br><span class="line">        print(t)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行结果        </span></span><br><span class="line">哪吒之魔童降世</span><br><span class="line">痛苦与荣耀</span><br><span class="line">疾速备战</span><br><span class="line">老男孩</span><br><span class="line">策马狂奔</span><br><span class="line"><span class="number">1988</span>年的妮可</span><br><span class="line">尤利</span><br><span class="line">了不起的巴斯特</span><br><span class="line">铁道：家色</span><br><span class="line">惊慌妈妈</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190729163431337.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="BeautifulSoup4"><a href="#BeautifulSoup4" class="headerlink" title="BeautifulSoup4"></a>BeautifulSoup4</h2><p>BeautifulSoup可以从HTML、XML中提取数据。目前BS4在持续开发</p>
+<p>官方中文文档<br><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/" target="_blank" rel="noopener">https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong>安装</strong></h3><p><code>$ pip install beautifulsoup4</code></p>
+<p><strong>导入</strong><br><code>from bs4 import BeautifulSoup</code></p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a><strong>初始化</strong></h3><p><code>BeautifulSoup(markup=&quot;&quot;, features=None)</code></p>
+<ul>
+<li>markup，被解析对象，可以是文件对象或者html字符串</li>
+<li>features指定解析器</li>
+<li>返回一个文档对象</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="comment"># 文件对象</span></span><br><span class="line">soup = BeautifulSoup(open(<span class="string">"test.html"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 标记字符串</span></span><br><span class="line">soup = BeautifulSoup(<span class="string">"&lt;html&gt;data&lt;/html&gt;"</span>)</span><br></pre></td></tr></table></figure>
+<p>可以不指定解析器，就依赖系统已经安装的解析器库了<br><img src="https://img-blog.csdnimg.cn/20190729164352440.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li><code>BeautifulSoup(markup, &quot;html.parser&quot;)</code> 使用Python标准库，容错差且性能一般</li>
+<li><code>BeautifulSoup(markup, &quot;lxml&quot;)</code> 容错能力强，速度快。需要安装系统C库</li>
+<li>推荐使用lxml作为解析器，效率高</li>
+<li>请手动指定解析器，以保证代码在所有运行环境中解析器一致</li>
+</ul>
+<p>使用下面内容构建test.html使用bs4解析它<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>helloworld<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"title highlight"</span>&gt;</span>python高级班<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">'first'</span>&gt;</span>字典<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">'second'</span>&gt;</span>列表<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"_csrf"</span> <span class="attr">value</span>=<span class="string">"7139e401481ef2f46ce98b22af4f4bed"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- comment --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"bg1"</span> <span class="attr">src</span>=<span class="string">"http://www.bing.cn/"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"bg2"</span> <span class="attr">src</span>=<span class="string">"http://httpbin.org/"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>bottom<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="四种对象"><a href="#四种对象" class="headerlink" title="四种对象"></a>四种对象</h3><p>BeautifulSoup将HTML文档解析成复杂的树型结构，每个节点都是Python的对象，可分为4种：</p>
+<ul>
+<li>BeautifulSoup、Tag、NavigableString、Comment</li>
+</ul>
+<h4 id="BeautifulSoup对象"><a href="#BeautifulSoup对象" class="headerlink" title="BeautifulSoup对象"></a>BeautifulSoup对象</h4><p>BeautifulSoup对象代表整个文档</p>
+<h4 id="Tag对象"><a href="#Tag对象" class="headerlink" title="Tag对象"></a>Tag对象</h4><p>它对应着HTML中的标签。有2个常用的属性：</p>
+<ol>
+<li>name：Tag对象的名称，就是标签名称</li>
+<li>attrs：标签的属性字典<br> 多值属性，对于class属性可能是下面的形式， <code>&lt;h3 class=&quot;title highlight&quot;&gt;python高级班&lt;/h3&gt;</code> ，这个属性就是多值<code>({&#39;class&#39;: [&#39;title&#39;, &#39;highlight&#39;]})</code><br> 属性可以被修改、删除<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'d:/test.html'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    soup = BeautifulSoup(f, <span class="string">'lxml'</span>)</span><br><span class="line">    print(soup.builder) <span class="comment"># &lt;bs4.builder._lxml.LXMLTreeBuilder object at 0x000001D75A2D5C88&gt;</span></span><br><span class="line">    print(soup) <span class="comment"># 输出整个解析的文档对象</span></span><br><span class="line">    print(soup.prettify()) <span class="comment"># # 格式输出</span></span><br><span class="line">    print(soup.div, type(soup.div)) <span class="comment"># bs4.element.Tag, Tag对象</span></span><br><span class="line">    print(soup.div.name, soup.div.attrs) <span class="comment"># div &#123;'id': 'main'&#125;</span></span><br><span class="line">    print(soup.div[<span class="string">'class'</span>]) <span class="comment"># KeyError: div没有class属性</span></span><br><span class="line">    print(soup.div.get(<span class="string">'class'</span>)) <span class="comment"># None</span></span><br><span class="line">    print(soup.h3[<span class="string">'class'</span>]) <span class="comment"># 多值属性 ['title', 'highlight']</span></span><br><span class="line">    print(soup.h3.get(<span class="string">'class'</span>)) <span class="comment"># ['title', 'highlight']</span></span><br><span class="line">    print(soup.h3.attrs.get(<span class="string">'class'</span>)) <span class="comment"># ['title', 'highlight']</span></span><br><span class="line">    print(soup.img.get(<span class="string">'src'</span>)) <span class="comment"># http://www.bing.cn/</span></span><br><span class="line">    soup.img[<span class="string">'src'</span>] = <span class="string">'http://www.python.org/'</span><span class="comment"># 修改属性</span></span><br><span class="line">    print(soup.img[<span class="string">'src'</span>]) <span class="comment"># http://www.python.org/</span></span><br><span class="line">    print(soup.a)  <span class="comment"># 找不到返回None</span></span><br><span class="line">    <span class="keyword">del</span> soup.h3[<span class="string">'class'</span>]  <span class="comment"># 删除属性</span></span><br><span class="line">    print(soup.h3.get(<span class="string">'class'</span>)) <span class="comment"># None</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意，一般不使用上面这种方式来操作HTML，此代码是为了熟悉对象类型</p>
+<h4 id="NavigableString"><a href="#NavigableString" class="headerlink" title="NavigableString"></a>NavigableString</h4><p>如果只想输出标记内的文本，而不关心标记的话，就要使用NavigableString<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(soup.div.p.string) <span class="comment"># 第一个div下第一个p的字符串</span></span><br><span class="line">print(soup.p.string) <span class="comment"># 同上</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="注释对象"><a href="#注释对象" class="headerlink" title="注释对象"></a>注释对象</h4><p>这就是HTML中的注释，它被BeautifulSoup解析后对应Comment对象</p>
+<h3 id="遍历文档树"><a href="#遍历文档树" class="headerlink" title="遍历文档树"></a>遍历文档树</h3><p>在文档树中找到关心的内容才是日常的工作，也就是说如何遍历树中的节点。使用上面的<code>test.html</code>来测试</p>
+<h4 id="使用Tag"><a href="#使用Tag" class="headerlink" title="使用Tag"></a>使用Tag</h4><ul>
+<li><code>soup.div</code> 可以找到从根节点开始查找第一个div节点</li>
+<li><code>soup.div.p</code> 说明从根节点开始找到第一个div后返回一个Tag对象，这个Tag对象下继续找第一个p，找到返回Tag对象</li>
+<li><code>soup.p</code> 说明遍历是深度优先，返回了文字“字典”，而不是文字<code>“bottom”</code></li>
+</ul>
+<h4 id="遍历直接子节点"><a href="#遍历直接子节点" class="headerlink" title="遍历直接子节点"></a>遍历直接子节点</h4><ul>
+<li><code>print(soup.div.contents)</code> # 将对象的所有类型直接子节点以列表方式输出</li>
+<li><code>print(soup.div.children)</code> # 返回子节点的迭代器</li>
+<li><code>print(list(soup.div.children))</code> # 等价于<code>soup.div.contents</code></li>
+</ul>
+<h4 id="遍历所有子孙节点"><a href="#遍历所有子孙节点" class="headerlink" title="遍历所有子孙节点"></a>遍历所有子孙节点</h4><p><code>print(list(soup.div.descendants))</code> # 返回第一个div节点的所有类型子孙节点，可以看出迭代次序是深度优先<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> bs4.element <span class="keyword">import</span> Tag</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'d:/test.html'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    soup = BeautifulSoup(f, <span class="string">'lxml'</span>)</span><br><span class="line">    print(soup.p.string) <span class="comment"># 字典</span></span><br><span class="line">    print(<span class="string">'-'</span> * <span class="number">30</span>)</span><br><span class="line">    print(soup.div.contents)</span><br><span class="line">    print(<span class="string">'='</span> * <span class="number">30</span>)</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> soup.div.children:</span><br><span class="line">        print(c.name)</span><br><span class="line">    print(<span class="string">'~'</span> * <span class="number">30</span>)</span><br><span class="line">    print(list(map(</span><br><span class="line">        <span class="keyword">lambda</span> x:x.name <span class="keyword">if</span> x.name <span class="keyword">else</span> x,</span><br><span class="line">        soup.div.descendants)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行结果</span></span><br><span class="line">字典</span><br><span class="line">------------------------------</span><br><span class="line">['\n', &lt;h3 class="title highlight"&gt;python高级班&lt;/h3&gt;, '\n', &lt;div class="content"&gt;</span><br><span class="line">&lt;p id="first"&gt;字典&lt;/p&gt;</span><br><span class="line">&lt;p id="second"&gt;列表&lt;/p&gt;</span><br><span class="line">&lt;input name=<span class="string">"_csrf"</span> type=<span class="string">"hidden"</span> value=<span class="string">"7139e401481ef2f46ce98b22af4f4bed"</span>/&gt;</span><br><span class="line">&lt;!-- comment --&gt;</span><br><span class="line">&lt;img id=<span class="string">"bg1"</span> src=<span class="string">"http://www.bing.cn/"</span>/&gt;</span><br><span class="line">&lt;img id=<span class="string">"bg2"</span> src=<span class="string">"http://httpbin.org/"</span>/&gt;</span><br><span class="line">&lt;/div&gt;, '\n']</span><br><span class="line">==============================</span><br><span class="line"><span class="literal">None</span></span><br><span class="line">h3</span><br><span class="line"><span class="literal">None</span></span><br><span class="line">div</span><br><span class="line"><span class="literal">None</span></span><br><span class="line">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span><br><span class="line">[<span class="string">'\n'</span>, <span class="string">'h3'</span>, <span class="string">'python高级班'</span>, <span class="string">'\n'</span>, <span class="string">'div'</span>, <span class="string">'\n'</span>, <span class="string">'p'</span>, <span class="string">'字典'</span>, <span class="string">'\n'</span>, <span class="string">'p'</span>, <span class="string">'列表'</span>, <span class="string">'\n'</span>, <span class="string">'input'</span>, <span class="string">'\n'</span>, <span class="string">' comment '</span>, <span class="string">'\n'</span>, <span class="string">'img'</span>, <span class="string">'\n'</span>, <span class="string">'img'</span>, <span class="string">'\n'</span>, <span class="string">'\n'</span>]</span><br></pre></td></tr></table></figure></p>
+<h4 id="遍历字符串"><a href="#遍历字符串" class="headerlink" title="遍历字符串"></a>遍历字符串</h4><p>在前面的例子中，soup.div.string返回None，是因为string要求soup.div只能有一个NavigableString类型子节点，也就是如这样 <code>&lt;div&gt;only string&lt;/div&gt;</code></p>
+<p>如果div有很多子孙节点，如何提取字符串<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.div.string) <span class="comment"># 返回None，因为多于1个子节点</span></span><br><span class="line">print(<span class="string">""</span>.join(soup.div.strings)) <span class="comment"># 返回迭代器，带多余的空白字符</span></span><br><span class="line">print(<span class="string">""</span>.join(soup.div.stripped_strings)) <span class="comment"># 返回迭代器，去除多余空白符</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="遍历祖先节点"><a href="#遍历祖先节点" class="headerlink" title="遍历祖先节点"></a>遍历祖先节点</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(soup.parent) <span class="comment"># None 根节点没有父节点</span></span><br><span class="line">print(soup.div.parent.name) <span class="comment"># body，第一个div的父节点</span></span><br><span class="line">print(soup.p.parent.parent.get(<span class="string">'id'</span>)) <span class="comment"># 取id属性，main</span></span><br><span class="line">print(list(map(<span class="keyword">lambda</span> x: x.name, soup.p.parents))) <span class="comment"># 父迭代器，由近及远</span></span><br></pre></td></tr></table></figure>
+<h4 id="遍历兄弟节点"><a href="#遍历兄弟节点" class="headerlink" title="遍历兄弟节点"></a>遍历兄弟节点</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'&#123;&#125; [&#123;&#125;]'</span>.format(<span class="number">1</span>, soup.p.next_sibling)) <span class="comment"># 第一个p元素的下一个兄弟节点，注意可能是一个文本节点</span></span><br><span class="line">print(<span class="string">'&#123;&#125; [&#123;&#125;]'</span>.format(<span class="number">2</span>, soup.p.previous_sibling))</span><br><span class="line">print(list(soup.p.next_siblings)) <span class="comment"># previous_siblings</span></span><br></pre></td></tr></table></figure>
+<h4 id="遍历其他元素"><a href="#遍历其他元素" class="headerlink" title="遍历其他元素"></a>遍历其他元素</h4><p><code>next_element</code>是下一个可被解析的对象（字符串或tag），和下一个兄弟节点<code>next_sibling</code>不一样<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.p.next_element) <span class="comment"># 返回"字典"2个字</span></span><br><span class="line">print(soup.p.next_element.next_element.next_element)</span><br><span class="line">print(list(soup.p.next_elements))</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> bs4.element <span class="keyword">import</span> Tag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'d:/test.html'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    soup = BeautifulSoup(f, <span class="string">'lxml'</span>) <span class="comment"># 字典</span></span><br><span class="line">    print(soup.p.next_element)</span><br><span class="line">    print(<span class="string">'-'</span> * <span class="number">30</span>)</span><br><span class="line">    print(soup.p.next_element.next_element.next_element)</span><br><span class="line">    print(<span class="string">'='</span> * <span class="number">30</span>)</span><br><span class="line">    print(soup.p.next_sibling.next_sibling.next_sibling)</span><br><span class="line">    print(<span class="string">'~'</span> * <span class="number">30</span>)</span><br><span class="line">    <span class="comment"># 对比下面的差异</span></span><br><span class="line">    print(list(soup.p.next_elements))</span><br><span class="line">    print(<span class="string">'*'</span> * <span class="number">30</span>)</span><br><span class="line">    print(list(soup.p.next_siblings))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行结果</span></span><br><span class="line">字典</span><br><span class="line">------------------------------</span><br><span class="line">&lt;p id="second"&gt;列表&lt;/p&gt;</span><br><span class="line">==============================</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span><br><span class="line">['字典', '\n', &lt;p id="second"&gt;列表&lt;/p&gt;, '列表', '\n',\</span><br><span class="line"> &lt;input name=<span class="string">"_csrf"</span> type=<span class="string">"hidden"</span> value=<span class="string">"7139e401481ef2f46ce98b22af4f4bed"</span>/&gt;, \</span><br><span class="line"> <span class="string">'\n'</span>, <span class="string">' comment '</span>, <span class="string">'\n'</span>, &lt;img id=<span class="string">"bg1"</span> src=<span class="string">"http://www.bing.cn/"</span>/&gt;, \</span><br><span class="line"> '\n', &lt;img id="bg2" src="http://httpbin.org/"/&gt;, '\n', '\n', '\n', &lt;p&gt;bottom&lt;/p&gt;, 'bottom', '\n', '\n']</span><br><span class="line">******************************</span><br><span class="line">['\n', &lt;p id="second"&gt;列表&lt;/p&gt;, '\n', &lt;input name="_csrf" type="hidden" value="7139e401481ef2f46ce98b22af4f4bed"/&gt;, \</span><br><span class="line"><span class="string">'\n'</span>, <span class="string">' comment '</span>, <span class="string">'\n'</span>, &lt;img id=<span class="string">"bg1"</span> src=<span class="string">"http://www.bing.cn/"</span>/&gt;, <span class="string">'\n'</span>, \</span><br><span class="line">&lt;img id=<span class="string">"bg2"</span> src=<span class="string">"http://httpbin.org/"</span>/&gt;, <span class="string">'\n'</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="搜索文档树"><a href="#搜索文档树" class="headerlink" title="搜索文档树"></a>搜索文档树</h3><p>find系有很多方法，请自行查帮助</p>
+<p>find_all方法，立即返回一个列表<br><code>find_all(name=None, attrs={}, recursive=True, text=None, limit=None, **kwargs)</code></p>
+<h4 id="name"><a href="#name" class="headerlink" title="name"></a>name</h4><p>官方称为<strong>filter过滤器</strong>，这个参数可以是以下类型：</p>
+<ol>
+<li><p>字符串<br>一个标签名称的字符串，会按照这个字符串全长匹配标签名</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(soup.find_all(<span class="string">'p'</span>)) <span class="comment"># 返回文档中所有p标签</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>正则表达式对象<br>按照“正则表达式对象”的模式匹配标签名</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> reprint(soup.find_all(re.compile(<span class="string">'^h\d'</span>))) <span class="comment"># 标签名以h开头后接数字</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>列表</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(soup.find_all([<span class="string">'p'</span>, <span class="string">'h1'</span>, <span class="string">'h3'</span>])) <span class="comment"># 或关系，找出列表所有的标签</span></span><br><span class="line">print(soup.find_all(re.compile(<span class="string">r'^(p|h\d)$'</span>))) <span class="comment"># 使用正则完成</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>True或None<br>True或None，则<code>find_all</code>返回全部非字符串节点、非注释节点，就是Tag标签类型</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(list(map(<span class="keyword">lambda</span> x:x.name, soup.find_all(<span class="literal">True</span>))))</span><br><span class="line">print(list(map(<span class="keyword">lambda</span> x:x.name, soup.find_all(<span class="literal">None</span>))))</span><br><span class="line">print(list(map(<span class="keyword">lambda</span> x:x.name, soup.find_all())))</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> bs4.element <span class="keyword">import</span> Tag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'d:/test.html'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    soup = BeautifulSoup(f, <span class="string">'lxml'</span>)</span><br><span class="line">    values = [<span class="literal">True</span>, <span class="literal">None</span>, <span class="literal">False</span>]</span><br><span class="line">    <span class="keyword">for</span> value <span class="keyword">in</span> values:</span><br><span class="line">        all = soup.find_all(value)</span><br><span class="line">        print(type(all[<span class="number">0</span>]))</span><br><span class="line">        print(len(all))</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'-'</span> * <span class="number">30</span>)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i,t <span class="keyword">in</span> enumerate(soup.descendants):</span><br><span class="line">        print(i, type(t), t.name)</span><br><span class="line">        <span class="keyword">if</span> isinstance(t, Tag):<span class="comment"># 只对Tag类型计数</span></span><br><span class="line">            count +=<span class="number">1</span></span><br><span class="line">    print(count)</span><br><span class="line"><span class="comment"># 执行结果</span></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt;</span></span><br><span class="line"><span class="class">15</span></span><br><span class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt;</span></span><br><span class="line"><span class="class">15</span></span><br><span class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt;</span></span><br><span class="line"><span class="class">15</span></span><br><span class="line"><span class="class">------------------------------</span></span><br><span class="line"><span class="class">0 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Doctype</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">1 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">html</span></span></span><br><span class="line"><span class="class">2 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">3 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">head</span></span></span><br><span class="line"><span class="class">4 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">5 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">meta</span></span></span><br><span class="line"><span class="class">6 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">7 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">title</span></span></span><br><span class="line"><span class="class">8 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">9 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">10 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">11 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">body</span></span></span><br><span class="line"><span class="class">12 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">13 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">h1</span></span></span><br><span class="line"><span class="class">14 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">15 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">16 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">div</span></span></span><br><span class="line"><span class="class">17 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">18 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">h3</span></span></span><br><span class="line"><span class="class">19 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">20 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">21 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">div</span></span></span><br><span class="line"><span class="class">22 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">23 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">p</span></span></span><br><span class="line"><span class="class">24 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">25 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">26 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">p</span></span></span><br><span class="line"><span class="class">27 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">28 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">29 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">input</span></span></span><br><span class="line"><span class="class">30 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">31 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Comment</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">32 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">33 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">img</span></span></span><br><span class="line"><span class="class">34 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">35 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">img</span></span></span><br><span class="line"><span class="class">36 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">37 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">38 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">39 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt; <span class="title">p</span></span></span><br><span class="line"><span class="class">40 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">41 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">42 &lt;<span class="title">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">NavigableString</span>'&gt; <span class="title">None</span></span></span><br><span class="line"><span class="class">15</span></span><br></pre></td></tr></table></figure>
+<p>数目一致，所以返回的是Tag类型的节点，源码中确实返回的Tag类型</p>
+<pre><code>5. 函数
+如果使用以上过滤器还不能提取出想要的节点，可以使用函数，此函数仅只能接收一个参数
+如果这个函数返回True，表示当前节点匹配；返回False则是不匹配
+</code></pre><ul>
+<li>练习：找出所有有class属性且有多个值的节点<br>符合这个要求只有h3标签<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">many_classes</span><span class="params">(tag)</span>:</span></span><br><span class="line">    <span class="comment"># print(type(tag))</span></span><br><span class="line">    <span class="comment"># print(tag.attrs)</span></span><br><span class="line">    <span class="keyword">return</span> len(tag.attrs.get(<span class="string">'class'</span>, [])) &gt; <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'d:/test.html'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    soup = BeautifulSoup(f, <span class="string">'lxml'</span>)</span><br><span class="line">    print(soup.find_all(many_classes))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行结果</span></span><br><span class="line">[&lt;h3 class="title highlight"&gt;python高级班&lt;/h3&gt;]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="keyword传参"><a href="#keyword传参" class="headerlink" title="keyword传参"></a>keyword传参</h4><p>使用关键字传参，如果参数名不是find系函数已定义的位置参数名，参数会被kwargs收集并被当做标签的属性来搜索<br>属性的传参可以是字符串、正则表达式对象、True、列表<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">print(soup.find_all(id=<span class="string">'first'</span>)) <span class="comment"># id为first的所有节点列表</span></span><br><span class="line">print(soup.find_all(id=re.compile(<span class="string">'\w+'</span>))) <span class="comment"># 相当于找有id的所有节点</span></span><br><span class="line">print(soup.find_all(id=<span class="literal">True</span>)) <span class="comment"># 所有有id的节点</span></span><br><span class="line">print(list(map(<span class="keyword">lambda</span> x:x[<span class="string">'id'</span>], soup.find_all(id=<span class="literal">True</span>))))</span><br><span class="line">print(soup.find_all(id=[<span class="string">'first'</span>, re.compile(<span class="string">r'^sec'</span>)])) <span class="comment"># 指定id的名称列表</span></span><br><span class="line">print(soup.find_all(id=<span class="literal">True</span>, src=<span class="literal">True</span>)) <span class="comment"># 相当于条件and，既有id又有src属性的节点列表</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="css的class的特殊处理"><a href="#css的class的特殊处理" class="headerlink" title="css的class的特殊处理"></a>css的class的特殊处理</h4><p>class是Python关键字，所以使用 <code>class_</code> 。class是多值属性，可以匹配其中任意一个，也可以可以完全匹配<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(soup.find_all(class_=<span class="string">"content"</span>))</span><br><span class="line">print(soup.find_all(class_=<span class="string">"title"</span>)) <span class="comment"># 可以使用任意一个css类</span></span><br><span class="line">print(soup.find_all(class_=<span class="string">"highlight"</span>)) <span class="comment"># 可以使用任意一个css类</span></span><br><span class="line">print(soup.find_all(class_=<span class="string">"highlight title"</span>)) <span class="comment"># 顺序错了，找不到</span></span><br><span class="line">print(soup.find_all(class_=<span class="string">"title highlight"</span>)) <span class="comment"># 顺序一致，找到，就是字符串完全匹配</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="attrs参数"><a href="#attrs参数" class="headerlink" title="attrs参数"></a>attrs参数</h4><p>attrs接收一个字典，字典的key为属性名，value可以是字符串、正则表达式对象、True、列表。可以多个属性<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">print(soup.find_all(attrs=&#123;<span class="string">'class'</span>:<span class="string">'title'</span>&#125;))</span><br><span class="line">print(soup.find_all(attrs=&#123;<span class="string">'class'</span>:<span class="string">'highlight'</span>&#125;))</span><br><span class="line">print(soup.find_all(attrs=&#123;<span class="string">'class'</span>:<span class="string">'title highlight'</span>&#125;))</span><br><span class="line">print(soup.find_all(attrs=&#123;<span class="string">'id'</span>:<span class="literal">True</span>&#125;))</span><br><span class="line">print(soup.find_all(attrs=&#123;<span class="string">'id'</span>:re.compile(<span class="string">r'\d$'</span>)&#125;))</span><br><span class="line">print(list(map(<span class="keyword">lambda</span> x:x.name, soup.find_all(attrs=&#123;<span class="string">'id'</span>:<span class="literal">True</span>, <span class="string">'src'</span>:<span class="literal">True</span>&#125;))))</span><br></pre></td></tr></table></figure></p>
+<h4 id="text参数"><a href="#text参数" class="headerlink" title="text参数"></a>text参数</h4><p>可以通过text参数搜索文档中的字符串内容，接受字符串、正则表达式对象、True、列表<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(list(map(<span class="keyword">lambda</span> x: (type(x), x),soup.find_all(text=re.compile(<span class="string">'\w+'</span>)))))<span class="comment"># 返回文本类节点</span></span><br><span class="line">print(list(map(<span class="keyword">lambda</span> x: (type(x), x),soup.find_all(text=re.compile(<span class="string">'[a-z]+'</span>)))))</span><br><span class="line">print(soup.find_all(re.compile(<span class="string">r'^(h|p)'</span>),text=re.compile(<span class="string">'[a-z]+'</span>)))<span class="comment"># 相当于过滤出Tag对象，并看它的string是否符合text参数的要求，返回Tag对象</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="limit参数"><a href="#limit参数" class="headerlink" title="limit参数"></a>limit参数</h4><p>限制返回结果的数量<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(soup.find_all(id=<span class="literal">True</span>, limit=<span class="number">3</span>)) <span class="comment"># 返回列表中有3个结果</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="recursive-参数"><a href="#recursive-参数" class="headerlink" title="recursive 参数"></a>recursive 参数</h4><p>默认是递归搜索所有子孙节点，如果不需要请设置为False</p>
+<h4 id="简化写法"><a href="#简化写法" class="headerlink" title="简化写法"></a>简化写法</h4><p><code>find_all()</code>是非常常用的方法，可以简化省略掉<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">print(soup(<span class="string">'img'</span>)) <span class="comment"># 所有img标签对象的列表，不等价于soup.img</span></span><br><span class="line">print(soup.img) <span class="comment"># 深度优先第一个img</span></span><br><span class="line"></span><br><span class="line">print(soup.a.find_all(text=<span class="literal">True</span>)) <span class="comment"># 返回文本</span></span><br><span class="line">print(soup.a(text=<span class="literal">True</span>)) <span class="comment"># 返回文本，和上面等价</span></span><br><span class="line">print(soup(<span class="string">'a'</span>, text=<span class="literal">True</span>)) <span class="comment"># 返回a标签对象</span></span><br><span class="line"></span><br><span class="line">print(soup.find_all(<span class="string">'img'</span>, attrs=&#123;<span class="string">'id'</span>:<span class="string">'bg1'</span>&#125;))</span><br><span class="line">print(soup(<span class="string">'img'</span>, attrs=&#123;<span class="string">'id'</span>:<span class="string">'bg1'</span>&#125;)) <span class="comment"># find_all的省略</span></span><br><span class="line">print(soup(<span class="string">'img'</span>, attrs=&#123;<span class="string">'id'</span>:re.compile(<span class="string">'1'</span>)&#125;))</span><br></pre></td></tr></table></figure></p>
+<h4 id="find方法"><a href="#find方法" class="headerlink" title="find方法"></a>find方法</h4><p><code>find( name , attrs , recursive , text , **kwargs )</code><br>参数几乎和<code>find_all</code>一样</p>
+<ul>
+<li>找到了，<code>find_all</code>返回一个列表，而find返回一个单值，元素对象</li>
+<li>找不到，<code>find_all</code>返回一个空列表，而find返回一个None<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(soup.find(<span class="string">'img'</span>, attrs=&#123;<span class="string">'id'</span>:<span class="string">'bg1'</span>&#125;).attrs.get(<span class="string">'src'</span>, <span class="string">'magedu'</span>))</span><br><span class="line">print(soup.find(<span class="string">'img'</span>, attrs=&#123;<span class="string">'id'</span>:<span class="string">'bg1'</span>&#125;).get(<span class="string">'src'</span>)) <span class="comment"># 简化了attrs</span></span><br><span class="line">print(soup.find(<span class="string">'img'</span>, attrs=&#123;<span class="string">'id'</span>:<span class="string">'bg1'</span>&#125;)[<span class="string">'src'</span>])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h3><p>和JQuery一样，可以使用CSS选择器来查找节点</p>
+<ul>
+<li>使用<code>soup.select()方</code>法，select方法支持大部分CSS选择器，返回列表</li>
+<li>CSS中，标签名直接使用，类名前加<code>.</code>点号，id名前加<code>#</code>井号</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">many_classes</span><span class="params">(tag)</span>:</span></span><br><span class="line">    <span class="comment"># print(type(tag))</span></span><br><span class="line">    <span class="comment"># print(tag.attrs)</span></span><br><span class="line">    <span class="keyword">return</span> len(tag.attrs.get(<span class="string">'class'</span>, [])) &gt; <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'d:/test.html'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    soup = BeautifulSoup(f, <span class="string">'lxml'</span>)</span><br><span class="line">    <span class="comment"># 元素选择器</span></span><br><span class="line">    print(<span class="number">1</span>, soup.select(<span class="string">'p'</span>))  <span class="comment"># 所有的p标签</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 类选择器</span></span><br><span class="line">    print(<span class="number">2</span>, soup.select(<span class="string">'.title'</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 使用了伪类</span></span><br><span class="line">    <span class="comment"># 直接子标签是p的同类型的所有p标签中的第二个</span></span><br><span class="line">    <span class="comment"># （同类型）同标签名p的第2个，伪类只实现了nth-of-type，且要求是数字</span></span><br><span class="line">    print(<span class="number">3</span>, soup.select(<span class="string">'div.content &gt; p:nth-of-type(2)'</span>))  <span class="comment"># 只实现了这个伪类</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># id选择器</span></span><br><span class="line">    print(<span class="number">4</span>, soup.select(<span class="string">'p#second'</span>))</span><br><span class="line">    print(<span class="number">5</span>, soup.select(<span class="string">'#bg1'</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 后代选择器</span></span><br><span class="line">    print(<span class="number">6</span>, soup.select(<span class="string">'div p'</span>))  <span class="comment"># div下逐层找p</span></span><br><span class="line">    print(<span class="number">7</span>, soup.select(<span class="string">'div div p'</span>))  <span class="comment"># div下逐层找div下逐层找p</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 子选择器，直接后代</span></span><br><span class="line">    print(<span class="number">8</span>, soup.select(<span class="string">'div &gt; p'</span>))  <span class="comment"># div下直接子标签的p，有2个</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 相邻兄弟选择器</span></span><br><span class="line">    print(<span class="number">9</span>, soup.select(<span class="string">'div p:nth-of-type(1) + [src]'</span>))  <span class="comment"># 返回[]</span></span><br><span class="line">    print(<span class="number">9</span>, soup.select(<span class="string">'div p:nth-of-type(1) + p'</span>))  <span class="comment"># 返回[]</span></span><br><span class="line">    print(<span class="number">9</span>, soup.select(<span class="string">'div &gt; p:nth-of-type(2) + input'</span>))  <span class="comment"># 返回input Tag</span></span><br><span class="line">    print(<span class="number">9</span>, soup.select(<span class="string">'div &gt; p:nth-of-type(2) + [type]'</span>))  <span class="comment"># 同上</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 普通兄弟选择器</span></span><br><span class="line">    print(<span class="number">10</span>, soup.select(<span class="string">'div p:nth-of-type(1) ~ [src]'</span>))  <span class="comment"># 返回2个img</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 属性选择器</span></span><br><span class="line"></span><br><span class="line">    print(<span class="number">11</span>, soup.select(<span class="string">'[src]'</span>))  <span class="comment"># 有属性src</span></span><br><span class="line">    print(<span class="number">12</span>, soup.select(<span class="string">'[src="/"]'</span>))  <span class="comment"># 属性src等于/</span></span><br><span class="line">    print(<span class="number">13</span>, soup.select(<span class="string">'[src="http://www.magedu.com/"]'</span>))  <span class="comment"># 完全匹配</span></span><br><span class="line">    print(<span class="number">14</span>, soup.select(<span class="string">'[src^="http://www"]'</span>))  <span class="comment"># 以http://www开头</span></span><br><span class="line">    print(<span class="number">15</span>, soup.select(<span class="string">'[src$="cn/"]'</span>))  <span class="comment"># 以cn/结尾</span></span><br><span class="line">    print(<span class="number">16</span>, soup.select(<span class="string">'img[src*="bin"]'</span>))  <span class="comment"># 包含bin</span></span><br><span class="line">    print(<span class="number">17</span>, soup.select(<span class="string">'img[src*=".cn"]'</span>))  <span class="comment"># 包含.cn</span></span><br><span class="line">    print(<span class="number">18</span>, soup.select(<span class="string">'[class="title highlight"]'</span>))</span><br><span class="line">    print(<span class="number">19</span>, soup.select(<span class="string">'[class~=title]'</span>))  <span class="comment"># 多值属性中有一个title</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行结果</span></span><br><span class="line">1 [&lt;p id="first"&gt;字典&lt;/p&gt;, &lt;p id="second"&gt;列表&lt;/p&gt;, &lt;p&gt;bottom&lt;/p&gt;]</span><br><span class="line">2 [&lt;h3 class="title highlight"&gt;python高级班&lt;/h3&gt;]</span><br><span class="line">3 [&lt;p id="second"&gt;列表&lt;/p&gt;]</span><br><span class="line">4 [&lt;p id="second"&gt;列表&lt;/p&gt;]</span><br><span class="line"><span class="number">5</span> [&lt;img id=<span class="string">"bg1"</span> src=<span class="string">"http://www.bing.cn/"</span>/&gt;]</span><br><span class="line">6 [&lt;p id="first"&gt;字典&lt;/p&gt;, &lt;p id="second"&gt;列表&lt;/p&gt;]</span><br><span class="line">7 [&lt;p id="first"&gt;字典&lt;/p&gt;, &lt;p id="second"&gt;列表&lt;/p&gt;]</span><br><span class="line">8 [&lt;p id="first"&gt;字典&lt;/p&gt;, &lt;p id="second"&gt;列表&lt;/p&gt;]</span><br><span class="line"><span class="number">9</span> []</span><br><span class="line">9 [&lt;p id="second"&gt;列表&lt;/p&gt;]</span><br><span class="line"><span class="number">9</span> [&lt;input name=<span class="string">"_csrf"</span> type=<span class="string">"hidden"</span> value=<span class="string">"7139e401481ef2f46ce98b22af4f4bed"</span>/&gt;]</span><br><span class="line"><span class="number">9</span> [&lt;input name=<span class="string">"_csrf"</span> type=<span class="string">"hidden"</span> value=<span class="string">"7139e401481ef2f46ce98b22af4f4bed"</span>/&gt;]</span><br><span class="line"><span class="number">10</span> [&lt;img id=<span class="string">"bg1"</span> src=<span class="string">"http://www.bing.cn/"</span>/&gt;, &lt;img id=<span class="string">"bg2"</span> src=<span class="string">"http://httpbin.org/"</span>/&gt;]</span><br><span class="line"><span class="number">11</span> [&lt;img id=<span class="string">"bg1"</span> src=<span class="string">"http://www.bing.cn/"</span>/&gt;, &lt;img id=<span class="string">"bg2"</span> src=<span class="string">"http://httpbin.org/"</span>/&gt;]</span><br><span class="line"><span class="number">12</span> []</span><br><span class="line"><span class="number">13</span> []</span><br><span class="line"><span class="number">14</span> [&lt;img id=<span class="string">"bg1"</span> src=<span class="string">"http://www.bing.cn/"</span>/&gt;]</span><br><span class="line"><span class="number">15</span> [&lt;img id=<span class="string">"bg1"</span> src=<span class="string">"http://www.bing.cn/"</span>/&gt;]</span><br><span class="line"><span class="number">16</span> [&lt;img id=<span class="string">"bg1"</span> src=<span class="string">"http://www.bing.cn/"</span>/&gt;, &lt;img id=<span class="string">"bg2"</span> src=<span class="string">"http://httpbin.org/"</span>/&gt;]</span><br><span class="line"><span class="number">17</span> [&lt;img id=<span class="string">"bg1"</span> src=<span class="string">"http://www.bing.cn/"</span>/&gt;]</span><br><span class="line">18 [&lt;h3 class="title highlight"&gt;python高级班&lt;/h3&gt;]</span><br><span class="line">19 [&lt;h3 class="title highlight"&gt;python高级班&lt;/h3&gt;]</span><br></pre></td></tr></table></figure>
+<h3 id="获取文本内容"><a href="#获取文本内容" class="headerlink" title="获取文本内容"></a>获取文本内容</h3><p>搜索节点的目的往往是为了提取该节点的文本内容，一般不需要HTML标记，只需要文字<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">many_classes</span><span class="params">(tag)</span>:</span></span><br><span class="line">    <span class="comment"># print(type(tag))</span></span><br><span class="line">    <span class="comment"># print(tag.attrs)</span></span><br><span class="line">    <span class="keyword">return</span> len(tag.attrs.get(<span class="string">'class'</span>, [])) &gt; <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'d:/test.html'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    soup = BeautifulSoup(f, <span class="string">'lxml'</span>)</span><br><span class="line">    <span class="comment"># 元素选择器</span></span><br><span class="line">    ele = soup.select(<span class="string">'div'</span>)  <span class="comment"># 所有的div标签</span></span><br><span class="line">    print(<span class="number">1</span>, ele[<span class="number">0</span>].string, end=<span class="string">'\n------------\n'</span>)  <span class="comment"># 内容仅仅只能是文本类型，否则返回None</span></span><br><span class="line">    print(<span class="number">2</span>, list(ele[<span class="number">0</span>].strings), end=<span class="string">'\n------------\n'</span>)  <span class="comment"># 迭代保留空白字符</span></span><br><span class="line">    print(<span class="number">3</span>, list(ele[<span class="number">0</span>].stripped_strings), end=<span class="string">'\n------------\n'</span>)  <span class="comment"># 迭代不保留空白字符</span></span><br><span class="line">    print(<span class="number">4</span>, ele[<span class="number">0</span>], end=<span class="string">'\n------------\n'</span>)</span><br><span class="line">    print(<span class="number">5</span>, ele[<span class="number">0</span>].text, end=<span class="string">'\n------------\n'</span>)  <span class="comment"># 本质上就是get_text()，保留空白字符的strings</span></span><br><span class="line">    print(<span class="number">6</span>, ele[<span class="number">0</span>].get_text(), end=<span class="string">'\n------------\n'</span>)  <span class="comment"># 迭代并join，保留空白字符，strip默认为False</span></span><br><span class="line">    print(<span class="number">7</span>, ele[<span class="number">0</span>].get_text(strip=<span class="literal">True</span>))  <span class="comment"># 迭代并join，不保留空白字符</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行结果</span></span><br><span class="line"><span class="number">1</span> <span class="literal">None</span></span><br><span class="line">------------</span><br><span class="line"><span class="number">2</span> [<span class="string">'\n'</span>, <span class="string">'python高级班'</span>, <span class="string">'\n'</span>, <span class="string">'\n'</span>, <span class="string">'字典'</span>, <span class="string">'\n'</span>, <span class="string">'列表'</span>, <span class="string">'\n'</span>, <span class="string">'\n'</span>, <span class="string">'\n'</span>, <span class="string">'\n'</span>, <span class="string">'\n'</span>, <span class="string">'\n'</span>]</span><br><span class="line">------------</span><br><span class="line"><span class="number">3</span> [<span class="string">'python高级班'</span>, <span class="string">'字典'</span>, <span class="string">'列表'</span>]</span><br><span class="line">------------</span><br><span class="line"><span class="number">4</span> &lt;div id=<span class="string">"main"</span>&gt;</span><br><span class="line">&lt;h3 class="title highlight"&gt;python高级班&lt;/h3&gt;</span><br><span class="line">&lt;div class="content"&gt;</span><br><span class="line">&lt;p id="first"&gt;字典&lt;/p&gt;</span><br><span class="line">&lt;p id="second"&gt;列表&lt;/p&gt;</span><br><span class="line">&lt;input name=<span class="string">"_csrf"</span> type=<span class="string">"hidden"</span> value=<span class="string">"7139e401481ef2f46ce98b22af4f4bed"</span>/&gt;</span><br><span class="line">&lt;!-- comment --&gt;</span><br><span class="line">&lt;img id=<span class="string">"bg1"</span> src=<span class="string">"http://www.bing.cn/"</span>/&gt;</span><br><span class="line">&lt;img id=<span class="string">"bg2"</span> src=<span class="string">"http://httpbin.org/"</span>/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">------------</span><br><span class="line"><span class="number">5</span> </span><br><span class="line">python高级班</span><br><span class="line"></span><br><span class="line">字典</span><br><span class="line">列表</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------------</span><br><span class="line"><span class="number">6</span> </span><br><span class="line">python高级班</span><br><span class="line"></span><br><span class="line">字典</span><br><span class="line">列表</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------------</span><br><span class="line"><span class="number">7</span> python高级班字典列表</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bs4.element.Tag#string</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tag</span><span class="params">(PageElement)</span>:</span></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">string</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> len(self.contents) != <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        child = self.contents[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">if</span> isinstance(child, NavigableString):</span><br><span class="line">            <span class="keyword">return</span> child</span><br><span class="line">        <span class="keyword">return</span> child.string</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_all_strings</span><span class="params">(self, strip=False, types=<span class="params">(NavigableString, CData)</span>)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> descendant <span class="keyword">in</span> self.descendants:</span><br><span class="line">            <span class="keyword">if</span> (</span><br><span class="line">                (types <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">and</span> <span class="keyword">not</span> isinstance(descendant, NavigableString))</span><br><span class="line">                <span class="keyword">or</span></span><br><span class="line">                (types <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span> <span class="keyword">and</span> type(descendant) <span class="keyword">not</span> <span class="keyword">in</span> types)):</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> strip:</span><br><span class="line">                descendant = descendant.strip()</span><br><span class="line">                <span class="keyword">if</span> len(descendant) == <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">yield</span> descendant</span><br><span class="line"></span><br><span class="line">    strings = property(_all_strings)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">stripped_strings</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> string <span class="keyword">in</span> self._all_strings(<span class="literal">True</span>):</span><br><span class="line">            <span class="keyword">yield</span> string</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_text</span><span class="params">(self, separator=<span class="string">""</span>, strip=False,</span></span></span><br><span class="line"><span class="function"><span class="params">                 types=<span class="params">(NavigableString, CData)</span>)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Get all child strings, concatenated using the given separator.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> separator.join([s <span class="keyword">for</span> s <span class="keyword">in</span> self._all_strings(</span><br><span class="line">            strip, types=types)])</span><br><span class="line"></span><br><span class="line">    getText = get_text</span><br><span class="line">    text = property(get_text)</span><br></pre></td></tr></table></figure>
+<h1 id="Json解析"><a href="#Json解析" class="headerlink" title="Json解析"></a>Json解析</h1><p>拿到一个Json字符串，如果想提取其中的部分内容，就需要遍历了。在遍历过程中进行判断<br>还有一种方式，类似于XPath，叫做JsonPath</p>
+<p>安装<br><code>$ pip install jsonpath</code><br>官网 <a href="http://goessner.net/articles/JsonPath/" target="_blank" rel="noopener">http://goessner.net/articles/JsonPath/</a><br>|XPath  | Json | 说明 |<br>|:–|:–|:–|<br>|<code>/</code> |<code>$</code> |根元素|<br>|<code>.</code> |<code>@</code>| 当前节点|<br>|<code>/</code> |<code>.</code> or <code>[ ]</code> |获取子节点|<br>|<code>..</code>| 不支持 |父节点|<br>|<code>//</code> |<code>..</code> |任意层次|<br>|<code>*</code> |<code>*</code> |通配符，匹配任意节点|<br>|<code>@</code>| 不支持| Json中没有属性|<br>|<code>[ ]</code> | <code>[ ]</code> |下标操作<br>XPath从1开始<br>JsonPath从0开始|<br>| <code>|</code> | <code>[,]</code> |XPath是或操作. JSONPath allows alternate names or array indices as a set.|<br>|不支持 |<code>[start:stop:step]</code> |切片|<br>|<code>[ ]</code> |<code>?( )</code>| 过滤操作|<br>|不支持 |<code>( )</code>| 表达式计算|<br>|<code>( )</code> |不支持 |分组|</p>
+<p>依然用豆瓣电影的热门电影的Json<br><a href="https://movie.douban.com/j/search_subjects?type=movie&amp;tag=%E7%83%AD%E9%97%A8&amp;page_limit=10&amp;page_start=0" target="_blank" rel="noopener">https://movie.douban.com/j/search_subjects?type=movie&amp;tag=%E7%83%AD%E9%97%A8&amp;page_limit=10&amp;page_start=0</a><br>找到得分高于8分的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    subjects:</span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            rate: &quot;8.3&quot;,</span><br><span class="line">            cover_x: 2309,</span><br><span class="line">            title: &quot;爱你，西蒙&quot;,</span><br><span class="line">            url: &quot;https://movie.douban.com/subject/26654498/&quot;,</span><br><span class="line">            playable: false,</span><br><span class="line">            cover:</span><br><span class="line">&quot;https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2523592367.webp&quot;,</span><br><span class="line">            id: &quot;26654498&quot;,</span><br><span class="line">            cover_y: 3464,</span><br><span class="line">            is_new: false</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            rate: &quot;8.3&quot;,</span><br><span class="line">            cover_x: 3578,</span><br><span class="line">            title: &quot;暴裂无声&quot;,</span><br><span class="line">            url: &quot;https://movie.douban.com/subject/26647117/&quot;,</span><br><span class="line">            playable: true,</span><br><span class="line">            cover:</span><br><span class="line">&quot;https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2517333671.webp&quot;,</span><br><span class="line">            id: &quot;26647117&quot;,</span><br><span class="line">            cover_y: 5078,</span><br><span class="line">            is_new: false</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>思路<br>找到title非常容易，但是要用其兄弟节点rate判断是否大于8分，就不好做了<br>能够从父节点下手，subjects的多个子节点中，要用 <code>[ ]</code> ，某一个当前节点的rate和字符串8比较来过滤的得到符合要求的subjects的子节点，取这个子节点的title<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> jsonpath <span class="keyword">import</span> jsonpath</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">ua = <span class="string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 "</span> \</span><br><span class="line">     <span class="string">"Safari/537.36"</span></span><br><span class="line">url = <span class="string">'https://movie.douban.com/j/search_subjects?'</span> \</span><br><span class="line">      <span class="string">'type=movie&amp;tag=%E7%83%AD%E9%97%A8&amp;page_limit=10&amp;page_start=0'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> requests.get(url, headers=&#123;<span class="string">'User-agent'</span>:ua&#125;) <span class="keyword">as</span> response:</span><br><span class="line">    text = response.text</span><br><span class="line">    print(text) <span class="comment"># str类型的json数据</span></span><br><span class="line">    js = json.loads(text)</span><br><span class="line">    print(js) <span class="comment"># Json转为Python数据结构</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 找到所有电影的名称</span></span><br><span class="line">    rs1 = jsonpath(js, <span class="string">'$..title'</span>)</span><br><span class="line">    print(rs1)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 找到所有subjects</span></span><br><span class="line">    rs2 = jsonpath(js, <span class="string">'$..subjects'</span>)</span><br><span class="line">    print(rs2)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 找打所有得分高于8分的电影名称</span></span><br><span class="line">    <span class="comment"># 根下任意层的subjects的子节点rate大于字符串8</span></span><br><span class="line">    rs3 = jsonpath(js, <span class="string">'$..subjects[?(@.rate &gt; "8")]'</span>)</span><br><span class="line">    print(rs3)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 根下任意层的subjects的子节点rate大于字符串8的节点的子节点title</span></span><br><span class="line">    rs4 = jsonpath(js, <span class="string">'$..subjects[?(@.rate &gt; "8")].title'</span>)</span><br><span class="line">    print(rs4) <span class="comment"># ['疾速备战', '绿皮书', '痛苦与荣耀', '孟买酒店']</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 切片</span></span><br><span class="line">    rs5 = jsonpath(js, <span class="string">'$..subjects[?(@.rate &gt; "8")].title'</span>)</span><br><span class="line">    print(rs5[:<span class="number">2</span>]) <span class="comment"># ['疾速备战', '绿皮书']</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      
+
+
+    
+    
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>感谢支持 ！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById(&quot;QR&quot;); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>赞赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="mwq 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+      </div>
+    
+
+    
+      <div class="post-tags">
+        
+          <a href="/tags/爬虫/" rel="tag"><i class="fa fa-tag"></i> 爬虫</a>
+        
+      </div>
+    
+    
+    
+
+    <footer class="post-footer">
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/爬虫/动态网页处理 -- Selenium和PhantomJS/" rel="next" title="动态网页处理">
+                <i class="fa fa-chevron-left"></i> 动态网页处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/爬虫/爬虫 -- Scrapy框架/" rel="prev" title="scrapy">
+                scrapy <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="mwq">
+            
+              <p class="site-author-name" itemprop="name">mwq</p>
+              <p class="site-description motion-element" itemprop="description">IT知识共享,与各位共同学习</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">74</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+          
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://hubhack.github.io/python-book/" title="导航 &rarr; https://hubhack.github.io/python-book/"><i class="fa fa-fw fa-paper-plane"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hubhack" title="GitHub &rarr; https://github.com/hubhack" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                  
+                    
+                  
+                  <a href="mailto:2329259856@qq.com" title="E-Mail &rarr; mailto:2329259856@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+
+          
+            
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML解析"><span class="nav-number">1.</span> <span class="nav-text">HTML解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XPath"><span class="nav-number">1.1.</span> <span class="nav-text">XPath</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#节点"><span class="nav-number">1.1.1.</span> <span class="nav-text">节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点选择"><span class="nav-number">1.1.2.</span> <span class="nav-text">节点选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#谓语（Predicates）"><span class="nav-number">1.1.3.</span> <span class="nav-text">谓语（Predicates）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XPath-轴（Axes）"><span class="nav-number">1.1.4.</span> <span class="nav-text">XPath 轴（Axes）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步Step"><span class="nav-number">1.1.5.</span> <span class="nav-text">步Step</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XPATH实例"><span class="nav-number">1.1.6.</span> <span class="nav-text">XPATH实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lxml"><span class="nav-number">1.2.</span> <span class="nav-text">lxml</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#练习：爬取“口碑榜”"><span class="nav-number">1.2.1.</span> <span class="nav-text">练习：爬取“口碑榜”</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeautifulSoup4"><span class="nav-number">1.3.</span> <span class="nav-text">BeautifulSoup4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">1.3.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四种对象"><span class="nav-number">1.3.3.</span> <span class="nav-text">四种对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BeautifulSoup对象"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">BeautifulSoup对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tag对象"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">Tag对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NavigableString"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">NavigableString</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注释对象"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">注释对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历文档树"><span class="nav-number">1.3.4.</span> <span class="nav-text">遍历文档树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Tag"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">使用Tag</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历直接子节点"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">遍历直接子节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历所有子孙节点"><span class="nav-number">1.3.4.3.</span> <span class="nav-text">遍历所有子孙节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历字符串"><span class="nav-number">1.3.4.4.</span> <span class="nav-text">遍历字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历祖先节点"><span class="nav-number">1.3.4.5.</span> <span class="nav-text">遍历祖先节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历兄弟节点"><span class="nav-number">1.3.4.6.</span> <span class="nav-text">遍历兄弟节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遍历其他元素"><span class="nav-number">1.3.4.7.</span> <span class="nav-text">遍历其他元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索文档树"><span class="nav-number">1.3.5.</span> <span class="nav-text">搜索文档树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#name"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">name</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#keyword传参"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">keyword传参</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css的class的特殊处理"><span class="nav-number">1.3.5.3.</span> <span class="nav-text">css的class的特殊处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#attrs参数"><span class="nav-number">1.3.5.4.</span> <span class="nav-text">attrs参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#text参数"><span class="nav-number">1.3.5.5.</span> <span class="nav-text">text参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#limit参数"><span class="nav-number">1.3.5.6.</span> <span class="nav-text">limit参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#recursive-参数"><span class="nav-number">1.3.5.7.</span> <span class="nav-text">recursive 参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简化写法"><span class="nav-number">1.3.5.8.</span> <span class="nav-text">简化写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find方法"><span class="nav-number">1.3.5.9.</span> <span class="nav-text">find方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS选择器"><span class="nav-number">1.3.6.</span> <span class="nav-text">CSS选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取文本内容"><span class="nav-number">1.3.7.</span> <span class="nav-text">获取文本内容</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Json解析"><span class="nav-number">2.</span> <span class="nav-text">Json解析</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">Copyright &copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heartbeat"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hubhack.&ensp;</span>
+  <span title="博客总字数"><i class="fa fa-edit"></i>&ensp;<span class="post-count"></span>字</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+
+<!--左下角公众号二维码-->
+<div class="weixin-box">
+  <div class="weixin-menu">
+    <div class="weixin-hover">
+      <div class="weixin-description">微信扫一扫，订阅本博客</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+  
+
+  
+<script>
+if ($('body').find('pre.mermaid').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      mermaid.initialize({
+        theme: 'forest',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 }
+      });
+    }
+  });
+}
+</script>
+
+
+  
+
+  
+
+  <!--Custom javascript for hubhack.cn-->
+
+<!--console.log-->
+<script type="text/javascript">
+  console.log("欢迎来到hubhack的博客");
+</script>
+
+<!--此处为建站时间 -->
+
+<script>
+  var now = new Date(); 
+  function createtime() { 
+      var grt= new Date("");
+      now.setTime(now.getTime()+250); 
+      days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+      hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+      if(String(hnum).length ==1 ){
+        hnum = "0" + hnum;
+      }
+      minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+      mnum = Math.floor(minutes);
+      if(String(mnum).length ==1 ){
+        mnum = "0" + mnum;
+      } 
+      seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+      snum = Math.round(seconds);
+      if(String(snum).length ==1 ){
+        snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML =dnum+"&thinsp;天"; 
+      document.getElementById("times").innerHTML = hnum + "&thinsp;时" + mnum + "&thinsp;分" + snum + "&thinsp;秒"; 
+  } 
+setInterval("createtime()",250);
+</script>
+
+<!--知乎卡片链接-->
+<script type="text/javascript" src="/js/src/linkcard.js"></script>
+
+<!--夜间模式-->
+<script type="text/javascript" src="/js/src/night.js"></script>
+<div class="cover"></div>
+
+<!--崩溃欺骗-->
+<!--<script type="text/javascript" src="/js/src/crash_cheat.js"></script>-->
+
+<!--input特效-->
+<script src="/js/src/activate-power-mode.js"></script>
+<script>
+POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = false; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script>
+
+<!-- 鼠标点击特效 -->
+
+ <script type="text/javascript" src="/js/src/love.js"></script>
+
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('manual', "#更多");
+  
+  </script>
+
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      
+        background-color: #1b1b1b;
+        color: #b0b0b0;
+        border: 1px solid #b0b0b0;
+        border-radius: 3px;
+      
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 9px;
+      top: 4px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1;
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
