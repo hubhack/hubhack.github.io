@@ -132,10 +132,10 @@ menu:
   home: / || home
   rui-site: https://hubhack.github.io/python-book/ || paper-plane
   categories: /categories/ || th
-  archives: /archives/ || archive
   docs: /docs/ || book
   tags: /tags/ || tags
   about: /about/ || address-card
+  # archives: /archives/ || archive
   # guestbook: /guestbook/ || comments
   #photos: /photos/ || image
   #sitemap: /sitemap.xml || sitemap
