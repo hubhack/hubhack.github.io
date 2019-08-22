@@ -5,20 +5,20 @@ title:
   tag: 标签
   schedule: 日程表
 menu:
-  home: 首页
+  home: 我的首页
   top: 热度
-  rui-site: 小书
+  rui-site: Python
   music: 音乐
-  archives: 日志
-  categories: 分类
-  tags: 标签
+  archives: 站点日志
+  categories: 博客分类
+  tags: 文章标签
   photos: 相册
-  docs: 书库
+  docs: 技术书库
   computer: 计算机
-  about: 关于
+  about: 关于作者
   guestbook: 留言
   love: 一生所爱
-  search: 搜索
+  search: 全站搜索
   schedule: 日程表
   sitemap: 站点地图
   commonweal: 公益 404

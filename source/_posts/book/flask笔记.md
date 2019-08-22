@@ -1,3 +1,12 @@
+---
+title: flask
+categories: 
+- 框架
+tags:
+- python
+---
+
+
 下载示例代码, 安装到当前目录的flasky文件夹下.
 
 ```

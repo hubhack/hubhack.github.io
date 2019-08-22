@@ -1,7 +1,7 @@
 ---
 title: ansible
 categories: 
-- ansible
+- 运维
 tags:
 - 运维
 ---

@@ -130,11 +130,11 @@ exturl: false
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
   home: / || home
-  archives: /archives/ || archive
   rui-site: https://hubhack.github.io/python-book/ || paper-plane
+  categories: /categories/ || th
+  archives: /archives/ || archive
   docs: /docs/ || book
   tags: /tags/ || tags
-  categories: /categories/ || th
   about: /about/ || address-card
   # guestbook: /guestbook/ || comments
   #photos: /photos/ || image

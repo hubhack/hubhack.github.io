@@ -3,6 +3,7 @@ title: linux命令整理(1)
 
 
 categories: 
+- 运维
 - linux
 tags:
 - linux基础

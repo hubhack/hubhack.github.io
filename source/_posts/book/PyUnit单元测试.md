@@ -1,3 +1,13 @@
+---
+title: 单元测试
+categories: 
+- python
+tags:
+- python
+---
+
+
+
 Pyunit(unittest) 是python 自带的单元测试框架, 用于编写和运行可重复的测试.pyunit是xunit体系的一个成员, xunit是众多测试框架的总称,pyunit主要用于进行白盒测试和回归测试.
 
 通过Pyunit可以让测试具有持久性, 测试与开发同步进行, 测试代码与开发代码一同发布.使用PyUnit具有如下好处:

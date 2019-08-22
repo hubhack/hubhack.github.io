@@ -2,7 +2,9 @@
 title: linux知识框架
 
 categories:
+- 运维
 - linux
+- linux基础
 tags:
 - linux基础
 
