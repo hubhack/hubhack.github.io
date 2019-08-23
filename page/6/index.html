@@ -811,7 +811,7 @@ HTML由一个个标签组成，这些标签各司其职。有的提供网页信�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/数据库/数据库/">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/数据库/关系模型和SQL- 事务、MySQL隔离级别与其他概念/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
@@ -830,9 +830,9 @@ HTML由一个个标签组成，这些标签各司其职。有的提供网页信�
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/数据库/数据库/" itemprop="url">
+                <a class="post-title-link" href="/数据库/关系模型和SQL- 事务、MySQL隔离级别与其他概念/" itemprop="url">
                   
-                  数据库面试题
+                  mysql事务和隔离级别
                 </a>
               
             
@@ -908,14 +908,26 @@ HTML由一个个标签组成，这些标签各司其职。有的提供网页信�
       
         
           
-          什么是存储过程？有哪些优缺点？存储过程是一些预编译的SQL语句。
-更加直白的理解：存储过程可以说是一个记录集，它是由一些T-SQL语句组成的代码块，这些T-SQL语句代码像一个方法一样实现一些功能（对单表或多表的增删改查），然后再给这个代码块取一个名字，在用到这个功能的时候调用他就行了。
+          @[toc]
+事务TransactionInnoDB引擎，支持事务。事务，由若干条语句组成的，指的是要做的一系列操作。
 
-存储过程
+关系型数据库中支持事务，必须支持其四个属性（ACID）：
+
+
+
+
+特性
+描述
+
+
+
+
+原子性（atomicity）
+一个事务是一个不可分割的工作单位，事务中包括的所有操作要么全部
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/数据库/数据库/" rel="contents">
+            <a class="btn" href="/数据库/关系模型和SQL- 事务、MySQL隔离级别与其他概念/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1797,7 +1809,7 @@ Bro
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/数据库/关系模型和SQL- 事务、MySQL隔离级别与其他概念/">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/数据库/数据库索引的底层原理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
@@ -1816,9 +1828,9 @@ Bro
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/数据库/关系模型和SQL- 事务、MySQL隔离级别与其他概念/" itemprop="url">
+                <a class="post-title-link" href="/数据库/数据库索引的底层原理/" itemprop="url">
                   
-                  mysql事务和隔离级别
+                  数据库索引
                 </a>
               
             
@@ -1894,26 +1906,11 @@ Bro
       
         
           
-          @[toc]
-事务TransactionInnoDB引擎，支持事务。事务，由若干条语句组成的，指的是要做的一系列操作。
-
-关系型数据库中支持事务，必须支持其四个属性（ACID）：
-
-
-
-
-特性
-描述
-
-
-
-
-原子性（atomicity）
-一个事务是一个不可分割的工作单位，事务中包括的所有操作要么全部
+          数据库索引什么是数据库的索引, 图书馆的书就类似我们数据库表中的数据, 楼层索引排, 书架分类标识, 索书号就类似我们查找数据的索引.索引也可以理解为一本书的目录 .而当用户通过目录查询某个章节的某个知识点, ,所以可以有效的提高数据库系统的整体性能.那我们常用的数据库的索引底层的数据结构是什么样的
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/数据库/关系模型和SQL- 事务、MySQL隔离级别与其他概念/" rel="contents">
+            <a class="btn" href="/数据库/数据库索引的底层原理/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1974,7 +1971,7 @@ Bro
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/js/HTML/">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/js/JS语法 -- 控制语句/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
@@ -1993,9 +1990,9 @@ Bro
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/js/HTML/" itemprop="url">
+                <a class="post-title-link" href="/js/JS语法 -- 控制语句/" itemprop="url">
                   
-                  html
+                  js-控制语句
                 </a>
               
             
@@ -2064,11 +2061,12 @@ Bro
       
         
           
-          @toc1234567891011121314151617&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt;    &lt;meta charset="UTF-8"&gt;    &lt;meta name="viewport" conte
+          @toc
+语句块JS使用大括号构成语句块。ES6 之前语句块是没有作用域的，从ES6开始支持 块作用域 ，let只能在块作用域内可见123456789101112131415161718192021222324252627282930313233function hello()&#123;    l
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/js/HTML/" rel="contents">
+            <a class="btn" href="/js/JS语法 -- 控制语句/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2162,7 +2160,7 @@ Bro
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">74</span>
+                    <span class="site-state-item-count">75</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
