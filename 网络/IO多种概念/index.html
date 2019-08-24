@@ -108,23 +108,35 @@
 
 
 
-  <meta name="description" content="Restful API越来越多的人开始意识到, 网站即软件, 而且是一种新型的软件. 这种”互联网软件”采用客户端/服务器模式, 建立在分布式体系上, 通过互联网通信, 具有高延时(high latency) , 高并发等特点. 网站开发, 完全可以采用软件开发的模式, 但是传统上, 软件和网络是两个不同的领域, 很少有交集. 软件开发主要针对单机环境, 网络则主要研究系统之间的通信. RESTf">
-<meta name="keywords" content="理解restful">
+  <meta name="description" content="重要概念同步、异步函数或方法被调用的时候，调用者是否得到最终结果的  直接得到最终结果的，就是同步调用 不直接得到最终结果的，就是异步调用阻塞、非阻塞函数或方法调用的时候，是否立刻返回 立即返回就是非阻塞调用 不立即返回就是阻塞调用区别同步、异步，与阻塞、非阻塞不相关同步、异步强调的是，是否得到（最终的）结果阻塞、非阻塞强调是时间，是否等待  同步与异步区别在于：调用者是否得到了想要的最终结果同步">
+<meta name="keywords" content="IO多路复用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理解restful">
-<meta property="og:url" content="https://hubhack.github.io/web/理解restful/index.html">
+<meta property="og:title" content="理解IO">
+<meta property="og:url" content="https://hubhack.github.io/网络/IO多种概念/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="Restful API越来越多的人开始意识到, 网站即软件, 而且是一种新型的软件. 这种”互联网软件”采用客户端/服务器模式, 建立在分布式体系上, 通过互联网通信, 具有高延时(high latency) , 高并发等特点. 网站开发, 完全可以采用软件开发的模式, 但是传统上, 软件和网络是两个不同的领域, 很少有交集. 软件开发主要针对单机环境, 网络则主要研究系统之间的通信. RESTf">
+<meta property="og:description" content="重要概念同步、异步函数或方法被调用的时候，调用者是否得到最终结果的  直接得到最终结果的，就是同步调用 不直接得到最终结果的，就是异步调用阻塞、非阻塞函数或方法调用的时候，是否立刻返回 立即返回就是非阻塞调用 不立即返回就是阻塞调用区别同步、异步，与阻塞、非阻塞不相关同步、异步强调的是，是否得到（最终的）结果阻塞、非阻塞强调是时间，是否等待  同步与异步区别在于：调用者是否得到了想要的最终结果同步">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-22T03:56:41.475Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190618142656425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190618125038147.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190618125055852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190618125507742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190618125519799.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190618125914993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190618130615746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019061814273937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190618131317375.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190618131325740.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190618142859539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-08-24T14:30:47.776Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解restful">
-<meta name="twitter:description" content="Restful API越来越多的人开始意识到, 网站即软件, 而且是一种新型的软件. 这种”互联网软件”采用客户端/服务器模式, 建立在分布式体系上, 通过互联网通信, 具有高延时(high latency) , 高并发等特点. 网站开发, 完全可以采用软件开发的模式, 但是传统上, 软件和网络是两个不同的领域, 很少有交集. 软件开发主要针对单机环境, 网络则主要研究系统之间的通信. RESTf">
+<meta name="twitter:title" content="理解IO">
+<meta name="twitter:description" content="重要概念同步、异步函数或方法被调用的时候，调用者是否得到最终结果的  直接得到最终结果的，就是同步调用 不直接得到最终结果的，就是异步调用阻塞、非阻塞函数或方法调用的时候，是否立刻返回 立即返回就是非阻塞调用 不立即返回就是阻塞调用区别同步、异步，与阻塞、非阻塞不相关同步、异步强调的是，是否得到（最终的）结果阻塞、非阻塞强调是时间，是否等待  同步与异步区别在于：调用者是否得到了想要的最终结果同步">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190618142656425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
 
 
 
 
-  <link rel="canonical" href="https://hubhack.github.io/web/理解restful/">
+  <link rel="canonical" href="https://hubhack.github.io/网络/IO多种概念/">
 
 
 
@@ -134,7 +146,7 @@
   };
 </script>
 
-  <title>理解restful | 千分无言</title>
+  <title>理解IO | 千分无言</title>
   
 
 
@@ -499,7 +511,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/web/理解restful/">
+    <link itemprop="mainEntityOfPage" href="https://hubhack.github.io/网络/IO多种概念/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="mwq">
@@ -517,7 +529,7 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-                理解restful<a href="https://github.com/hubhack/hubhack.github.io/tree/dev/source/_posts/web/理解restful.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+                理解IO<a href="https://github.com/hubhack/hubhack.github.io/tree/dev/source/_posts/网络/IO多种概念.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
 
               
             
@@ -548,7 +560,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络/" itemprop="url" rel="index"><span itemprop="name">网络</span></a></span>
 
                 
                 
@@ -584,58 +596,77 @@
       
 
       
-        <h3 id="Restful-API"><a href="#Restful-API" class="headerlink" title="Restful API"></a>Restful API</h3><p>越来越多的人开始意识到, 网站即软件, 而且是一种新型的软件.</p>
-<p>这种”互联网软件”采用客户端/服务器模式, 建立在分布式体系上, 通过互联网通信, 具有高延时(high latency) , 高并发等特点.</p>
-<p>网站开发, 完全可以采用软件开发的模式, 但是传统上, 软件和网络是两个不同的领域, 很少有交集. 软件开发主要针对单机环境, 网络则主要研究系统之间的通信.</p>
-<p>RESTful架构，就是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，所以正得到越来越多网站的采用。</p>
-<p>但是，到底什么是RESTful架构，并不是一个容易说清楚的问题。下面，我就谈谈我理解的RESTful架构。</p>
-<h3 id="resources"><a href="#resources" class="headerlink" title="resources"></a>resources</h3><p>rest的名称”表现层状态转化” 中, 省略了主语, “ 表现层” 其实指的是”资源”(resource) 的”表现层”.</p>
-<p><strong>所谓”资源”，就是网络上的一个实体，或者说是网络上的一个具体信息。</strong>它可以是一段文本、一张图片、一首歌曲、一种服务，总之就是一个具体的实在。你可以用一个URI（统一资源定位符）指向它，每种资源对应一个特定的URI。要获取这个资源，访问它的URI就可以，因此URI就成了每一个资源的地址或独一无二的识别符。</p>
-<p>所谓”上网”，就是与互联网上一系列的”资源”互动，调用它的URI。</p>
-<h3 id="表现层-representation"><a href="#表现层-representation" class="headerlink" title="表现层(representation)"></a>表现层(representation)</h3><p>“资源”是一种信息实体, 他可以有多种外在表现形式. 我们把”资源” 具体呈现出来的形式. 叫做它的”表现层”(representation).</p>
-<p>比如, 文本可以用txt格式表现, 也可以用html格式, xml格式,JSON格式表现，甚至可以采用二进制格式；图片可以用JPG格式表现，也可以用PNG格式表现。</p>
-<p>URI只代表资源的实体，不代表它的形式。严格地说，有些网址最后的”.html”后缀名是不必要的，因为这个后缀名表示格式，属于”表现层”范畴，而URI应该只代表”资源”的位置。它的具体表现形式，应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段才是对”表现层”的描述。</p>
-<p>访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，势必涉及到数据和状态的变化。</p>
-<p>互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。因此，<strong>如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（State Transfer）。而这种转化是建立在表现层之上的，所以就是”表现层状态转化”。</strong></p>
-<p>客户端用到的手段，只能是HTTP协议。具体来说，就是HTTP协议里面，四个表示操作方式的动词：GET、POST、PUT、DELETE。它们分别对应四种基本操作：<strong>GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。</strong></p>
-<p>注意:资源不能是动词.</p>
-<p>在RESTful架构中, 每个网址代表一种资源(resource), 所以网址中不能有动词, 只能有名词, 而且所用的名词往往与数据库的表格名对应.一般来说, 数据库中的表都是同种记录的”集合”, 所以api中的名词也应该使用复数.</p>
-<h3 id="http方法"><a href="#http方法" class="headerlink" title="http方法"></a>http方法</h3><p>对于资源的具体操作类型, 由http动词表示.</p>
-<p>常用的http动词有下面五个, (括号里对应的sql命令).</p>
+        <h1 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h1><h2 id="同步、异步"><a href="#同步、异步" class="headerlink" title="同步、异步"></a>同步、异步</h2><p>函数或方法被调用的时候，调用者是否得到<strong>最终结果</strong>的</p>
 <ul>
-<li>GET（SELECT）：从服务器取出资源（一项或多项）。</li>
-<li>POST（CREATE）：在服务器新建一个资源。</li>
-<li>PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。</li>
-<li>PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。</li>
-<li>DELETE（DELETE）：从服务器删除资源。</li>
+<li>直接得到最终结果的，就是同步调用</li>
+<li>不直接得到最终结果的，就是异步调用<h2 id="阻塞、非阻塞"><a href="#阻塞、非阻塞" class="headerlink" title="阻塞、非阻塞"></a>阻塞、非阻塞</h2>函数或方法调用的时候，是否<strong>立刻返回</strong></li>
+<li>立即返回就是非阻塞调用</li>
+<li>不立即返回就是阻塞调用<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2>同步、异步，与阻塞、非阻塞<strong>不相关</strong><br>同步、异步强调的是，<strong>是否得到（最终的）结果</strong><br>阻塞、非阻塞强调是时间，<strong>是否等待</strong></li>
 </ul>
-<p>还有两个不常用的http动词.</p>
-<p>HEAD:获取资源的元数据.</p>
-<p>OPTIONS:获取信息, 关于资源的那些属性是客户端可以改变的.</p>
-<p>下面是一些例子:</p>
+<p>同步与异步区别在于：调用者是否得到了想要的最终结果<br>同步就是一直要执行到返回最终结果<br>异步就是直接返回了，但是返回的不是最终结果。调用者不能通过这种调用得到结果，以后可以通过被调用者提供的某种方式（被调用着通知调用者、调用者反复查询、回调），来取回最终结果</p>
+<p>阻塞与非阻塞的区别在于，调用者是否还能干其他事<br>阻塞，调用者就只能干等<br>非阻塞，调用者可以先去忙会别的，不用一直等</p>
+<h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p>同步阻塞，我啥事不干，就等你打饭打给我。打到饭是结果，而且我啥事不干一直等，同步加阻塞<br>同步非阻塞，我等着你打饭给我，但我可以玩会手机、看看电视。打饭是结果，但是我不一直等</p>
+<p>异步阻塞，我要打饭，你说等叫号，并没有返回饭给我，我啥事不干，就干等着饭好了你叫我。例如，取了号什么不干就等叫自己的号<br>异步非阻塞，我要打饭，你给我号，你说等叫号，并没有返回饭给我，我在旁边看电视、玩手机，饭打好了叫我</p>
+<h1 id="操作系统知识"><a href="#操作系统知识" class="headerlink" title="操作系统知识"></a>操作系统知识</h1><p>在386之前，CPU工作在<strong>实模式</strong>下，之后，开始支持<strong>保护模式</strong>，对内存进行了划分<br>X86 CPU有<strong>4种</strong>工作级别：</p>
 <ul>
-<li>GET /zoos：列出所有动物园</li>
-<li>POST /zoos：新建一个动物园</li>
-<li>GET /zoos/ID：获取某个指定动物园的信息</li>
-<li>PUT /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）</li>
-<li>PATCH /zoos/ID：更新某个指定动物园的信息（提供该动物园的部分信息）</li>
-<li>DELETE /zoos/ID：删除某个动物园</li>
-<li>GET /zoos/ID/animals：列出某个指定动物园的所有动物</li>
-<li>DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物</li>
+<li>Ring0级，可以执行特权指令，可以访问<strong>所有级别</strong>数据，可以访问IO设备等</li>
+<li>Ring3级，级别<strong>最低</strong>，只能访问本级别数据</li>
 </ul>
-<p>过滤信息(filtering)</p>
-<p>如果记录信息很多, 服务器不可能都将他们返回给用户, API应该提供参数, 过滤返回结果.</p>
-<p>下面是一些常见的参数.</p>
+<p><strong>内核</strong>代码运行在Ring0，<strong>用户</strong>代码运行在Ring3</p>
+<p>现代操作系统采用虚拟存储器，理论上，对于32位系统来说，进程对虚拟内存地址的内存寻址空间为4G（2^32)<br>64位操作系统理论上最大内存寻址空间（2^64）<br>操作系统中，内核程序独立且运行在较高的特权级别上，它们驻留在被保护的内存空间上，拥有访问硬件设备的所有权限，这部分内存称为内核空间（内核态，最高地址1G）</p>
+<p>普通应用程序运行在用户空间（用户态）</p>
+<p>应用程序想访问某些硬件资源就需要通过操作系统提供的<strong>系统调用</strong>，系统调用可以使用特权指令运行在内核空间，此时进程陷入内核态运行。系统调用完成，进程将回到用户态执行用户空间代码<br><img src="https://img-blog.csdnimg.cn/20190618142656425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="同步IO、异步IO、IO多路复用"><a href="#同步IO、异步IO、IO多路复用" class="headerlink" title="同步IO、异步IO、IO多路复用"></a>同步IO、异步IO、IO多路复用</h1><h2 id="IO两个阶段"><a href="#IO两个阶段" class="headerlink" title="IO两个阶段"></a>IO两个阶段</h2><p>IO过程分两阶段：</p>
+<ol>
+<li>数据准备阶段</li>
+<li>内核空间复制回用户空间进程缓冲区阶段</li>
+</ol>
+<p>发生IO的时候：</p>
+<ol>
+<li>内核从IO设备读、写数据（淘米，把米放饭锅里煮饭）</li>
+<li>进程从内核复制数据（盛饭，从内核这个饭锅里面把饭装到碗里来）</li>
+</ol>
+<p>系统调用——read函数</p>
+<h2 id="IO模型"><a href="#IO模型" class="headerlink" title="IO模型"></a>IO模型</h2><h3 id="同步IO"><a href="#同步IO" class="headerlink" title="同步IO"></a>同步IO</h3><ul>
+<li>同步IO模型包括 阻塞IO、非阻塞IO、IO多路复用、信号驱动IO<h4 id="阻塞IO"><a href="#阻塞IO" class="headerlink" title="阻塞IO"></a>阻塞IO</h4></li>
+<li><p>进程等待（阻塞），直到读写完成。（全程等待）<br><img src="https://img-blog.csdnimg.cn/20190618125038147.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190618125055852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="非阻塞IO"><a href="#非阻塞IO" class="headerlink" title="非阻塞IO"></a>非阻塞IO</h4><p>进程调用read操作，如果IO设备没有准备好，立即返回ERROR，进程不阻塞。用户可以再次发起系统调用，如果内核已经准备好，就阻塞，然后复制数据到用户空间</p>
+</li>
+<li><p><strong>第一阶段</strong>数据没有准备好，就先忙别的，等会再来看看。检查数据是否准备好了的过程是<strong>非阻塞的</strong></p>
+</li>
+<li><strong>第二阶段</strong>是<strong>阻塞的</strong>，即内核空间和用户空间之间复制数据是阻塞的</li>
+</ul>
+<p><strong>例</strong>：淘米、蒸饭我不等，我去玩会，盛饭过程我等着你装好饭，但是要等到盛好饭才算完事，这是同步的，结果就是盛好饭<br><img src="https://img-blog.csdnimg.cn/20190618125507742.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190618125519799.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="IO多路复用"><a href="#IO多路复用" class="headerlink" title="IO多路复用"></a>IO多路复用</h4><p>所谓IO多路复用，就是<strong>同时监控多个IO</strong>，有一个准备好了，就不需要等了开始处理，提高了同时处理IO的能力</p>
 <ul>
-<li>?limit=10：指定返回记录的数量</li>
-<li>?offset=10：指定返回记录的开始位置。</li>
-<li>?page=2&amp;per_page=100：指定第几页，以及每页的记录数。</li>
-<li>?sortby=name&amp;order=asc：指定返回结果按照哪个属性排序，以及排序顺序。</li>
-<li>?animal_type_id=1：指定筛选条件</li>
+<li><code>select</code>几乎所有操作系统平台都支持，<code>poll</code>是对的<code>select</code>的升级</li>
+<li><code>epoll</code>，<code>Linux</code>系统内核2.5+开始支持，对<code>select</code>和<code>poll</code>的增强，在监视的基础上，增加<strong>回调机制</strong>。BSD、Mac平台有<code>kqueue</code>，Windows有<code>iocp</code></li>
 </ul>
-<p>参数的设计允许存在冗余, 即允许api路径和url参数偶尔有重复.比如，GET /zoo/ID/animals 与 GET /animals?zoo_id=ID 的含义是相同的。</p>
-<p>api的身份认证应该使用oauth 2.0框架.</p>
-<p>服务器返回的数据格式, 应该尽量使用json, 避免使用xml.</p>
+<p><strong>以<code>select</code>为例</strong></p>
+<ul>
+<li>将关注的<code>IO操作</code>告诉<code>select函数</code>并调用，进程<strong>阻塞</strong>，内核“监视”<code>select</code>关注的文件描述符<code>fd</code>，被关注的任何一个fd对应的IO准备好了数据，<code>select</code>返回。再使用<code>read</code>将数据<strong>复制</strong>到<strong>用户进程</strong></li>
+</ul>
+<p><strong>select举例</strong></p>
+<ul>
+<li>食堂供应很多菜（众多的IO），你需要吃某三菜一汤，大师傅（操作系统）说要现做，需要等，你只好等待大师傅叫。其中一样菜好了，大师傅叫你，说你点的菜有好的了，你得自己遍历找找看哪一样才好了，请服务员把做好的菜打给你</li>
+<li><code>epoll</code>是有菜准备好了，大师傅喊你去几号窗口直接打菜，不用自己找菜了</li>
+</ul>
+<p>一般情况下，<code>select</code><strong>最多能监听</strong><code>1024个fd</code>（可以修改，但不建议改），但是由于select采用轮询的方式，当管理的IO多了，<strong>每次都要遍历全部fd，效率低下</strong><br><code>epoll</code>没有管理的<code>fd</code>的上限，且是<strong>回调机制，不需遍历，效率很高</strong><br><img src="https://img-blog.csdnimg.cn/20190618125914993.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190618130615746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="信号驱动IO"><a href="#信号驱动IO" class="headerlink" title="信号驱动IO"></a>信号驱动IO</h4><p>进程在IO访问时，先通过<code>sigaction</code>系统调用，提交一个信号处理函数，立即返回。<strong>进程不阻塞</strong><br>当内核准备好数据后，产生一个<code>SIGIO</code>信号并投递给信号处理函数。可以在此函数中调用<code>recvfrom</code>函数操作数据从内核空间复制到用户空间，这段过程进程阻塞<br><img src="https://img-blog.csdnimg.cn/2019061814273937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h3><ul>
+<li>进程<strong>发起</strong>异步IO请求，<strong>立即返回</strong>。内核完成IO的两个阶段，内核给进程发一个信号。</li>
+</ul>
+<p><strong>举例</strong></p>
+<ul>
+<li>来打饭，跟大师傅说饭好了叫你，饭菜准备好了，窗口服务员把饭盛好了打电话叫你。两阶段都是异步的。在整个过程中，进程都可以忙别的，等好了才过来。</li>
+<li>今天不想出去到饭店吃饭了，点外卖，饭菜在饭店做好了（第一阶段），快递员从饭店送到你家门口（第二阶段）。</li>
+</ul>
+<p><strong>Linux</strong>的<code>aio</code>的系统调用，内核从<code>版本2.6</code>开始支持<br><img src="https://img-blog.csdnimg.cn/20190618131317375.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20190618131325740.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190618142859539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>前4个都是同步IO，因为核心操作recv函数调用时，进程阻塞直到拿到最终结果为止。</li>
+<li>而异步IO进程全程不阻塞</li>
+</ul>
 
       
     </div>
@@ -687,7 +718,7 @@
     
       <div class="post-tags">
         
-          <a href="/tags/理解restful/" rel="tag"><i class="fa fa-tag"></i> 理解restful</a>
+          <a href="/tags/IO多路复用/" rel="tag"><i class="fa fa-tag"></i> IO多路复用</a>
         
       </div>
     
@@ -703,8 +734,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/python/部署/" rel="next" title="python部署">
-                <i class="fa fa-chevron-left"></i> python部署
+              <a href="/数据库/数据库事务隔离本质/" rel="next" title="数据库事务隔离本质">
+                <i class="fa fa-chevron-left"></i> 数据库事务隔离本质
               </a>
             
           </div>
@@ -712,10 +743,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/python/PyUnit单元测试/" rel="prev" title="单元测试">
-                单元测试 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -983,7 +1010,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Restful-API"><span class="nav-number">1.</span> <span class="nav-text">Restful API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#resources"><span class="nav-number">2.</span> <span class="nav-text">resources</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表现层-representation"><span class="nav-number">3.</span> <span class="nav-text">表现层(representation)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http方法"><span class="nav-number">4.</span> <span class="nav-text">http方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#重要概念"><span class="nav-number">1.</span> <span class="nav-text">重要概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#同步、异步"><span class="nav-number">1.1.</span> <span class="nav-text">同步、异步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阻塞、非阻塞"><span class="nav-number">1.2.</span> <span class="nav-text">阻塞、非阻塞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">1.3.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">1.4.</span> <span class="nav-text">联系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作系统知识"><span class="nav-number">2.</span> <span class="nav-text">操作系统知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同步IO、异步IO、IO多路复用"><span class="nav-number">3.</span> <span class="nav-text">同步IO、异步IO、IO多路复用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IO两个阶段"><span class="nav-number">3.1.</span> <span class="nav-text">IO两个阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IO模型"><span class="nav-number">3.2.</span> <span class="nav-text">IO模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步IO"><span class="nav-number">3.2.1.</span> <span class="nav-text">同步IO</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#阻塞IO"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">阻塞IO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非阻塞IO"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">非阻塞IO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IO多路复用"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">IO多路复用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#信号驱动IO"><span class="nav-number">3.2.1.4.</span> <span class="nav-text">信号驱动IO</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步IO"><span class="nav-number">3.2.2.</span> <span class="nav-text">异步IO</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
