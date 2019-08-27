@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hubhack.github.io/"/>
-  <updated>2019-08-24T14:30:47.776Z</updated>
+  <updated>2019-08-27T15:11:05.434Z</updated>
   <id>https://hubhack.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试考点</title>
+    <link href="https://hubhack.github.io/%E9%9D%A2%E8%AF%95%E8%80%83%E7%82%B9/"/>
+    <id>https://hubhack.github.io/面试考点/</id>
+    <published>2019-08-27T06:37:28.372Z</published>
+    <updated>2019-08-27T15:11:05.434Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="语言基础"><a href="#语言基础" class="headerlink" title="语言基础"></a>语言基础</h3><h3 id="算法和数据结构"><a href="#算法和数据结构" class="headerlink" title="算法和数据结构"></a>算法和数据结构</h3><h3 id="编程范式"><a href="#编程范式" class="headerlink" title="编程范式"></a>编程范式</h3><p>面向对象基础及python类常考问题</p><p>什么是面向对象编程</p><p>object orirnted programming oop</p><p>把对象作为基本单元, 把对象抽象成类(class), 包含成员和方法</p><p>数据封装, 继承, 多态</p><p>python中使用类来实现, 过程式编程(函数), oop类</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Person(object):</span><br><span class="line">def __init__(self, name, age):</span><br><span class="line">self.name = name</span><br><span class="line">self.age = age</span><br><span class="line">def print_name(self):</span><br><span class="line">print(&apos;my name is &#123;&#125;&apos;.format(self.name))</span><br></pre></td></tr></table></figure><p>组合与继承</p><p>先使用组合而非继承</p><ul><li>组合是使用其他的类实例作为自己的一个属性(Has-a关系)</li><li>子类继承父类的属性和方法(is a关系)</li><li>优先使用组合保持代码简单</li></ul><p>类变量和实例变量的区别</p><p>区分类变量和实例变量</p><ul><li>类变量是由所有实例共享</li><li><p>实例变量是由实例单独享有, 不同实例之间不影响</p></li><li><p>当我们需要在一个类的不同实例之间共享变量的时候使用类变量</p></li></ul><p>classmethod/staticmethod区别</p><ul><li>都可以通过 class.method的方式使用</li><li>classmethod第一个参数是cls, 可以引用类变量</li><li>staticmethod使用起来和普通函数一样, 只不过放在类里去组织.</li></ul><p>使用元类? 使用场景</p><p>元类(meta class) 是创建类的类</p><ul><li>元类允许我们控制类的生成, 比如修改类的属性</li><li>使用type来定义元类</li><li>元类最常见的一个使用场景就是orm框架</li></ul><p>面向对象与python类常考题</p><ul><li>什么是面向对象编程, python如何使用类</li><li>组合 vs 继承, 类变量 vs 实例变量; classmethod vs staticmethod</li></ul><h4 id="python装饰器-面向切面编程"><a href="#python装饰器-面向切面编程" class="headerlink" title="python装饰器 面向切面编程"></a>python装饰器 面向切面编程</h4><p>什么是装饰器(decorator)</p><p>python中一切皆对象, 函数也可以当做参数传递</p><p>装饰器是接受函数作为参数, 添加功能后返回一个新函数的函数(类)</p><p>python中通过@使用装饰器</p><p>编写一个记录函数耗时的装饰器</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log_time</span><span class="params">(func)</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_log</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">        beg = time.time()</span><br><span class="line">        res = func(*args, **kwargs)</span><br><span class="line">        print(<span class="string">'use time:&#123;&#125;'</span>.format(time.time()-beg))</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"><span class="keyword">return</span> _log</span><br><span class="line"></span><br><span class="line"><span class="meta">@log_time</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mysleep</span><span class="params">()</span>:</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">mysleep()</span><br></pre></td></tr></table></figure><p>使用类编写</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Logtime</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, func)</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_log</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">beg = time.time()</span><br><span class="line">res = func(*args, **kwargs)</span><br><span class="line">print(<span class="string">'use time:&#123;&#125;'</span>.format(time.time()-beg))</span><br><span class="line"><span class="keyword">return</span> res</span><br><span class="line"><span class="keyword">return</span> _log</span><br><span class="line"><span class="meta">@LogTime()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mysleep</span><span class="params">()</span>:</span></span><br><span class="line">time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure><p>使用类装饰器比较方便实现装饰器</p><p>设计模式: 创建型模式python应用面试</p><p>创建型模式</p><p>工厂模式(Factory): 解决对象创建问题</p><p>构造模式(builder): 控制复杂对象的创建</p><p>原型模式(prototype): 通过原型的克隆创建新的实例</p><p>单例模式(borg/singleton)”:一个类只能创建同一个对象</p><p>对象池模式(pool):预先分配同一个类型的一组实例</p><p>惰性计算模式(lazy evaluation): 延迟计算(python 的property)</p><hr><h4 id="什么是工厂模式"><a href="#什么是工厂模式" class="headerlink" title="什么是工厂模式"></a>什么是工厂模式</h4><p>解决对象创建问题</p><p>解耦对象的创建和使用</p><p>包括工厂方法和抽象工厂</p><h4 id="什么是构造模式-builder"><a href="#什么是构造模式-builder" class="headerlink" title="什么是构造模式(builder)"></a>什么是构造模式(builder)</h4><p>用来控制复杂对象的构造</p><p>创建和表示分离, 比如你要买电脑, 工厂模式直接给你需要的电脑</p><p>但是构造模式允许你自己定义电脑的配置, 组装完成后给你.</p><h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><p>linux常考命令, 了解linxu工作原理和常用工具,需要了解查看文件, 进程, 内存相关的一些命令, 用来调试和排查</p><p>早期采用lamp/lnmp架构,现在采用微服务/容器架构.</p><p>linux命令众多, 如何知道一个命令的用法</p><ul><li>使用man命令查询用法, 但是man手册比较晦涩</li><li>使用工具自带的help, 比如pip –help</li><li>这里介绍一个man的替代工具tldr. pip install tldr.</li></ul><p>掌握常见的文件操作工具</p><ul><li>chown/chmod/chgrp</li><li>ls/rm/cd/cp/mv/touch/rename/ln(软连接和硬链接)等 软连接类似快捷方式, 保存了指向文件的绝对路径, 如果访问的时候把路径替换成原来的路径.对于操作系统来说, 它是通过inode来访问硬盘上的区块的, 对于软连接, inode值和原来的是不一样的,硬链接是一样.</li><li>locate/find/grep定位查找和搜索. find . -name ‘*.pyc’ -delete.</li></ul><p>文件或者日志查看工具</p><ul><li>编辑器vi/nano</li><li>cat/head/tail 查看文件</li><li>more/less 交互式查看文件</li></ul><p>进程操作命令</p><ul><li>ps查看进程</li><li>kill杀死进程 -9 -15</li><li>top/htop 监控进程</li></ul><p>掌握常见的内存操作工具</p><ul><li>free 查看可用内存</li><li>了解每一列的具体含义</li><li>排查内存泄露问题</li></ul><p>网络操作命令</p><ul><li>ifconfig查看网卡信息</li><li>lsof/netstat 查看端口信息</li><li>ssh/scp 远程登录/复制. tcpdump抓包</li></ul><p>用户/组操作命令</p><ul><li>useradd/usermod</li><li>groupadd/groupmod</li></ul><hr><p>操作系统线程和进程常考题</p><p>进程和线程的区别</p><p>进程和线程对比</p><p>进程是对运行时程序的封装, 是系统资源调度和分配的基本单位.</p><p>线程是进程的子任务, cpu调度和匹配的基本单位,  实现进程内并发.</p><p>一个进程可以包含多个线程, 线程依赖进程存在, 并共享进程内存</p><p>并发和并行的区别</p><h4 id="线程安全"><a href="#线程安全" class="headerlink" title="线程安全"></a>线程安全</h4><p>一个操作可以在线程环境中安全使用, 获取正确的结果.</p><p>线程安全的操作好比线程是顺序执行而不是并发执行的(i+=1)</p><p>一般如果涉及到写操作需要考虑如何让多个线程安全访问数据.</p><p>线程同步的方式</p><h4 id="了解线程同步的方式-如何保证线程安全"><a href="#了解线程同步的方式-如何保证线程安全" class="headerlink" title="了解线程同步的方式, 如何保证线程安全"></a>了解线程同步的方式, 如何保证线程安全</h4><p>互斥量(锁):通过互斥机制防止多个线程同时访问公共资源</p><p>信号量(semphare): 控制同一时刻多个线程访问同一个资源的线程</p><p>事件(信号): 通过通知的方式保持多个线程同步.</p><p>进程间通信的方式</p><h4 id="进程间传递信号或者数据"><a href="#进程间传递信号或者数据" class="headerlink" title="进程间传递信号或者数据"></a>进程间传递信号或者数据</h4><p>管道/匿名管道/有名管道(pipe)</p><p>信号(signal): 比如用户使用ctrl-c产生sigint程序终止信号</p><p>消息对列(message)</p><p>共享内存(share memory)</p><p>信号量(semaphore)</p><p>套接字(socket):最常见的方式, 我们web应用都是这种方式.</p><p>底层的操作采用用的到.</p><p>threading.Thread类</p><p>python有gil, 可以用多进程是实现cpu密集程序</p><p>multiprocessing多进程模块</p><p>multiprocessing.Process类实现多进程</p><p>一般用在cpu密集程序里, 避免GIL的影响.</p><hr><p>操作系统内存管理机制常见考题</p><h4 id="什么是分页机制"><a href="#什么是分页机制" class="headerlink" title="什么是分页机制"></a>什么是分页机制</h4><p>逻辑地址和物理地址的内存分配管理方案</p><p>程序的逻辑地址划分固定大小的页(page)</p><p>物理地址分为同样大小的帧(Rrame)</p><p>通过页表对应逻辑地址和物理地址</p><h4 id="什么是分段机制"><a href="#什么是分段机制" class="headerlink" title="什么是分段机制"></a>什么是分段机制</h4><p>分段为了满足代码的一些逻辑需求</p><p>数据共享, 数据保护, 动态链接等</p><p>通过段表实现逻辑地址和物理地址的映射关系</p><p>每个段内部是连续的内存分配, 段和段之间是离散分配的</p><h4 id="分页vs分段"><a href="#分页vs分段" class="headerlink" title="分页vs分段"></a>分页vs分段</h4><p>页是出于内存利用率的角度提出的离散分配机制.</p><p>段是出于用户角度, 用于数据保护, 数据隔离等用途的管理机制</p><p>页的大小是固定的, 操作系统决定;段大小不确定, 用户程序决定.</p><h4 id="什么是虚拟内存"><a href="#什么是虚拟内存" class="headerlink" title="什么是虚拟内存"></a>什么是虚拟内存</h4><p>通过把一部分暂时不用的内存信息放到硬盘上</p><ul><li>局部性原理, 程序运行时候只有部分必要的信息装入内存</li><li>内存中暂时不需要的内容放到硬盘上</li><li>系统似乎提供了比实际内存大得多的容量, 称之为虚拟内存</li></ul><h4 id="什么是内存抖动-颠簸"><a href="#什么是内存抖动-颠簸" class="headerlink" title="什么是内存抖动(颠簸)"></a>什么是内存抖动(颠簸)</h4><p>本质是频繁的页调度行为</p><ul><li>频繁的页调度, 进程不断产生缺页中断</li><li>置换一个页, 又不断再次需要这个页</li><li>运行程序太多, 页面替换策略不好.终止进程或者增加物理内存.</li></ul><h4 id="python的垃圾回收机制原理"><a href="#python的垃圾回收机制原理" class="headerlink" title="python的垃圾回收机制原理"></a>python的垃圾回收机制原理</h4><p>python无需手动回收内存 ?他的垃圾回收机制是如何实现的呢?</p><ul><li>引用计数为主(缺点:循环引用无法解决)</li><li>引入标记清除和分代回收解决引用计数的问题</li><li>引用计数为主+ 标记清除和分代回收为辅</li></ul><p>线程练习题</p><p>如何使用python的threading模块</p><p>请你使用python的threading模块完成一个多线程爬虫类</p><p>要求1:该类可以传入最大线程数和需要抓取的网址列表</p><p>要求2: 该类可以通过继承的方式提供一个处理response的方法</p><h3 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h3><p>网络协议tcp/udp/http常考题</p><p>浏览器输入一个url中间经历的过程</p><p>中间涉及了那些过程</p><p>包含那些网络协议</p><p>每个协议都干了什么?</p><p>dns查询-&gt; tcp握手-&gt; http请求-&gt;反向代理-&gt; wsgi-&gt;web</p><p>tcp三次握手</p><p>tcp vs udp</p><p>面向连接, 可靠的, 基于字节流</p><p>无连接, 不可靠, 面向报文</p><p>了解常见的http响应状态码</p><h3 id="数据库考察"><a href="#数据库考察" class="headerlink" title="数据库考察"></a>数据库考察</h3><h3 id="web框架"><a href="#web框架" class="headerlink" title="web框架"></a>web框架</h3><h3 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;语言基础&quot;&gt;&lt;a href=&quot;#语言基础&quot; class=&quot;headerlink&quot; title=&quot;语言基础&quot;&gt;&lt;/a&gt;语言基础&lt;/h3&gt;&lt;h3 id=&quot;算法和数据结构&quot;&gt;&lt;a href=&quot;#算法和数据结构&quot; class=&quot;headerlink&quot; title=&quot;算法和
+      
+    
+    </summary>
+    
+      <category term="面试" scheme="https://hubhack.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="面试" scheme="https://hubhack.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库事务隔离本质</title>
+    <link href="https://hubhack.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/"/>
+    <id>https://hubhack.github.io/数据库/redis/</id>
+    <published>2019-08-26T14:29:54.634Z</published>
+    <updated>2019-08-26T14:35:51.574Z</updated>
+    
+    <content type="html"><![CDATA[<p>redis<br>开源的(bsd协议), 使用ansi c编写, 基于内存的且支持持久化, 高性能key-value的nosql数据库.<br>支持数据结构类型丰富, 有如字符串(strings), 散列(hashes), 列表(lists), 集合(sets), 有序集合(sorted) 与范围查询, bitmaps, hyperloglogs和地理空间(geospatial)索引半径查询.<br>丰富的支持主流语言的客户端, c, c++, python, erlang, r<br>用途: 缓存, 数据库, 消息中间件<br>redis版本</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;redis&lt;br&gt;开源的(bsd协议), 使用ansi c编写, 基于内存的且支持持久化, 高性能key-value的nosql数据库.&lt;br&gt;支持数据结构类型丰富, 有如字符串(strings), 散列(hashes), 列表(lists), 集合(sets), 有序集合
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="https://hubhack.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="mysql" scheme="https://hubhack.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/"/>
+    
+    
+      <category term="数据库" scheme="https://hubhack.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>理解IO</title>
@@ -46,9 +98,9 @@
     <link href="https://hubhack.github.io/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E6%9C%AC%E8%B4%A8/"/>
     <id>https://hubhack.github.io/数据库/数据库事务隔离本质/</id>
     <published>2019-08-24T10:53:21.281Z</published>
-    <updated>2019-08-24T14:04:19.510Z</updated>
+    <updated>2019-08-26T14:30:22.690Z</updated>
     
-    <content type="html"><![CDATA[<p>提到事务, 你肯定不陌生, 和数据库打交道的时候, 我们总是会用到事务, 最经典的例子就是转账, 你要给朋友小王转100块钱, 而此时你的银行卡只有100块钱.<br>转账过程具体到程序里会有一系列的操作, 比如余额查询, 做加减法, 更新余额等, 这些操作必须保证是一体的, 不然等程序查完之后, 还没做减法之前, 你这100块钱, 完全可以借着这个时间差再查一次, 然后再给另外一个朋友转账, 如果银行这么整, 不久乱了么?, 这是就要用到”事务”这个概念了.</p><p>简单来说, 事务就是要保证一组数据库操作, 要么全部成功, 要么全部失败. 再mysql中, 事务支持是在引擎层实现的.你现在知道, mysql是一个支持多引擎的系统, 但并不是所有的引擎都支持事务.比如mysql原生的myiSAM引擎就不支持事务, 这也是MyISAM被InnoDB取代的重要原因之一.</p><p>隔离性和隔离级别<br>提到事务, 你肯定会想到ACID(Atomicity, Consistency, isolation, DURability, 即原子性, 一致性, 隔离性, 持久化).</p><p>当数据库上游多个事务同时执行的时候, 就可能出现脏读(dirty read), 不可重复读(non-repeatable read), 幻读(phantom read)的问题, 为了解决这些问题, 就有了”隔离级别”的概念.</p><p>在谈隔离级别之前, 你首先要知道, 你隔离得越严实, 效率就会越低.因此很多时候, 我们都要在二者之间寻找一个平衡点.sql标准的事务隔离级别包括: 都未提交(read uncommitted), 读提交(read committed), 可重复读(repeatable read)和串行化(seriazable). </p><ul><li>读未提交是指, 一个事务还没提交时, 他做的变更就能被别的事务看到.</li><li>读提交是指, 一个事务执行过程中看到的数据, 总是跟这个事务在启动时看到的数据是一致的,当然在可重复读隔离级别下, 未提交变更对其他事务也是不可见.</li><li>串行化, 顾名思义是对于同一行记录, “写”会加”写锁”, “读”会加”读锁”. 当出现读写锁冲突的时候, 后访问的事务必须等前一个事务执行完成, 才能继续执行.</li></ul><p>其中”读提交”和”可重复读”比较难理解, 所以我用一个例子说明这几种隔离级别.假设数据表T中只有一列, 其中一行的值为1, 下面是按照时间顺序执行两个事务的行为.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table T(c int) engine=InnoDB;</span><br><span class="line">insert into T(c) values(1);</span><br></pre></td></tr></table></figure><p>我们来看看在不同的隔离级别下, 事务A会有那些不同的返回结果, 也就是图里面V1, V2,V3的返回值分别是什么.</p>]]></content>
+    <content type="html"><![CDATA[<p>提到事务, 你肯定不陌生, 和数据库打交道的时候, 我们总是会用到事务, 最经典的例子就是转账, 你要给朋友小王转100块钱, 而此时你的银行卡只有100块钱.<br>转账过程具体到程序里会有一系列的操作, 比如余额查询, 做加减法, 更新余额等, 这些操作必须保证是一体的, 不然等程序查完之后, 还没做减法之前, 你这100块钱, 完全可以借着这个时间差再查一次, 然后再给另外一个朋友转账, 如果银行这么整, 不久乱了么?, 这是就要用到”事务”这个概念了.</p><p>简单来说, 事务就是要保证一组数据库操作, 要么全部成功, 要么全部失败. 再mysql中, 事务支持是在引擎层实现的.你现在知道, mysql是一个支持多引擎的系统, 但并不是所有的引擎都支持事务.比如mysql原生的myiSAM引擎就不支持事务, 这也是MyISAM被InnoDB取代的重要原因之一.</p><p>隔离性和隔离级别<br>提到事务, 你肯定会想到ACID(Atomicity, Consistency, isolation, DURability, 即原子性, 一致性, 隔离性, 持久化).</p><p>当数据库上游多个事务同时执行的时候, 就可能出现脏读(dirty read), 不可重复读(non-repeatable read), 幻读(phantom read)的问题, 为了解决这些问题, 就有了”隔离级别”的概念.</p><p>在谈隔离级别之前, 你首先要知道, 你隔离得越严实, 效率就会越低.因此很多时候, 我们都要在二者之间寻找一个平衡点.sql标准的事务隔离级别包括: 都未提交(read uncommitted), 读提交(read committed), 可重复读(repeatable read)和串行化(seriazable). </p><ul><li>读未提交是指, 一个事务还没提交时, 他做的变更就能被别的事务看到.</li><li>读提交是指, 一个事务执行过程中看到的数据, 总是跟这个事务在启动时看到的数据是一致的,当然在可重复读隔离级别下, 未提交变更对其他事务也是不可见.</li><li>串行化, 顾名思义是对于同一行记录, “写”会加”写锁”, “读”会加”读锁”. 当出现读写锁冲突的时候, 后访问的事务必须等前一个事务执行完成, 才能继续执行.</li></ul><p>其中”读提交”和”可重复读”比较难理解, 所以我用一个例子说明这几种隔离级别.假设数据表T中只有一列, 其中一行的值为1, 下面是按照时间顺序执行两个事务的行为.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table T(c int) engine=InnoDB;</span><br><span class="line">insert into T(c) values(1);</span><br></pre></td></tr></table></figure><p>我们来看看在不同的隔离级别下, 事务A会有那些不同的返回结果, 也就是图里面V1, V2,V3的返回值分别是什么.</p><p>在mysql里, 有两个”视图”的概念:</p><ul><li><p>一个是view.它是一个用查询语句定义的虚拟表, 在调用的时候执行查询语句并生成结果,创建视图的语法是create view…, 而他的查询方法与表一样.</p></li><li><p>另一个是InnoDB在实现mvcc时用到的一致性读视图, 即consistent readview, 用于支持RC(read committed, 读提交)和RR(Repeatable Read, 可重复读)隔离级别的实现.</p></li></ul>]]></content>
     
     <summary type="html">
     
@@ -480,58 +532,6 @@
     
     
       <category term="python" scheme="https://hubhack.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>理解restful</title>
-    <link href="https://hubhack.github.io/web/%E7%90%86%E8%A7%A3restful/"/>
-    <id>https://hubhack.github.io/web/理解restful/</id>
-    <published>2019-07-25T03:08:06.618Z</published>
-    <updated>2019-08-22T03:56:41.475Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Restful-API"><a href="#Restful-API" class="headerlink" title="Restful API"></a>Restful API</h3><p>越来越多的人开始意识到, 网站即软件, 而且是一种新型的软件.</p><p>这种”互联网软件”采用客户端/服务器模式, 建立在分布式体系上, 通过互联网通信, 具有高延时(high latency) , 高并发等特点.</p><p>网站开发, 完全可以采用软件开发的模式, 但是传统上, 软件和网络是两个不同的领域, 很少有交集. 软件开发主要针对单机环境, 网络则主要研究系统之间的通信.</p><p>RESTful架构，就是目前最流行的一种互联网软件架构。它结构清晰、符合标准、易于理解、扩展方便，所以正得到越来越多网站的采用。</p><p>但是，到底什么是RESTful架构，并不是一个容易说清楚的问题。下面，我就谈谈我理解的RESTful架构。</p><h3 id="resources"><a href="#resources" class="headerlink" title="resources"></a>resources</h3><p>rest的名称”表现层状态转化” 中, 省略了主语, “ 表现层” 其实指的是”资源”(resource) 的”表现层”.</p><p><strong>所谓”资源”，就是网络上的一个实体，或者说是网络上的一个具体信息。</strong>它可以是一段文本、一张图片、一首歌曲、一种服务，总之就是一个具体的实在。你可以用一个URI（统一资源定位符）指向它，每种资源对应一个特定的URI。要获取这个资源，访问它的URI就可以，因此URI就成了每一个资源的地址或独一无二的识别符。</p><p>所谓”上网”，就是与互联网上一系列的”资源”互动，调用它的URI。</p><h3 id="表现层-representation"><a href="#表现层-representation" class="headerlink" title="表现层(representation)"></a>表现层(representation)</h3><p>“资源”是一种信息实体, 他可以有多种外在表现形式. 我们把”资源” 具体呈现出来的形式. 叫做它的”表现层”(representation).</p><p>比如, 文本可以用txt格式表现, 也可以用html格式, xml格式,JSON格式表现，甚至可以采用二进制格式；图片可以用JPG格式表现，也可以用PNG格式表现。</p><p>URI只代表资源的实体，不代表它的形式。严格地说，有些网址最后的”.html”后缀名是不必要的，因为这个后缀名表示格式，属于”表现层”范畴，而URI应该只代表”资源”的位置。它的具体表现形式，应该在HTTP请求的头信息中用Accept和Content-Type字段指定，这两个字段才是对”表现层”的描述。</p><p>访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，势必涉及到数据和状态的变化。</p><p>互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。因此，<strong>如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（State Transfer）。而这种转化是建立在表现层之上的，所以就是”表现层状态转化”。</strong></p><p>客户端用到的手段，只能是HTTP协议。具体来说，就是HTTP协议里面，四个表示操作方式的动词：GET、POST、PUT、DELETE。它们分别对应四种基本操作：<strong>GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。</strong></p><p>注意:资源不能是动词.</p><p>在RESTful架构中, 每个网址代表一种资源(resource), 所以网址中不能有动词, 只能有名词, 而且所用的名词往往与数据库的表格名对应.一般来说, 数据库中的表都是同种记录的”集合”, 所以api中的名词也应该使用复数.</p><h3 id="http方法"><a href="#http方法" class="headerlink" title="http方法"></a>http方法</h3><p>对于资源的具体操作类型, 由http动词表示.</p><p>常用的http动词有下面五个, (括号里对应的sql命令).</p><ul><li>GET（SELECT）：从服务器取出资源（一项或多项）。</li><li>POST（CREATE）：在服务器新建一个资源。</li><li>PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。</li><li>PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。</li><li>DELETE（DELETE）：从服务器删除资源。</li></ul><p>还有两个不常用的http动词.</p><p>HEAD:获取资源的元数据.</p><p>OPTIONS:获取信息, 关于资源的那些属性是客户端可以改变的.</p><p>下面是一些例子:</p><ul><li>GET /zoos：列出所有动物园</li><li>POST /zoos：新建一个动物园</li><li>GET /zoos/ID：获取某个指定动物园的信息</li><li>PUT /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）</li><li>PATCH /zoos/ID：更新某个指定动物园的信息（提供该动物园的部分信息）</li><li>DELETE /zoos/ID：删除某个动物园</li><li>GET /zoos/ID/animals：列出某个指定动物园的所有动物</li><li>DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物</li></ul><p>过滤信息(filtering)</p><p>如果记录信息很多, 服务器不可能都将他们返回给用户, API应该提供参数, 过滤返回结果.</p><p>下面是一些常见的参数.</p><ul><li>?limit=10：指定返回记录的数量</li><li>?offset=10：指定返回记录的开始位置。</li><li>?page=2&amp;per_page=100：指定第几页，以及每页的记录数。</li><li>?sortby=name&amp;order=asc：指定返回结果按照哪个属性排序，以及排序顺序。</li><li>?animal_type_id=1：指定筛选条件</li></ul><p>参数的设计允许存在冗余, 即允许api路径和url参数偶尔有重复.比如，GET /zoo/ID/animals 与 GET /animals?zoo_id=ID 的含义是相同的。</p><p>api的身份认证应该使用oauth 2.0框架.</p><p>服务器返回的数据格式, 应该尽量使用json, 避免使用xml.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Restful-API&quot;&gt;&lt;a href=&quot;#Restful-API&quot; class=&quot;headerlink&quot; title=&quot;Restful API&quot;&gt;&lt;/a&gt;Restful API&lt;/h3&gt;&lt;p&gt;越来越多的人开始意识到, 网站即软件, 而且是一种新型的软件.&lt;/p
-      
-    
-    </summary>
-    
-      <category term="web" scheme="https://hubhack.github.io/categories/web/"/>
-    
-    
-      <category term="理解restful" scheme="https://hubhack.github.io/tags/%E7%90%86%E8%A7%A3restful/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python部署</title>
-    <link href="https://hubhack.github.io/python/%E9%83%A8%E7%BD%B2/"/>
-    <id>https://hubhack.github.io/python/部署/</id>
-    <published>2019-07-22T01:25:33.385Z</published>
-    <updated>2019-08-22T03:28:33.033Z</updated>
-    
-    <content type="html"><![CDATA[<p>Django打包</p><p>构建setup.py文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">useradd python</span><br><span class="line">echo python | passwd python --stdin</span><br><span class="line">yum install git python-devel mysql-devel</span><br><span class="line">yum -y install gcc make patch gdbm-devel openssl-devel sqlite-devel readline-devel zlib-devel bzip2-devel</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;$HOME/.pyenv/bin:$PATH&quot;</span><br><span class="line">eval &quot;$(pyenv init -)&quot;</span><br><span class="line">eval &quot;$(pyenv virtualenv-init -)&quot;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">source .bashrc </span><br><span class="line"></span><br><span class="line">[global]</span><br><span class="line">index-url = https://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure><p>python setup.py sdist –formats=gztar</p><p>ln -sv blog-1.0 web</p><p>/root/blog/projects/web</p><p>uwsgi -d –ini blog.ini  后台启动服务, </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import &#123; resolve &#125; from &quot;url&quot;;</span><br><span class="line"></span><br><span class="line">let p = new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">    //做一些事情</span><br><span class="line">    //然后再某些条件下resolve, 或者reject</span><br><span class="line">    if(/*条件随便写*/) &#123;</span><br><span class="line">        resolve()</span><br><span class="line"></span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        reject()</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">p.then(() =&gt; &#123;</span><br><span class="line">    //如果p的状态被resolve, 就进入这里</span><br><span class="line">&#125;), () =&gt; &#123;</span><br><span class="line">    //如果p的状态被reject,进入这里</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>第一段调用了Promise构造函数, 第二段是调用了promise实例的.then方法</p><p>构造实例</p><p>构造函数接受一个参数作为参数</p><p>调用构造函数得到实例p的同时,作为参数的函数会立即执行.</p><p>参数函数接受两个回调函数参数resolve和reject</p><p>在参数函数被执行的过程中, 如果在其内部调用resolve, 会被p的状态变为fulfilled, 或者调用reject, 会将p的状态变为rejected.</p><p>调用.then</p><p>调用.then可以为实例p注册两种状态回调函数</p><p>当实例p的状态为fulfilled, 会触发第一个函数执行</p><p>当实例p的状态为rejected, 则会触发第二个函数执行.</p><p>总结</p><p>上面这样构造promise实例, 然后调用.then.then.then的编写代码方式, 就是promise.</p><p>其基本模式是:</p><p>将异步过程转换成promise对象.</p><p>对象有三种状态, </p><p>通过.then注册状态的回调.</p><p>已完成的状态能触发回调.</p><p>采用这种方式来处理编程中的异步任务, 就是在使用promise了.</p><p>所以promise就是一种异步编程模式.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Django打包&lt;/p&gt;
-&lt;p&gt;构建setup.py文件&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span 
-      
-    
-    </summary>
-    
-      <category term="python" scheme="https://hubhack.github.io/categories/python/"/>
-    
-    
-      <category term="项目部署" scheme="https://hubhack.github.io/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/"/>
     
   </entry>
   

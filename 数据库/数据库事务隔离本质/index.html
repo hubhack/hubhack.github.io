@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="千分无言">
 <meta property="og:description" content="提到事务, 你肯定不陌生, 和数据库打交道的时候, 我们总是会用到事务, 最经典的例子就是转账, 你要给朋友小王转100块钱, 而此时你的银行卡只有100块钱.转账过程具体到程序里会有一系列的操作, 比如余额查询, 做加减法, 更新余额等, 这些操作必须保证是一体的, 不然等程序查完之后, 还没做减法之前, 你这100块钱, 完全可以借着这个时间差再查一次, 然后再给另外一个朋友转账, 如果银行这">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-24T14:04:19.510Z">
+<meta property="og:updated_time" content="2019-08-26T14:30:22.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库事务隔离本质">
 <meta name="twitter:description" content="提到事务, 你肯定不陌生, 和数据库打交道的时候, 我们总是会用到事务, 最经典的例子就是转账, 你要给朋友小王转100块钱, 而此时你的银行卡只有100块钱.转账过程具体到程序里会有一系列的操作, 比如余额查询, 做加减法, 更新余额等, 这些操作必须保证是一体的, 不然等程序查完之后, 还没做减法之前, 你这100块钱, 完全可以借着这个时间差再查一次, 然后再给另外一个朋友转账, 如果银行这">
@@ -375,6 +375,14 @@
          
          
            <li>
+             <a href="/面试考点/" title="面试考点" target="_blank">面试考点</a>
+           </li>
+         
+           <li>
+             <a href="/数据库/redis/" title="数据库事务隔离本质" target="_blank">数据库事务隔离本质</a>
+           </li>
+         
+           <li>
              <a href="/网络/IO多种概念/" title="理解IO" target="_blank">理解IO</a>
            </li>
          
@@ -424,14 +432,6 @@
          
            <li>
              <a href="/linux/新手如何安装及配置VMware Workstation虚拟机及Xshell远程管理软件/" title="vmware" target="_blank">vmware</a>
-           </li>
-         
-           <li>
-             <a href="/python/python面试题/" title="python面试题" target="_blank">python面试题</a>
-           </li>
-         
-           <li>
-             <a href="/后端框架/flask笔记/" title="flask" target="_blank">flask</a>
            </li>
          
        </ul>
@@ -604,6 +604,13 @@
 <p>其中”读提交”和”可重复读”比较难理解, 所以我用一个例子说明这几种隔离级别.假设数据表T中只有一列, 其中一行的值为1, 下面是按照时间顺序执行两个事务的行为.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table T(c int) engine=InnoDB;</span><br><span class="line">insert into T(c) values(1);</span><br></pre></td></tr></table></figure>
 <p>我们来看看在不同的隔离级别下, 事务A会有那些不同的返回结果, 也就是图里面V1, V2,V3的返回值分别是什么.</p>
+<p>在mysql里, 有两个”视图”的概念:</p>
+<ul>
+<li><p>一个是view.它是一个用查询语句定义的虚拟表, 在调用的时候执行查询语句并生成结果,创建视图的语法是create view…, 而他的查询方法与表一样.</p>
+</li>
+<li><p>另一个是InnoDB在实现mvcc时用到的一致性读视图, 即consistent readview, 用于支持RC(read committed, 读提交)和RR(Repeatable Read, 可重复读)隔离级别的实现.</p>
+</li>
+</ul>
 
       
     </div>
@@ -747,7 +754,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">77</span>
+                    <span class="site-state-item-count">79</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -796,7 +803,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -867,7 +876,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
