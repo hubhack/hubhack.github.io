@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="语言基础算法和数据结构编程范式面向对象基础及python类常考问题 什么是面向对象编程 object orirnted programming oop 把对象作为基本单元, 把对象抽象成类(class), 包含成员和方法 数据封装, 继承, 多态 python中使用类来实现, 过程式编程(函数), oop类 123456class Person(object):	def __init__(self">
+  <meta name="description" content="语言基础python单元测试动态语言不写单元测试风险就挺大的. 什么是单元测试?unit testing针对程序模块进行正确性检验一个函数, 一个类进行验证自底向上保证程序正确性为什么要写单元测试?三无代码不可取(无文档, 无注释, 无单侧)保证代码逻辑的正确性(甚至有些采用测试驱动开发(tdd))单测影响设计, 易测的代码往往是高内聚低耦合回归测试, 防止改一处整个服务不可用 单元测试相关的库n">
 <meta name="keywords" content="面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试考点">
 <meta property="og:url" content="https://hubhack.github.io/面试考点/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="语言基础算法和数据结构编程范式面向对象基础及python类常考问题 什么是面向对象编程 object orirnted programming oop 把对象作为基本单元, 把对象抽象成类(class), 包含成员和方法 数据封装, 继承, 多态 python中使用类来实现, 过程式编程(函数), oop类 123456class Person(object):	def __init__(self">
+<meta property="og:description" content="语言基础python单元测试动态语言不写单元测试风险就挺大的. 什么是单元测试?unit testing针对程序模块进行正确性检验一个函数, 一个类进行验证自底向上保证程序正确性为什么要写单元测试?三无代码不可取(无文档, 无注释, 无单侧)保证代码逻辑的正确性(甚至有些采用测试驱动开发(tdd))单测影响设计, 易测的代码往往是高内聚低耦合回归测试, 防止改一处整个服务不可用 单元测试相关的库n">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-27T15:11:05.434Z">
+<meta property="og:updated_time" content="2019-08-28T03:07:46.482Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试考点">
-<meta name="twitter:description" content="语言基础算法和数据结构编程范式面向对象基础及python类常考问题 什么是面向对象编程 object orirnted programming oop 把对象作为基本单元, 把对象抽象成类(class), 包含成员和方法 数据封装, 继承, 多态 python中使用类来实现, 过程式编程(函数), oop类 123456class Person(object):	def __init__(self">
+<meta name="twitter:description" content="语言基础python单元测试动态语言不写单元测试风险就挺大的. 什么是单元测试?unit testing针对程序模块进行正确性检验一个函数, 一个类进行验证自底向上保证程序正确性为什么要写单元测试?三无代码不可取(无文档, 无注释, 无单侧)保证代码逻辑的正确性(甚至有些采用测试驱动开发(tdd))单测影响设计, 易测的代码往往是高内聚低耦合回归测试, 防止改一处整个服务不可用 单元测试相关的库n">
 
 
 
@@ -375,11 +375,19 @@
          
          
            <li>
+             <a href="/深入浅出数据库索引/" title="深入浅出数据库索引" target="_blank">深入浅出数据库索引</a>
+           </li>
+         
+           <li>
+             <a href="/vim/" title="vim快速入门" target="_blank">vim快速入门</a>
+           </li>
+         
+           <li>
              <a href="/面试考点/" title="面试考点" target="_blank">面试考点</a>
            </li>
          
            <li>
-             <a href="/数据库/redis/" title="数据库事务隔离本质" target="_blank">数据库事务隔离本质</a>
+             <a href="/redis/" title="数据库事务隔离本质" target="_blank">数据库事务隔离本质</a>
            </li>
          
            <li>
@@ -424,14 +432,6 @@
          
            <li>
              <a href="/中间件/RabbitMQ/" title="RabbitMQ" target="_blank">RabbitMQ</a>
-           </li>
-         
-           <li>
-             <a href="/linux/CentOS7使用firewalld打开关闭防火墙与端口/" title="vmware" target="_blank">vmware</a>
-           </li>
-         
-           <li>
-             <a href="/linux/新手如何安装及配置VMware Workstation虚拟机及Xshell远程管理软件/" title="vmware" target="_blank">vmware</a>
            </li>
          
        </ul>
@@ -584,7 +584,10 @@
       
 
       
-        <h3 id="语言基础"><a href="#语言基础" class="headerlink" title="语言基础"></a>语言基础</h3><h3 id="算法和数据结构"><a href="#算法和数据结构" class="headerlink" title="算法和数据结构"></a>算法和数据结构</h3><h3 id="编程范式"><a href="#编程范式" class="headerlink" title="编程范式"></a>编程范式</h3><p>面向对象基础及python类常考问题</p>
+        <h3 id="语言基础"><a href="#语言基础" class="headerlink" title="语言基础"></a>语言基础</h3><p>python单元测试<br>动态语言不写单元测试风险就挺大的.</p>
+<p>什么是单元测试?<br>unit testing<br>针对程序模块进行正确性检验<br>一个函数, 一个类进行验证<br>自底向上保证程序正确性<br>为什么要写单元测试?<br>三无代码不可取(无文档, 无注释, 无单侧)<br>保证代码逻辑的正确性(甚至有些采用测试驱动开发(tdd))<br>单测影响设计, 易测的代码往往是高内聚低耦合<br>回归测试, 防止改一处整个服务不可用</p>
+<p>单元测试相关的库<br>nose/pytest较为常用<br>mock模块用来模拟替换网络请求等<br>coverage统计测试覆盖率.</p>
+<h3 id="算法和数据结构"><a href="#算法和数据结构" class="headerlink" title="算法和数据结构"></a>算法和数据结构</h3><h3 id="编程范式"><a href="#编程范式" class="headerlink" title="编程范式"></a>编程范式</h3><p>面向对象基础及python类常考问题</p>
 <p>什么是面向对象编程</p>
 <p>object orirnted programming oop</p>
 <p>把对象作为基本单元, 把对象抽象成类(class), 包含成员和方法</p>
@@ -649,6 +652,8 @@
 <h4 id="什么是构造模式-builder"><a href="#什么是构造模式-builder" class="headerlink" title="什么是构造模式(builder)"></a>什么是构造模式(builder)</h4><p>用来控制复杂对象的构造</p>
 <p>创建和表示分离, 比如你要买电脑, 工厂模式直接给你需要的电脑</p>
 <p>但是构造模式允许你自己定义电脑的配置, 组装完成后给你.</p>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>什么是原型模式<br>通过克隆模式来创建新的实例<br>可以使用相同的原型, 通过修改部分属性来创建新的示例<br>用途: 对于一些创建实例开销比较高的地方可以用原型模式</p>
+<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>单例模式的实现由多种方式<br>单例模式: 一个类创建出来的对象都是同一个<br>python的模块其实就是单例的, 只会导入一次<br>使用共享同一个实例的方式来创建单例模式.</p>
 <h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><p>linux常考命令, 了解linxu工作原理和常用工具,需要了解查看文件, 进程, 内存相关的一些命令, 用来调试和排查</p>
 <p>早期采用lamp/lnmp架构,现在采用微服务/容器架构.</p>
 <p>linux命令众多, 如何知道一个命令的用法</p>
@@ -767,7 +772,20 @@
 <p>面向连接, 可靠的, 基于字节流</p>
 <p>无连接, 不可靠, 面向报文</p>
 <p>了解常见的http响应状态码</p>
-<h3 id="数据库考察"><a href="#数据库考察" class="headerlink" title="数据库考察"></a>数据库考察</h3><h3 id="web框架"><a href="#web框架" class="headerlink" title="web框架"></a>web框架</h3><h3 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h3>
+<h3 id="数据库考察"><a href="#数据库考察" class="headerlink" title="数据库考察"></a>数据库考察</h3><p>redis的使用;缓存使用中的坑<br>为什么要使用缓存? 使用场景<br>主要讨论的是内存缓存(常见的有redis和mencached)<br>缓解关系数据库(常见的是mysql)并发访问的压力: 热点数据<br>减少响应时间: 内存IO速度比磁盘快<br>提升吞吐量:redis等内存数据库单机就可以支撑很大并发</p>
+<p>redis和mencached主要区别<br>数据类型. redis单进程模式, mencached是多线程,非阻塞IO模式</p>
+<p>redis的常用数据类型, 使用方式<br>5种类型:<br>string:用来实现简单的kv键值对存储, 比如计数器.<br>list(链表):实现双向链表, 比如用户的关注, 粉丝列表.<br>hash(哈希表): 用来存储彼此相关信息的键值对.<br>set(集合): 存储不重复元素, 比如用户的关注者.<br>sorted set(有序集合): 实时信息排行榜.<br>对于中高级工程师, 需要了解redis各种类型的c底层实现方式.<br>redis设计实现这本书.<br>string:整数或者sds(simple dynamic string)<br>list: ziplist或者double linkedlist<br>hash: ziplist或者hashtable<br>set: intset或者hashtable<br>sortedset: skiplist跳跃表<br>redis 实现的跳跃表是什么结构?<br>二分的方式.</p>
+<h3 id="redis有哪些持久化方式"><a href="#redis有哪些持久化方式" class="headerlink" title="redis有哪些持久化方式?"></a>redis有哪些持久化方式?</h3><p>快照方式: 把数据快照放在磁盘二进制文件中, dump.rgb<br>aof: 每一个写命令追加到appendonly.aof<br>什么是redis事务?<br>redis和mysql的事务有什么不同?<br>将多个请求打包, 一次性, 按序执行多个命令的机制<br>redis通过multl,exec, watch等命令实现事务功能<br>redis如何实现分布式锁?<br>使用setnx实现加锁, 可以同时通过expire添加超时时间<br>锁的value值可以使用一个随机的uuid或者特定的命名<br>释放锁的时候,通过uuid判断是否是该锁, 是则执行delete释放锁.</p>
+<p>缓存使用问题: 数据一致性问题, 缓存穿透, 击穿, 雪崩问题<br>使用缓存的模式?<br>cache aside: 同时更新缓存和数据库.<br>read/write through: 先更新缓存, 缓存负责同步更新数据库.<br>write behind caching: 先更新缓存, 缓存定期异步更新数据库.<br>数据库与缓存的数据一致性, 一般先更新数据库, 再更新缓存.</p>
+<p>如何解决缓存穿透问题?<br>大量查询不到的数据的请求落到后端数据库, 数据库压力增大.<br>由于大量缓存查不到就去数据库取, 数据库也没有要查的数据<br>解决: 对于没查到返回为None的数据也缓存<br>插入数据的时候删除相应缓存, 或者设置较短的超时时间.</p>
+<p>如何解决缓存击穿问题?<br>某些非常热点的数据key过期. 大量请求打到后端数据库.<br>热点数据key失效导致大量请求打到数据库增加数据库压力.<br>分步式锁: 获取锁的线程从数据库拉数据更新缓存, 其他线程等待<br>异步后台更新: 后台任务针对过期的key自动刷新.</p>
+<p>如何解决缓存雪崩问题?<br>缓存不可用或者大量缓存key同时失效,大量请求直接打到数据库<br>多级缓存: 不同级别的key设置不同的超时时间<br>随机时间: key 的超时时间随机设置, 放止同时超时.<br>架构层: 提升系统可用性. 监控, 报警完善等<br>实事求是, 知道多少答多少.</p>
+<h3 id="web框架"><a href="#web框架" class="headerlink" title="web框架"></a>web框架</h3><p>前后端分离与resful常见面试题<br>什么是前后端分离? 什么是restful?<br>后端只负责提供数据接口, 不再渲染模板, 前端获取数据并呈现<br>前后端解耦, 接口复用(前端和客户端公用接口), 减少开发量<br>各司其职, 前后端同步开发, 提升工作效率.定义好接口规范<br>更有利于调试, 测试和运维部署.</p>
+<p>restful是一种软件架构风格<br>representation state transfer<br>表现层状态转移, 由http协议的主要设计者roy fielding提出<br>资源(resources), 表现层, 状态转化<br>是一种以资源为中心的web软件架构风格, 可以用ajax和restfulweb服务构建应用.<br>三个名词的解释:<br>resources(资源):使用urI指向的一个实体<br>representation(表现层): 资源的表现形式, 比如图片, html文本<br>state transfer(状态转换): get, post, put, delete http动词来操作资源, 实现资源状态的改变.<br>利用这些动词增删改查.</p>
+<p>设计概念和准则<br>所有事物抽象为资源(resource), 资源对应唯一的标识(identifier)<br>资源通过接口进行操作实现状态转移,操作本身是无状态的.<br>对资源的操作不会改变资源的标识.</p>
+<p>什么是restful api<br>restful风格的api接口<br>通过 http get/post/put/delete 获取/新建/更新/删除 资源<br>一般使用json格式返回数据<br>一般web框架都有相应的插件支持restful api</p>
+<p>tornado 也是一个微框架.</p>
+<h3 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h3>
       
     </div>
 
@@ -834,7 +852,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/数据库/redis/" rel="next" title="数据库事务隔离本质">
+              <a href="/redis/" rel="next" title="数据库事务隔离本质">
                 <i class="fa fa-chevron-left"></i> 数据库事务隔离本质
               </a>
             
@@ -843,6 +861,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/vim/" rel="prev" title="vim快速入门">
+                vim快速入门 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -915,7 +937,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">79</span>
+                    <span class="site-state-item-count">81</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1114,7 +1136,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言基础"><span class="nav-number">1.</span> <span class="nav-text">语言基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法和数据结构"><span class="nav-number">2.</span> <span class="nav-text">算法和数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编程范式"><span class="nav-number">3.</span> <span class="nav-text">编程范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#python装饰器-面向切面编程"><span class="nav-number">3.1.</span> <span class="nav-text">python装饰器 面向切面编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是工厂模式"><span class="nav-number">3.2.</span> <span class="nav-text">什么是工厂模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是构造模式-builder"><span class="nav-number">3.3.</span> <span class="nav-text">什么是构造模式(builder)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">4.</span> <span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程安全"><span class="nav-number">4.1.</span> <span class="nav-text">线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#了解线程同步的方式-如何保证线程安全"><span class="nav-number">4.2.</span> <span class="nav-text">了解线程同步的方式, 如何保证线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程间传递信号或者数据"><span class="nav-number">4.3.</span> <span class="nav-text">进程间传递信号或者数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是分页机制"><span class="nav-number">4.4.</span> <span class="nav-text">什么是分页机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是分段机制"><span class="nav-number">4.5.</span> <span class="nav-text">什么是分段机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分页vs分段"><span class="nav-number">4.6.</span> <span class="nav-text">分页vs分段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是虚拟内存"><span class="nav-number">4.7.</span> <span class="nav-text">什么是虚拟内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是内存抖动-颠簸"><span class="nav-number">4.8.</span> <span class="nav-text">什么是内存抖动(颠簸)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python的垃圾回收机制原理"><span class="nav-number">4.9.</span> <span class="nav-text">python的垃圾回收机制原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络编程"><span class="nav-number">5.</span> <span class="nav-text">网络编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库考察"><span class="nav-number">6.</span> <span class="nav-text">数据库考察</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web框架"><span class="nav-number">7.</span> <span class="nav-text">web框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统设计"><span class="nav-number">8.</span> <span class="nav-text">系统设计</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言基础"><span class="nav-number">1.</span> <span class="nav-text">语言基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法和数据结构"><span class="nav-number">2.</span> <span class="nav-text">算法和数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编程范式"><span class="nav-number">3.</span> <span class="nav-text">编程范式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#python装饰器-面向切面编程"><span class="nav-number">3.1.</span> <span class="nav-text">python装饰器 面向切面编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是工厂模式"><span class="nav-number">3.2.</span> <span class="nav-text">什么是工厂模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是构造模式-builder"><span class="nav-number">3.3.</span> <span class="nav-text">什么是构造模式(builder)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型模式"><span class="nav-number">4.</span> <span class="nav-text">原型模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单例模式"><span class="nav-number">5.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">6.</span> <span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程安全"><span class="nav-number">6.1.</span> <span class="nav-text">线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#了解线程同步的方式-如何保证线程安全"><span class="nav-number">6.2.</span> <span class="nav-text">了解线程同步的方式, 如何保证线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程间传递信号或者数据"><span class="nav-number">6.3.</span> <span class="nav-text">进程间传递信号或者数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是分页机制"><span class="nav-number">6.4.</span> <span class="nav-text">什么是分页机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是分段机制"><span class="nav-number">6.5.</span> <span class="nav-text">什么是分段机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分页vs分段"><span class="nav-number">6.6.</span> <span class="nav-text">分页vs分段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是虚拟内存"><span class="nav-number">6.7.</span> <span class="nav-text">什么是虚拟内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是内存抖动-颠簸"><span class="nav-number">6.8.</span> <span class="nav-text">什么是内存抖动(颠簸)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python的垃圾回收机制原理"><span class="nav-number">6.9.</span> <span class="nav-text">python的垃圾回收机制原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络编程"><span class="nav-number">7.</span> <span class="nav-text">网络编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库考察"><span class="nav-number">8.</span> <span class="nav-text">数据库考察</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis有哪些持久化方式"><span class="nav-number">9.</span> <span class="nav-text">redis有哪些持久化方式?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web框架"><span class="nav-number">10.</span> <span class="nav-text">web框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统设计"><span class="nav-number">11.</span> <span class="nav-text">系统设计</span></a></li></ol></div>
             
 
           </div>

@@ -108,13 +108,13 @@
 
 
 
-  <meta name="description" content="重要概念同步、异步函数或方法被调用的时候，调用者是否得到最终结果的  直接得到最终结果的，就是同步调用 不直接得到最终结果的，就是异步调用阻塞、非阻塞函数或方法调用的时候，是否立刻返回 立即返回就是非阻塞调用 不立即返回就是阻塞调用区别同步、异步，与阻塞、非阻塞不相关同步、异步强调的是，是否得到（最终的）结果阻塞、非阻塞强调是时间，是否等待  同步与异步区别在于：调用者是否得到了想要的最终结果同步">
+  <meta name="description" content="重要概念同步、异步函数或方法被调用的时候，调用者是否得到最终结果的  直接得到最终结果的，就是同步调用 不直接得到最终结果的，就是异步调用  阻塞、非阻塞函数或方法调用的时候，是否立刻返回  立即返回就是非阻塞调用 不立即返回就是阻塞调用  区别同步、异步，与阻塞、非阻塞不相关同步、异步强调的是，是否得到（最终的）结果阻塞、非阻塞强调是时间，是否等待 同步与异步区别在于：调用者是否得到了想要的最终">
 <meta name="keywords" content="IO多路复用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解IO">
 <meta property="og:url" content="https://hubhack.github.io/网络/IO多种概念/index.html">
 <meta property="og:site_name" content="千分无言">
-<meta property="og:description" content="重要概念同步、异步函数或方法被调用的时候，调用者是否得到最终结果的  直接得到最终结果的，就是同步调用 不直接得到最终结果的，就是异步调用阻塞、非阻塞函数或方法调用的时候，是否立刻返回 立即返回就是非阻塞调用 不立即返回就是阻塞调用区别同步、异步，与阻塞、非阻塞不相关同步、异步强调的是，是否得到（最终的）结果阻塞、非阻塞强调是时间，是否等待  同步与异步区别在于：调用者是否得到了想要的最终结果同步">
+<meta property="og:description" content="重要概念同步、异步函数或方法被调用的时候，调用者是否得到最终结果的  直接得到最终结果的，就是同步调用 不直接得到最终结果的，就是异步调用  阻塞、非阻塞函数或方法调用的时候，是否立刻返回  立即返回就是非阻塞调用 不立即返回就是阻塞调用  区别同步、异步，与阻塞、非阻塞不相关同步、异步强调的是，是否得到（最终的）结果阻塞、非阻塞强调是时间，是否等待 同步与异步区别在于：调用者是否得到了想要的最终">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190618142656425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190618125038147.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
@@ -127,10 +127,10 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190618131317375.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190618131325740.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190618142859539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-08-24T14:30:47.776Z">
+<meta property="og:updated_time" content="2019-08-30T16:42:06.410Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解IO">
-<meta name="twitter:description" content="重要概念同步、异步函数或方法被调用的时候，调用者是否得到最终结果的  直接得到最终结果的，就是同步调用 不直接得到最终结果的，就是异步调用阻塞、非阻塞函数或方法调用的时候，是否立刻返回 立即返回就是非阻塞调用 不立即返回就是阻塞调用区别同步、异步，与阻塞、非阻塞不相关同步、异步强调的是，是否得到（最终的）结果阻塞、非阻塞强调是时间，是否等待  同步与异步区别在于：调用者是否得到了想要的最终结果同步">
+<meta name="twitter:description" content="重要概念同步、异步函数或方法被调用的时候，调用者是否得到最终结果的  直接得到最终结果的，就是同步调用 不直接得到最终结果的，就是异步调用  阻塞、非阻塞函数或方法调用的时候，是否立刻返回  立即返回就是非阻塞调用 不立即返回就是阻塞调用  区别同步、异步，与阻塞、非阻塞不相关同步、异步强调的是，是否得到（最终的）结果阻塞、非阻塞强调是时间，是否等待 同步与异步区别在于：调用者是否得到了想要的最终">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190618142656425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3B5dGhvbl9scXg=,size_16,color_FFFFFF,t_70">
 
 
@@ -387,11 +387,19 @@
          
          
            <li>
+             <a href="/深入浅出数据库索引/" title="深入浅出数据库索引" target="_blank">深入浅出数据库索引</a>
+           </li>
+         
+           <li>
+             <a href="/vim/" title="vim快速入门" target="_blank">vim快速入门</a>
+           </li>
+         
+           <li>
              <a href="/面试考点/" title="面试考点" target="_blank">面试考点</a>
            </li>
          
            <li>
-             <a href="/数据库/redis/" title="数据库事务隔离本质" target="_blank">数据库事务隔离本质</a>
+             <a href="/redis/" title="数据库事务隔离本质" target="_blank">数据库事务隔离本质</a>
            </li>
          
            <li>
@@ -436,14 +444,6 @@
          
            <li>
              <a href="/中间件/RabbitMQ/" title="RabbitMQ" target="_blank">RabbitMQ</a>
-           </li>
-         
-           <li>
-             <a href="/linux/CentOS7使用firewalld打开关闭防火墙与端口/" title="vmware" target="_blank">vmware</a>
-           </li>
-         
-           <li>
-             <a href="/linux/新手如何安装及配置VMware Workstation虚拟机及Xshell远程管理软件/" title="vmware" target="_blank">vmware</a>
            </li>
          
        </ul>
@@ -599,10 +599,14 @@
         <h1 id="重要概念"><a href="#重要概念" class="headerlink" title="重要概念"></a>重要概念</h1><h2 id="同步、异步"><a href="#同步、异步" class="headerlink" title="同步、异步"></a>同步、异步</h2><p>函数或方法被调用的时候，调用者是否得到<strong>最终结果</strong>的</p>
 <ul>
 <li>直接得到最终结果的，就是同步调用</li>
-<li>不直接得到最终结果的，就是异步调用<h2 id="阻塞、非阻塞"><a href="#阻塞、非阻塞" class="headerlink" title="阻塞、非阻塞"></a>阻塞、非阻塞</h2>函数或方法调用的时候，是否<strong>立刻返回</strong></li>
-<li>立即返回就是非阻塞调用</li>
-<li>不立即返回就是阻塞调用<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2>同步、异步，与阻塞、非阻塞<strong>不相关</strong><br>同步、异步强调的是，<strong>是否得到（最终的）结果</strong><br>阻塞、非阻塞强调是时间，<strong>是否等待</strong></li>
+<li>不直接得到最终结果的，就是异步调用</li>
 </ul>
+<h2 id="阻塞、非阻塞"><a href="#阻塞、非阻塞" class="headerlink" title="阻塞、非阻塞"></a>阻塞、非阻塞</h2><p>函数或方法调用的时候，是否<strong>立刻返回</strong></p>
+<ul>
+<li>立即返回就是非阻塞调用</li>
+<li>不立即返回就是阻塞调用</li>
+</ul>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>同步、异步，与阻塞、非阻塞<strong>不相关</strong><br>同步、异步强调的是，<strong>是否得到（最终的）结果</strong><br>阻塞、非阻塞强调是时间，<strong>是否等待</strong></p>
 <p>同步与异步区别在于：调用者是否得到了想要的最终结果<br>同步就是一直要执行到返回最终结果<br>异步就是直接返回了，但是返回的不是最终结果。调用者不能通过这种调用得到结果，以后可以通过被调用者提供的某种方式（被调用着通知调用者、调用者反复查询、回调），来取回最终结果</p>
 <p>阻塞与非阻塞的区别在于，调用者是否还能干其他事<br>阻塞，调用者就只能干等<br>非阻塞，调用者可以先去忙会别的，不用一直等</p>
 <h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p>同步阻塞，我啥事不干，就等你打饭打给我。打到饭是结果，而且我啥事不干一直等，同步加阻塞<br>同步非阻塞，我等着你打饭给我，但我可以玩会手机、看看电视。打饭是结果，但是我不一直等</p>
@@ -744,7 +748,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/数据库/redis/" rel="prev" title="数据库事务隔离本质">
+              <a href="/redis/" rel="prev" title="数据库事务隔离本质">
                 数据库事务隔离本质 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -819,7 +823,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">79</span>
+                    <span class="site-state-item-count">81</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
