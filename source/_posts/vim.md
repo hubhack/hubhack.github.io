@@ -1,3 +1,10 @@
+---
+title: vim快速入门
+categories:
+- 数据库
+tags:
+- 数据库
+---
 vim快速入门
 
 基本概念
